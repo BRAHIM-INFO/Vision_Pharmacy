@@ -1,0 +1,552 @@
+﻿using ClosedXML.Excel;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraPrintingLinks;
+using DevExpress.XtraReports.UI;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Vision_Pharmacy.Code;
+using Vision_Pharmacy.Core;
+using Vision_Pharmacy.Data;
+using Vision_Pharmacy.Data.EFSqlServer;
+using Vision_Pharmacy.Gui.MedicationGui;
+using Vision_Pharmacy.Gui.OtherGui;
+using Vision_Pharmacy.Gui.UserGui; 
+
+namespace Vision_Pharmacy.Gui.MedicationGui
+{
+    public partial class MedicationUserControl : DevExpress.XtraEditors.XtraUserControl
+    {
+        // Fields
+        private readonly IDataHelper<Medication> _dataHelper;
+        private readonly LoadingUser loading;
+        private int RowId;
+        private static MedicationUserControl _MedicationUser;
+        private List<int> IdList = new List<int>();
+        private Label labelEmptyData;
+        private string searchItem;
+        private RepositoryItemButtonEdit actionButtons;
+        AllClasses AllClasses = new AllClasses();
+        // Constructores
+        public MedicationUserControl()
+        {
+            InitializeComponent();
+            loading = LoadingUser.Instance();
+            labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
+            _dataHelper = (IDataHelper<Medication>)ContainerConfig.ObjectType("Medication");
+            LoadData();
+            AllClasses.RoundButtonCorners(btnAddMedic, 15);
+            AllClasses.RoundButtonCorners(btnExcel, 15);
+            AllClasses.RoundButtonCorners(btnPrintMedic, 15); 
+            //gridView1.OptionsBehavior.Editable = false;
+        }
+
+        //Event Handlers
+        #region
+        // <summary>
+        /// Singleton Instance
+        /// 
+        private void btnAddMedic_Click(object sender, EventArgs e)
+        {
+            MedicationAddForm customerAdd = new MedicationAddForm(0, this);
+            customerAdd.ShowDialog();
+        }
+         
+        private void btnPrintMedic_Click(object sender, EventArgs e)
+        {
+            PrintGridControl();
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            //if (gridView1.RowCount > 0)
+            //{
+            //    RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
+            //    MedicationAddForm customerAdd = new MedicationAddForm(RowId, this);
+            //    customerAdd.ShowDialog();
+            //}
+            //else
+            //{
+            //    MessageCollection.ShowEmptyDataMessage();
+            //}
+        }
+
+        /// <summary>
+        ///  زر استيراد بيانات الأدوية من ملف Excel
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            string excelPath = @"D:\\LISTE MEDICATIONS 2025.xlsx"; // ملف الإكسل
+            ImportMedications(excelPath);
+        }
+
+        // <summary>
+        /// تحديث عدد الأدوية في التسمية عند تغيير عدد الصفوف في GridView
+        private void gridView1_RowCountChanged(object sender, EventArgs e)
+        {
+            lblCounter.Text = $"عدد الأدوية: {gridView1.RowCount}";
+        }
+           
+        /// <summary>
+        ///     
+        private async void MedicationUserControl_Load(object sender, EventArgs e)
+        {
+            loading.Show();
+            if (_dataHelper.IsDbConnect())
+            {
+                DGListeMedication.DataSource = await Task.Run(() => _dataHelper.GetData()); // تحميل البيانات بشكل غير متزامن
+                SetDataGridViewColumns();
+                var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListeMedication.MainView;
+                view.OptionsView.ShowGroupPanel = false;
+
+                // عمود الأزرار
+                GridColumn colAction = view.Columns.AddVisible("Action", "الإجراءات");
+                colAction.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+                colAction.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+                colAction.Width = 100; // عرض العمود
+
+                // RepositoryItemButtonEdit واحد بثلاثة أزرار
+                actionButtons = new RepositoryItemButtonEdit
+                {
+                    TextEditStyle = TextEditStyles.HideTextEditor
+                };
+                // أفرغ الأزرار الافتراضية
+                actionButtons.Buttons.Clear();
+                //زر حذف
+                var btnDelete = new EditorButton(ButtonPredefines.Glyph);
+                btnDelete.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/delete.svg");
+                btnDelete.Tag = "delete";                   // مفتاح تمييز
+                actionButtons.Buttons.Add(btnDelete);
+
+
+                // زر تعديل
+                var btnEdit = new EditorButton(ButtonPredefines.Glyph);
+                btnEdit.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/edit.svg");
+                btnEdit.Tag = "edit";                       // مفتاح تمييز
+                actionButtons.Buttons.Add(btnEdit);
+
+
+                // زر عرض
+                var btnView = new EditorButton(ButtonPredefines.Glyph);
+                btnView.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/view.svg");
+                btnView.Tag = "view";                       // مفتاح تمييز
+                actionButtons.Buttons.Add(btnView);
+
+
+
+                DGListeMedication.RepositoryItems.Add(actionButtons);
+                colAction.ColumnEdit = actionButtons;
+
+                // حدث النقر
+                actionButtons.ButtonClick += ActionButtons_ButtonClick;
+            }
+            else
+            {
+                MessageCollection.ShowServerMessage();
+                return;
+            }
+            loading.Hide();
+        }
+
+        /// <summary>
+        ///  اجراءات الأزرار في عمود الإجراءات )عرض، تعديل، حذف(
+        private void ActionButtons_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListeMedication.MainView;
+            var row = view.GetFocusedRow() as Medication;
+            if (row == null) return;
+
+            // 1) التمييز بالـ Tag (الأفضل)
+            var tag = e.Button.Tag as string;
+            if (!string.IsNullOrEmpty(tag))
+            {
+                switch (tag)
+                {
+                    case "view":
+                        {
+                            // عرض تفاصيل الدواء
+                            RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
+                            MedicationAddForm customerAdd = new MedicationAddForm(RowId, this);
+                            customerAdd.buttonSaveSup.Visible = false; // إخفاء زر الحفظ
+                            customerAdd.ShowDialog(); 
+                            return;
+
+                        }
+                    case "edit":
+                        {
+                            if (gridView1.RowCount > 0)
+                            {
+                                RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
+                                MedicationAddForm customerAdd = new MedicationAddForm(RowId, this);
+                                customerAdd.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageCollection.ShowEmptyDataMessage();
+                            } 
+                            return;
+                        }
+                    case "delete":
+                        {
+                            try
+                            {
+                                if (gridView1.RowCount > 0)
+                                {
+                                    SetIDSelcted(); 
+                                    if (MessageBox.Show($"هل تريد حذف {row.Name}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    {
+                                        loading.Show();
+                                        if (_dataHelper.IsDbConnect())
+                                        {
+                                            if (IdList.Count > 0)
+                                            {
+                                                for (int i = 0; i < IdList.Count; i++)
+                                                {
+                                                    RowId = IdList[i];
+                                                    _dataHelper.Delete(RowId);
+                                                }
+                                                LoadData();
+                                                MessageCollection.ShowDeletNotification();
+                                            }
+                                            else
+                                            {
+                                                MessageCollection.ShowSlectRowsNotification();
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            MessageCollection.ShowServerMessage();
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    MessageCollection.ShowEmptyDataMessage();
+
+                                }
+                            }
+                            catch
+                            {
+                                MessageCollection.ShowServerMessage();
+                            }
+                            loading.Hide();  
+                            return;
+                        } 
+                }
+            }
+
+            // 2) فfallback بالفهرس داخل نفس الـ Repository (لو لأي سبب الـ Tag ماوصل)
+            var repo = (RepositoryItemButtonEdit)sender;
+            int idx = repo.Buttons.IndexOf(e.Button); // 0=view, 1=edit, 2=delete
+            if (idx == 0)
+            {
+                // عرض تفاصيل الدواء
+                RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
+                MedicationAddForm customerAdd = new MedicationAddForm(RowId, this);
+                customerAdd.buttonSaveSup.Visible = false; // إخفاء زر الحفظ
+                customerAdd.ShowDialog();
+            }  
+            else if (idx == 1)
+            {
+                if (gridView1.RowCount > 0)
+                {
+                    RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
+                    MedicationAddForm customerAdd = new MedicationAddForm( RowId, this);
+                    customerAdd.ShowDialog();
+                }
+                else
+                {
+                    MessageCollection.ShowEmptyDataMessage();
+                } 
+            }
+
+            else if (idx == 2)
+                if (MessageBox.Show($"هل تريد حذف {row.Name}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (gridView1.RowCount > 0)
+                        {
+                            SetIDSelcted();
+                            var result = MessageCollection.DeleteActtion();
+                            if (result == true)
+                            {
+                                loading.Show();
+                                if (_dataHelper.IsDbConnect())
+                                {
+                                    if (IdList.Count > 0)
+                                    {
+                                        for (int i = 0; i < IdList.Count; i++)
+                                        {
+                                            RowId = IdList[i];
+                                            _dataHelper.Delete(RowId);
+                                        }
+                                        LoadData();
+                                        MessageCollection.ShowDeletNotification();
+                                    }
+                                    else
+                                    {
+                                        MessageCollection.ShowSlectRowsNotification();
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    MessageCollection.ShowServerMessage();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageCollection.ShowEmptyDataMessage();
+
+                        }
+                    }
+                    catch
+                    {
+                        MessageCollection.ShowServerMessage();
+                    }
+                    loading.Hide(); 
+                }
+             
+        }
+
+        #endregion
+
+
+        // Methods 
+        #region Methods
+        public async void LoadData()
+        {
+            loading.Show();
+            // Check if connection is available
+            if (_dataHelper.IsDbConnect())
+            {
+                // Loading Data
+                DGListeMedication.DataSource = await Task.Run(() => _dataHelper.GetData());
+
+                // Set DataGridView Columns
+                SetDataGridViewColumns();
+
+            }
+            else
+            {
+                MessageCollection.ShowServerMessage();
+            }
+            loading.Hide();
+
+            // Show Empty Label Data
+            ShowLabelIfEmptyData();
+        }
+
+        // Get a List of Id for selcted rows
+        private void SetIDSelcted()
+        {
+            foreach (int rowHandle in gridView1.GetSelectedRows())
+            {
+                object value = gridView1.GetRowCellValue(rowHandle, "Id");
+                if (value != null && int.TryParse(value.ToString(), out int id))
+                {
+                    IdList.Add(id);
+                }
+            }
+
+        }
+
+        private void SetDataGridViewColumns()
+        {
+            try
+            {
+                gridView1.Columns[0].Visible = false; // Hide Column
+                gridView1.Columns[1].Caption = "باركود الدواء";
+                gridView1.Columns[2].Caption = "اسم الدواء";
+                gridView1.Columns[3].Caption = "الاسم العلمي";
+                gridView1.Columns[4].Visible = false; // Hide Column
+                gridView1.Columns[5].Caption = "الشكل الصيدلي";
+                gridView1.Columns[6].Caption = "التركيز";
+                gridView1.Columns[7].Caption = "التصنيف";
+                gridView1.Columns[8].Caption = "سعر الشراء";
+                gridView1.Columns[9].Caption = "سعر البيع";
+                gridView1.Columns[10].Caption = "الوحدة";
+                gridView1.Columns[11].Caption = "كمية المتوفرة";
+                gridView1.Columns[12].Caption = "الحد الأدنى للتنبيه";
+                gridView1.Columns[13].Caption = "تاريخ انتهاء الصلاحية";
+                gridView1.Columns[14].Visible = false; // Hide Column
+                gridView1.Columns[15].Caption = "المورد الرئيسي";
+                gridView1.Columns[16].Visible = false; // Hide Column
+                gridView1.Columns[17].Visible = false; // Hide Column
+                gridView1.Columns[18].Visible = false; // Hide Column
+                gridView1.Columns[19].Visible = false; // Hide Column
+                gridView1.Columns[20].Caption = "مكان التخزين";
+                gridView1.Columns[21].Visible = false; // Hide Column
+                gridView1.Columns[22].Visible = false; // Hide Column
+                gridView1.Columns[23].Visible = false; // Hide Column
+            }
+            catch
+            {
+                // تجاهل الخطأ (يفضل تسجيله)
+            }
+            // Hide Columns
+        }
+
+        // Singleton Instance
+        public static UserControl Instance()
+        {
+            return _MedicationUser ?? (new MedicationUserControl());
+        }
+
+        //Add and Show Empty Label 
+        private void ShowLabelIfEmptyData()
+        {
+            DGListeMedication.Controls.Add(labelEmptyData);
+
+            if (gridView1.RowCount > 0)
+            {
+                labelEmptyData.Visible = false;
+            }
+            else
+            {
+                labelEmptyData.Visible = true;
+            }
+
+        }
+
+        private void PrintGridControl()
+        {
+            try
+            {
+                // 1️⃣ إنشاء نظام الطباعة ورابط الطباعة
+                PrintingSystem printingSystem = new PrintingSystem();
+                PrintableComponentLink printableLink = new PrintableComponentLink(printingSystem)
+                {
+                    Component = DGListeMedication
+                };
+
+                // 2️⃣ إعداد رأس الصفحة مع النصوص والصورة
+                printableLink.CreateMarginalHeaderArea += (sender, e) =>
+                {
+                    // 🔹 تحميل الصورة (تأكد من تغيير المسار إلى مسار الصورة الصحيح)
+                    Image logo = Image.FromFile("LOGO.jpg"); // ⬅️ ضع مسار الصورة الصحيح هنا
+
+                    // 🔹 رسم الصورة في الزاوية اليسرى
+                    RectangleF imageRect = new RectangleF(10, 10, 230, 100);
+                    e.Graph.DrawImage(logo, imageRect);
+
+                    // 🔹 نصوص الرأس (اسم الشركة والإدارات)
+                    string headerText = "صيدلية الشفاء" + "\n" + "العنوان : بغداد - العراق" + "\n" + "الهاتف : 05632135215313\nMAGASIN CENTRAL DU PDR";
+                    e.Graph.Font = new Font("Cairo Medium", 12, FontStyle.Bold); // ⬅️ استخدام خط "Cairo Medium"
+                    e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين
+                    e.Graph.DrawString(headerText, Color.Black, new RectangleF(240, 10, 600, 120), DevExpress.XtraPrinting.BorderSide.None);
+
+                    // 🔹 رسم مستطيل رمادي خلف العنوان باستخدام DrawRect
+                    //RectangleF titleRect = new RectangleF(10, 145, 1050, 40);
+                    //e.Graph.DrawRect(titleRect, BorderSide.All, Color.White, Color.White);  // ⬅️ مستطيل رمادي مع حدود سوداء
+
+                    // 🔹 عنوان التقرير (منتصف الصفحة)
+                    string title = "قائمة الموظفين ";
+                    e.Graph.Font = new Font("Cairo Medium", 18, FontStyle.Bold);
+                    e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين 
+                    e.Graph.DrawString(title, Color.Black, new RectangleF(350, 150, 1250, 45), DevExpress.XtraPrinting.BorderSide.None);
+                    //e.Graph.DrawString(title, titleRect);
+
+                    //// 🔹 التاريخ في الزاوية اليمنى
+                    string date = "التاريخ : " + DateTime.Now.ToShortDateString();
+                    e.Graph.Font = new Font("Cairo Medium", 12);
+                    e.Graph.DrawString(date, Color.Black, new RectangleF(750, 150, 200, 30), DevExpress.XtraPrinting.BorderSide.None);
+                };
+
+                // 4️⃣ تعيين إعدادات الورق (A4 - أفقي) مع هوامش إضافية
+                printableLink.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4;
+                printableLink.Landscape = true;
+                printableLink.Margins = new System.Drawing.Printing.Margins(20, 20, 230, 80); // ⬅️ زيادة الهامش العلوي لمنع التداخل
+                printableLink.RightToLeftLayout = true; // ⬅️ تفعيل RTL
+                // 5️⃣ عرض معاينة الطباعة
+                printableLink.ShowPreviewDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("❌ خطأ أثناء الطباعة: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// استيراد بيانات الأدوية من ملف Excel
+        ///  
+        public void ImportMedications(string excelPath)
+        {
+            using (var context = new DBContext())
+            {
+                // إنشاء قاعدة البيانات إذا لم تكن موجودة
+                context.Database.EnsureCreated();
+
+                using (var workbook = new XLWorkbook(excelPath))
+                {
+                    var ws = workbook.Worksheet(1); // الورقة الأولى
+                    int lastRow = ws.LastRowUsed().RowNumber();
+                    byte[] imageBytes = ImageHelper.ImageToByteArray(PicChange);
+
+                    for (int row = 2; row <= lastRow; row++) // نبدأ من الصف الثاني
+                    {
+                        var medication = new Medication();
+                        {
+                            //medication.Id = ws.Cell(row, 1).GetValue<int>();
+                            medication.Barcode = ws.Cell(row, 2).GetValue<string>();
+                            medication.Name = ws.Cell(row, 3).GetValue<string>();
+                            medication.GenericName = ws.Cell(row, 4).GetValue<string>();
+                            medication.Manufacturer = ws.Cell(row, 5).GetValue<string>();
+                            medication.BatchNumber = ws.Cell(row, 6).GetValue<string>();
+                            medication.Form = ws.Cell(row, 7).GetValue<string>();
+                            medication.Strength = ws.Cell(row, 8).GetValue<string>();
+                            medication.Category = ws.Cell(row, 9).GetValue<string>();
+                            medication.Unite = ws.Cell(row, 10).GetValue<string>();
+                            medication.PurchasePrice = ws.Cell(row, 11).GetValue<decimal>();
+                            medication.SalePrice = ws.Cell(row, 12).GetValue<decimal>();
+                            medication.QuantityInStock = ws.Cell(row, 13).GetValue<int>();
+                            medication.MinimumStockLevel = ws.Cell(row, 14).GetValue<int>();
+                            medication.Discount = ws.Cell(row, 15).GetValue<double>();
+                            medication.ExpiryDate = ws.Cell(row, 16).GetDateTime();
+                            medication.DateAdded = ws.Cell(row, 17).GetDateTime();
+                            medication.RequiresPrescription = ws.Cell(row, 18).GetValue<bool>();
+                            //medication.SupplierName = ws.Cell(row, 19).GetValue<string>();
+                            medication.LocationInStore = ws.Cell(row, 20).GetValue<string>();
+                            medication.IsActive = ws.Cell(row, 21).GetValue<bool>();
+                            medication.Image = imageBytes;
+                            medication.Notes = "";
+                            //medication.SupplierId = 0; // Assuming you have a way to get the SupplierId
+
+                        }
+                        ;
+
+                        // نتأكد أن الدواء غير موجود قبل الإضافة (حسب الباركود أو Id)
+                        if (!context.Medication.Any(m => m.Id == medication.Id))
+                        {
+                            _dataHelper.Add(medication);
+
+                            //context.Medication.Add(medication);
+                        }
+                    }
+                }
+
+                //context.SaveChanges();
+                MessageBox.Show("✅ تم استيراد بيانات الأدوية بنجاح!");
+            }
+        }
+
+        #endregion
+
+
+    }
+}
