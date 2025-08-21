@@ -210,6 +210,16 @@ namespace Vision_Pharmacy.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à هل انت متأكد من هذا الاجراء. لا يمكن استرجاع البيانات.
         /// </summary>
         internal static string DeleteActionCaption {
@@ -289,6 +299,16 @@ namespace Vision_Pharmacy.Properties {
             get {
                 object obj = ResourceManager.GetObject("ealthcare", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -620,6 +640,16 @@ namespace Vision_Pharmacy.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] print {
+            get {
+                object obj = ResourceManager.GetObject("print", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap product {
@@ -815,6 +845,16 @@ namespace Vision_Pharmacy.Properties {
             get {
                 object obj = ResourceManager.GetObject("Users2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] view {
+            get {
+                object obj = ResourceManager.GetObject("view", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

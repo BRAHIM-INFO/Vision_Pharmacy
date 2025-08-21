@@ -1,4 +1,5 @@
-﻿using DevExpress.Xpo.Helpers;
+﻿using DevExpress.Utils.Svg;
+using DevExpress.Xpo.Helpers;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
@@ -9,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,21 +106,21 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 actionButtons.Buttons.Clear();
                 //زر حذف
                 var btnDelete = new EditorButton(ButtonPredefines.Glyph);
-                btnDelete.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/delete.svg");
+                btnDelete.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.delete));
                 btnDelete.Tag = "delete";                   // مفتاح تمييز
                 actionButtons.Buttons.Add(btnDelete);
 
 
                 // زر تعديل
                 var btnEdit = new EditorButton(ButtonPredefines.Glyph);
-                btnEdit.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/edit.svg");
+                btnEdit.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.edit));
                 btnEdit.Tag = "edit";                       // مفتاح تمييز
                 actionButtons.Buttons.Add(btnEdit);
 
 
                 // زر عرض
                 var btnView = new EditorButton(ButtonPredefines.Glyph);
-                btnView.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/view.svg");
+                btnView.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.view));
                 btnView.Tag = "view";                       // مفتاح تمييز
                 actionButtons.Buttons.Add(btnView);
 

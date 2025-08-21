@@ -12,8 +12,8 @@ using Vision_Pharmacy.Data.EFSqlServer;
 namespace Vision_Pharmacy.Data.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20250820210509_CreateDate")]
-    partial class CreateDate
+    [Migration("20250821075434_CreataDb")]
+    partial class CreataDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

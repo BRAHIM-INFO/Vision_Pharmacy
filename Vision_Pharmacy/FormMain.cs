@@ -56,15 +56,15 @@ namespace Vision_Pharmacy
             // إعداد التايمر للحركة
             slideTimer.Interval = 15;
 
-            pnlPurchase = new PanelSlider(pnl_04, 60, 200, 15, false); // حركة طولية
+            pnlPurchase = new PanelSlider(pnl_04, btnPurchases.Height+2, 200, 15, false); // حركة طولية
             sliderlateral = new PanelSlider(PnlSetting, 0, 190, 40, false);
             sliderUsers = new PanelSlider(pnlSlideHome, 55, 270, 40, true);      // حركة عرضية 
-            pnlCases = new PanelSlider(pnl_05, 60, 180, 15, false); // حركة طولية
-            pnlFincance = new PanelSlider(pnl_08, 60, 175, 15, false); // حركة طولية
-            pnlRH = new PanelSlider(pnl_07, 60, 230, 15, false); // حركة طولية
-            pnlRepports = new PanelSlider(pnl_10, 60, 235, 15, false); // حركة طولية
-            pnlParametres = new PanelSlider(pnl_11, 60, 120, 15, false); // حركة طولية
-            pnlGDS = new PanelSlider(pnl_03, 60, 120, 15, false); // حركة طولية
+            pnlCases = new PanelSlider(pnl_05, btnCases.Height+2, 180, 15, false); // حركة طولية
+            pnlFincance = new PanelSlider(pnl_08, btnFinance.Height+2, 175, 15, false); // حركة طولية
+            pnlRH = new PanelSlider(pnl_07, btnRH.Height+2, 230, 15, false); // حركة طولية
+            pnlRepports = new PanelSlider(pnl_10, btnRepports.Height+2, 235, 15, false); // حركة طولية
+            pnlParametres = new PanelSlider(pnl_11, btnSetings.Height+2, 150, 15, false); // حركة طولية
+            pnlGDS = new PanelSlider(pnl_03, btnGDS.Height+2, 150, 15, false); // حركة طولية
 
             // نكبير الشاشة تلقائياً عند فتح النموذج
             if (!isMaximized)

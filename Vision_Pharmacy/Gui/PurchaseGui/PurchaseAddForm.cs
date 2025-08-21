@@ -45,6 +45,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         // في أعلى الفورم:
         private List<Medication> _meds;
         private Dictionary<string, Medication> _medByBarcode;
+        private BindingList<PurchaseItem> purchaseItems = new BindingList<PurchaseItem>();
+
 
         public PurchaseAddForm(int Id, PurchaseUserControl PurchaseUserControl)
         {
@@ -63,9 +65,76 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             _dataHelperCategory = (IDataHelper<Category>)ContainerConfig.ObjectType("Category");
             LoadDataSupplier(); 
             AutoCompleteBarcode();
-            txtFactureNum.Text = GenerateFactureNum();
-            txtFactureNum.HideSelection = true;
-            txtSupplier.Focus();
+            // Set Property Instance
+            id = Id;
+            if (id > 0)
+            {
+                SetDataToFileds();
+            }
+            else
+            {
+                txtFactureNum.Text = GenerateFactureNum();
+                txtFactureNum.HideSelection = true;
+                txtSupplier.Focus();
+            } 
+        }
+
+        private async void SetDataToFileds()
+        {
+            if (_dataHelperPurchase.IsDbConnect())
+            {
+                Purchase = await Task.Run(() => _dataHelperPurchase.Find(id));
+                txtFactureNum.Text = Purchase.FactureNum.ToString(); 
+                txtSupplier.Text = Purchase.SupplierName;
+                txtTypePaimt.Text = Purchase.TypePaimt.ToString();
+                txtTotalAmount.Text = Purchase.TotalAmount.ToString();
+                txtNotes.Text = Purchase.Notes;
+                txtPurchaseDate.Text = Purchase.FactureDate.ToString("yyyy-MM-dd");
+                var purch = _dataHelperPurchase.GetData().FirstOrDefault(m => m.FactureNum == Purchase.FactureNum);
+                var med = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == purch.Barcode);
+                // عرف قائمة من PurchaseItem
+                purchaseItems = new BindingList<PurchaseItem>();
+
+                var PurchItems = _dataHelperPurchase.GetData().Where(i => i.FactureNum == Purchase.FactureNum).ToList();
+                    
+                foreach(var item in PurchItems)
+                    {
+                        purchaseItems.Add(new PurchaseItem
+                        { 
+                            Barcode = item.Barcode,
+                            Name = med.Name,
+                            GenericName = med.GenericName,
+                            Quantity = item.Quantity,
+                            PurchasePrice = item.PurchasePrice,
+                            SalePrice = item.SalePrice,
+                            TotalItem = item.TotalItem
+                        });
+                }
+
+               
+                //purchaseItems.Add(new PurchaseItem
+                //{ 
+                //    Barcode = med.Barcode,
+                //    Name = med.Name,
+                //    GenericName = med.GenericName,
+                //    Quantity = purch.Quantity,
+                //    PurchasePrice = purch.PurchasePrice,
+                //    SalePrice = purch.SalePrice,
+                //    TotalItem = purch.TotalItem 
+                //});
+
+                // اربط القائمة مع GridControl
+                DGListePurchase.DataSource = purchaseItems;
+
+                // تحديث العرض
+                gridView1.BestFitColumns();
+            }
+            else
+            {
+                MessageCollection.ShowServerMessage();
+
+            }
+            Purchase = null;
         }
 
         private async void PurchaseAddForm_Load(object sender, EventArgs e)
@@ -436,10 +505,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             public decimal SalePrice { get; set; } 
             public decimal TotalItem { get; set; }
         }
-
-
-        private BindingList<PurchaseItem> purchaseItems = new BindingList<PurchaseItem>();
-
+         
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -543,7 +609,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             }
         }
 
-        private void SetDataForAdd()
+        private async void SetDataForAdd()
         {
             Supplier = _dataHelperSupplier.GetData().FirstOrDefault(s => s.Name == txtSupplier.Text);
             if (Supplier == null)
@@ -612,7 +678,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         // تحديث المخزون
                         med.QuantityInStock += newQty; 
                     }
-                    _dataHelperMedication.Edit(med); 
+                    _dataHelperMedication.Edit(med);
+                    _dataHelperPurchase.Add(Purchase);
+                    Purchase = new Purchase();
                 } 
             }  
         }
@@ -622,7 +690,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             // Set Data
             SetDataForAdd();
             // Send data and get result
-            ResultAddOrEdit = await Task.Run(() => _dataHelperPurchase.Add(Purchase));
+            
             // check the result of proccess
             if (ResultAddOrEdit == 1) // Seccessfuly
             {

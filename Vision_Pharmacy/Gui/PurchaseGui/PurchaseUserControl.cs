@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using DevExpress.Utils.Svg;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,17 +83,13 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         //    ImportMedications(excelPath);
         //}
 
-
-
-
-        
-
+         
         /// <summary>
         ///  اجراءات الأزرار في عمود الإجراءات )عرض، تعديل، حذف(
         private void ActionButtons_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView;
-            var row = view.GetFocusedRow() as Medication;
+            var row = view.GetFocusedRow() as Purchase;
             if (row == null) return;
 
             // 1) التمييز بالـ Tag (الأفضل)
@@ -131,7 +129,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                                 if (gridView1.RowCount > 0)
                                 {
                                     SetIDSelcted();
-                                    if (MessageBox.Show($"هل تريد حذف {row.Name}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    if (MessageBox.Show($"هل تريد حذف فاتورة رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                     {
                                         loading.Show();
                                         if (_dataHelper.IsDbConnect())
@@ -201,7 +199,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             }
 
             else if (idx == 2)
-                if (MessageBox.Show($"هل تريد حذف {row.Name}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show($"هل تريد حذف فاتورة رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
@@ -419,8 +417,24 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             loading.Show();
             if (_dataHelper.IsDbConnect())
             {
-                DGListePurchase.DataSource = await Task.Run(() => _dataHelper.GetData()); // تحميل البيانات بشكل غير متزامن
-                SetDataGridViewColumns();
+                DGListePurchase.DataSource = await Task.Run(() => _dataHelper.GetData().Select(p => new
+                {
+                    //p.Id,
+                    //p.FactureDate,
+                    p.FactureNum,
+                    //p.TypePaimt,
+                    //p.Barcode,
+                    //p.Notes,
+                    //p.Quantity,
+                    //p.PurchasePrice,
+                    //p.SalePrice,
+                    //p.TotalItem,
+                    //p.SupplierName,
+                    //p.TotalAmount
+                }).Distinct().ToList()); 
+                
+                // تحميل البيانات بشكل غير متزامن
+                //SetDataGridViewColumns();
                 var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView;
                 view.OptionsView.ShowGroupPanel = false;
 
@@ -439,20 +453,20 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 actionButtons.Buttons.Clear();
                 //زر حذف
                 var btnDelete = new EditorButton(ButtonPredefines.Glyph);
-                btnDelete.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/delete.svg");
+                btnDelete.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.delete));
                 btnDelete.Tag = "delete";                   // مفتاح تمييز
                 actionButtons.Buttons.Add(btnDelete);
 
 
                 // زر تعديل
                 var btnEdit = new EditorButton(ButtonPredefines.Glyph);
-                btnEdit.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/edit.svg");
+                btnEdit.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.edit));
                 btnEdit.Tag = "edit";                       // مفتاح تمييز
                 actionButtons.Buttons.Add(btnEdit);
 
                 // زر عرض
                 var btnView = new EditorButton(ButtonPredefines.Glyph);
-                btnView.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/view.svg");
+                btnView.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.view));
                 btnView.Tag = "view";                       // مفتاح تمييز
                 actionButtons.Buttons.Add(btnView);
 

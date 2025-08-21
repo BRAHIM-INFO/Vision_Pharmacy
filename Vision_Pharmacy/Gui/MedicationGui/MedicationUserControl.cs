@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using DevExpress.Utils.Svg;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
@@ -12,6 +13,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,21 +69,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         {
             PrintGridControl();
         }
-
-        private void gridView1_DoubleClick(object sender, EventArgs e)
-        {
-            //if (gridView1.RowCount > 0)
-            //{
-            //    RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-            //    MedicationAddForm customerAdd = new MedicationAddForm(RowId, this);
-            //    customerAdd.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageCollection.ShowEmptyDataMessage();
-            //}
-        }
-
+         
         /// <summary>
         ///  زر استيراد بيانات الأدوية من ملف Excel
         private void btnExcel_Click(object sender, EventArgs e)
@@ -124,22 +112,22 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 actionButtons.Buttons.Clear();
                 //زر حذف
                 var btnDelete = new EditorButton(ButtonPredefines.Glyph);
-                btnDelete.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/delete.svg");
-                btnDelete.Tag = "delete";                   // مفتاح تمييز
+                btnDelete.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.delete)); 
+                btnDelete.Tag = "delete";                   
                 actionButtons.Buttons.Add(btnDelete);
 
 
                 // زر تعديل
                 var btnEdit = new EditorButton(ButtonPredefines.Glyph);
-                btnEdit.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/edit.svg");
-                btnEdit.Tag = "edit";                       // مفتاح تمييز
+                btnEdit.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.edit));
+                btnEdit.Tag = "edit";                       
                 actionButtons.Buttons.Add(btnEdit);
 
 
                 // زر عرض
                 var btnView = new EditorButton(ButtonPredefines.Glyph);
-                btnView.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/view.svg");
-                btnView.Tag = "view";                       // مفتاح تمييز
+                btnView.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.view));
+                btnView.Tag = "view";                       
                 actionButtons.Buttons.Add(btnView);
 
 
@@ -162,7 +150,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         ///  اجراءات الأزرار في عمود الإجراءات )عرض، تعديل، حذف(
         private void ActionButtons_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListeMedication.MainView;
+            var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListeMedication.MainView; 
+
+
             var row = view.GetFocusedRow() as Medication;
             if (row == null) return;
 

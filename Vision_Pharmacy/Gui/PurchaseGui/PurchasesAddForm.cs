@@ -485,19 +485,19 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
             // زر عرض
             var btnviewx = new EditorButton(ButtonPredefines.Glyph);
-            //btnviewx.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/view.svg");
+            //btnviewx.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.view));
             btnviewx.Tag = "viewx";                       // مفتاح تمييز
             actionButtons.Buttons.Add(btnviewx);
 
             // زر تعديل
             var btnEdit = new EditorButton(ButtonPredefines.Glyph);
-            //btnEdit.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/edit.svg");
+            //btnEdit.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.edit));
             btnEdit.Tag = "edit";                       // مفتاح تمييز
             actionButtons.Buttons.Add(btnEdit);
 
             // زر حذف
             var btnDelete = new EditorButton(ButtonPredefines.Glyph);
-            //btnDelete.ImageOptions.SvgImage = DevExpress.Utils.Svg.SvgImage.FromFile("icons/delete.svg");
+            //btnDelete.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.delete));
             btnDelete.Tag = "delete";                   // مفتاح تمييز
             actionButtons.Buttons.Add(btnDelete);
 
