@@ -19,14 +19,13 @@ using Vision_Pharmacy.Core;
 using Vision_Pharmacy.Data;
 using Vision_Pharmacy.Gui.MedicationGui;
 using Vision_Pharmacy.Gui.OtherGui;
+using Vision_Pharmacy.Gui.PurchaseGui;
 using Vision_Pharmacy.Gui.SupplierGui;
 
-namespace Vision_Pharmacy.Gui.PurchaseGui
+namespace Vision_Pharmacy.Gui.SaleGui
 {
-    public partial class PurchaseAddForm : DevExpress.XtraEditors.XtraForm
+    public partial class SaleAddForm : DevExpress.XtraEditors.XtraForm
     {
-
-
         // Fields
         private readonly int id;
         private readonly PurchaseUserControl PurchaseUserControl;
@@ -50,9 +49,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         // في أعلى الفورم:
         private List<Medication> _meds;
         private Dictionary<string, Medication> _medByBarcode;
-        private BindingList<PurchaseItem> purchaseItems = new BindingList<PurchaseItem>(); 
-        private RepositoryItemButtonEdit actionButtons; 
-        public PurchaseAddForm(int Id, PurchaseUserControl PurchaseUserControl)
+        private BindingList<PurchaseItem> purchaseItems = new BindingList<PurchaseItem>();
+        private RepositoryItemButtonEdit actionButtons;
+        public SaleAddForm(int Id, PurchaseUserControl PurchaseUserControl)
         {
             InitializeComponent();
             AllClasses.RoundButtonCorners(btnAdd, 15);
@@ -67,7 +66,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             _dataHelperStrength = (IDataHelper<Strength>)ContainerConfig.ObjectType("Strength");
             _dataHelperMedicineType = (IDataHelper<MedicineType>)ContainerConfig.ObjectType("MedicineType");
             _dataHelperCategory = (IDataHelper<Category>)ContainerConfig.ObjectType("Category");
-            LoadDataSupplier(); 
+            LoadDataSupplier();
             AutoCompleteBarcode();
             // Set Property Instance
             id = Id;
@@ -80,7 +79,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 txtFactureNum.Text = GenerateFactureNum();
                 txtFactureNum.HideSelection = true;
                 txtSupplier.Focus();
-            } 
+            }
         }
 
         private async void SetDataToFileds()
@@ -102,7 +101,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     var med = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == item.Barcode);
                     // عرف قائمة من PurchaseItem
                     purchaseItems = new BindingList<PurchaseItem>();
-                     
+
                     purchaseItems.Add(new PurchaseItem
                     {
                         Barcode = item.Barcode,
@@ -112,7 +111,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         PurchasePrice = item.PurchasePrice,
                         SalePrice = item.SalePrice,
                         TotalItem = item.TotalItem
-                    }); 
+                    });
                 }
 
 
@@ -168,7 +167,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 DGListePurchase.DataSource = purchaseItems;
                 // تحميل البيانات بشكل غير متزامن
                 //SetDataGridViewColumns();
-                var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView; 
+                var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView;
                 view.OptionsView.ShowGroupPanel = false;
                 if (view != null)
                 {
@@ -284,7 +283,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             }
             loading.Hide();
         }
-         
+
         // تحميل صورة الدواء
         private void LoadImage()
         {
@@ -349,7 +348,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     MedicineTypetxt.Text = medication.Form; // الشكل الصيدلي
                     Categorytxt.Text = medication.Category;
                     Strengthtxt.Text = medication.Strength;
-                    Unitetxt.Text = medication.Unite; 
+                    Unitetxt.Text = medication.Unite;
                     QuantityInStocktxt.Text = "0";
                     MinimumStockLeveltxt.Text = "0";
                     BatchNumbertxt.Text = medication.BatchNumber;
@@ -402,7 +401,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         {
             LoadImage();
         }
-         
+
         // التنقل بين الحقول Textbox
         #region
         private void txtSupplier_KeyDown(object sender, KeyEventArgs e)
@@ -567,7 +566,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             public string GenericName { get; set; }
             public int Quantity { get; set; }
             public decimal PurchasePrice { get; set; }
-            public decimal SalePrice { get; set; } 
+            public decimal SalePrice { get; set; }
             public decimal TotalItem { get; set; }
         }
 
@@ -584,7 +583,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             if (!string.IsNullOrEmpty(tag))
             {
                 switch (tag)
-                {  
+                {
                     case "delete":
                         {
                             try
@@ -593,7 +592,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                                 if (MessageBox.Show($"هل تريد حذف المنتج رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                 {
                                     view.DeleteRow(view.FocusedRowHandle);
-                                    loading.Show(); 
+                                    loading.Show();
                                 }
 
                             }
@@ -613,7 +612,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             if (idx == 0)
             {
                 if (MessageBox.Show($"هل تريد حذف المنتج رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    view.DeleteRow(view.FocusedRowHandle); 
+                    view.DeleteRow(view.FocusedRowHandle);
 
             }
         }
@@ -622,11 +621,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         {
             try
             {
-                if(Barcodetxt.Text == string.Empty || Nametxt.Text == string.Empty || GenericNametxt.Text == string.Empty || QuantityInStocktxt.Text == string.Empty || PurchasePricetxt.Text == string.Empty || SalePricetxt.Text == string.Empty)
+                if (Barcodetxt.Text == string.Empty || Nametxt.Text == string.Empty || GenericNametxt.Text == string.Empty || QuantityInStocktxt.Text == string.Empty || PurchasePricetxt.Text == string.Empty || SalePricetxt.Text == string.Empty)
                 {
                     MessageBox.Show("الرجاء ملء جميع الحقول المطلوبة.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }   
+                }
 
                 int.TryParse(QuantityInStocktxt.Text, out int quantity);
                 decimal.TryParse(PurchasePricetxt.Text, out decimal price);
@@ -650,7 +649,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 Nametxt.Clear();
                 GenericNametxt.Clear();
                 QuantityInStocktxt.Clear();
-                PurchasePricetxt.Clear(); 
+                PurchasePricetxt.Clear();
 
                 // تفريغ الحقول بعد الإضافة
                 Barcodetxt.PlaceholderText = "باركود الدواء";
@@ -736,7 +735,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 return;
             }
             // 1. إنشاء الفاتورة من TextBox
-            Purchase = new Purchase(); 
+            Purchase = new Purchase();
             // 2. المرور على الأصناف في GridControl
             var view = DGListePurchase.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
             if (view != null)
@@ -751,14 +750,14 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     Purchase.TotalAmount = decimal.TryParse(txtTotalAmount.Text, out var total) ? total : 0;
                     Purchase.Notes = txtNotes.Text;
                     Purchase.SupplierName = txtSupplier.Text;
-                    Purchase.SupplierId = Supplier.Id;  
+                    Purchase.SupplierId = Supplier.Id;
                     Purchase.Barcode = view.GetRowCellValue(i, "Barcode")?.ToString();
                     Purchase.PurchasePrice = view.GetRowCellValue(i, "PurchasePrice") != null ?
                                              Convert.ToDecimal(view.GetRowCellValue(i, "PurchasePrice")) : 0;
                     Purchase.SalePrice = view.GetRowCellValue(i, "SalePrice") != null ?
                                             Convert.ToDecimal(view.GetRowCellValue(i, "SalePrice")) : 0;
                     Purchase.Quantity = view.GetRowCellValue(i, "Quantity") != null ?
-                                        Convert.ToInt32(view.GetRowCellValue(i, "Quantity")) : 0; 
+                                        Convert.ToInt32(view.GetRowCellValue(i, "Quantity")) : 0;
 
                     // 3. تحديث جدول Medication
                     var med = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == Purchase.Barcode);
@@ -794,27 +793,27 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         //// تحديث الأسعار والكمية
                         med.Id = med.Id;
                         // تحديث المخزون
-                        med.QuantityInStock += newQty; 
+                        med.QuantityInStock += newQty;
                     }
                     _dataHelperMedication.Edit(med);
                     _dataHelperPurchase.Add(Purchase);
                     Purchase = new Purchase();
-                } 
-            }  
+                }
+            }
         }
-         
+
         private async void AddData()
         {
             // Set Data
             SetDataForAdd();
             // Send data and get result
-            
+
             // check the result of proccess
             if (ResultAddOrEdit == 1) // Seccessfuly
             {
                 // Show Notifiction
                 MessageCollection.ShowAddNotification();
-                 
+
                 // Updat View
                 if (PurchaseUserControl != null) PurchaseUserControl.LoadData();
             }
@@ -833,8 +832,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     {
                         RowId = IdList[i];
                         _dataHelperPurchase.Delete(RowId);
-                    } 
-                } 
+                    }
+                }
             }
 
             // Set Data

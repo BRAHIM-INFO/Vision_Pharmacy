@@ -108,7 +108,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
                 textBoxCompanyName.Text = Properties.Settings.Default.CompanyName;
                 textBoxCompanyAdress.Text = Properties.Settings.Default.CompanyAdress; 
                 textBoxCompanyEmail.Text = Properties.Settings.Default.CompanyEmail;
-                textBoxCompanyTel.Text = Properties.Settings.Default.CompanyTel;
+                textBoxCompanyTel.Text = " رقم الهاتف : " + Properties.Settings.Default.CompanyTel;
                 comboBoxCurrency.SelectedItem = Properties.Settings.Default.Currency;
                 numericUpDownDamageDuration.Value = Properties.Settings.Default.NotificationDamagDuration;
                 groupBoxServer.Text = "اخر نسخ احتاطي:" + "(" + Properties.Settings.Default.LastBackUpDate + ")";

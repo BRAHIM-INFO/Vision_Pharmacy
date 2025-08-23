@@ -1,8 +1,9 @@
-﻿using Vision_Pharmacy.Properties;
+﻿using Vision_Pharmacy.Gui.PurchaseGui;
+using Vision_Pharmacy.Properties;
 
-namespace Vision_Pharmacy.Gui.PurchaseGui
+namespace Vision_Pharmacy.Gui.SaleGui
 {
-    partial class PurchaseAddForm
+    partial class SaleAddForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +31,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            SuspendLayout();
+            // 
+            // SaleAddForm
+            // 
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseAddForm));
             panel1 = new Panel();
             pictureBox2 = new PictureBox();

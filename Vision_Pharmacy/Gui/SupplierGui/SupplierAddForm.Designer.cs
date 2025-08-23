@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierAddForm));
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            label1 = new Label();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             pictureBox3 = new PictureBox();
             label6 = new Label();
@@ -49,7 +50,6 @@
             txtSupplierEmail = new TextBox();
             txtSupplierNotes = new TextBox();
             chkSupplierIsActive = new DevExpress.XtraEditors.ToggleSwitch();
-            label1 = new Label();
             panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -85,6 +85,18 @@
             panel1.Size = new Size(963, 70);
             panel1.TabIndex = 16;
             panel1.MouseDown += panel1_MouseDown;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Cairo Medium", 12F);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(572, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(295, 37);
+            label1.TabIndex = 18;
+            label1.Text = "ادارة الموردين >  اضافة مورد جديد";
             // 
             // separatorControl1
             // 
@@ -269,7 +281,7 @@
             // 
             lblSupplierIsActive.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblSupplierIsActive.AutoSize = true;
-            lblSupplierIsActive.BackColor = Color.FromArgb(232, 246, 255);
+            lblSupplierIsActive.BackColor = Color.White;
             lblSupplierIsActive.Font = new Font("Cairo Medium", 10F);
             lblSupplierIsActive.Location = new Point(660, 283);
             lblSupplierIsActive.Name = "lblSupplierIsActive";
@@ -307,18 +319,6 @@
             chkSupplierIsActive.Properties.OnText = "نعم";
             chkSupplierIsActive.Size = new Size(119, 24);
             chkSupplierIsActive.TabIndex = 39;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Cairo Medium", 12F);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(572, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(295, 37);
-            label1.TabIndex = 18;
-            label1.Text = "ادارة الموردين >  اضافة مورد جديد";
             // 
             // panel2
             // 
@@ -384,7 +384,7 @@
         private Label label6;
         private Label lblSupplierEmail;
         private Label lblSupplierPhone;
-        private DevExpress.XtraEditors.SimpleButton buttonSaveSup;
+        public DevExpress.XtraEditors.SimpleButton buttonSaveSup;
         private TextBox txtSupplierPhone;
         private Label lblSupplierAddress;
         private TextBox txtSupplierName;

@@ -28,6 +28,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
     {
         // Fields
         private readonly IDataHelper<Purchase> _dataHelper;
+        private IDataHelper<Medication> _dataHelperMedication;
         private readonly LoadingUser loading;
         private int RowId;
         private static PurchaseUserControl _PurchaseUserControl;
@@ -42,6 +43,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             loading = LoadingUser.Instance();
             labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
             _dataHelper = (IDataHelper<Purchase>)ContainerConfig.ObjectType("Purchase");
+            _dataHelperMedication = (IDataHelper<Medication>)ContainerConfig.ObjectType("Medication");
             AllClasses.RoundButtonCorners(btnAddPurch, 15);
             AllClasses.RoundButtonCorners(btnPrintPurch, 15);
 
@@ -50,7 +52,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             SetDataGridViewColumns();
         }
 
-         
+
         private void btnAddPurch_Click(object sender, EventArgs e)
         {
             PurchaseAddForm PurchaseAddForm = new PurchaseAddForm(0, this);
@@ -60,30 +62,112 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
         //Event Handlers
         #region
-        // <summary>
-        /// Singleton Instance
-        /// 
-        //private void btnAddMedic_Click(object sender, EventArgs e)
-        //{
-        //    PurchaseAddForm PurchaseAddForm = new PurchaseAddForm(0, this);
-        //    PurchaseAddForm.ShowDialog();
-        //}
+          
+        public void DeleteFacture(string factureNum)
+        {
+            try
+            {
+                var factureItem = _dataHelper.GetData().Where(p => p.FactureNum == factureNum).ToList();
+                // إرجاع الكميات إلى جدول Medication
+                foreach (var item in factureItem)
+                {
+                    var medication = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == item.Barcode);
+                    if (medication != null)
+                    {
+                        medication.QuantityInStock -= item.Quantity;
+                        if (medication.QuantityInStock < 0)
+                            medication.QuantityInStock = 0; // تجنب القيم السالبة 
 
-        //private void btnPrintMedic_Click(object sender, EventArgs e)
-        //{
-        //    PrintGridControl();
-        //}
+                    }
+                    _dataHelperMedication.Edit(medication); // تحديث الكمية في جدول Medication
+                    _dataHelper.Delete(item.Id);
+                    RecalculateMedicationPrice(item.Barcode);
+                } 
+            }
+            catch (Exception ex)
+            {
+                // في حالة حدوث خطأ، يمكن تسجيله أو إظهاره للمستخدم
+            }
+        }
 
 
-        /// <summary>
-        ///  زر استيراد بيانات الأدوية من ملف Excel
-        //private void btnExcel_Click(object sender, EventArgs e)
-        //{
-        //    string excelPath = @"D:\\LISTE MEDICATIONS 2025.xlsx"; // ملف الإكسل
-        //    ImportMedications(excelPath);
-        //}
+        public void RecalculateMedicationPrice(string barcode)
+        {
+            var factureItem = _dataHelper.GetData().Where(p => p.Barcode == barcode).ToList();
+            var medication = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == barcode);
+            if (medication == null) return;
+            if (factureItem.Any())
+            { 
+                // مجموع التكاليف
+                decimal totalCost = factureItem.Sum(p => p.Quantity * p.PurchasePrice);
 
-         
+                // مجموع الكمية
+                int totalQty = factureItem.Sum(p => p.Quantity);
+
+                // السعر المرجح
+                medication.PurchasePrice = totalQty > 0 ? totalCost / totalQty : 0;
+
+                // الكمية الإجمالية
+                medication.QuantityInStock = totalQty;
+
+
+                // مجموع التكاليف
+                decimal totalCostSal = factureItem.Sum(p => p.Quantity * p.SalePrice);
+
+                // مجموع الكمية
+                int totalQtySal = factureItem.Sum(p => p.Quantity);
+
+                // السعر المرجح
+                medication.SalePrice = totalQtySal > 0 ? totalCostSal / totalQtySal : 0;
+
+                // الكمية الإجمالية
+                medication.QuantityInStock = totalQtySal;
+            }
+            else
+            {
+                // إذا ما بقات حتى فاتورة → صفر
+                medication.SalePrice = 0;
+                medication.PurchasePrice = 0;
+                medication.QuantityInStock = 0; 
+            }
+
+            _dataHelperMedication.Edit(medication); // تحديث الكمية والسعر في جدول Medication
+
+            //using (var db = new AppDbContext())
+            //    {
+            //        // نجيب جميع الفواتير المتبقية لهذا المنتج
+            //        //var purchases = db.Purchases
+            //        //                  .Where(p => p.Barcode == barcode)
+            //        //                  .ToList();
+
+            //        //var medication = db.Medications.FirstOrDefault(m => m.Barcode == barcode);
+            //        //if (medication == null) return;
+
+            //        if (purchases.Any())
+            //        {
+            //            // مجموع التكاليف
+            //            decimal totalCost = purchases.Sum(p => p.Quantity * p.PurchasePrice);
+
+            //            // مجموع الكمية
+            //            int totalQty = purchases.Sum(p => p.Quantity);
+
+            //            // السعر المرجح
+            //            medication.PurchasePrice = totalQty > 0 ? totalCost / totalQty : 0;
+
+            //            // الكمية الإجمالية
+            //            medication.QuantityInStock = totalQty;
+            //        }
+            //        else
+            //        {
+            //            // إذا ما بقات حتى فاتورة → صفر
+            //            medication.PurchasePrice = 0;
+            //            medication.QuantityInStock = 0;
+            //        }
+
+            //        db.SaveChanges();
+            //    }
+        }
+
         /// <summary>
         ///  اجراءات الأزرار في عمود الإجراءات )عرض، تعديل، حذف(
         private void ActionButtons_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -126,42 +210,13 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         {
                             try
                             {
-                                if (gridView1.RowCount > 0)
+
+                                if (MessageBox.Show($"هل تريد حذف فاتورة رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                 {
-                                    SetIDSelcted();
-                                    if (MessageBox.Show($"هل تريد حذف فاتورة رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                                    {
-                                        loading.Show();
-                                        if (_dataHelper.IsDbConnect())
-                                        {
-                                            if (IdList.Count > 0)
-                                            {
-                                                for (int i = 0; i < IdList.Count; i++)
-                                                {
-                                                    RowId = IdList[i];
-                                                    _dataHelper.Delete(RowId);
-                                                }
-                                                LoadData();
-                                                MessageCollection.ShowDeletNotification();
-                                            }
-                                            else
-                                            {
-                                                MessageCollection.ShowSlectRowsNotification();
-
-                                            }
-
-                                        }
-                                        else
-                                        {
-                                            MessageCollection.ShowServerMessage();
-                                        }
-                                    }
+                                    loading.Show();
+                                    DeleteFacture(row.FactureNum);
                                 }
-                                else
-                                {
-                                    MessageCollection.ShowEmptyDataMessage();
 
-                                }
                             }
                             catch
                             {
@@ -199,55 +254,12 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             }
 
             else if (idx == 2)
+            {
                 if (MessageBox.Show($"هل تريد حذف فاتورة رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    try
-                    {
-                        if (gridView1.RowCount > 0)
-                        {
-                            SetIDSelcted();
-                            var result = MessageCollection.DeleteActtion();
-                            if (result == true)
-                            {
-                                loading.Show();
-                                if (_dataHelper.IsDbConnect())
-                                {
-                                    if (IdList.Count > 0)
-                                    {
-                                        for (int i = 0; i < IdList.Count; i++)
-                                        {
-                                            RowId = IdList[i];
-                                            _dataHelper.Delete(RowId);
-                                        }
-                                        LoadData();
-                                        MessageCollection.ShowDeletNotification();
-                                    }
-                                    else
-                                    {
-                                        MessageCollection.ShowSlectRowsNotification();
-
-                                    }
-
-                                }
-                                else
-                                {
-                                    MessageCollection.ShowServerMessage();
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageCollection.ShowEmptyDataMessage();
-
-                        }
-                    }
-                    catch
-                    {
-                        MessageCollection.ShowServerMessage();
-                    }
-                    loading.Hide();
+                  DeleteFacture(row.FactureNum);
                 }
-
+            } 
         }
 
         #endregion
@@ -300,7 +312,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 gridView1.Columns[1].Caption = "تاريخ الفاتورة";
                 gridView1.Columns[2].Caption = "رقم الفاتورة";
                 gridView1.Columns[3].Caption = "نوع الدفع";
-                gridView1.Columns[4].Caption = "باركود الدواء"; 
+                gridView1.Columns[4].Caption = "باركود الدواء";
                 gridView1.Columns[5].Visible = false; // Hide Column 
                 gridView1.Columns[6].Caption = "الكمية";
                 gridView1.Columns[7].Caption = "سعر الشراء";
@@ -354,14 +366,14 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 printableLink.CreateMarginalHeaderArea += (sender, e) =>
                 {
                     // 🔹 تحميل الصورة (تأكد من تغيير المسار إلى مسار الصورة الصحيح)
-                    Image logo = Image.FromFile("LOGO.jpg"); // ⬅️ ضع مسار الصورة الصحيح هنا
+                    Image logo = Properties.Resources.logo_2025; // ⬅️ ضع مسار الصورة الصحيح هنا
 
                     // 🔹 رسم الصورة في الزاوية اليسرى
-                    RectangleF imageRect = new RectangleF(10, 10, 230, 100);
+                    RectangleF imageRect = new RectangleF(10, 10, 230, 150);
                     e.Graph.DrawImage(logo, imageRect);
 
                     // 🔹 نصوص الرأس (اسم الشركة والإدارات)
-                    string headerText = "صيدلية الشفاء" + "\n" + "العنوان : بغداد - العراق" + "\n" + "الهاتف : 05632135215313\nMAGASIN CENTRAL DU PDR";
+                    string headerText = Properties.Settings.Default.CompanyName + "\n" + Properties.Settings.Default.CompanyAdress + "\n" + Properties.Settings.Default.CompanyEmail + "\n" + " رقم الهاتف : " + Properties.Settings.Default.CompanyTel;
                     e.Graph.Font = new Font("Cairo Medium", 12, FontStyle.Bold); // ⬅️ استخدام خط "Cairo Medium"
                     e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين
                     e.Graph.DrawString(headerText, Color.Black, new RectangleF(240, 10, 600, 120), DevExpress.XtraPrinting.BorderSide.None);
@@ -380,7 +392,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     //// 🔹 التاريخ في الزاوية اليمنى
                     string date = "التاريخ : " + DateTime.Now.ToShortDateString();
                     e.Graph.Font = new Font("Cairo Medium", 12);
-                    e.Graph.DrawString(date, Color.Black, new RectangleF(750, 150, 200, 30), DevExpress.XtraPrinting.BorderSide.None);
+                    e.Graph.DrawString(date, Color.Black, new RectangleF(10, 170, 250, 30), DevExpress.XtraPrinting.BorderSide.None);
                 };
 
                 // 4️⃣ تعيين إعدادات الورق (A4 - أفقي) مع هوامش إضافية
@@ -417,22 +429,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             loading.Show();
             if (_dataHelper.IsDbConnect())
             {
-                DGListePurchase.DataSource = await Task.Run(() => _dataHelper.GetData().Select(p => new
-                {
-                    //p.Id,
-                    //p.FactureDate,
-                    p.FactureNum,
-                    //p.TypePaimt,
-                    //p.Barcode,
-                    //p.Notes,
-                    //p.Quantity,
-                    //p.PurchasePrice,
-                    //p.SalePrice,
-                    //p.TotalItem,
-                    //p.SupplierName,
-                    //p.TotalAmount
-                }).Distinct().ToList()); 
-                
+                DGListePurchase.DataSource = await Task.Run(() => _dataHelper.GetData().GroupBy(p => p.FactureNum).Select(g => g.First()).ToList());
+
+
                 // تحميل البيانات بشكل غير متزامن
                 //SetDataGridViewColumns();
                 var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView;
@@ -483,5 +482,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             }
             loading.Hide();
         }
+
+        
     }
 }

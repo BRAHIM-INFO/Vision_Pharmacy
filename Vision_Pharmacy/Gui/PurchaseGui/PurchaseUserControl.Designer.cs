@@ -53,9 +53,9 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Margin = new Padding(4, 2, 4, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1154, 57);
+            panel1.Size = new Size(1346, 70);
             panel1.TabIndex = 28;
             // 
             // lblEmp
@@ -64,9 +64,10 @@
             lblEmp.AutoSize = true;
             lblEmp.Font = new Font("Cairo Medium", 12F);
             lblEmp.ForeColor = Color.White;
-            lblEmp.Location = new Point(930, 15);
+            lblEmp.Location = new Point(1085, 18);
+            lblEmp.Margin = new Padding(4, 0, 4, 0);
             lblEmp.Name = "lblEmp";
-            lblEmp.Size = new Size(122, 30);
+            lblEmp.Size = new Size(155, 37);
             lblEmp.TabIndex = 1;
             lblEmp.Text = "قائمة المشتريات";
             // 
@@ -76,12 +77,12 @@
             separatorControl1.Dock = DockStyle.Right;
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 8;
-            separatorControl1.Location = new Point(1076, 0);
-            separatorControl1.Margin = new Padding(3, 2, 3, 2);
+            separatorControl1.LineThickness = 10;
+            separatorControl1.Location = new Point(1256, 0);
+            separatorControl1.Margin = new Padding(4, 2, 4, 2);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(9, 57);
+            separatorControl1.Size = new Size(10, 70);
             separatorControl1.TabIndex = 1;
             // 
             // pictureBox1
@@ -89,10 +90,10 @@
             pictureBox1.BackColor = Color.Silver;
             pictureBox1.Dock = DockStyle.Right;
             pictureBox1.Image = Properties.Resources.trolley_9284599;
-            pictureBox1.Location = new Point(1085, 0);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(1266, 0);
+            pictureBox1.Margin = new Padding(4, 2, 4, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(69, 57);
+            pictureBox1.Size = new Size(80, 70);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 26;
             pictureBox1.TabStop = false;
@@ -112,11 +113,11 @@
             btnPrintPurch.Cursor = Cursors.Hand;
             btnPrintPurch.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrintPurch.ImageOptions.SvgImage");
             btnPrintPurch.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrintPurch.Location = new Point(3, 61);
-            btnPrintPurch.Margin = new Padding(3, 2, 3, 2);
+            btnPrintPurch.Location = new Point(4, 75);
+            btnPrintPurch.Margin = new Padding(4, 2, 4, 2);
             btnPrintPurch.Name = "btnPrintPurch";
             btnPrintPurch.RightToLeft = RightToLeft.Yes;
-            btnPrintPurch.Size = new Size(117, 37);
+            btnPrintPurch.Size = new Size(136, 46);
             btnPrintPurch.TabIndex = 35;
             btnPrintPurch.Text = "طباعة";
             btnPrintPurch.ToolTipTitle = "اضافة";
@@ -137,11 +138,11 @@
             btnAddPurch.Cursor = Cursors.Hand;
             btnAddPurch.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAddPurch.ImageOptions.SvgImage");
             btnAddPurch.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAddPurch.Location = new Point(126, 61);
-            btnAddPurch.Margin = new Padding(3, 2, 3, 2);
+            btnAddPurch.Location = new Point(147, 75);
+            btnAddPurch.Margin = new Padding(4, 2, 4, 2);
             btnAddPurch.Name = "btnAddPurch";
             btnAddPurch.RightToLeft = RightToLeft.Yes;
-            btnAddPurch.Size = new Size(117, 37);
+            btnAddPurch.Size = new Size(136, 46);
             btnAddPurch.TabIndex = 34;
             btnAddPurch.Text = "اضافة";
             btnAddPurch.ToolTipTitle = "اضافة";
@@ -150,13 +151,13 @@
             // DGListePurchase
             // 
             DGListePurchase.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListePurchase.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            DGListePurchase.Location = new Point(0, 102);
+            DGListePurchase.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
+            DGListePurchase.Location = new Point(0, 126);
             DGListePurchase.MainView = gridView1;
-            DGListePurchase.Margin = new Padding(3, 2, 3, 2);
+            DGListePurchase.Margin = new Padding(4, 2, 4, 2);
             DGListePurchase.Name = "DGListePurchase";
             DGListePurchase.RightToLeft = RightToLeft.Yes;
-            DGListePurchase.Size = new Size(1154, 530);
+            DGListePurchase.Size = new Size(1346, 652);
             DGListePurchase.TabIndex = 36;
             DGListePurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -202,10 +203,8 @@
             gridView1.Appearance.TopNewRow.Options.UseFont = true;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 10F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
-            gridView1.DetailHeight = 284;
             gridView1.GridControl = DGListePurchase;
-            gridView1.Name = "gridView1";
-            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
+            gridView1.Name = "gridView1"; 
             gridView1.RowCountChanged += gridView1_RowCountChanged;
             // 
             // lblCounter
@@ -214,9 +213,10 @@
             lblCounter.AutoSize = true;
             lblCounter.Font = new Font("Cairo Medium", 12F);
             lblCounter.ForeColor = Color.Black;
-            lblCounter.Location = new Point(1014, 68);
+            lblCounter.Location = new Point(1183, 84);
+            lblCounter.Margin = new Padding(4, 0, 4, 0);
             lblCounter.Name = "lblCounter";
-            lblCounter.Size = new Size(22, 30);
+            lblCounter.Size = new Size(28, 37);
             lblCounter.TabIndex = 37;
             lblCounter.Text = "0";
             // 
@@ -224,16 +224,16 @@
             // 
             Appearance.BackColor = Color.WhiteSmoke;
             Appearance.Options.UseBackColor = true;
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(lblCounter);
             Controls.Add(DGListePurchase);
             Controls.Add(btnPrintPurch);
             Controls.Add(btnAddPurch);
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "PurchaseUserControl";
-            Size = new Size(1154, 634);
+            Size = new Size(1346, 780);
             Load += PurchaseUserControl_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

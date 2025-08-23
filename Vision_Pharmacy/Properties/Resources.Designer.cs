@@ -734,6 +734,16 @@ namespace Vision_Pharmacy.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_basket_15712813 {
+            get {
+                object obj = ResourceManager.GetObject("shopping-basket_15712813", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à ان هذا الاجراء يؤدي الى حذف المادة بشكل كامل من هنا وايضا من المواد.
         /// </summary>
         internal static string ShowDeleteMaterialCaption {

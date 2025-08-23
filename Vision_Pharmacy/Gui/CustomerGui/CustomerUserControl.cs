@@ -175,14 +175,14 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                 printableLink.CreateMarginalHeaderArea += (sender, e) =>
                 {
                     // 🔹 تحميل الصورة (تأكد من تغيير المسار إلى مسار الصورة الصحيح)
-                    Image logo = Image.FromFile("LOGO.jpg"); // ⬅️ ضع مسار الصورة الصحيح هنا
+                    Image logo = Properties.Resources.logo_2025; // ⬅️ ضع مسار الصورة الصحيح هنا
 
                     // 🔹 رسم الصورة في الزاوية اليسرى
-                    RectangleF imageRect = new RectangleF(10, 10, 230, 100);
+                    RectangleF imageRect = new RectangleF(10, 10, 230, 150);
                     e.Graph.DrawImage(logo, imageRect);
 
                     // 🔹 نصوص الرأس (اسم الشركة والإدارات)
-                    string headerText = "صيدلية الشفاء" + "\n" + "العنوان : بغداد - العراق" + "\n" + "الهاتف : 05632135215313\nMAGASIN CENTRAL DU PDR";
+                    string headerText = Properties.Settings.Default.CompanyName + "\n" + Properties.Settings.Default.CompanyAdress + "\n" + Properties.Settings.Default.CompanyEmail + "\n" + " رقم الهاتف : " + Properties.Settings.Default.CompanyTel;
                     e.Graph.Font = new Font("Cairo Medium", 12, FontStyle.Bold); // ⬅️ استخدام خط "Cairo Medium"
                     e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين
                     e.Graph.DrawString(headerText, Color.Black, new RectangleF(240, 10, 600, 120), BorderSide.None);
@@ -201,7 +201,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                     //// 🔹 التاريخ في الزاوية اليمنى
                     string date = "التاريخ : " + DateTime.Now.ToShortDateString();
                     e.Graph.Font = new Font("Cairo Medium", 12);
-                    e.Graph.DrawString(date, Color.Black, new RectangleF(750, 150, 200, 30), BorderSide.None);
+                    e.Graph.DrawString(date, Color.Black, new RectangleF(50, 150, 250, 30), BorderSide.None);
                 };
 
                 // 3️⃣ إعداد التذييل في أسفل الصفحة

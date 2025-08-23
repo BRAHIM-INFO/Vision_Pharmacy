@@ -65,11 +65,7 @@ namespace Vision_Pharmacy.Data.EFSqlServer
         //    db = new DBContext();
         //    return db.Attendance.Where(x => x.Id == id).First();
         //}
-        public List<Attendance> GetData()
-        {
-            db = new DBContext();
-            return db.Attendance.ToList();
-        }
+       
 
         //public bool IsDbConnect()
         //{
@@ -86,6 +82,13 @@ namespace Vision_Pharmacy.Data.EFSqlServer
         //}
 
         private DBContext db;
+
+        public List<Attendance> GetData()
+        {
+            db = new DBContext();
+            return db.Attendance.ToList();
+        }
+
 
         public void SaveOrUpdate(int employeeId, DateTime date, bool isPresent)
         {

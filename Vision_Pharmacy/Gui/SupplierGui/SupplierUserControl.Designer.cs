@@ -34,8 +34,6 @@
             btnPrintSup = new DevExpress.XtraEditors.SimpleButton();
             btnAddSup = new DevExpress.XtraEditors.SimpleButton();
             pictureBox1 = new PictureBox();
-            btnEditSup = new DevExpress.XtraEditors.SimpleButton();
-            btnDeleteSup = new DevExpress.XtraEditors.SimpleButton();
             panel1 = new Panel();
             lblSup = new Label();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
@@ -49,11 +47,11 @@
             // DGListeSupplier
             // 
             DGListeSupplier.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeSupplier.Location = new Point(3, 181);
+            DGListeSupplier.Location = new Point(3, 127);
             DGListeSupplier.MainView = gridView1;
             DGListeSupplier.Name = "DGListeSupplier";
             DGListeSupplier.RightToLeft = RightToLeft.Yes;
-            DGListeSupplier.Size = new Size(1289, 468);
+            DGListeSupplier.Size = new Size(1303, 536);
             DGListeSupplier.TabIndex = 15;
             DGListeSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -117,7 +115,7 @@
             btnPrintSup.Cursor = Cursors.Hand;
             btnPrintSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrintSup.ImageOptions.SvgImage");
             btnPrintSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrintSup.Location = new Point(3, 130);
+            btnPrintSup.Location = new Point(3, 76);
             btnPrintSup.Name = "btnPrintSup";
             btnPrintSup.RightToLeft = RightToLeft.Yes;
             btnPrintSup.Size = new Size(137, 45);
@@ -141,7 +139,7 @@
             btnAddSup.Cursor = Cursors.Hand;
             btnAddSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAddSup.ImageOptions.SvgImage");
             btnAddSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAddSup.Location = new Point(432, 130);
+            btnAddSup.Location = new Point(146, 76);
             btnAddSup.Name = "btnAddSup";
             btnAddSup.RightToLeft = RightToLeft.Yes;
             btnAddSup.Size = new Size(137, 45);
@@ -162,62 +160,14 @@
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
-            // btnEditSup
-            // 
-            btnEditSup.Appearance.BackColor = Color.FromArgb(18, 128, 146);
-            btnEditSup.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnEditSup.Appearance.Options.UseBackColor = true;
-            btnEditSup.Appearance.Options.UseFont = true;
-            btnEditSup.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnEditSup.AppearanceDisabled.Options.UseFont = true;
-            btnEditSup.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnEditSup.AppearanceHovered.Options.UseFont = true;
-            btnEditSup.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnEditSup.AppearancePressed.Options.UseFont = true;
-            btnEditSup.Cursor = Cursors.Hand;
-            btnEditSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEditSup.ImageOptions.SvgImage");
-            btnEditSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnEditSup.Location = new Point(289, 130);
-            btnEditSup.Name = "btnEditSup";
-            btnEditSup.RightToLeft = RightToLeft.Yes;
-            btnEditSup.Size = new Size(137, 45);
-            btnEditSup.TabIndex = 12;
-            btnEditSup.Text = "تعديل";
-            btnEditSup.ToolTipTitle = "اضافة";
-            btnEditSup.Click += btnEditSup_Click;
-            // 
-            // btnDeleteSup
-            // 
-            btnDeleteSup.Appearance.BackColor = Color.FromArgb(192, 0, 0);
-            btnDeleteSup.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnDeleteSup.Appearance.Options.UseBackColor = true;
-            btnDeleteSup.Appearance.Options.UseFont = true;
-            btnDeleteSup.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnDeleteSup.AppearanceDisabled.Options.UseFont = true;
-            btnDeleteSup.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnDeleteSup.AppearanceHovered.Options.UseFont = true;
-            btnDeleteSup.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnDeleteSup.AppearancePressed.Options.UseFont = true;
-            btnDeleteSup.Cursor = Cursors.Hand;
-            btnDeleteSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDeleteSup.ImageOptions.SvgImage");
-            btnDeleteSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnDeleteSup.Location = new Point(146, 130);
-            btnDeleteSup.Name = "btnDeleteSup";
-            btnDeleteSup.RightToLeft = RightToLeft.Yes;
-            btnDeleteSup.Size = new Size(137, 45);
-            btnDeleteSup.TabIndex = 11;
-            btnDeleteSup.Text = "حذف";
-            btnDeleteSup.ToolTipTitle = "اضافة";
-            btnDeleteSup.Click += btnDeleteSup_Click;
-            // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(60, 71, 151);
             panel1.Controls.Add(lblSup);
             panel1.Controls.Add(separatorControl1);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(0, 26);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1306, 70);
             panel1.TabIndex = 10;
@@ -254,12 +204,11 @@
             Controls.Add(DGListeSupplier);
             Controls.Add(btnPrintSup);
             Controls.Add(btnAddSup);
-            Controls.Add(btnEditSup);
-            Controls.Add(btnDeleteSup);
             Controls.Add(panel1);
             Name = "SupplierUserControl";
             RightToLeft = RightToLeft.Yes;
             Size = new Size(1306, 666);
+            Load += SupplierUserControl_Load;
             ((System.ComponentModel.ISupportInitialize)DGListeSupplier).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -276,8 +225,6 @@
         private DevExpress.XtraEditors.SimpleButton btnPrintSup;
         private DevExpress.XtraEditors.SimpleButton btnAddSup;
         private PictureBox pictureBox1;
-        private DevExpress.XtraEditors.SimpleButton btnEditSup;
-        private DevExpress.XtraEditors.SimpleButton btnDeleteSup;
         private Panel panel1;
         private Label lblSup;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;

@@ -73,7 +73,7 @@
             btnCases = new DevExpress.XtraEditors.SimpleButton();
             btnSupplier = new DevExpress.XtraEditors.SimpleButton();
             panel2 = new Panel();
-            simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            MovSupplier = new DevExpress.XtraEditors.SimpleButton();
             panel3 = new Panel();
             pnl_04 = new FlowLayoutPanel();
             btnPurchases = new DevExpress.XtraEditors.SimpleButton();
@@ -161,7 +161,7 @@
             pnl_11.Controls.Add(simpleButton21);
             pnl_11.Controls.Add(panel19);
             pnl_11.Dock = DockStyle.Top;
-            pnl_11.Location = new Point(0, 676);
+            pnl_11.Location = new Point(0, 675);
             pnl_11.Name = "pnl_11";
             pnl_11.Size = new Size(268, 62);
             pnl_11.TabIndex = 11;
@@ -242,7 +242,7 @@
             pnl_10.Controls.Add(simpleButton19);
             pnl_10.Controls.Add(panel17);
             pnl_10.Dock = DockStyle.Top;
-            pnl_10.Location = new Point(0, 614);
+            pnl_10.Location = new Point(0, 613);
             pnl_10.Name = "pnl_10";
             pnl_10.Size = new Size(268, 62);
             pnl_10.TabIndex = 10;
@@ -323,7 +323,7 @@
             pnl_09.Controls.Add(simpleButton10);
             pnl_09.Controls.Add(panel9);
             pnl_09.Dock = DockStyle.Top;
-            pnl_09.Location = new Point(0, 552);
+            pnl_09.Location = new Point(0, 551);
             pnl_09.Name = "pnl_09";
             pnl_09.Size = new Size(268, 62);
             pnl_09.TabIndex = 7;
@@ -403,7 +403,7 @@
             pnl_08.Controls.Add(simpleButton12);
             pnl_08.Controls.Add(panel11);
             pnl_08.Dock = DockStyle.Top;
-            pnl_08.Location = new Point(0, 490);
+            pnl_08.Location = new Point(0, 489);
             pnl_08.Name = "pnl_08";
             pnl_08.Size = new Size(268, 62);
             pnl_08.TabIndex = 8;
@@ -485,7 +485,7 @@
             pnl_07.Controls.Add(btnPayEmp);
             pnl_07.Controls.Add(panel15);
             pnl_07.Dock = DockStyle.Top;
-            pnl_07.Location = new Point(0, 428);
+            pnl_07.Location = new Point(0, 427);
             pnl_07.Name = "pnl_07";
             pnl_07.Size = new Size(268, 62);
             pnl_07.TabIndex = 9;
@@ -592,7 +592,7 @@
             pnl_06.Controls.Add(simpleButton6);
             pnl_06.Controls.Add(panel5);
             pnl_06.Dock = DockStyle.Top;
-            pnl_06.Location = new Point(0, 366);
+            pnl_06.Location = new Point(0, 365);
             pnl_06.Name = "pnl_06";
             pnl_06.Size = new Size(268, 62);
             pnl_06.TabIndex = 6;
@@ -669,10 +669,10 @@
             pnl_05.Controls.Add(btnCases);
             pnl_05.Controls.Add(btnSupplier);
             pnl_05.Controls.Add(panel2);
-            pnl_05.Controls.Add(simpleButton5);
+            pnl_05.Controls.Add(MovSupplier);
             pnl_05.Controls.Add(panel3);
             pnl_05.Dock = DockStyle.Top;
-            pnl_05.Location = new Point(0, 304);
+            pnl_05.Location = new Point(0, 303);
             pnl_05.Margin = new Padding(0);
             pnl_05.Name = "pnl_05";
             pnl_05.Size = new Size(268, 62);
@@ -721,21 +721,22 @@
             panel2.Size = new Size(10, 50);
             panel2.TabIndex = 29;
             // 
-            // simpleButton5
+            // MovSupplier
             // 
-            simpleButton5.Appearance.BackColor = Color.FromArgb(50, 107, 244);
-            simpleButton5.Appearance.BorderColor = Color.White;
-            simpleButton5.Appearance.Font = new Font("Cairo Medium", 10F);
-            simpleButton5.Appearance.Options.UseBackColor = true;
-            simpleButton5.Appearance.Options.UseBorderColor = true;
-            simpleButton5.Appearance.Options.UseFont = true;
-            simpleButton5.Cursor = Cursors.Hand;
-            simpleButton5.ImageOptions.SvgImageSize = new Size(25, 25);
-            simpleButton5.Location = new Point(42, 122);
-            simpleButton5.Name = "simpleButton5";
-            simpleButton5.Size = new Size(223, 50);
-            simpleButton5.TabIndex = 30;
-            simpleButton5.Text = "حركة الموردين";
+            MovSupplier.Appearance.BackColor = Color.FromArgb(50, 107, 244);
+            MovSupplier.Appearance.BorderColor = Color.White;
+            MovSupplier.Appearance.Font = new Font("Cairo Medium", 10F);
+            MovSupplier.Appearance.Options.UseBackColor = true;
+            MovSupplier.Appearance.Options.UseBorderColor = true;
+            MovSupplier.Appearance.Options.UseFont = true;
+            MovSupplier.Cursor = Cursors.Hand;
+            MovSupplier.ImageOptions.SvgImageSize = new Size(25, 25);
+            MovSupplier.Location = new Point(42, 122);
+            MovSupplier.Name = "MovSupplier";
+            MovSupplier.Size = new Size(223, 50);
+            MovSupplier.TabIndex = 30;
+            MovSupplier.Text = "حركة الموردين";
+            MovSupplier.Click += MovSupplier_Click;
             // 
             // panel3
             // 
@@ -754,7 +755,7 @@
             pnl_04.Controls.Add(simpleButton4);
             pnl_04.Controls.Add(panel20);
             pnl_04.Dock = DockStyle.Top;
-            pnl_04.Location = new Point(0, 242);
+            pnl_04.Location = new Point(0, 241);
             pnl_04.Margin = new Padding(0);
             pnl_04.Name = "pnl_04";
             pnl_04.Size = new Size(268, 62);
@@ -839,7 +840,7 @@
             pnl_03.Location = new Point(0, 179);
             pnl_03.Margin = new Padding(0);
             pnl_03.Name = "pnl_03";
-            pnl_03.Size = new Size(268, 63);
+            pnl_03.Size = new Size(268, 62);
             pnl_03.TabIndex = 3;
             // 
             // btnGDS
@@ -899,7 +900,7 @@
             btnCategory.Name = "btnCategory";
             btnCategory.Size = new Size(223, 50);
             btnCategory.TabIndex = 34;
-            btnCategory.Text = "أصناف الأدوية";
+            btnCategory.Text = "قائمة الأدوية انتهت صلاحيتها";
             // 
             // panel7
             // 
@@ -1252,7 +1253,7 @@
         public Panel panelContainer;
         private System.Windows.Forms.Timer slideTimer;
         private Panel panel2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton MovSupplier;
         private Panel panel3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private Panel panel4;

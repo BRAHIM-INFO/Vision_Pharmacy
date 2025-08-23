@@ -328,6 +328,9 @@
   <data name="ServerConnectionText" xml:space="preserve">
     <value>خطأ في الاتصال في قاعدة البيانات</value>
   </data>
+  <data name="shopping-basket_15712813" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping-basket_15712813.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ShowDeleteMaterialCaption" xml:space="preserve">
     <value>ان هذا الاجراء يؤدي الى حذف المادة بشكل كامل من هنا وايضا من المواد</value>
   </data>

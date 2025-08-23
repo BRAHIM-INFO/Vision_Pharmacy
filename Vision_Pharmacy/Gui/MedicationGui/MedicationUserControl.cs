@@ -1,5 +1,6 @@
 ﻿using ClosedXML.Excel;
 using DevExpress.Utils.Svg;
+using DevExpress.XtraBars.Alerter;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
@@ -143,7 +144,48 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 MessageCollection.ShowServerMessage();
                 return;
             }
+
+            // نفترض عندك قائمة الأدوية المنتهية
+            var expiredMeds = _dataHelper.GetData()
+                .Where(m => m.ExpiryDate <= DateTime.Now)
+                .ToList();
+
+            if (expiredMeds.Any())
+            {
+                // نبني النص على شكل قائمة
+                string message = "الأدوية المنتهية الصلاحية:\n";
+                foreach (var med in expiredMeds)
+                {
+                    message += $"- {med.Name} (انتهى في {med.ExpiryDate:dd-MM-yyyy})\n";
+                }
+
+                // نظهر الـ Notification
+                ShowNotification( message);
+            }
+
+
+            // عند الفحص
+            //var expiredMeds = _dataHelper.GetData()
+            //     .Where(m => m.ExpiryDate < DateTime.Today)
+            //     .ToList(); 
+
+            //if (expiredMeds.Any())
+            //{
+            //    ShowNotification($"⚠️ لديك {expiredMeds.Count} دواء منتهي الصلاحية!");
+            //}
+
             loading.Hide();
+        }
+
+
+        private void ShowNotification(string message)
+        {
+            NotifyIcon notifyIcon = new NotifyIcon();
+            notifyIcon.Visible = true;
+            notifyIcon.Icon = SystemIcons.Warning; // يمكنك استبداله بأيقونة مخصصة
+            notifyIcon.BalloonTipTitle = "تنبيه صلاحية الأدوية";
+            notifyIcon.BalloonTipText = message;
+            notifyIcon.ShowBalloonTip(5000); // يظهر 5 ثواني
         }
 
         /// <summary>
@@ -205,7 +247,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                                                     RowId = IdList[i];
                                                     _dataHelper.Delete(RowId);
                                                 }
-                                                LoadData();
+
+                                                MedicationUserControl_Load(sender, e); // إعادة تحميل البيانات
+                                                //LoadData();
                                                 MessageCollection.ShowDeletNotification();
                                             }
                                             else
@@ -283,7 +327,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                                             RowId = IdList[i];
                                             _dataHelper.Delete(RowId);
                                         }
-                                        LoadData();
+                                        MedicationUserControl_Load(sender, e); // إعادة تحميل البيانات
+
+                                       // LoadData();
                                         MessageCollection.ShowDeletNotification();
                                     }
                                     else
@@ -429,14 +475,14 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 printableLink.CreateMarginalHeaderArea += (sender, e) =>
                 {
                     // 🔹 تحميل الصورة (تأكد من تغيير المسار إلى مسار الصورة الصحيح)
-                    Image logo = Image.FromFile("LOGO.jpg"); // ⬅️ ضع مسار الصورة الصحيح هنا
+                    Image logo = Properties.Resources.logo_2025; // ⬅️ ضع مسار الصورة الصحيح هنا
 
                     // 🔹 رسم الصورة في الزاوية اليسرى
-                    RectangleF imageRect = new RectangleF(10, 10, 230, 100);
+                    RectangleF imageRect = new RectangleF(10, 10, 230, 150);
                     e.Graph.DrawImage(logo, imageRect);
 
                     // 🔹 نصوص الرأس (اسم الشركة والإدارات)
-                    string headerText = "صيدلية الشفاء" + "\n" + "العنوان : بغداد - العراق" + "\n" + "الهاتف : 05632135215313\nMAGASIN CENTRAL DU PDR";
+                    string headerText = Properties.Settings.Default.CompanyName + "\n" + Properties.Settings.Default.CompanyAdress + "\n" + Properties.Settings.Default.CompanyEmail + "\n" + " رقم الهاتف : " + Properties.Settings.Default.CompanyTel;
                     e.Graph.Font = new Font("Cairo Medium", 12, FontStyle.Bold); // ⬅️ استخدام خط "Cairo Medium"
                     e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين
                     e.Graph.DrawString(headerText, Color.Black, new RectangleF(240, 10, 600, 120), DevExpress.XtraPrinting.BorderSide.None);
@@ -455,7 +501,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                     //// 🔹 التاريخ في الزاوية اليمنى
                     string date = "التاريخ : " + DateTime.Now.ToShortDateString();
                     e.Graph.Font = new Font("Cairo Medium", 12);
-                    e.Graph.DrawString(date, Color.Black, new RectangleF(750, 150, 200, 30), DevExpress.XtraPrinting.BorderSide.None);
+                    e.Graph.DrawString(date, Color.Black, new RectangleF(10, 170, 250, 30), DevExpress.XtraPrinting.BorderSide.None);
                 };
 
                 // 4️⃣ تعيين إعدادات الورق (A4 - أفقي) مع هوامش إضافية
