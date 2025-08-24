@@ -51,7 +51,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             LoadData();
             AllClasses.RoundButtonCorners(btnAddMedic, 15);
             AllClasses.RoundButtonCorners(btnExcel, 15);
-            AllClasses.RoundButtonCorners(btnPrintMedic, 15); 
+            AllClasses.RoundButtonCorners(btnPrintMedic, 15);
             //gridView1.OptionsBehavior.Editable = false;
         }
 
@@ -65,12 +65,12 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             MedicationAddForm customerAdd = new MedicationAddForm(0, this);
             customerAdd.ShowDialog();
         }
-         
+
         private void btnPrintMedic_Click(object sender, EventArgs e)
         {
             PrintGridControl();
         }
-         
+
         /// <summary>
         ///  زر استيراد بيانات الأدوية من ملف Excel
         private void btnExcel_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         {
             lblCounter.Text = $"عدد الأدوية: {gridView1.RowCount}";
         }
-           
+
         /// <summary>
         ///     
         private async void MedicationUserControl_Load(object sender, EventArgs e)
@@ -113,22 +113,22 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 actionButtons.Buttons.Clear();
                 //زر حذف
                 var btnDelete = new EditorButton(ButtonPredefines.Glyph);
-                btnDelete.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.delete)); 
-                btnDelete.Tag = "delete";                   
+                btnDelete.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.delete));
+                btnDelete.Tag = "delete";
                 actionButtons.Buttons.Add(btnDelete);
 
 
                 // زر تعديل
                 var btnEdit = new EditorButton(ButtonPredefines.Glyph);
                 btnEdit.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.edit));
-                btnEdit.Tag = "edit";                       
+                btnEdit.Tag = "edit";
                 actionButtons.Buttons.Add(btnEdit);
 
 
                 // زر عرض
                 var btnView = new EditorButton(ButtonPredefines.Glyph);
                 btnView.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.view));
-                btnView.Tag = "view";                       
+                btnView.Tag = "view";
                 actionButtons.Buttons.Add(btnView);
 
 
@@ -160,7 +160,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 }
 
                 // نظهر الـ Notification
-                ShowNotification( message);
+                ShowNotification(message);
             }
 
 
@@ -192,7 +192,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         ///  اجراءات الأزرار في عمود الإجراءات )عرض، تعديل، حذف(
         private void ActionButtons_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListeMedication.MainView; 
+            var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListeMedication.MainView;
 
 
             var row = view.GetFocusedRow() as Medication;
@@ -210,7 +210,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                             RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
                             MedicationAddForm customerAdd = new MedicationAddForm(RowId, this);
                             customerAdd.buttonSaveSup.Visible = false; // إخفاء زر الحفظ
-                            customerAdd.ShowDialog(); 
+                            customerAdd.ShowDialog();
                             return;
 
                         }
@@ -221,11 +221,12 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                                 RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
                                 MedicationAddForm customerAdd = new MedicationAddForm(RowId, this);
                                 customerAdd.ShowDialog();
+                                this.Load += MedicationUserControl_Load;
                             }
                             else
                             {
                                 MessageCollection.ShowEmptyDataMessage();
-                            } 
+                            }
                             return;
                         }
                     case "delete":
@@ -234,7 +235,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                             {
                                 if (gridView1.RowCount > 0)
                                 {
-                                    SetIDSelcted(); 
+                                    SetIDSelcted();
                                     if (MessageBox.Show($"هل تريد حذف {row.Name}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                     {
                                         loading.Show();
@@ -275,9 +276,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                             {
                                 MessageCollection.ShowServerMessage();
                             }
-                            loading.Hide();  
+                            loading.Hide();
                             return;
-                        } 
+                        }
                 }
             }
 
@@ -291,19 +292,20 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 MedicationAddForm customerAdd = new MedicationAddForm(RowId, this);
                 customerAdd.buttonSaveSup.Visible = false; // إخفاء زر الحفظ
                 customerAdd.ShowDialog();
-            }  
+            }
             else if (idx == 1)
             {
                 if (gridView1.RowCount > 0)
                 {
                     RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                    MedicationAddForm customerAdd = new MedicationAddForm( RowId, this);
+                    MedicationAddForm customerAdd = new MedicationAddForm(RowId, this);
                     customerAdd.ShowDialog();
+                    this.Load += MedicationUserControl_Load;
                 }
                 else
                 {
                     MessageCollection.ShowEmptyDataMessage();
-                } 
+                }
             }
 
             else if (idx == 2)
@@ -329,7 +331,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                                         }
                                         MedicationUserControl_Load(sender, e); // إعادة تحميل البيانات
 
-                                       // LoadData();
+                                        // LoadData();
                                         MessageCollection.ShowDeletNotification();
                                     }
                                     else
@@ -355,9 +357,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                     {
                         MessageCollection.ShowServerMessage();
                     }
-                    loading.Hide(); 
+                    loading.Hide();
                 }
-             
+
         }
 
         #endregion
@@ -582,7 +584,6 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         }
 
         #endregion
-
-
+         
     }
 }

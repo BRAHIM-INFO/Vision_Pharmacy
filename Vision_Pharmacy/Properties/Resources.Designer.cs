@@ -504,6 +504,16 @@ namespace Vision_Pharmacy.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] logo__2025 {
+            get {
+                object obj = ResourceManager.GetObject("logo--2025", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo_2025 {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeScreen));
             progressBarControl = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             labelStatus = new DevExpress.XtraEditors.LabelControl();
             peImage = new DevExpress.XtraEditors.PictureEdit();
@@ -115,6 +116,7 @@
             Controls.Add(peLogo);
             Controls.Add(labelStatus);
             Controls.Add(progressBarControl);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "WelcomeScreen";
             Padding = new Padding(1);

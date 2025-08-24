@@ -85,7 +85,7 @@
             btnGDS = new DevExpress.XtraEditors.SimpleButton();
             btnProduct = new DevExpress.XtraEditors.SimpleButton();
             panel6 = new Panel();
-            btnCategory = new DevExpress.XtraEditors.SimpleButton();
+            btnExpired = new DevExpress.XtraEditors.SimpleButton();
             panel7 = new Panel();
             pnl_02 = new FlowLayoutPanel();
             btnHome = new DevExpress.XtraEditors.SimpleButton();
@@ -834,7 +834,7 @@
             pnl_03.Controls.Add(btnGDS);
             pnl_03.Controls.Add(btnProduct);
             pnl_03.Controls.Add(panel6);
-            pnl_03.Controls.Add(btnCategory);
+            pnl_03.Controls.Add(btnExpired);
             pnl_03.Controls.Add(panel7);
             pnl_03.Dock = DockStyle.Top;
             pnl_03.Location = new Point(0, 179);
@@ -886,21 +886,22 @@
             panel6.Size = new Size(10, 50);
             panel6.TabIndex = 33;
             // 
-            // btnCategory
+            // btnExpired
             // 
-            btnCategory.Appearance.BackColor = Color.FromArgb(50, 107, 244);
-            btnCategory.Appearance.BorderColor = Color.White;
-            btnCategory.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnCategory.Appearance.Options.UseBackColor = true;
-            btnCategory.Appearance.Options.UseBorderColor = true;
-            btnCategory.Appearance.Options.UseFont = true;
-            btnCategory.Cursor = Cursors.Hand;
-            btnCategory.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnCategory.Location = new Point(42, 121);
-            btnCategory.Name = "btnCategory";
-            btnCategory.Size = new Size(223, 50);
-            btnCategory.TabIndex = 34;
-            btnCategory.Text = "قائمة الأدوية انتهت صلاحيتها";
+            btnExpired.Appearance.BackColor = Color.FromArgb(50, 107, 244);
+            btnExpired.Appearance.BorderColor = Color.White;
+            btnExpired.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnExpired.Appearance.Options.UseBackColor = true;
+            btnExpired.Appearance.Options.UseBorderColor = true;
+            btnExpired.Appearance.Options.UseFont = true;
+            btnExpired.Cursor = Cursors.Hand;
+            btnExpired.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnExpired.Location = new Point(42, 121);
+            btnExpired.Name = "btnExpired";
+            btnExpired.Size = new Size(223, 50);
+            btnExpired.TabIndex = 34;
+            btnExpired.Text = "قائمة الأدوية انتهت صلاحيتها";
+            btnExpired.Click += btnExpired_Click;
             // 
             // panel7
             // 
@@ -1184,6 +1185,7 @@
             Controls.Add(bunifuShadowPanel1);
             Controls.Add(pnlSlideHome);
             FormBorderStyle = FormBorderStyle.None;
+            IconOptions.Icon = (Icon)resources.GetObject("FormMain.IconOptions.Icon");
             Name = "FormMain";
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;
@@ -1283,7 +1285,7 @@
         private Panel panel9;
         private DevExpress.XtraEditors.SimpleButton btnProduct;
         private Panel panel6;
-        private DevExpress.XtraEditors.SimpleButton btnCategory;
+        private DevExpress.XtraEditors.SimpleButton btnExpired;
         private Panel panel7;
         private Label label1;
         private FlowLayoutPanel pnl_04;

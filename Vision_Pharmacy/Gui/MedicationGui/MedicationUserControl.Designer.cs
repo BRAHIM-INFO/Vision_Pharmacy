@@ -267,7 +267,7 @@
             // 
             // toastNotificationsManager1
             // 
-            toastNotificationsManager1.ApplicationId = "b68012f4-4e35-4104-82c2-36b8508f0629";
+            toastNotificationsManager1.ApplicationId = "b68012f4-4e35-4104-82c2-36b8508f0629"; 
             // 
             // MedicationUserControl
             // 

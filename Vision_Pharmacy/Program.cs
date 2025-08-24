@@ -20,7 +20,7 @@ namespace Vision_Pharmacy
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Startup getStarted = new Startup();
-            Application.Run(new FormMain()); 
+            Application.Run(new WelcomeScreen()); 
         }
     }
 }

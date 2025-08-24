@@ -64,7 +64,7 @@ namespace Vision_Pharmacy
             pnlRH = new PanelSlider(pnl_07, btnRH.Height + 2, 230, 15, false); // حركة طولية
             pnlRepports = new PanelSlider(pnl_10, btnRepports.Height + 2, 235, 15, false); // حركة طولية
             pnlParametres = new PanelSlider(pnl_11, btnSetings.Height + 2, 150, 15, false); // حركة طولية
-            pnlGDS = new PanelSlider(pnl_03, btnGDS.Height + 2, 150, 15, false); // حركة طولية
+            pnlGDS = new PanelSlider(pnl_03, btnGDS.Height + 2, 180, 15, false); // حركة طولية
 
             // نكبير الشاشة تلقائياً عند فتح النموذج
             if (!isMaximized)
@@ -351,6 +351,14 @@ namespace Vision_Pharmacy
             Purchases_SupplierUserControl Purchases_SupplierUserControl = new Purchases_SupplierUserControl();
             Purchases_SupplierUserControl.Dock = DockStyle.Fill; // لملء الـ panel
             panelContainer.Controls.Add(Purchases_SupplierUserControl);
+        }
+
+        private void btnExpired_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
+            ExpiredUserControl ExpiredUserControl = new ExpiredUserControl();
+            ExpiredUserControl.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(ExpiredUserControl);
         }
     }
 
