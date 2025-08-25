@@ -266,13 +266,16 @@ namespace Vision_Pharmacy.Gui.UserGui
         {
             if (SwitchLang.IsOn == true)
             {
+                Properties.Settings.Default.ChangeLang = "En";
+                Properties.Settings.Default.Save();
                 ApplyEnglishResources();
-                //ChangeLanguage("en");
+                 
             }
             else
             {
-                ApplyArabicResources();
-               // ChangeLanguage("ar");
+                Properties.Settings.Default.ChangeLang = "Ar";
+                Properties.Settings.Default.Save();
+                ApplyArabicResources(); 
             }
         }
 

@@ -29,12 +29,14 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         private int selectedYear = DateTime.Now.Year;
         public AllClasses AllClasses = new AllClasses();
         private readonly LoadingUser loading;
+        private Label labelEmptyData;
 
         public FormPayroll()
         {
             InitializeComponent();
             loading = LoadingUser.Instance();
             _dataHelper = (IDataHelper<Payroll>)ContainerConfig.ObjectType("Payroll");
+            labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
         }
 
         private void FormPayroll_Load(object sender, EventArgs e)
@@ -322,6 +324,50 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         private void btnPrintPayroll_Click(object sender, EventArgs e)
         {
             PrintGridControl();
+        }
+
+        //ملف الموارد العربي
+        public void ApplyArabicResources()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            PicLaterale.Dock = DockStyle.Right;
+            SeparatLat.Dock = DockStyle.Right;
+            lblTitlePay.Dock = DockStyle.Right;
+
+            btnPrint.Location = new Point(3, 76);
+            btnSave.Location = new Point(146, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+
+            lblTitlePay.Text = Resources_Ar.TitleUser;
+            btnSave.Text = Resources_Ar.AddButton_User;
+            btnPrint.Text = Resources_Ar.PrintButton_User;
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+
+            DGListeEmployee.RightToLeft = RightToLeft.Yes;
+        }
+
+        //ملف الموارد انجليزي
+        public void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No;
+            PicLaterale.Dock = DockStyle.Left;
+            SeparatLat.Dock = DockStyle.Left;
+            lblTitlePay.Dock = DockStyle.Left;
+
+            btnPrint.Location = new Point(this.Size.Width - 140, 76);
+            btnSave.Location = new Point(this.Size.Width - 283, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            lblTitlePay.Text = Resources_En.TitleUser;
+            btnSave.Text = Resources_En.AddButton_User;
+            btnPrint.Text = Resources_En.PrintButton_User;
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+
+            DGListeEmployee.RightToLeft = RightToLeft.No;
         }
     }
 }

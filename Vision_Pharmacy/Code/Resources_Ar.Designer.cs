@@ -61,6 +61,15 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à اضافة.
+        /// </summary>
+        internal static string AddButton_User {
+            get {
+                return ResourceManager.GetString("AddButton_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à تسجيل الدخول.
         /// </summary>
         internal static string btnLogin {
@@ -75,6 +84,15 @@ namespace Vision_Pharmacy.Code {
         internal static string ButtonSave {
             get {
                 return ResourceManager.GetString("ButtonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à لا يوجد بيانات. استخدم الازار اعلاه لاجراء العمليات على البيانات.
+        /// </summary>
+        internal static string EmptyDataText {
+            get {
+                return ResourceManager.GetString("EmptyDataText", resourceCulture);
             }
         }
         
@@ -180,6 +198,78 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à تسجيل الغيابات و حظور الموظفين.
+        /// </summary>
+        internal static string lblTitleAttend {
+            get {
+                return ResourceManager.GetString("lblTitleAttend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à قائمة العملاء.
+        /// </summary>
+        internal static string lblTitleCustom {
+            get {
+                return ResourceManager.GetString("lblTitleCustom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à قائمة الموظفين.
+        /// </summary>
+        internal static string lblTitleEmp {
+            get {
+                return ResourceManager.GetString("lblTitleEmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à قائمة الأدوية المنتهية الصلاحية.
+        /// </summary>
+        internal static string lblTitleExpired {
+            get {
+                return ResourceManager.GetString("lblTitleExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à قائمة الأدوية.
+        /// </summary>
+        internal static string lblTitleMedicat {
+            get {
+                return ResourceManager.GetString("lblTitleMedicat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à قائمة رواتب الموظفين.
+        /// </summary>
+        internal static string lblTitlePay {
+            get {
+                return ResourceManager.GetString("lblTitlePay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à قائمة المشتريات.
+        /// </summary>
+        internal static string lblTitlePurchase {
+            get {
+                return ResourceManager.GetString("lblTitlePurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à طباعة.
+        /// </summary>
+        internal static string PrintButton_User {
+            get {
+                return ResourceManager.GetString("PrintButton_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à مشرف.
         /// </summary>
         internal static string RoleAdmin {
@@ -203,6 +293,15 @@ namespace Vision_Pharmacy.Code {
         internal static string SwitchLang {
             get {
                 return ResourceManager.GetString("SwitchLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à قائمة المستخدمين.
+        /// </summary>
+        internal static string TitleUser {
+            get {
+                return ResourceManager.GetString("TitleUser", resourceCulture);
             }
         }
     }

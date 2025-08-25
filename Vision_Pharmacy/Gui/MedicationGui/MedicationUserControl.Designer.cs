@@ -30,79 +30,79 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MedicationUserControl));
-            separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            pictureBox1 = new PictureBox();
-            panel1 = new Panel();
-            lblEmp = new Label();
+            SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
+            PicLaterale = new PictureBox();
+            pnlTop = new Panel();
+            lblTitleMedicat = new Label();
             btnExcel = new DevExpress.XtraEditors.SimpleButton();
-            btnPrintMedic = new DevExpress.XtraEditors.SimpleButton();
-            btnAddMedic = new DevExpress.XtraEditors.SimpleButton();
+            btnPrint = new DevExpress.XtraEditors.SimpleButton();
+            btnAdd = new DevExpress.XtraEditors.SimpleButton();
             DGListeMedication = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             PicChange = new PictureBox();
             lblCounter = new Label();
             toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(components);
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
+            pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGListeMedication).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicChange).BeginInit();
             ((System.ComponentModel.ISupportInitialize)toastNotificationsManager1).BeginInit();
             SuspendLayout();
             // 
-            // separatorControl1
+            // SeparatLat
             // 
-            separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.Dock = DockStyle.Right;
-            separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(1240, 0);
-            separatorControl1.Margin = new Padding(4, 2, 4, 2);
-            separatorControl1.Name = "separatorControl1";
-            separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(10, 70);
-            separatorControl1.TabIndex = 1;
+            SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.Dock = DockStyle.Right;
+            SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.LineOrientation = Orientation.Vertical;
+            SeparatLat.LineThickness = 10;
+            SeparatLat.Location = new Point(1240, 0);
+            SeparatLat.Margin = new Padding(4, 2, 4, 2);
+            SeparatLat.Name = "SeparatLat";
+            SeparatLat.Padding = new Padding(0);
+            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.TabIndex = 1;
             // 
-            // pictureBox1
+            // PicLaterale
             // 
-            pictureBox1.BackColor = Color.Silver;
-            pictureBox1.Dock = DockStyle.Right;
-            pictureBox1.Image = Properties.Resources.pill_bottle_15968729;
-            pictureBox1.Location = new Point(1250, 0);
-            pictureBox1.Margin = new Padding(4, 2, 4, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 70);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 26;
-            pictureBox1.TabStop = false;
+            PicLaterale.BackColor = Color.Silver;
+            PicLaterale.Dock = DockStyle.Right;
+            PicLaterale.Image = Properties.Resources.pill_bottle_15968729;
+            PicLaterale.Location = new Point(1250, 0);
+            PicLaterale.Margin = new Padding(4, 2, 4, 2);
+            PicLaterale.Name = "PicLaterale";
+            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLaterale.TabIndex = 26;
+            PicLaterale.TabStop = false;
             // 
-            // panel1
+            // pnlTop
             // 
-            panel1.BackColor = Color.FromArgb(60, 71, 151);
-            panel1.Controls.Add(lblEmp);
-            panel1.Controls.Add(separatorControl1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 2, 4, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1330, 70);
-            panel1.TabIndex = 27;
+            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
+            pnlTop.Controls.Add(lblTitleMedicat);
+            pnlTop.Controls.Add(SeparatLat);
+            pnlTop.Controls.Add(PicLaterale);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Margin = new Padding(4, 2, 4, 2);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(1330, 70);
+            pnlTop.TabIndex = 27;
             // 
-            // lblEmp
+            // lblTitleMedicat
             // 
-            lblEmp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblEmp.AutoSize = true;
-            lblEmp.Font = new Font("Cairo Medium", 12F);
-            lblEmp.ForeColor = Color.White;
-            lblEmp.Location = new Point(1093, 18);
-            lblEmp.Margin = new Padding(4, 0, 4, 0);
-            lblEmp.Name = "lblEmp";
-            lblEmp.Size = new Size(128, 37);
-            lblEmp.TabIndex = 1;
-            lblEmp.Text = "قائمة الأدوية";
+            lblTitleMedicat.AutoSize = true;
+            lblTitleMedicat.Dock = DockStyle.Right;
+            lblTitleMedicat.Font = new Font("Cairo Medium", 12F);
+            lblTitleMedicat.ForeColor = Color.White;
+            lblTitleMedicat.Location = new Point(1112, 0);
+            lblTitleMedicat.Margin = new Padding(4, 0, 4, 0);
+            lblTitleMedicat.Name = "lblTitleMedicat";
+            lblTitleMedicat.Size = new Size(128, 37);
+            lblTitleMedicat.TabIndex = 1;
+            lblTitleMedicat.Text = "قائمة الأدوية";
             // 
             // btnExcel
             // 
@@ -129,55 +129,55 @@
             btnExcel.ToolTipTitle = "اضافة";
             btnExcel.Click += btnExcel_Click;
             // 
-            // btnPrintMedic
+            // btnPrint
             // 
-            btnPrintMedic.Appearance.BackColor = Color.Gray;
-            btnPrintMedic.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnPrintMedic.Appearance.Options.UseBackColor = true;
-            btnPrintMedic.Appearance.Options.UseFont = true;
-            btnPrintMedic.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnPrintMedic.AppearanceDisabled.Options.UseFont = true;
-            btnPrintMedic.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnPrintMedic.AppearanceHovered.Options.UseFont = true;
-            btnPrintMedic.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnPrintMedic.AppearancePressed.Options.UseFont = true;
-            btnPrintMedic.Cursor = Cursors.Hand;
-            btnPrintMedic.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrintMedic.ImageOptions.SvgImage");
-            btnPrintMedic.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrintMedic.Location = new Point(4, 76);
-            btnPrintMedic.Margin = new Padding(4, 2, 4, 2);
-            btnPrintMedic.Name = "btnPrintMedic";
-            btnPrintMedic.RightToLeft = RightToLeft.Yes;
-            btnPrintMedic.Size = new Size(136, 46);
-            btnPrintMedic.TabIndex = 31;
-            btnPrintMedic.Text = "طباعة";
-            btnPrintMedic.ToolTipTitle = "اضافة";
-            btnPrintMedic.Click += btnPrintMedic_Click;
+            btnPrint.Appearance.BackColor = Color.Gray;
+            btnPrint.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnPrint.Appearance.Options.UseBackColor = true;
+            btnPrint.Appearance.Options.UseFont = true;
+            btnPrint.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceDisabled.Options.UseFont = true;
+            btnPrint.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceHovered.Options.UseFont = true;
+            btnPrint.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearancePressed.Options.UseFont = true;
+            btnPrint.Cursor = Cursors.Hand;
+            btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
+            btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnPrint.Location = new Point(4, 76);
+            btnPrint.Margin = new Padding(4, 2, 4, 2);
+            btnPrint.Name = "btnPrint";
+            btnPrint.RightToLeft = RightToLeft.Yes;
+            btnPrint.Size = new Size(136, 46);
+            btnPrint.TabIndex = 31;
+            btnPrint.Text = "طباعة";
+            btnPrint.ToolTipTitle = "اضافة";
+            btnPrint.Click += btnPrintMedic_Click;
             // 
-            // btnAddMedic
+            // btnAdd
             // 
-            btnAddMedic.Appearance.BackColor = Color.FromArgb(74, 89, 180);
-            btnAddMedic.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnAddMedic.Appearance.Options.UseBackColor = true;
-            btnAddMedic.Appearance.Options.UseFont = true;
-            btnAddMedic.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnAddMedic.AppearanceDisabled.Options.UseFont = true;
-            btnAddMedic.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnAddMedic.AppearanceHovered.Options.UseFont = true;
-            btnAddMedic.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnAddMedic.AppearancePressed.Options.UseFont = true;
-            btnAddMedic.Cursor = Cursors.Hand;
-            btnAddMedic.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAddMedic.ImageOptions.SvgImage");
-            btnAddMedic.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAddMedic.Location = new Point(289, 76);
-            btnAddMedic.Margin = new Padding(4, 2, 4, 2);
-            btnAddMedic.Name = "btnAddMedic";
-            btnAddMedic.RightToLeft = RightToLeft.Yes;
-            btnAddMedic.Size = new Size(136, 46);
-            btnAddMedic.TabIndex = 30;
-            btnAddMedic.Text = "اضافة";
-            btnAddMedic.ToolTipTitle = "اضافة";
-            btnAddMedic.Click += btnAddMedic_Click;
+            btnAdd.Appearance.BackColor = Color.FromArgb(74, 89, 180);
+            btnAdd.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnAdd.Appearance.Options.UseBackColor = true;
+            btnAdd.Appearance.Options.UseFont = true;
+            btnAdd.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnAdd.AppearanceDisabled.Options.UseFont = true;
+            btnAdd.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnAdd.AppearanceHovered.Options.UseFont = true;
+            btnAdd.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnAdd.AppearancePressed.Options.UseFont = true;
+            btnAdd.Cursor = Cursors.Hand;
+            btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
+            btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnAdd.Location = new Point(289, 76);
+            btnAdd.Margin = new Padding(4, 2, 4, 2);
+            btnAdd.Name = "btnAdd";
+            btnAdd.RightToLeft = RightToLeft.Yes;
+            btnAdd.Size = new Size(136, 46);
+            btnAdd.TabIndex = 30;
+            btnAdd.Text = "اضافة";
+            btnAdd.ToolTipTitle = "اضافة";
+            btnAdd.Click += btnAddMedic_Click;
             // 
             // DGListeMedication
             // 
@@ -267,7 +267,7 @@
             // 
             // toastNotificationsManager1
             // 
-            toastNotificationsManager1.ApplicationId = "b68012f4-4e35-4104-82c2-36b8508f0629"; 
+            toastNotificationsManager1.ApplicationId = "b68012f4-4e35-4104-82c2-36b8508f0629";
             // 
             // MedicationUserControl
             // 
@@ -278,18 +278,18 @@
             Controls.Add(lblCounter);
             Controls.Add(btnExcel);
             Controls.Add(DGListeMedication);
-            Controls.Add(panel1);
-            Controls.Add(btnPrintMedic);
+            Controls.Add(pnlTop);
+            Controls.Add(btnPrint);
             Controls.Add(PicChange);
-            Controls.Add(btnAddMedic);
+            Controls.Add(btnAdd);
             Margin = new Padding(4, 2, 4, 2);
             Name = "MedicationUserControl";
             Size = new Size(1330, 761);
             Load += MedicationUserControl_Load;
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGListeMedication).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicChange).EndInit();
@@ -300,14 +300,14 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private PictureBox pictureBox1;
-        private Panel panel1;
-        private Label lblEmp;
+        private DevExpress.XtraEditors.SeparatorControl SeparatLat;
+        private PictureBox PicLaterale;
+        private Panel pnlTop;
+        private Label lblTitleMedicat;
         private DevExpress.XtraGrid.GridControl DGListeMedication;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton btnPrintMedic;
-        private DevExpress.XtraEditors.SimpleButton btnAddMedic;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.SimpleButton btnExcel;
         private PictureBox PicChange;
         private Label lblCounter;

@@ -61,6 +61,15 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Add.
+        /// </summary>
+        internal static string AddButton_User {
+            get {
+                return ResourceManager.GetString("AddButton_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Log in.
         /// </summary>
         internal static string btnLogin {
@@ -75,6 +84,15 @@ namespace Vision_Pharmacy.Code {
         internal static string ButtonSave {
             get {
                 return ResourceManager.GetString("ButtonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No data. Use the button above to perform operations on the data..
+        /// </summary>
+        internal static string EmptyDataText {
+            get {
+                return ResourceManager.GetString("EmptyDataText", resourceCulture);
             }
         }
         
@@ -179,6 +197,78 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Recording employee absences and attendance.
+        /// </summary>
+        internal static string lblTitleAttend {
+            get {
+                return ResourceManager.GetString("lblTitleAttend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Customer list.
+        /// </summary>
+        internal static string lblTitleCustom {
+            get {
+                return ResourceManager.GetString("lblTitleCustom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Staff List.
+        /// </summary>
+        internal static string lblTitleEmp {
+            get {
+                return ResourceManager.GetString("lblTitleEmp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à List of expired medicines.
+        /// </summary>
+        internal static string lblTitleExpired {
+            get {
+                return ResourceManager.GetString("lblTitleExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à List of medications.
+        /// </summary>
+        internal static string lblTitleMedicat {
+            get {
+                return ResourceManager.GetString("lblTitleMedicat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Employee payroll.
+        /// </summary>
+        internal static string lblTitlePay {
+            get {
+                return ResourceManager.GetString("lblTitlePay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Shopping list.
+        /// </summary>
+        internal static string lblTitlePurchase {
+            get {
+                return ResourceManager.GetString("lblTitlePurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Print.
+        /// </summary>
+        internal static string PrintButton_User {
+            get {
+                return ResourceManager.GetString("PrintButton_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Administrator.
         /// </summary>
         internal static string RoleAdmin {
@@ -202,6 +292,15 @@ namespace Vision_Pharmacy.Code {
         internal static string SwitchLang {
             get {
                 return ResourceManager.GetString("SwitchLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à User List.
+        /// </summary>
+        internal static string TitleUser {
+            get {
+                return ResourceManager.GetString("TitleUser", resourceCulture);
             }
         }
     }

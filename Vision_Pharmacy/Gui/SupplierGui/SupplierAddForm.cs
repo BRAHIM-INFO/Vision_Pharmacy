@@ -62,15 +62,23 @@ namespace Vision_Pharmacy.Gui.SupplierGui
             {
                 SetDataToFileds();
             }
+
+            // Set Language
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ArabicLanguage();
+            }
+            else
+            {
+                EnglishLanguage();
+            }
         }
 
         private void PicChange_Click(object sender, EventArgs e)
         {
             LoadImage();
         }
-
-
-
+         
 
         // Events
         private void buttonSaveSup_Click(object sender, EventArgs e)
@@ -259,5 +267,80 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
-    }
+
+        public void SwitchPanelDirection(Panel pnl, bool rtl)
+        {
+            if (rtl)
+            {
+                pnl.RightToLeft = RightToLeft.Yes;
+
+                foreach (Control ctrl in pnl.Controls)
+                {
+                    ctrl.RightToLeft = RightToLeft.Yes;
+
+                    // تعكس مكان العنصر
+                    ctrl.Left = pnl.Width - ctrl.Width - ctrl.Left;
+                }
+            }
+            else
+            {
+                pnl.RightToLeft = RightToLeft.No;
+
+                foreach (Control ctrl in pnl.Controls)
+                {
+                    ctrl.RightToLeft = RightToLeft.No;
+
+                    // تعيد مكان العنصر
+                    ctrl.Left = pnl.Width - ctrl.Width - ctrl.Left;
+                }
+            }
+        }
+
+
+        public void ArabicLanguage()
+            {
+            // Change Language to Arabic
+            this.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+            SwitchPanelDirection(panel1,true);
+            SwitchPanelDirection(panel2, false);
+
+            separatorControl1.Dock = DockStyle.Right;
+            pictureBox3.Dock = DockStyle.Right;
+            lblTitle.Dock = DockStyle.Right;
+            pictureBox1.Dock = DockStyle.Left;
+            // Change Texts
+            lblTitle.Text = "ادارة الموردين >  اضافة مورد جديد";
+            lblSupplierName.Text = "الاسم  *";
+            lblSupplierAddress.Text = "العنوان";
+            lblSupplierPhone.Text = "الهاتف";
+            lblSupplierEmail.Text = "البريد الإلكتروني ";
+            lblSupplierNotes.Text = "ملاحظات";
+            chkSupplierIsActive.Text = "المورد نشط";
+            btnSave.Text = "حفظ";
+        }
+
+        //Change Language to English
+        public void EnglishLanguage()
+        {
+            this.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = false;
+            SwitchPanelDirection(panel1, false);
+            SwitchPanelDirection(panel2, false);
+            pictureBox1.Dock = DockStyle.Right;
+            lblTitle.Dock = DockStyle.Left;
+            separatorControl1.Dock = DockStyle.Left;
+            pictureBox3.Dock = DockStyle.Left;
+            // Change Texts
+            lblTitle.Text = "Supplier Management > Add a New Supplier";
+            lblSupplierName.Text = "Supplier Name *";
+            lblSupplierAddress.Text = "Supplier Address";
+            lblSupplierPhone.Text = "Supplier Phone";
+            lblSupplierEmail.Text = "Supplier Email";
+            lblSupplierNotes.Text = "Notes";
+            chkSupplierIsActive.Text = "Supplier Is Active";
+            btnSave.Text = "Save";
+        }
+
+        }
 }

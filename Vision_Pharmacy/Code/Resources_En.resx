@@ -166,4 +166,37 @@
   <data name="RoleUser" xml:space="preserve">
     <value>User</value>
   </data>
+  <data name="AddButton_User" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="PrintButton_User" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="TitleUser" xml:space="preserve">
+    <value>User List</value>
+  </data>
+  <data name="EmptyDataText" xml:space="preserve">
+    <value>No data. Use the button above to perform operations on the data.</value>
+  </data>
+  <data name="lblTitlePurchase" xml:space="preserve">
+    <value>Shopping list</value>
+  </data>
+  <data name="lblTitleMedicat" xml:space="preserve">
+    <value>List of medications</value>
+  </data>
+  <data name="lblTitleExpired" xml:space="preserve">
+    <value>List of expired medicines</value>
+  </data>
+  <data name="lblTitleEmp" xml:space="preserve">
+    <value>Staff List</value>
+  </data>
+  <data name="lblTitleAttend" xml:space="preserve">
+    <value>Recording employee absences and attendance</value>
+  </data>
+  <data name="lblTitlePay" xml:space="preserve">
+    <value>Employee payroll</value>
+  </data>
+  <data name="lblTitleCustom" xml:space="preserve">
+    <value>Customer list</value>
+  </data>
 </root>

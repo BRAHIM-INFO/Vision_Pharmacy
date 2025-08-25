@@ -37,6 +37,15 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             loading = LoadingUser.Instance();
             LoadData();
             gridView1.OptionsBehavior.Editable = false;
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
         }
 
 
@@ -112,48 +121,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
 
         private void btnPrintSup_Click(object sender, EventArgs e)
         {
-            PrintGridControl();
-            //    var view = DGListeCustomer.MainView as GridView;
-            //    if (view == null)
-            //        return;
-
-            //    // إعدادات RTL
-            //    view.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            //    view.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-
-            //    PrintingSystem ps = new PrintingSystem();
-            //    PrintableComponentLink link = new PrintableComponentLink(ps)
-            //    {
-            //        Component = DGListeCustomer,
-            //        Landscape = false,
-            //     };
-
-            //    var headerFooter = link.PageHeaderFooter as PageHeaderFooter;
-            //    if (headerFooter != null)
-            //    {
-            //        headerFooter.Header.Content.Clear();
-            //        headerFooter.Header.Content.AddRange(new string[] {
-            //    "صيدلية الشفاء\nالعنوان: شارع الاستقلال\nالهاتف: 0550000000", // اليسار (يظهر كيمين في RTL)
-            //    "",
-            //    ""
-            //});
-            //        headerFooter.Header.Font = new Font("Cairo Medium", 12, FontStyle.Bold);
-            //        headerFooter.Header.LineAlignment = BrickAlignment.Near;
-            //    }
-
-            //    link.CreateDocument();
-            //    link.ShowPreview();
-
-            //PrintingSystem ps = new PrintingSystem();
-            //PrintableComponentLink link = new PrintableComponentLink(ps)
-            //{
-            //    Component = DGListeCustomer
-            //};
-
-            //link.CreateDocument(); // يجب استدعاؤه قبل المعاينة
-
-            //// عرض نافذة المعاينة
-            //link.ShowPreview(); // ✅ هذا الصحيح، وليس ReportPrintTool
+            PrintGridControl(); 
         }
         #endregion
 
@@ -262,7 +230,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         }
         private void SetDataGridViewColumns()
         {
-            try
+            if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 gridView1.Columns[0].Caption = "المعرف";
                 gridView1.Columns[1].Caption = "الاسم الكامل";
@@ -273,11 +241,17 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                 gridView1.Columns[6].Caption = "نشط";
                 gridView1.Columns[7].Caption = "ملاحظات إضافية";
             }
-            catch
+            else
             {
-                // تجاهل الخطأ (يفضل تسجيله)
-            }
-            // Hide Columns
+                gridView1.Columns[0].Caption = "ID";
+                gridView1.Columns[1].Caption = "Full Name";
+                gridView1.Columns[2].Caption = "Resource Name";
+                gridView1.Columns[3].Caption = "Address";
+                gridView1.Columns[4].Caption = "Phone";
+                gridView1.Columns[5].Caption = "Email";
+                gridView1.Columns[6].Caption = "Active";
+                gridView1.Columns[7].Caption = "Additional Notes";
+            } 
         }
 
         // Singleton Instance
@@ -305,5 +279,54 @@ namespace Vision_Pharmacy.Gui.CustomerGui
 
         #endregion
 
+
+
+        //ملف الموارد العربي
+        public void ApplyArabicResources()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            PicLaterale.Dock = DockStyle.Right;
+            SeparatLat.Dock = DockStyle.Right;
+            lblTitleCustom.Dock = DockStyle.Right;
+
+            btnPrint.Location = new Point(3, 76);
+            btnAdd.Location = new Point(146, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+
+            lblTitleCustom.Text = Resources_Ar.TitleUser;
+            btnAdd.Text = Resources_Ar.AddButton_User;
+            btnPrint.Text = Resources_Ar.PrintButton_User;
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+
+            DGListeCustomer.RightToLeft = RightToLeft.Yes;
+             
+            
+        }
+
+        //ملف الموارد انجليزي
+        public void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No;
+            PicLaterale.Dock = DockStyle.Left;
+            SeparatLat.Dock = DockStyle.Left;
+            lblTitleCustom.Dock = DockStyle.Left;
+
+            btnPrint.Location = new Point(this.Size.Width - 140, 76);
+            btnAdd.Location = new Point(this.Size.Width - 283, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            lblTitleCustom.Text = Resources_En.TitleUser;
+            btnAdd.Text = Resources_En.AddButton_User;
+            btnPrint.Text = Resources_En.PrintButton_User;
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+
+            DGListeCustomer.RightToLeft = RightToLeft.No;
+             
+
+        }
     }
 }

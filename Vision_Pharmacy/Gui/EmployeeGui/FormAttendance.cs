@@ -26,13 +26,25 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         private int selectedYear = DateTime.Now.Year;
         private DataTable attendanceTable;
         public AllClasses AllClasses = new AllClasses();
+        private System.Windows.Forms.Label labelEmptyData;
         private readonly LoadingUser loading;
         public FormAttendance()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
             loading = LoadingUser.Instance();
             LoadMonthYearSelectors(); 
-            LoadAttendanceData(AllClasses.GetEnglishMonthName(DateTime.Now.Month), selectedYear); 
+            LoadAttendanceData(AllClasses.GetEnglishMonthName(DateTime.Now.Month), selectedYear);
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
+
         }
 
         //Method
@@ -328,6 +340,50 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         private void FormAttendance_Load(object sender, EventArgs e)
         {
 
+        }
+
+        //ملف الموارد العربي
+        public void ApplyArabicResources()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            PicLaterale.Dock = DockStyle.Right;
+            SeparatLat.Dock = DockStyle.Right;
+            lblTitleAttend.Dock = DockStyle.Right;
+
+            btnPrint.Location = new Point(3, 76);
+            btnSave.Location = new Point(146, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+
+            lblTitleAttend.Text = Resources_Ar.TitleUser;
+            btnSave.Text = Resources_Ar.AddButton_User;
+            btnPrint.Text = Resources_Ar.PrintButton_User;
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+
+            DGListeEmployee.RightToLeft = RightToLeft.Yes;
+        }
+
+        //ملف الموارد انجليزي
+        public void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No;
+            PicLaterale.Dock = DockStyle.Left;
+            SeparatLat.Dock = DockStyle.Left;
+            lblTitleAttend.Dock = DockStyle.Left;
+
+            btnPrint.Location = new Point(this.Size.Width - 140, 76);
+            btnSave.Location = new Point(this.Size.Width - 283, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            lblTitleAttend.Text = Resources_En.TitleUser;
+            btnSave.Text = Resources_En.AddButton_User;
+            btnPrint.Text = Resources_En.PrintButton_User;
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+
+            DGListeEmployee.RightToLeft = RightToLeft.No;
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Drawing;
+using DevExpress.XtraEditors;
+using DevExpress.XtraReports.Serialization;
+using DevExpress.XtraScheduler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,6 +57,15 @@ namespace Vision_Pharmacy.Gui.UserGui
             gridView1.OptionsFind.AlwaysVisible = true;
             gridView1.OptionsFind.ShowClearButton = true;
             gridView1.OptionsFind.ShowFindButton = true;
+
+            if (Properties.Settings.Default.ChangeLang  == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
         }
 
 
@@ -205,7 +217,7 @@ namespace Vision_Pharmacy.Gui.UserGui
         }
         private void SetDataGridViewColumns()
         {
-            try
+            if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 gridView1.Columns[0].Caption = "المعرف";
                 gridView1.Columns[1].Caption = "الاسم الكامل";
@@ -213,13 +225,14 @@ namespace Vision_Pharmacy.Gui.UserGui
                 gridView1.Columns[3].Caption = "كلمة السر";
                 gridView1.Columns[4].Caption = "الصلاحية";
             }
-            catch
+            else
             {
-                // تجاهل الخطأ (يفضل تسجيله)
-            }
-
-
-            // Hide Columns
+                gridView1.Columns[0].Caption = "ID";
+                gridView1.Columns[1].Caption = "Full Name";
+                gridView1.Columns[2].Caption = "User Name";
+                gridView1.Columns[3].Caption = "Password";
+                gridView1.Columns[4].Caption = "Permission";
+            } 
         }
 
         // Singleton Instance
@@ -243,5 +256,50 @@ namespace Vision_Pharmacy.Gui.UserGui
 
         }
         #endregion
+
+
+        //ملف الموارد العربي
+        public void ApplyArabicResources()
+        {  
+            this.RightToLeft = RightToLeft.Yes;
+            PicLaterale.Dock = DockStyle.Right;
+            SeparatLat.Dock = DockStyle.Right;
+            lblTitle.Dock = DockStyle.Right;
+
+            btnPrint.Location = new Point(3, 76);
+            btnAdd.Location = new Point(146, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+
+            lblTitle.Text = Resources_Ar.TitleUser;
+            btnAdd.Text = Resources_Ar.AddButton_User; 
+            btnPrint.Text = Resources_Ar.PrintButton_User;
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+
+            gridControl1.RightToLeft = RightToLeft.Yes;
+        }
+
+        //ملف الموارد انجليزي
+        public void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No; 
+            PicLaterale.Dock = DockStyle.Left;
+            SeparatLat.Dock = DockStyle.Left;
+            lblTitle.Dock = DockStyle.Left; 
+
+            btnPrint.Location = new Point(this.Size.Width-140, 76);
+            btnAdd.Location = new Point(this.Size.Width - 283, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            lblTitle.Text = Resources_En.TitleUser;
+            btnAdd.Text = Resources_En.AddButton_User;
+            btnPrint.Text =  Resources_En.PrintButton_User;
+            labelEmptyData.Text = Resources_En.EmptyDataText; 
+
+            gridControl1.RightToLeft = RightToLeft.No;
+        }
     }
 }

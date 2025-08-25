@@ -30,16 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserAddForm));
             comboBoxRole = new DevExpress.XtraEditors.ComboBoxEdit();
-            label4 = new Label();
-            label3 = new Label();
+            labelRole = new Label();
+            labelPassword = new Label();
             textBoxPassword = new TextBox();
-            label2 = new Label();
+            labelUserName = new Label();
             textBoxUserName = new TextBox();
-            label1 = new Label();
+            labelName = new Label();
             textBoxName = new TextBox();
-            buttonSave = new DevExpress.XtraEditors.SimpleButton();
+            btnSave = new DevExpress.XtraEditors.SimpleButton();
             btnClose = new DevExpress.XtraEditors.SimpleButton();
-            label5 = new Label();
+            labelTitle = new Label();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
@@ -70,29 +70,29 @@
             comboBoxRole.Size = new Size(454, 38);
             comboBoxRole.TabIndex = 8;
             // 
-            // label4
+            // labelRole
             // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.BackColor = Color.White;
-            label4.Font = new Font("Cairo Medium", 10F);
-            label4.Location = new Point(56, 366);
-            label4.Name = "label4";
-            label4.Size = new Size(75, 32);
-            label4.TabIndex = 7;
-            label4.Text = "الصلاحية";
+            labelRole.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelRole.AutoSize = true;
+            labelRole.BackColor = Color.FromArgb(227, 237, 249);
+            labelRole.Font = new Font("Cairo Medium", 10F);
+            labelRole.Location = new Point(24, 366);
+            labelRole.Name = "labelRole";
+            labelRole.Size = new Size(75, 32);
+            labelRole.TabIndex = 7;
+            labelRole.Text = "الصلاحية";
             // 
-            // label3
+            // labelPassword
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.BackColor = Color.White;
-            label3.Font = new Font("Cairo Medium", 10F);
-            label3.Location = new Point(45, 297);
-            label3.Name = "label3";
-            label3.Size = new Size(86, 32);
-            label3.TabIndex = 5;
-            label3.Text = "كلمة السر";
+            labelPassword.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelPassword.AutoSize = true;
+            labelPassword.BackColor = Color.FromArgb(227, 237, 249);
+            labelPassword.Font = new Font("Cairo Medium", 10F);
+            labelPassword.Location = new Point(24, 304);
+            labelPassword.Name = "labelPassword";
+            labelPassword.Size = new Size(86, 32);
+            labelPassword.TabIndex = 5;
+            labelPassword.Text = "كلمة السر";
             // 
             // textBoxPassword
             // 
@@ -103,17 +103,17 @@
             textBoxPassword.Size = new Size(454, 39);
             textBoxPassword.TabIndex = 4;
             // 
-            // label2
+            // labelUserName
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.BackColor = Color.White;
-            label2.Font = new Font("Cairo Medium", 10F);
-            label2.Location = new Point(11, 223);
-            label2.Name = "label2";
-            label2.Size = new Size(120, 32);
-            label2.TabIndex = 3;
-            label2.Text = "اسم المستخدم";
+            labelUserName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelUserName.AutoSize = true;
+            labelUserName.BackColor = Color.FromArgb(227, 237, 249);
+            labelUserName.Font = new Font("Cairo Medium", 10F);
+            labelUserName.Location = new Point(18, 223);
+            labelUserName.Name = "labelUserName";
+            labelUserName.Size = new Size(120, 32);
+            labelUserName.TabIndex = 3;
+            labelUserName.Text = "اسم المستخدم";
             // 
             // textBoxUserName
             // 
@@ -124,17 +124,17 @@
             textBoxUserName.Size = new Size(454, 39);
             textBoxUserName.TabIndex = 2;
             // 
-            // label1
+            // labelName
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.BackColor = Color.White;
-            label1.Font = new Font("Cairo Medium", 10F);
-            label1.Location = new Point(72, 155);
-            label1.Name = "label1";
-            label1.Size = new Size(59, 32);
-            label1.TabIndex = 1;
-            label1.Text = "الاسم:";
+            labelName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelName.AutoSize = true;
+            labelName.BackColor = Color.FromArgb(227, 237, 249);
+            labelName.Font = new Font("Cairo Medium", 10F);
+            labelName.Location = new Point(24, 155);
+            labelName.Name = "labelName";
+            labelName.Size = new Size(59, 32);
+            labelName.TabIndex = 1;
+            labelName.Text = "الاسم:";
             // 
             // textBoxName
             // 
@@ -145,30 +145,30 @@
             textBoxName.Size = new Size(454, 39);
             textBoxName.TabIndex = 0;
             // 
-            // buttonSave
+            // btnSave
             // 
-            buttonSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonSave.Appearance.BackColor = Color.FromArgb(74, 89, 180);
-            buttonSave.Appearance.Font = new Font("Cairo Medium", 10F);
-            buttonSave.Appearance.Options.UseBackColor = true;
-            buttonSave.Appearance.Options.UseFont = true;
-            buttonSave.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            buttonSave.AppearanceDisabled.Options.UseFont = true;
-            buttonSave.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            buttonSave.AppearanceHovered.Options.UseFont = true;
-            buttonSave.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            buttonSave.AppearancePressed.Options.UseFont = true;
-            buttonSave.Cursor = Cursors.Hand;
-            buttonSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSave.ImageOptions.SvgImage");
-            buttonSave.ImageOptions.SvgImageSize = new Size(25, 25);
-            buttonSave.Location = new Point(483, 564);
-            buttonSave.Name = "buttonSave";
-            buttonSave.RightToLeft = RightToLeft.Yes;
-            buttonSave.Size = new Size(159, 45);
-            buttonSave.TabIndex = 8;
-            buttonSave.Text = "حفظ";
-            buttonSave.ToolTipTitle = "اضافة";
-            buttonSave.Click += buttonSave_Click;
+            btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSave.Appearance.BackColor = Color.FromArgb(74, 89, 180);
+            btnSave.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnSave.Appearance.Options.UseBackColor = true;
+            btnSave.Appearance.Options.UseFont = true;
+            btnSave.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearanceDisabled.Options.UseFont = true;
+            btnSave.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearanceHovered.Options.UseFont = true;
+            btnSave.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearancePressed.Options.UseFont = true;
+            btnSave.Cursor = Cursors.Hand;
+            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
+            btnSave.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnSave.Location = new Point(483, 564);
+            btnSave.Name = "btnSave";
+            btnSave.RightToLeft = RightToLeft.Yes;
+            btnSave.Size = new Size(159, 45);
+            btnSave.TabIndex = 8;
+            btnSave.Text = "حفظ";
+            btnSave.ToolTipTitle = "اضافة";
+            btnSave.Click += buttonSave_Click;
             // 
             // btnClose
             // 
@@ -184,24 +184,24 @@
             btnClose.Text = "simpleButton1";
             btnClose.Click += btnClose_Click;
             // 
-            // label5
+            // labelTitle
             // 
-            label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Cairo Medium", 14F);
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(432, 14);
-            label5.Name = "label5";
-            label5.Size = new Size(157, 45);
-            label5.TabIndex = 2;
-            label5.Text = "مستخدم جديد";
+            labelTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            labelTitle.AutoSize = true;
+            labelTitle.BackColor = Color.Transparent;
+            labelTitle.Font = new Font("Cairo Medium", 14F);
+            labelTitle.ForeColor = Color.Black;
+            labelTitle.Location = new Point(432, 14);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(157, 45);
+            labelTitle.TabIndex = 2;
+            labelTitle.Text = "مستخدم جديد";
             // 
             // label9
             // 
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label9.AutoSize = true;
-            label9.BackColor = Color.White;
+            label9.BackColor = Color.FromArgb(227, 237, 249);
             label9.Font = new Font("Cairo Medium", 10F);
             label9.ForeColor = Color.Red;
             label9.Location = new Point(133, 366);
@@ -214,7 +214,7 @@
             // 
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label8.AutoSize = true;
-            label8.BackColor = Color.White;
+            label8.BackColor = Color.FromArgb(227, 237, 249);
             label8.Font = new Font("Cairo Medium", 10F);
             label8.ForeColor = Color.Red;
             label8.Location = new Point(133, 304);
@@ -227,7 +227,7 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.BackColor = Color.White;
+            label7.BackColor = Color.FromArgb(227, 237, 249);
             label7.Font = new Font("Cairo Medium", 10F);
             label7.ForeColor = Color.Red;
             label7.Location = new Point(133, 226);
@@ -240,7 +240,7 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.BackColor = Color.White;
+            label6.BackColor = Color.FromArgb(227, 237, 249);
             label6.Font = new Font("Cairo Medium", 10F);
             label6.ForeColor = Color.Red;
             label6.Location = new Point(133, 159);
@@ -251,12 +251,12 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Dock = DockStyle.Right;
             pictureBox2.Image = Properties.Resources.Users2;
-            pictureBox2.Location = new Point(595, 9);
+            pictureBox2.Location = new Point(614, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(45, 50);
+            pictureBox2.Size = new Size(45, 70);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 15;
             pictureBox2.TabStop = false;
@@ -282,7 +282,7 @@
             panel1.Controls.Add(lblSup);
             panel1.Controls.Add(separatorControl1);
             panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(label5);
+            panel1.Controls.Add(labelTitle);
             panel1.Location = new Point(2, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(659, 70);
@@ -318,7 +318,7 @@
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
             separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(649, 0);
+            separatorControl1.Location = new Point(604, 0);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
             separatorControl1.Size = new Size(10, 70);
@@ -326,13 +326,13 @@
             // 
             // UserAddForm
             // 
-            Appearance.BackColor = Color.White;
+            Appearance.BackColor = Color.FromArgb(227, 237, 249);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1001, 632);
             Controls.Add(panel1);
-            Controls.Add(buttonSave);
+            Controls.Add(btnSave);
             Controls.Add(comboBoxRole);
             Controls.Add(label9);
             Controls.Add(textBoxPassword);
@@ -342,11 +342,11 @@
             Controls.Add(textBoxUserName);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(label4);
+            Controls.Add(labelRole);
             Controls.Add(btnClose);
-            Controls.Add(label3);
-            Controls.Add(label1);
-            Controls.Add(label2);
+            Controls.Add(labelPassword);
+            Controls.Add(labelName);
+            Controls.Add(labelUserName);
             FormBorderStyle = FormBorderStyle.None;
             Name = "UserAddForm";
             RightToLeft = RightToLeft.Yes;
@@ -368,16 +368,16 @@
 
         #endregion
         private TextBox textBoxName;
-        private DevExpress.XtraEditors.SimpleButton buttonSave;
-        private Label label1;
-        private Label label4;
-        private Label label3;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private Label labelName;
+        private Label labelRole;
+        private Label labelPassword;
         private TextBox textBoxPassword;
-        private Label label2;
+        private Label labelUserName;
         private TextBox textBoxUserName;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxRole;
         private DevExpress.XtraEditors.SimpleButton btnClose;
-        private Label label5;
+        private Label labelTitle;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label label6;

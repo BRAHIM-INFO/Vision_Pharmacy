@@ -30,77 +30,77 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpiredUserControl));
-            panel1 = new Panel();
-            lblEmp = new Label();
-            separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            pictureBox1 = new PictureBox();
+            pnlTop = new Panel();
+            lblTitleExpired = new Label();
+            SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
+            PicLaterale = new PictureBox();
             DGListeMedication = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            btnPrintMedic = new DevExpress.XtraEditors.SimpleButton();
+            btnPrint = new DevExpress.XtraEditors.SimpleButton();
             labelExpired = new Label();
             _timer = new System.Windows.Forms.Timer(components);
             comboBoxExpiry = new ComboBox();
             dateTimeExpired = new DateTimePicker();
             label7 = new Label();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGListeMedication).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // pnlTop
             // 
-            panel1.BackColor = Color.FromArgb(60, 71, 151);
-            panel1.Controls.Add(lblEmp);
-            panel1.Controls.Add(separatorControl1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 2, 4, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1393, 70);
-            panel1.TabIndex = 28;
+            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
+            pnlTop.Controls.Add(lblTitleExpired);
+            pnlTop.Controls.Add(SeparatLat);
+            pnlTop.Controls.Add(PicLaterale);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Margin = new Padding(4, 2, 4, 2);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(1393, 70);
+            pnlTop.TabIndex = 28;
             // 
-            // lblEmp
+            // lblTitleExpired
             // 
-            lblEmp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblEmp.AutoSize = true;
-            lblEmp.Font = new Font("Cairo Medium", 12F);
-            lblEmp.ForeColor = Color.White;
-            lblEmp.Location = new Point(1018, 19);
-            lblEmp.Margin = new Padding(4, 0, 4, 0);
-            lblEmp.Name = "lblEmp";
-            lblEmp.Size = new Size(277, 37);
-            lblEmp.TabIndex = 1;
-            lblEmp.Text = "قائمة الأدوية المنتهية الصلاحية";
+            lblTitleExpired.AutoSize = true;
+            lblTitleExpired.Dock = DockStyle.Right;
+            lblTitleExpired.Font = new Font("Cairo Medium", 12F);
+            lblTitleExpired.ForeColor = Color.White;
+            lblTitleExpired.Location = new Point(1026, 0);
+            lblTitleExpired.Margin = new Padding(4, 0, 4, 0);
+            lblTitleExpired.Name = "lblTitleExpired";
+            lblTitleExpired.Size = new Size(277, 37);
+            lblTitleExpired.TabIndex = 1;
+            lblTitleExpired.Text = "قائمة الأدوية المنتهية الصلاحية";
             // 
-            // separatorControl1
+            // SeparatLat
             // 
-            separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.Dock = DockStyle.Right;
-            separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(1303, 0);
-            separatorControl1.Margin = new Padding(4, 2, 4, 2);
-            separatorControl1.Name = "separatorControl1";
-            separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(10, 70);
-            separatorControl1.TabIndex = 1;
+            SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.Dock = DockStyle.Right;
+            SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.LineOrientation = Orientation.Vertical;
+            SeparatLat.LineThickness = 10;
+            SeparatLat.Location = new Point(1303, 0);
+            SeparatLat.Margin = new Padding(4, 2, 4, 2);
+            SeparatLat.Name = "SeparatLat";
+            SeparatLat.Padding = new Padding(0);
+            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.TabIndex = 1;
             // 
-            // pictureBox1
+            // PicLaterale
             // 
-            pictureBox1.BackColor = Color.Silver;
-            pictureBox1.Dock = DockStyle.Right;
-            pictureBox1.Image = Properties.Resources.pill_bottle_15968729;
-            pictureBox1.Location = new Point(1313, 0);
-            pictureBox1.Margin = new Padding(4, 2, 4, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 70);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 26;
-            pictureBox1.TabStop = false;
+            PicLaterale.BackColor = Color.Silver;
+            PicLaterale.Dock = DockStyle.Right;
+            PicLaterale.Image = Properties.Resources.pill_bottle_15968729;
+            PicLaterale.Location = new Point(1313, 0);
+            PicLaterale.Margin = new Padding(4, 2, 4, 2);
+            PicLaterale.Name = "PicLaterale";
+            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLaterale.TabIndex = 26;
+            PicLaterale.TabStop = false;
             // 
             // DGListeMedication
             // 
@@ -160,30 +160,30 @@
             gridView1.GridControl = DGListeMedication;
             gridView1.Name = "gridView1";
             // 
-            // btnPrintMedic
+            // btnPrint
             // 
-            btnPrintMedic.Appearance.BackColor = Color.Gray;
-            btnPrintMedic.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnPrintMedic.Appearance.Options.UseBackColor = true;
-            btnPrintMedic.Appearance.Options.UseFont = true;
-            btnPrintMedic.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnPrintMedic.AppearanceDisabled.Options.UseFont = true;
-            btnPrintMedic.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnPrintMedic.AppearanceHovered.Options.UseFont = true;
-            btnPrintMedic.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnPrintMedic.AppearancePressed.Options.UseFont = true;
-            btnPrintMedic.Cursor = Cursors.Hand;
-            btnPrintMedic.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrintMedic.ImageOptions.SvgImage");
-            btnPrintMedic.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrintMedic.Location = new Point(4, 74);
-            btnPrintMedic.Margin = new Padding(4, 2, 4, 2);
-            btnPrintMedic.Name = "btnPrintMedic";
-            btnPrintMedic.RightToLeft = RightToLeft.Yes;
-            btnPrintMedic.Size = new Size(136, 46);
-            btnPrintMedic.TabIndex = 34;
-            btnPrintMedic.Text = "طباعة";
-            btnPrintMedic.ToolTipTitle = "اضافة";
-            btnPrintMedic.Click += btnPrintMedic_Click;
+            btnPrint.Appearance.BackColor = Color.Gray;
+            btnPrint.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnPrint.Appearance.Options.UseBackColor = true;
+            btnPrint.Appearance.Options.UseFont = true;
+            btnPrint.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceDisabled.Options.UseFont = true;
+            btnPrint.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceHovered.Options.UseFont = true;
+            btnPrint.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearancePressed.Options.UseFont = true;
+            btnPrint.Cursor = Cursors.Hand;
+            btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
+            btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnPrint.Location = new Point(4, 74);
+            btnPrint.Margin = new Padding(4, 2, 4, 2);
+            btnPrint.Name = "btnPrint";
+            btnPrint.RightToLeft = RightToLeft.Yes;
+            btnPrint.Size = new Size(136, 46);
+            btnPrint.TabIndex = 34;
+            btnPrint.Text = "طباعة";
+            btnPrint.ToolTipTitle = "اضافة";
+            btnPrint.Click += btnPrintMedic_Click;
             // 
             // labelExpired
             // 
@@ -198,7 +198,6 @@
             labelExpired.Size = new Size(21, 32);
             labelExpired.TabIndex = 121;
             labelExpired.Text = "-";
-            //  
             // 
             // comboBoxExpiry
             // 
@@ -250,16 +249,16 @@
             Controls.Add(dateTimeExpired);
             Controls.Add(comboBoxExpiry);
             Controls.Add(labelExpired);
-            Controls.Add(btnPrintMedic);
+            Controls.Add(btnPrint);
             Controls.Add(DGListeMedication);
-            Controls.Add(panel1);
+            Controls.Add(pnlTop);
             Name = "ExpiredUserControl";
             Size = new Size(1393, 750);
             Load += ExpiredUserControl_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGListeMedication).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ResumeLayout(false);
@@ -268,13 +267,13 @@
 
         #endregion
 
-        private Panel panel1;
-        private Label lblEmp;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private PictureBox pictureBox1;
+        private Panel pnlTop;
+        private Label lblTitleExpired;
+        private DevExpress.XtraEditors.SeparatorControl SeparatLat;
+        private PictureBox PicLaterale;
         private DevExpress.XtraGrid.GridControl DGListeMedication;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton btnPrintMedic;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
         private Label labelExpired;
         private System.Windows.Forms.Timer _timer;
         private ComboBox comboBoxExpiry;

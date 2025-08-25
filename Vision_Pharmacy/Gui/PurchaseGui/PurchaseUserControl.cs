@@ -44,12 +44,22 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
             _dataHelper = (IDataHelper<Purchase>)ContainerConfig.ObjectType("Purchase");
             _dataHelperMedication = (IDataHelper<Medication>)ContainerConfig.ObjectType("Medication");
-            AllClasses.RoundButtonCorners(btnAddPurch, 15);
-            AllClasses.RoundButtonCorners(btnPrintPurch, 15);
+            AllClasses.RoundButtonCorners(btnAdd, 15);
+            AllClasses.RoundButtonCorners(btnPrint, 15);
 
 
             // Set DataGridView Columns
             SetDataGridViewColumns();
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
+
         }
 
 
@@ -483,6 +493,48 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             loading.Hide();
         }
 
-        
+        //ملف الموارد العربي
+        public void ApplyArabicResources()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            PicLaterale.Dock = DockStyle.Right;
+            SeparatLat.Dock = DockStyle.Right;
+            lblTitlePurchase.Dock = DockStyle.Right;
+
+            btnPrint.Location = new Point(3, 76);
+            btnAdd.Location = new Point(146, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+
+            lblTitlePurchase.Text = Resources_Ar.TitleUser;
+            btnAdd.Text = Resources_Ar.AddButton_User;
+            btnPrint.Text = Resources_Ar.PrintButton_User;
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+
+            DGListePurchase.RightToLeft = RightToLeft.Yes;
+        }
+
+        //ملف الموارد انجليزي
+        public void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No;
+            PicLaterale.Dock = DockStyle.Left;
+            SeparatLat.Dock = DockStyle.Left;
+            lblTitlePurchase.Dock = DockStyle.Left;
+
+            btnPrint.Location = new Point(this.Size.Width - 140, 76);
+            btnAdd.Location = new Point(this.Size.Width - 283, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            lblTitlePurchase.Text = Resources_En.TitleUser;
+            btnAdd.Text = Resources_En.AddButton_User;
+            btnPrint.Text = Resources_En.PrintButton_User;
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+
+            DGListePurchase.RightToLeft = RightToLeft.No;
+        }
     }
 }

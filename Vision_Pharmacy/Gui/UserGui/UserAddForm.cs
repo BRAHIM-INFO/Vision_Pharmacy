@@ -65,6 +65,15 @@ namespace Vision_Pharmacy.Gui.UserGui
                 SetDataToFileds();
             }
 
+            // Set Language
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ArabLanguage();
+            }
+            else
+            {
+                EnglishLanguage();
+            }
         }
 
 
@@ -237,6 +246,40 @@ namespace Vision_Pharmacy.Gui.UserGui
                 ReleaseCapture();
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
+        }
+
+        //ملف الموارد العربي
+        public void ArabLanguage()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+            labelTitle.Text = "اضافة مستخدم جديد";
+            labelName.Text = "الاسم الكامل";
+            labelUserName.Text = "اسم المستخدم";
+            labelPassword.Text = "كلمة المرور";
+            labelRole.Text = "الصلاحية";
+            btnSave.Text = "حفظ";
+            btnClose.Text = "اغلاق";
+            comboBoxRole.Properties.Items.Clear();
+            comboBoxRole.Properties.Items.Add("مدير");
+            comboBoxRole.Properties.Items.Add("موظف");
+        }
+
+        //ملف الموارد الانجليزي
+        public void EnglishLanguage()
+        {
+            this.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = false;
+            labelTitle.Text = "Add New User";
+            labelName.Text = "Full Name";
+            labelUserName.Text = "User Name";
+            labelPassword.Text = "Password";
+            labelRole.Text = "Role";
+            btnSave.Text = "Save";
+            btnClose.Text = "Close";
+            comboBoxRole.Properties.Items.Clear();
+            comboBoxRole.Properties.Items.Add("Admin");
+            comboBoxRole.Properties.Items.Add("User");
         }
     }
 }

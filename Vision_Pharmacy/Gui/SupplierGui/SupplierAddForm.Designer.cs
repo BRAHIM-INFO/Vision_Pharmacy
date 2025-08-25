@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierAddForm));
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            label1 = new Label();
+            lblTitle = new Label();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             pictureBox3 = new PictureBox();
             label6 = new Label();
             lblSupplierEmail = new Label();
             lblSupplierPhone = new Label();
-            buttonSaveSup = new DevExpress.XtraEditors.SimpleButton();
+            btnSave = new DevExpress.XtraEditors.SimpleButton();
             txtSupplierPhone = new TextBox();
             lblSupplierAddress = new Label();
             txtSupplierName = new TextBox();
@@ -75,28 +75,28 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lblTitle);
             panel1.Controls.Add(separatorControl1);
             panel1.Controls.Add(pictureBox3);
-            panel1.Location = new Point(26, 22);
+            panel1.Location = new Point(26, 27);
             panel1.Name = "panel1";
+            panel1.RightToLeft = RightToLeft.Yes;
             panel1.Size = new Size(963, 70);
             panel1.TabIndex = 16;
             panel1.MouseDown += panel1_MouseDown;
             // 
-            // label1
+            // lblTitle
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Cairo Medium", 12F);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(572, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(295, 37);
-            label1.TabIndex = 18;
-            label1.Text = "ادارة الموردين >  اضافة مورد جديد";
+            lblTitle.AutoSize = true;
+            lblTitle.Dock = DockStyle.Right;
+            lblTitle.Font = new Font("Cairo Medium", 12F);
+            lblTitle.ForeColor = Color.Black;
+            lblTitle.Location = new Point(578, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(295, 37);
+            lblTitle.TabIndex = 18;
+            lblTitle.Text = "ادارة الموردين >  اضافة مورد جديد";
             // 
             // separatorControl1
             // 
@@ -142,7 +142,7 @@
             lblSupplierEmail.AutoSize = true;
             lblSupplierEmail.BackColor = Color.White;
             lblSupplierEmail.Font = new Font("Cairo Medium", 10F);
-            lblSupplierEmail.Location = new Point(819, 229);
+            lblSupplierEmail.Location = new Point(815, 229);
             lblSupplierEmail.Name = "lblSupplierEmail";
             lblSupplierEmail.Size = new Size(124, 32);
             lblSupplierEmail.TabIndex = 24;
@@ -154,35 +154,35 @@
             lblSupplierPhone.AutoSize = true;
             lblSupplierPhone.BackColor = Color.White;
             lblSupplierPhone.Font = new Font("Cairo Medium", 10F);
-            lblSupplierPhone.Location = new Point(819, 160);
+            lblSupplierPhone.Location = new Point(876, 163);
             lblSupplierPhone.Name = "lblSupplierPhone";
             lblSupplierPhone.Size = new Size(63, 32);
             lblSupplierPhone.TabIndex = 23;
             lblSupplierPhone.Text = "الهاتف";
             // 
-            // buttonSaveSup
+            // btnSave
             // 
-            buttonSaveSup.Appearance.BackColor = Color.FromArgb(74, 89, 180);
-            buttonSaveSup.Appearance.Font = new Font("Cairo Medium", 10F);
-            buttonSaveSup.Appearance.Options.UseBackColor = true;
-            buttonSaveSup.Appearance.Options.UseFont = true;
-            buttonSaveSup.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            buttonSaveSup.AppearanceDisabled.Options.UseFont = true;
-            buttonSaveSup.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            buttonSaveSup.AppearanceHovered.Options.UseFont = true;
-            buttonSaveSup.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            buttonSaveSup.AppearancePressed.Options.UseFont = true;
-            buttonSaveSup.Cursor = Cursors.Hand;
-            buttonSaveSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveSup.ImageOptions.SvgImage");
-            buttonSaveSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            buttonSaveSup.Location = new Point(343, 481);
-            buttonSaveSup.Name = "buttonSaveSup";
-            buttonSaveSup.RightToLeft = RightToLeft.Yes;
-            buttonSaveSup.Size = new Size(159, 45);
-            buttonSaveSup.TabIndex = 26;
-            buttonSaveSup.Text = "حفظ";
-            buttonSaveSup.ToolTipTitle = "اضافة";
-            buttonSaveSup.Click += buttonSaveSup_Click;
+            btnSave.Appearance.BackColor = Color.FromArgb(74, 89, 180);
+            btnSave.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnSave.Appearance.Options.UseBackColor = true;
+            btnSave.Appearance.Options.UseFont = true;
+            btnSave.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearanceDisabled.Options.UseFont = true;
+            btnSave.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearanceHovered.Options.UseFont = true;
+            btnSave.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearancePressed.Options.UseFont = true;
+            btnSave.Cursor = Cursors.Hand;
+            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
+            btnSave.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnSave.Location = new Point(343, 481);
+            btnSave.Name = "btnSave";
+            btnSave.RightToLeft = RightToLeft.Yes;
+            btnSave.Size = new Size(159, 45);
+            btnSave.TabIndex = 26;
+            btnSave.Text = "حفظ";
+            btnSave.ToolTipTitle = "اضافة";
+            btnSave.Click += buttonSaveSup_Click;
             // 
             // txtSupplierPhone
             // 
@@ -191,7 +191,7 @@
             txtSupplierPhone.Font = new Font("Cairo Medium", 10F);
             txtSupplierPhone.Location = new Point(343, 160);
             txtSupplierPhone.Name = "txtSupplierPhone";
-            txtSupplierPhone.Size = new Size(452, 39);
+            txtSupplierPhone.Size = new Size(433, 39);
             txtSupplierPhone.TabIndex = 22;
             // 
             // lblSupplierAddress
@@ -200,7 +200,7 @@
             lblSupplierAddress.AutoSize = true;
             lblSupplierAddress.BackColor = Color.White;
             lblSupplierAddress.Font = new Font("Cairo Medium", 10F);
-            lblSupplierAddress.Location = new Point(819, 89);
+            lblSupplierAddress.Location = new Point(873, 93);
             lblSupplierAddress.Name = "lblSupplierAddress";
             lblSupplierAddress.Size = new Size(66, 32);
             lblSupplierAddress.TabIndex = 21;
@@ -213,7 +213,7 @@
             txtSupplierName.Font = new Font("Cairo Medium", 10F);
             txtSupplierName.Location = new Point(343, 15);
             txtSupplierName.Name = "txtSupplierName";
-            txtSupplierName.Size = new Size(452, 39);
+            txtSupplierName.Size = new Size(433, 39);
             txtSupplierName.TabIndex = 18;
             // 
             // txtSupplierAddress
@@ -223,7 +223,7 @@
             txtSupplierAddress.Font = new Font("Cairo Medium", 10F);
             txtSupplierAddress.Location = new Point(343, 86);
             txtSupplierAddress.Name = "txtSupplierAddress";
-            txtSupplierAddress.Size = new Size(452, 39);
+            txtSupplierAddress.Size = new Size(433, 39);
             txtSupplierAddress.TabIndex = 20;
             // 
             // lblSupplierName
@@ -271,7 +271,7 @@
             lblSupplierNotes.AutoSize = true;
             lblSupplierNotes.BackColor = Color.White;
             lblSupplierNotes.Font = new Font("Cairo Medium", 10F);
-            lblSupplierNotes.Location = new Point(819, 336);
+            lblSupplierNotes.Location = new Point(808, 339);
             lblSupplierNotes.Name = "lblSupplierNotes";
             lblSupplierNotes.Size = new Size(131, 32);
             lblSupplierNotes.TabIndex = 35;
@@ -283,7 +283,7 @@
             lblSupplierIsActive.AutoSize = true;
             lblSupplierIsActive.BackColor = Color.White;
             lblSupplierIsActive.Font = new Font("Cairo Medium", 10F);
-            lblSupplierIsActive.Location = new Point(660, 283);
+            lblSupplierIsActive.Location = new Point(641, 283);
             lblSupplierIsActive.Name = "lblSupplierIsActive";
             lblSupplierIsActive.Size = new Size(135, 32);
             lblSupplierIsActive.TabIndex = 34;
@@ -296,7 +296,7 @@
             txtSupplierEmail.Font = new Font("Cairo Medium", 10F);
             txtSupplierEmail.Location = new Point(343, 226);
             txtSupplierEmail.Name = "txtSupplierEmail";
-            txtSupplierEmail.Size = new Size(452, 39);
+            txtSupplierEmail.Size = new Size(433, 39);
             txtSupplierEmail.TabIndex = 36;
             // 
             // txtSupplierNotes
@@ -306,7 +306,7 @@
             txtSupplierNotes.Location = new Point(343, 336);
             txtSupplierNotes.Multiline = true;
             txtSupplierNotes.Name = "txtSupplierNotes";
-            txtSupplierNotes.Size = new Size(452, 137);
+            txtSupplierNotes.Size = new Size(433, 137);
             txtSupplierNotes.TabIndex = 37;
             // 
             // chkSupplierIsActive
@@ -328,7 +328,7 @@
             panel2.Controls.Add(chkSupplierIsActive);
             panel2.Controls.Add(PicChange);
             panel2.Controls.Add(txtSupplierNotes);
-            panel2.Controls.Add(buttonSaveSup);
+            panel2.Controls.Add(btnSave);
             panel2.Controls.Add(txtSupplierEmail);
             panel2.Controls.Add(txtSupplierName);
             panel2.Controls.Add(lblSupplierNotes);
@@ -340,7 +340,7 @@
             panel2.Controls.Add(txtSupplierPhone);
             panel2.Controls.Add(lblSupplierEmail);
             panel2.Controls.Add(lblSupplierPhone);
-            panel2.Location = new Point(26, 109);
+            panel2.Location = new Point(26, 117);
             panel2.Name = "panel2";
             panel2.RightToLeft = RightToLeft.Yes;
             panel2.Size = new Size(963, 531);
@@ -384,7 +384,7 @@
         private Label label6;
         private Label lblSupplierEmail;
         private Label lblSupplierPhone;
-        public DevExpress.XtraEditors.SimpleButton buttonSaveSup;
+        public DevExpress.XtraEditors.SimpleButton btnSave;
         private TextBox txtSupplierPhone;
         private Label lblSupplierAddress;
         private TextBox txtSupplierName;
@@ -397,7 +397,7 @@
         private TextBox txtSupplierEmail;
         private TextBox txtSupplierNotes;
         private DevExpress.XtraEditors.ToggleSwitch chkSupplierIsActive;
-        private Label label1;
+        private Label lblTitle;
         private Panel panel2;
     }
 }

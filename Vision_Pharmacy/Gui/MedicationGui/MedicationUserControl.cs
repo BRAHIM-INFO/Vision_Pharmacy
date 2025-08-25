@@ -49,10 +49,20 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
             _dataHelper = (IDataHelper<Medication>)ContainerConfig.ObjectType("Medication");
             LoadData();
-            AllClasses.RoundButtonCorners(btnAddMedic, 15);
+            AllClasses.RoundButtonCorners(btnAdd, 15);
             AllClasses.RoundButtonCorners(btnExcel, 15);
-            AllClasses.RoundButtonCorners(btnPrintMedic, 15);
+            AllClasses.RoundButtonCorners(btnPrint, 15);
             //gridView1.OptionsBehavior.Editable = false;
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
+
         }
 
         //Event Handlers
@@ -584,6 +594,51 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         }
 
         #endregion
-         
+
+
+        //ملف الموارد العربي
+        public void ApplyArabicResources()
+        {
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            PicLaterale.Dock = DockStyle.Right;
+            SeparatLat.Dock = DockStyle.Right;
+            lblTitleMedicat.Dock = DockStyle.Right;
+
+            btnPrint.Location = new Point(3, 76);
+            btnAdd.Location = new Point(146, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+
+            lblTitleMedicat.Text = Resources_Ar.TitleUser;
+            btnAdd.Text = Resources_Ar.AddButton_User;
+            btnPrint.Text = Resources_Ar.PrintButton_User;
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+
+            DGListeMedication.RightToLeft = System.Windows.Forms.RightToLeft.Yes;// RightToLeft.Yes;
+        }
+
+        //ملف الموارد انجليزي
+        public void ApplyEnglishResources()
+        {
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            PicLaterale.Dock = DockStyle.Left;
+            SeparatLat.Dock = DockStyle.Left;
+            lblTitleMedicat.Dock = DockStyle.Left;
+
+            btnPrint.Location = new Point(this.Size.Width - 140, 76);
+            btnAdd.Location = new Point(this.Size.Width - 283, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            lblTitleMedicat.Text = Resources_En.TitleUser;
+            btnAdd.Text = Resources_En.AddButton_User;
+            btnPrint.Text = Resources_En.PrintButton_User;
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+
+            DGListeMedication.RightToLeft = System.Windows.Forms.RightToLeft.No;
+        }
+
     }
 }

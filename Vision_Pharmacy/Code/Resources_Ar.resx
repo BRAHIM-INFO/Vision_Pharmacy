@@ -167,4 +167,37 @@
   <data name="RoleUser" xml:space="preserve">
     <value>مستخدم</value>
   </data>
+  <data name="AddButton_User" xml:space="preserve">
+    <value>اضافة</value>
+  </data>
+  <data name="PrintButton_User" xml:space="preserve">
+    <value>طباعة</value>
+  </data>
+  <data name="TitleUser" xml:space="preserve">
+    <value>قائمة المستخدمين</value>
+  </data>
+  <data name="EmptyDataText" xml:space="preserve">
+    <value>لا يوجد بيانات. استخدم الازار اعلاه لاجراء العمليات على البيانات</value>
+  </data>
+  <data name="lblTitlePurchase" xml:space="preserve">
+    <value>قائمة المشتريات</value>
+  </data>
+  <data name="lblTitleMedicat" xml:space="preserve">
+    <value>قائمة الأدوية</value>
+  </data>
+  <data name="lblTitleExpired" xml:space="preserve">
+    <value>قائمة الأدوية المنتهية الصلاحية</value>
+  </data>
+  <data name="lblTitleEmp" xml:space="preserve">
+    <value>قائمة الموظفين</value>
+  </data>
+  <data name="lblTitleAttend" xml:space="preserve">
+    <value>تسجيل الغيابات و حظور الموظفين</value>
+  </data>
+  <data name="lblTitlePay" xml:space="preserve">
+    <value>قائمة رواتب الموظفين</value>
+  </data>
+  <data name="lblTitleCustom" xml:space="preserve">
+    <value>قائمة العملاء</value>
+  </data>
 </root>

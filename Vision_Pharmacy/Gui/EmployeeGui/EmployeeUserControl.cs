@@ -41,6 +41,15 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             _dataHelper = (IDataHelper<Employees>)ContainerConfig.ObjectType("Employees");
             LoadData();
             gridView1.OptionsBehavior.Editable = false;
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
         }
 
         private void btnAddEmp_Click(object sender, EventArgs e)
@@ -129,7 +138,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
                 // Loading Data
                 DGListeEmployee.DataSource = await Task.Run(() => _dataHelper.GetData());
 
-               // SetDataGridViewColumns();
+                SetDataGridViewColumns();
             }
             else
             {
@@ -154,25 +163,33 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             }
 
         }
-        //private void SetDataGridViewColumns()
-        //{
-        //    try
-        //    {
-        //        gridView1.Columns[0].Caption = "المعرف";
-        //        gridView1.Columns[1].Caption = "الاسم الكامل";
-        //        gridView1.Columns[2].Caption = "اسم المورد";
-        //        gridView1.Columns[3].Caption = "العنوان";
-        //        gridView1.Columns[4].Caption = "الهاتف";
-        //        gridView1.Columns[5].Caption = "البريد الإلكتروني";
-        //        gridView1.Columns[6].Caption = "نشط";
-        //        gridView1.Columns[7].Caption = "ملاحظات إضافية";
-        //    }
-        //    catch
-        //    {
-        //        // تجاهل الخطأ (يفضل تسجيله)
-        //    }
-        //    // Hide Columns
-        //}
+
+
+        private void SetDataGridViewColumns()
+        {
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                gridView1.Columns[0].Caption = "المعرف";
+                gridView1.Columns[1].Caption = "الاسم الكامل";
+                gridView1.Columns[2].Caption = "اسم المورد";
+                gridView1.Columns[3].Caption = "العنوان";
+                gridView1.Columns[4].Caption = "الهاتف";
+                gridView1.Columns[5].Caption = "البريد الإلكتروني";
+                gridView1.Columns[6].Caption = "نشط";
+                gridView1.Columns[7].Caption = "ملاحظات إضافية";
+            }
+            else
+            {
+                gridView1.Columns[0].Caption = "ID";
+                gridView1.Columns[1].Caption = "Full Name";
+                gridView1.Columns[2].Caption = "Resource Name";
+                gridView1.Columns[3].Caption = "Address";
+                gridView1.Columns[4].Caption = "Phone";
+                gridView1.Columns[5].Caption = "Email";
+                gridView1.Columns[6].Caption = "Active";
+                gridView1.Columns[7].Caption = "Additional Notes";
+            } 
+        }
 
         // Singleton Instance
         public static UserControl Instance()
@@ -254,5 +271,49 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         }
 
         #endregion
+
+        //ملف الموارد العربي
+        public void ApplyArabicResources()
+        {
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            PicLaterale.Dock = DockStyle.Right;
+            SeparatLat.Dock = DockStyle.Right;
+            lblTitleEmp.Dock = DockStyle.Right;
+
+            btnPrint.Location = new Point(3, 76);
+            btnAdd.Location = new Point(146, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+
+            lblTitleEmp.Text = Resources_Ar.TitleUser;
+            btnAdd.Text = Resources_Ar.AddButton_User;
+            btnPrint.Text = Resources_Ar.PrintButton_User;
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+
+            DGListeEmployee.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+        }
+
+        //ملف الموارد انجليزي
+        public void ApplyEnglishResources()
+        {
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            PicLaterale.Dock = DockStyle.Left;
+            SeparatLat.Dock = DockStyle.Left;
+            lblTitleEmp.Dock = DockStyle.Left;
+
+            btnPrint.Location = new Point(this.Size.Width - 140, 76);
+            btnAdd.Location = new Point(this.Size.Width - 283, 76);
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            lblTitleEmp.Text = Resources_En.TitleUser;
+            btnAdd.Text = Resources_En.AddButton_User;
+            btnPrint.Text = Resources_En.PrintButton_User;
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+
+            DGListeEmployee.RightToLeft = System.Windows.Forms.RightToLeft.No;
+        }
     }
 }

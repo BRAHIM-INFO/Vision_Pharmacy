@@ -250,5 +250,17 @@ namespace Vision_Pharmacy.Properties {
                 this["CompanyTel"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Ar")]
+        public string ChangeLang {
+            get {
+                return ((string)(this["ChangeLang"]));
+            }
+            set {
+                this["ChangeLang"] = value;
+            }
+        }
     }
 }

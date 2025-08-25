@@ -333,7 +333,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                             // عرض تفاصيل الدواء
                             RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
                             SupplierAddForm customerAdd = new SupplierAddForm(RowId, this);
-                            customerAdd.buttonSaveSup.Visible = false; // إخفاء زر الحفظ
+                            customerAdd.btnSave.Visible = false; // إخفاء زر الحفظ
                             customerAdd.ShowDialog();
                             return;
 
@@ -413,7 +413,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                 // عرض تفاصيل الدواء
                 RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
                 SupplierAddForm customerAdd = new SupplierAddForm(RowId, this);
-                customerAdd.buttonSaveSup.Visible = false; // إخفاء زر الحفظ
+                customerAdd.btnSave.Visible = false; // إخفاء زر الحفظ
                 customerAdd.ShowDialog();
             }
             else if (idx == 1)

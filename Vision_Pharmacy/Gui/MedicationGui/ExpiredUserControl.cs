@@ -31,7 +31,14 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             InitializeComponent();
             loading = LoadingUser.Instance();
             _dataHelper = (IDataHelper<Medication>)ContainerConfig.ObjectType("Medication");
-             
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
         }
 
         private void ExpiredUserControl_Load(object sender, EventArgs e)
@@ -219,6 +226,42 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             {
                 MessageBox.Show("❌ خطأ أثناء الطباعة: " + ex.Message);
             }
+        }
+
+        //ملف الموارد العربي
+        public void ApplyArabicResources()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            PicLaterale.Dock = DockStyle.Right;
+            SeparatLat.Dock = DockStyle.Right;
+            lblTitleExpired.Dock = DockStyle.Right;
+
+            btnPrint.Location = new Point(3, 76); 
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left; 
+
+            lblTitleExpired.Text = Resources_Ar.TitleUser; 
+            btnPrint.Text = Resources_Ar.PrintButton_User; 
+
+            DGListeMedication.RightToLeft = RightToLeft.Yes;
+        }
+
+        //ملف الموارد انجليزي
+        public void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No;
+            PicLaterale.Dock = DockStyle.Left;
+            SeparatLat.Dock = DockStyle.Left;
+            lblTitleExpired.Dock = DockStyle.Left;
+
+            btnPrint.Location = new Point(this.Size.Width - 140, 76); 
+
+            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right; 
+
+            lblTitleExpired.Text = Resources_En.TitleUser; 
+            btnPrint.Text = Resources_En.PrintButton_User; 
+
+            DGListeMedication.RightToLeft = RightToLeft.No;
         }
     }
 }

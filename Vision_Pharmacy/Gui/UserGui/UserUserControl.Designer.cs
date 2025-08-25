@@ -29,71 +29,74 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserUserControl));
-            panel1 = new Panel();
-            label1 = new Label();
-            separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            pictureBox1 = new PictureBox();
+            pnlTop = new Panel();
+            lblTitle = new Label();
+            SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
+            PicLaterale = new PictureBox();
             btnDelete = new DevExpress.XtraEditors.SimpleButton();
             btnEdit = new DevExpress.XtraEditors.SimpleButton();
             btnAdd = new DevExpress.XtraEditors.SimpleButton();
             btnPrint = new DevExpress.XtraEditors.SimpleButton();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // pnlTop
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.FromArgb(60, 71, 151);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(separatorControl1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(0, 26);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1306, 70);
-            panel1.TabIndex = 0;
+            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
+            pnlTop.Controls.Add(lblTitle);
+            pnlTop.Controls.Add(SeparatLat);
+            pnlTop.Controls.Add(PicLaterale);
+            pnlTop.Controls.Add(btnDelete);
+            pnlTop.Controls.Add(btnEdit);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.RightToLeft = RightToLeft.Yes;
+            pnlTop.Size = new Size(1306, 70);
+            pnlTop.TabIndex = 0;
             // 
-            // label1
+            // lblTitle
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Cairo Medium", 12F);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(996, 21);
-            label1.Name = "label1";
-            label1.Size = new Size(175, 37);
-            label1.TabIndex = 1;
-            label1.Text = "قائمة المستخدمين";
+            lblTitle.AutoSize = true;
+            lblTitle.Dock = DockStyle.Right;
+            lblTitle.Font = new Font("Cairo Medium", 12F);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(1041, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(175, 37);
+            lblTitle.TabIndex = 1;
+            lblTitle.Text = "قائمة المستخدمين";
             // 
-            // separatorControl1
+            // SeparatLat
             // 
-            separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.Dock = DockStyle.Right;
-            separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(1216, 0);
-            separatorControl1.Name = "separatorControl1";
-            separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(10, 70);
-            separatorControl1.TabIndex = 1;
+            SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.Dock = DockStyle.Right;
+            SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.LineOrientation = Orientation.Vertical;
+            SeparatLat.LineThickness = 10;
+            SeparatLat.Location = new Point(1216, 0);
+            SeparatLat.Name = "SeparatLat";
+            SeparatLat.Padding = new Padding(0);
+            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.TabIndex = 1;
             // 
-            // pictureBox1
+            // PicLaterale
             // 
-            pictureBox1.BackColor = Color.Silver;
-            pictureBox1.Dock = DockStyle.Right;
-            pictureBox1.Image = Properties.Resources.tasking_15578464;
-            pictureBox1.Location = new Point(1226, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 70);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            PicLaterale.BackColor = Color.Silver;
+            PicLaterale.Dock = DockStyle.Right;
+            PicLaterale.Image = Properties.Resources.tasking_15578464;
+            PicLaterale.Location = new Point(1226, 0);
+            PicLaterale.Name = "PicLaterale";
+            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLaterale.TabIndex = 0;
+            PicLaterale.TabStop = false;
             // 
             // btnDelete
             // 
@@ -110,10 +113,10 @@
             btnDelete.Cursor = Cursors.Hand;
             btnDelete.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDelete.ImageOptions.SvgImage");
             btnDelete.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnDelete.Location = new Point(146, 130);
+            btnDelete.Location = new Point(362, 3);
             btnDelete.Name = "btnDelete";
             btnDelete.RightToLeft = RightToLeft.Yes;
-            btnDelete.Size = new Size(137, 45);
+            btnDelete.Size = new Size(64, 45);
             btnDelete.TabIndex = 4;
             btnDelete.Text = "حذف";
             btnDelete.ToolTipTitle = "اضافة";
@@ -134,10 +137,10 @@
             btnEdit.Cursor = Cursors.Hand;
             btnEdit.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEdit.ImageOptions.SvgImage");
             btnEdit.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnEdit.Location = new Point(289, 130);
+            btnEdit.Location = new Point(432, 3);
             btnEdit.Name = "btnEdit";
             btnEdit.RightToLeft = RightToLeft.Yes;
-            btnEdit.Size = new Size(137, 45);
+            btnEdit.Size = new Size(85, 45);
             btnEdit.TabIndex = 5;
             btnEdit.Text = "تعديل";
             btnEdit.ToolTipTitle = "اضافة";
@@ -158,7 +161,7 @@
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(432, 130);
+            btnAdd.Location = new Point(146, 76);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
             btnAdd.Size = new Size(137, 45);
@@ -182,7 +185,7 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(3, 130);
+            btnPrint.Location = new Point(3, 76);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
             btnPrint.Size = new Size(137, 45);
@@ -194,11 +197,11 @@
             // gridControl1
             // 
             gridControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gridControl1.Location = new Point(3, 181);
+            gridControl1.Location = new Point(3, 127);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
             gridControl1.RightToLeft = RightToLeft.Yes;
-            gridControl1.Size = new Size(1289, 468);
+            gridControl1.Size = new Size(1303, 539);
             gridControl1.TabIndex = 8;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -256,15 +259,14 @@
             Controls.Add(gridControl1);
             Controls.Add(btnPrint);
             Controls.Add(btnAdd);
-            Controls.Add(btnEdit);
-            Controls.Add(btnDelete);
-            Controls.Add(panel1);
+            Controls.Add(pnlTop);
             Name = "UserUserControl";
+            RightToLeft = RightToLeft.Yes;
             Size = new Size(1306, 666);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ResumeLayout(false);
@@ -272,10 +274,10 @@
 
         #endregion
 
-        private Panel panel1;
-        private PictureBox pictureBox1;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private Label label1;
+        private Panel pnlTop;
+        private PictureBox PicLaterale;
+        private DevExpress.XtraEditors.SeparatorControl SeparatLat;
+        private Label lblTitle;
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnAdd;

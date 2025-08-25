@@ -31,24 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPayroll));
             comboBoxMonth = new ComboBox();
             comboBoxYear = new ComboBox();
-            btnExportPDF = new Button();
             DGListeEmployee = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            pictureBox1 = new PictureBox();
-            panel1 = new Panel();
-            lblEmp = new Label();
-            separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            btnSavePayroll = new DevExpress.XtraEditors.SimpleButton();
+            PicLaterale = new PictureBox();
+            pnlTop = new Panel();
+            lblTitlePay = new Label();
+            SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
+            btnSave = new DevExpress.XtraEditors.SimpleButton();
             btnCalculatee = new DevExpress.XtraEditors.SimpleButton();
-            btnPrintPayroll = new DevExpress.XtraEditors.SimpleButton();
+            btnPrint = new DevExpress.XtraEditors.SimpleButton();
             btnPrintFiche = new DevExpress.XtraEditors.SimpleButton();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)DGListeEmployee).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
+            pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
             SuspendLayout();
             // 
             // comboBoxMonth
@@ -56,10 +55,10 @@
             comboBoxMonth.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMonth.Font = new Font("Cairo Medium", 10F);
             comboBoxMonth.FormattingEnabled = true;
-            comboBoxMonth.Location = new Point(357, 127);
+            comboBoxMonth.Location = new Point(328, 76);
             comboBoxMonth.Margin = new Padding(5);
             comboBoxMonth.Name = "comboBoxMonth";
-            comboBoxMonth.Size = new Size(132, 40);
+            comboBoxMonth.Size = new Size(116, 40);
             comboBoxMonth.TabIndex = 0;
             // 
             // comboBoxYear
@@ -67,33 +66,22 @@
             comboBoxYear.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxYear.Font = new Font("Cairo Medium", 10F);
             comboBoxYear.FormattingEnabled = true;
-            comboBoxYear.Location = new Point(499, 127);
+            comboBoxYear.Location = new Point(514, 76);
             comboBoxYear.Margin = new Padding(5);
             comboBoxYear.Name = "comboBoxYear";
-            comboBoxYear.Size = new Size(132, 40);
+            comboBoxYear.Size = new Size(105, 40);
             comboBoxYear.TabIndex = 1;
-            // 
-            // btnExportPDF
-            // 
-            btnExportPDF.Location = new Point(1215, 103);
-            btnExportPDF.Margin = new Padding(5);
-            btnExportPDF.Name = "btnExportPDF";
-            btnExportPDF.Size = new Size(120, 39);
-            btnExportPDF.TabIndex = 4;
-            btnExportPDF.Text = "تصدير PDF";
-            btnExportPDF.UseVisualStyleBackColor = true;
-            btnExportPDF.Click += btnExportPDF_Click;
             // 
             // DGListeEmployee
             // 
             DGListeEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGListeEmployee.EmbeddedNavigator.Margin = new Padding(3, 4, 3, 4);
-            DGListeEmployee.Location = new Point(15, 177);
+            DGListeEmployee.Location = new Point(3, 125);
             DGListeEmployee.MainView = gridView1;
             DGListeEmployee.Margin = new Padding(3, 4, 3, 4);
             DGListeEmployee.Name = "DGListeEmployee";
             DGListeEmployee.RightToLeft = RightToLeft.Yes;
-            DGListeEmployee.Size = new Size(1355, 513);
+            DGListeEmployee.Size = new Size(1384, 580);
             DGListeEmployee.TabIndex = 23;
             DGListeEmployee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -145,78 +133,78 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 914;
             gridView1.CustomColumnDisplayText += gridView1_CustomColumnDisplayText;
             // 
-            // pictureBox1
+            // PicLaterale
             // 
-            pictureBox1.BackColor = Color.Silver;
-            pictureBox1.Dock = DockStyle.Right;
-            pictureBox1.Image = Properties.Resources.hr_19008748;
-            pictureBox1.Location = new Point(1275, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 70);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 24;
-            pictureBox1.TabStop = false;
+            PicLaterale.BackColor = Color.Silver;
+            PicLaterale.Dock = DockStyle.Right;
+            PicLaterale.Image = Properties.Resources.hr_19008748;
+            PicLaterale.Location = new Point(1307, 0);
+            PicLaterale.Name = "PicLaterale";
+            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLaterale.TabIndex = 24;
+            PicLaterale.TabStop = false;
             // 
-            // panel1
+            // pnlTop
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.FromArgb(60, 71, 151);
-            panel1.Controls.Add(lblEmp);
-            panel1.Controls.Add(separatorControl1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(15, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1355, 70);
-            panel1.TabIndex = 25;
+            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
+            pnlTop.Controls.Add(lblTitlePay);
+            pnlTop.Controls.Add(SeparatLat);
+            pnlTop.Controls.Add(PicLaterale);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(1387, 70);
+            pnlTop.TabIndex = 25;
             // 
-            // lblEmp
+            // lblTitlePay
             // 
-            lblEmp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblEmp.AutoSize = true;
-            lblEmp.Font = new Font("Cairo Medium", 12F);
-            lblEmp.ForeColor = Color.White;
-            lblEmp.Location = new Point(1049, 22);
-            lblEmp.Name = "lblEmp";
-            lblEmp.Size = new Size(205, 37);
-            lblEmp.TabIndex = 1;
-            lblEmp.Text = "قائمة رواتب الموظفين";
+            lblTitlePay.AutoSize = true;
+            lblTitlePay.Dock = DockStyle.Right;
+            lblTitlePay.Font = new Font("Cairo Medium", 12F);
+            lblTitlePay.ForeColor = Color.White;
+            lblTitlePay.Location = new Point(1092, 0);
+            lblTitlePay.Name = "lblTitlePay";
+            lblTitlePay.Size = new Size(205, 37);
+            lblTitlePay.TabIndex = 1;
+            lblTitlePay.Text = "قائمة رواتب الموظفين";
             // 
-            // separatorControl1
+            // SeparatLat
             // 
-            separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.Dock = DockStyle.Right;
-            separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(1265, 0);
-            separatorControl1.Name = "separatorControl1";
-            separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(10, 70);
-            separatorControl1.TabIndex = 1;
+            SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.Dock = DockStyle.Right;
+            SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.LineOrientation = Orientation.Vertical;
+            SeparatLat.LineThickness = 10;
+            SeparatLat.Location = new Point(1297, 0);
+            SeparatLat.Name = "SeparatLat";
+            SeparatLat.Padding = new Padding(0);
+            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.TabIndex = 1;
             // 
-            // btnSavePayroll
+            // btnSave
             // 
-            btnSavePayroll.Appearance.BackColor = Color.FromArgb(74, 89, 180);
-            btnSavePayroll.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnSavePayroll.Appearance.Options.UseBackColor = true;
-            btnSavePayroll.Appearance.Options.UseFont = true;
-            btnSavePayroll.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnSavePayroll.AppearanceDisabled.Options.UseFont = true;
-            btnSavePayroll.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnSavePayroll.AppearanceHovered.Options.UseFont = true;
-            btnSavePayroll.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnSavePayroll.AppearancePressed.Options.UseFont = true;
-            btnSavePayroll.Cursor = Cursors.Hand;
-            btnSavePayroll.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSavePayroll.ImageOptions.SvgImage");
-            btnSavePayroll.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnSavePayroll.Location = new Point(806, 127);
-            btnSavePayroll.Name = "btnSavePayroll";
-            btnSavePayroll.RightToLeft = RightToLeft.Yes;
-            btnSavePayroll.Size = new Size(152, 40);
-            btnSavePayroll.TabIndex = 27;
-            btnSavePayroll.Text = "حفظ";
-            btnSavePayroll.ToolTipTitle = "اضافة";
-            btnSavePayroll.Click += btnSavePayroll_Click;
+            btnSave.Appearance.BackColor = Color.FromArgb(74, 89, 180);
+            btnSave.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnSave.Appearance.Options.UseBackColor = true;
+            btnSave.Appearance.Options.UseFont = true;
+            btnSave.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearanceDisabled.Options.UseFont = true;
+            btnSave.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearanceHovered.Options.UseFont = true;
+            btnSave.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearancePressed.Options.UseFont = true;
+            btnSave.Cursor = Cursors.Hand;
+            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
+            btnSave.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnSave.Location = new Point(832, 76);
+            btnSave.Name = "btnSave";
+            btnSave.RightToLeft = RightToLeft.Yes;
+            btnSave.Size = new Size(140, 40);
+            btnSave.TabIndex = 27;
+            btnSave.Text = "حفظ";
+            btnSave.ToolTipTitle = "اضافة";
+            btnSave.Click += btnSavePayroll_Click;
             // 
             // btnCalculatee
             // 
@@ -233,38 +221,38 @@
             btnCalculatee.Cursor = Cursors.Hand;
             btnCalculatee.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnCalculatee.ImageOptions.SvgImage");
             btnCalculatee.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnCalculatee.Location = new Point(639, 127);
+            btnCalculatee.Location = new Point(682, 76);
             btnCalculatee.Name = "btnCalculatee";
             btnCalculatee.RightToLeft = RightToLeft.Yes;
-            btnCalculatee.Size = new Size(161, 40);
+            btnCalculatee.Size = new Size(144, 40);
             btnCalculatee.TabIndex = 28;
             btnCalculatee.Text = "حساب الرواتب";
             btnCalculatee.ToolTipTitle = "اضافة";
             btnCalculatee.Click += btnCalculatee_Click;
             // 
-            // btnPrintPayroll
+            // btnPrint
             // 
-            btnPrintPayroll.Appearance.BackColor = Color.Gray;
-            btnPrintPayroll.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnPrintPayroll.Appearance.Options.UseBackColor = true;
-            btnPrintPayroll.Appearance.Options.UseFont = true;
-            btnPrintPayroll.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnPrintPayroll.AppearanceDisabled.Options.UseFont = true;
-            btnPrintPayroll.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnPrintPayroll.AppearanceHovered.Options.UseFont = true;
-            btnPrintPayroll.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnPrintPayroll.AppearancePressed.Options.UseFont = true;
-            btnPrintPayroll.Cursor = Cursors.Hand;
-            btnPrintPayroll.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrintPayroll.ImageOptions.SvgImage");
-            btnPrintPayroll.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrintPayroll.Location = new Point(15, 127);
-            btnPrintPayroll.Name = "btnPrintPayroll";
-            btnPrintPayroll.RightToLeft = RightToLeft.Yes;
-            btnPrintPayroll.Size = new Size(164, 40);
-            btnPrintPayroll.TabIndex = 34;
-            btnPrintPayroll.Text = "طباعة القائمة";
-            btnPrintPayroll.ToolTipTitle = "اضافة";
-            btnPrintPayroll.Click += btnPrintPayroll_Click;
+            btnPrint.Appearance.BackColor = Color.Gray;
+            btnPrint.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnPrint.Appearance.Options.UseBackColor = true;
+            btnPrint.Appearance.Options.UseFont = true;
+            btnPrint.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceDisabled.Options.UseFont = true;
+            btnPrint.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceHovered.Options.UseFont = true;
+            btnPrint.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearancePressed.Options.UseFont = true;
+            btnPrint.Cursor = Cursors.Hand;
+            btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
+            btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnPrint.Location = new Point(3, 76);
+            btnPrint.Name = "btnPrint";
+            btnPrint.RightToLeft = RightToLeft.Yes;
+            btnPrint.Size = new Size(151, 40);
+            btnPrint.TabIndex = 34;
+            btnPrint.Text = "طباعة القائمة";
+            btnPrint.ToolTipTitle = "اضافة";
+            btnPrint.Click += btnPrintPayroll_Click;
             // 
             // btnPrintFiche
             // 
@@ -281,7 +269,7 @@
             btnPrintFiche.Cursor = Cursors.Hand;
             btnPrintFiche.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrintFiche.ImageOptions.SvgImage");
             btnPrintFiche.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrintFiche.Location = new Point(185, 127);
+            btnPrintFiche.Location = new Point(159, 76);
             btnPrintFiche.Name = "btnPrintFiche";
             btnPrintFiche.RightToLeft = RightToLeft.Yes;
             btnPrintFiche.Size = new Size(164, 40);
@@ -297,7 +285,7 @@
             labelControl1.Appearance.Options.UseForeColor = true;
             labelControl1.Appearance.Options.UseTextOptions = true;
             labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            labelControl1.Location = new Point(586, 99);
+            labelControl1.Location = new Point(627, 79);
             labelControl1.Name = "labelControl1";
             labelControl1.Size = new Size(45, 32);
             labelControl1.TabIndex = 37;
@@ -311,7 +299,7 @@
             labelControl2.Appearance.Options.UseForeColor = true;
             labelControl2.Appearance.Options.UseTextOptions = true;
             labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            labelControl2.Location = new Point(443, 99);
+            labelControl2.Location = new Point(455, 79);
             labelControl2.Name = "labelControl2";
             labelControl2.Size = new Size(46, 32);
             labelControl2.TabIndex = 36;
@@ -322,12 +310,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnPrintFiche);
-            Controls.Add(btnPrintPayroll);
+            Controls.Add(btnPrint);
             Controls.Add(btnCalculatee);
-            Controls.Add(btnSavePayroll);
-            Controls.Add(panel1);
+            Controls.Add(btnSave);
+            Controls.Add(pnlTop);
             Controls.Add(DGListeEmployee);
-            Controls.Add(btnExportPDF);
             Controls.Add(comboBoxYear);
             Controls.Add(comboBoxMonth);
             Controls.Add(labelControl1);
@@ -339,10 +326,10 @@
             Load += FormPayroll_Load;
             ((System.ComponentModel.ISupportInitialize)DGListeEmployee).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -354,16 +341,15 @@
 
         private System.Windows.Forms.ComboBox comboBoxMonth;
         private System.Windows.Forms.ComboBox comboBoxYear;
-        private System.Windows.Forms.Button btnExportPDF;
         private DevExpress.XtraGrid.GridControl DGListeEmployee;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private PictureBox pictureBox1;
-        private Panel panel1;
-        private Label lblEmp;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private DevExpress.XtraEditors.SimpleButton btnSavePayroll;
+        private PictureBox PicLaterale;
+        private Panel pnlTop;
+        private Label lblTitlePay;
+        private DevExpress.XtraEditors.SeparatorControl SeparatLat;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnCalculatee;
-        private DevExpress.XtraEditors.SimpleButton btnPrintPayroll;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton btnPrintFiche;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;

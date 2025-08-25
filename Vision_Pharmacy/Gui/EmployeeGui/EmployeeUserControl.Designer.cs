@@ -31,29 +31,29 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeUserControl));
             DGListeEmployee = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            btnPrintEmp = new DevExpress.XtraEditors.SimpleButton();
-            btnAddEmp = new DevExpress.XtraEditors.SimpleButton();
-            pictureBox1 = new PictureBox();
+            btnPrint = new DevExpress.XtraEditors.SimpleButton();
+            btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            PicLaterale = new PictureBox();
             btnEditEmp = new DevExpress.XtraEditors.SimpleButton();
             btnDeleteEmp = new DevExpress.XtraEditors.SimpleButton();
-            panel1 = new Panel();
-            lblEmp = new Label();
-            separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            pnlTop = new Panel();
+            lblTitleEmp = new Label();
+            SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
             ((System.ComponentModel.ISupportInitialize)DGListeEmployee).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
+            pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
             SuspendLayout();
             // 
             // DGListeEmployee
             // 
             DGListeEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeEmployee.Location = new Point(12, 157);
+            DGListeEmployee.Location = new Point(0, 127);
             DGListeEmployee.MainView = gridView1;
             DGListeEmployee.Name = "DGListeEmployee";
             DGListeEmployee.RightToLeft = RightToLeft.Yes;
-            DGListeEmployee.Size = new Size(1289, 552);
+            DGListeEmployee.Size = new Size(1324, 600);
             DGListeEmployee.TabIndex = 22;
             DGListeEmployee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -102,65 +102,65 @@
             gridView1.GridControl = DGListeEmployee;
             gridView1.Name = "gridView1";
             // 
-            // btnPrintEmp
+            // btnPrint
             // 
-            btnPrintEmp.Appearance.BackColor = Color.Gray;
-            btnPrintEmp.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnPrintEmp.Appearance.Options.UseBackColor = true;
-            btnPrintEmp.Appearance.Options.UseFont = true;
-            btnPrintEmp.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnPrintEmp.AppearanceDisabled.Options.UseFont = true;
-            btnPrintEmp.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnPrintEmp.AppearanceHovered.Options.UseFont = true;
-            btnPrintEmp.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnPrintEmp.AppearancePressed.Options.UseFont = true;
-            btnPrintEmp.Cursor = Cursors.Hand;
-            btnPrintEmp.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrintEmp.ImageOptions.SvgImage");
-            btnPrintEmp.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrintEmp.Location = new Point(12, 104);
-            btnPrintEmp.Name = "btnPrintEmp";
-            btnPrintEmp.RightToLeft = RightToLeft.Yes;
-            btnPrintEmp.Size = new Size(137, 45);
-            btnPrintEmp.TabIndex = 21;
-            btnPrintEmp.Text = "طباعة";
-            btnPrintEmp.ToolTipTitle = "اضافة";
-            btnPrintEmp.Click += btnPrintEmp_Click;
+            btnPrint.Appearance.BackColor = Color.Gray;
+            btnPrint.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnPrint.Appearance.Options.UseBackColor = true;
+            btnPrint.Appearance.Options.UseFont = true;
+            btnPrint.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceDisabled.Options.UseFont = true;
+            btnPrint.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceHovered.Options.UseFont = true;
+            btnPrint.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearancePressed.Options.UseFont = true;
+            btnPrint.Cursor = Cursors.Hand;
+            btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
+            btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnPrint.Location = new Point(10, 76);
+            btnPrint.Name = "btnPrint";
+            btnPrint.RightToLeft = RightToLeft.Yes;
+            btnPrint.Size = new Size(137, 45);
+            btnPrint.TabIndex = 21;
+            btnPrint.Text = "طباعة";
+            btnPrint.ToolTipTitle = "اضافة";
+            btnPrint.Click += btnPrintEmp_Click;
             // 
-            // btnAddEmp
+            // btnAdd
             // 
-            btnAddEmp.Appearance.BackColor = Color.FromArgb(74, 89, 180);
-            btnAddEmp.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnAddEmp.Appearance.Options.UseBackColor = true;
-            btnAddEmp.Appearance.Options.UseFont = true;
-            btnAddEmp.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnAddEmp.AppearanceDisabled.Options.UseFont = true;
-            btnAddEmp.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnAddEmp.AppearanceHovered.Options.UseFont = true;
-            btnAddEmp.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnAddEmp.AppearancePressed.Options.UseFont = true;
-            btnAddEmp.Cursor = Cursors.Hand;
-            btnAddEmp.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAddEmp.ImageOptions.SvgImage");
-            btnAddEmp.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAddEmp.Location = new Point(441, 104);
-            btnAddEmp.Name = "btnAddEmp";
-            btnAddEmp.RightToLeft = RightToLeft.Yes;
-            btnAddEmp.Size = new Size(137, 45);
-            btnAddEmp.TabIndex = 20;
-            btnAddEmp.Text = "اضافة";
-            btnAddEmp.ToolTipTitle = "اضافة";
-            btnAddEmp.Click += btnAddEmp_Click;
+            btnAdd.Appearance.BackColor = Color.FromArgb(74, 89, 180);
+            btnAdd.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnAdd.Appearance.Options.UseBackColor = true;
+            btnAdd.Appearance.Options.UseFont = true;
+            btnAdd.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnAdd.AppearanceDisabled.Options.UseFont = true;
+            btnAdd.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnAdd.AppearanceHovered.Options.UseFont = true;
+            btnAdd.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnAdd.AppearancePressed.Options.UseFont = true;
+            btnAdd.Cursor = Cursors.Hand;
+            btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
+            btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnAdd.Location = new Point(439, 76);
+            btnAdd.Name = "btnAdd";
+            btnAdd.RightToLeft = RightToLeft.Yes;
+            btnAdd.Size = new Size(137, 45);
+            btnAdd.TabIndex = 20;
+            btnAdd.Text = "اضافة";
+            btnAdd.ToolTipTitle = "اضافة";
+            btnAdd.Click += btnAddEmp_Click;
             // 
-            // pictureBox1
+            // PicLaterale
             // 
-            pictureBox1.BackColor = Color.Silver;
-            pictureBox1.Dock = DockStyle.Right;
-            pictureBox1.Image = Properties.Resources.hr_19008748;
-            pictureBox1.Location = new Point(1226, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 70);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 16;
-            pictureBox1.TabStop = false;
+            PicLaterale.BackColor = Color.Silver;
+            PicLaterale.Dock = DockStyle.Right;
+            PicLaterale.Image = Properties.Resources.hr_19008748;
+            PicLaterale.Location = new Point(1244, 0);
+            PicLaterale.Name = "PicLaterale";
+            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLaterale.TabIndex = 16;
+            PicLaterale.TabStop = false;
             // 
             // btnEditEmp
             // 
@@ -177,7 +177,7 @@
             btnEditEmp.Cursor = Cursors.Hand;
             btnEditEmp.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEditEmp.ImageOptions.SvgImage");
             btnEditEmp.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnEditEmp.Location = new Point(298, 104);
+            btnEditEmp.Location = new Point(296, 76);
             btnEditEmp.Name = "btnEditEmp";
             btnEditEmp.RightToLeft = RightToLeft.Yes;
             btnEditEmp.Size = new Size(137, 45);
@@ -201,7 +201,7 @@
             btnDeleteEmp.Cursor = Cursors.Hand;
             btnDeleteEmp.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDeleteEmp.ImageOptions.SvgImage");
             btnDeleteEmp.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnDeleteEmp.Location = new Point(155, 104);
+            btnDeleteEmp.Location = new Point(153, 76);
             btnDeleteEmp.Name = "btnDeleteEmp";
             btnDeleteEmp.RightToLeft = RightToLeft.Yes;
             btnDeleteEmp.Size = new Size(137, 45);
@@ -210,61 +210,61 @@
             btnDeleteEmp.ToolTipTitle = "اضافة";
             btnDeleteEmp.Click += btnDeleteEmp_Click;
             // 
-            // panel1
+            // pnlTop
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.FromArgb(60, 71, 151);
-            panel1.Controls.Add(lblEmp);
-            panel1.Controls.Add(separatorControl1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(9, 16);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1306, 70);
-            panel1.TabIndex = 17;
+            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
+            pnlTop.Controls.Add(lblTitleEmp);
+            pnlTop.Controls.Add(SeparatLat);
+            pnlTop.Controls.Add(PicLaterale);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(1324, 70);
+            pnlTop.TabIndex = 17;
             // 
-            // lblEmp
+            // lblTitleEmp
             // 
-            lblEmp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblEmp.AutoSize = true;
-            lblEmp.Font = new Font("Cairo Medium", 12F);
-            lblEmp.ForeColor = Color.White;
-            lblEmp.Location = new Point(1043, 23);
-            lblEmp.Name = "lblEmp";
-            lblEmp.Size = new Size(156, 37);
-            lblEmp.TabIndex = 1;
-            lblEmp.Text = "قائمة الموظفين";
+            lblTitleEmp.AutoSize = true;
+            lblTitleEmp.Dock = DockStyle.Right;
+            lblTitleEmp.Font = new Font("Cairo Medium", 12F);
+            lblTitleEmp.ForeColor = Color.White;
+            lblTitleEmp.Location = new Point(1078, 0);
+            lblTitleEmp.Name = "lblTitleEmp";
+            lblTitleEmp.Size = new Size(156, 37);
+            lblTitleEmp.TabIndex = 1;
+            lblTitleEmp.Text = "قائمة الموظفين";
             // 
-            // separatorControl1
+            // SeparatLat
             // 
-            separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.Dock = DockStyle.Right;
-            separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(1216, 0);
-            separatorControl1.Name = "separatorControl1";
-            separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(10, 70);
-            separatorControl1.TabIndex = 1;
+            SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.Dock = DockStyle.Right;
+            SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.LineOrientation = Orientation.Vertical;
+            SeparatLat.LineThickness = 10;
+            SeparatLat.Location = new Point(1234, 0);
+            SeparatLat.Name = "SeparatLat";
+            SeparatLat.Padding = new Padding(0);
+            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.TabIndex = 1;
             // 
             // EmployeeUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(DGListeEmployee);
-            Controls.Add(btnPrintEmp);
-            Controls.Add(btnAddEmp);
+            Controls.Add(btnPrint);
+            Controls.Add(btnAdd);
             Controls.Add(btnEditEmp);
             Controls.Add(btnDeleteEmp);
-            Controls.Add(panel1);
+            Controls.Add(pnlTop);
             Name = "EmployeeUserControl";
             Size = new Size(1324, 727);
             ((System.ComponentModel.ISupportInitialize)DGListeEmployee).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             ResumeLayout(false);
         }
 
@@ -272,13 +272,13 @@
 
         private DevExpress.XtraGrid.GridControl DGListeEmployee;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton btnPrintEmp;
-        private DevExpress.XtraEditors.SimpleButton btnAddEmp;
-        private PictureBox pictureBox1;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private PictureBox PicLaterale;
         private DevExpress.XtraEditors.SimpleButton btnEditEmp;
         private DevExpress.XtraEditors.SimpleButton btnDeleteEmp;
-        private Panel panel1;
-        private Label lblEmp;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
+        private Panel pnlTop;
+        private Label lblTitleEmp;
+        private DevExpress.XtraEditors.SeparatorControl SeparatLat;
     }
 }
