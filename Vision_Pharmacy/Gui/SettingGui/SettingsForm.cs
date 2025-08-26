@@ -30,6 +30,16 @@ namespace Vision_Pharmacy.Gui.SettingGui
             LoadSettings();
             isOpenFromStart = IsOpenFromStart;
             BackUpAndRestor = new DataBaseBackUpAndRestor();
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
+
         }
 
         private void buttonSaveGeneralSettings_Click(object sender, EventArgs e)
@@ -111,7 +121,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
                 textBoxCompanyTel.Text = " رقم الهاتف : " + Properties.Settings.Default.CompanyTel;
                 comboBoxCurrency.SelectedItem = Properties.Settings.Default.Currency;
                 numericUpDownDamageDuration.Value = Properties.Settings.Default.NotificationDamagDuration;
-                groupBoxServer.Text = "اخر نسخ احتاطي:" + "(" + Properties.Settings.Default.LastBackUpDate + ")";
+                tabPageGeneral.Text = "اخر نسخ احتاطي:" + "(" + Properties.Settings.Default.LastBackUpDate + ")";
                 var Logo = Convert.FromBase64String(Properties.Settings.Default.CompanyLogo);
                 if (Logo != null)
                 {
@@ -231,5 +241,71 @@ namespace Vision_Pharmacy.Gui.SettingGui
         {
             SetConType();
         }
+
+        // // تغيير اللغة إلى العربية
+        private void ApplyArabicResources()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+
+            // General Settings
+            tabPageGeneral.Text = "الاعدادات العامة";
+            labelCompanyName.Text = "اسم الشركة";
+            labelCompanyAdress.Text = "عنوان الشركة";
+            labelCompanyEmail.Text = "البريد الالكتروني";
+            labelCompanyTel.Text = "رقم الهاتف";
+            labelCurrency.Text = "العملة الافتراضية";
+            labelDamageDuration.Text = "مدة اشعار انتهاء الصلاحية (بالأيام)";
+            buttonSaveGeneralSettings.Text = "حفظ الاعدادات";
+            // Server Settings
+            tabPageServer.Text = "اعدادات السيرفر";
+            labelServer.Text = "اسم السيرفر";
+            labelDataBase.Text = "اسم قاعدة البيانات";
+            labelPort.Text = "المنفذ (Port)";
+            labelUser.Text = "اسم المستخدم";
+            labelPassword.Text = "كلمة المرور"; 
+            buttonSaveServerSettings.Text = "حفظ اعدادات الاتصال";
+            tabPageGeneral.Text = "اخر نسخ احتاطي:" + "(" + Properties.Settings.Default.LastBackUpDate + ")";
+            buttonBackUp.Text = "اخذ نسخة احتياطية";
+            buttonRestore.Text = "استعادة النسخة";
+            radioButtonLocalConnect.Properties.OffText = "محلي";
+            radioButtonLocalConnect.Properties.OnText = "شبكة";
+            // Form Settings
+            this.Text = "الاعدادات";
+        }
+
+        // تغيير اللغة إلى الانجليزية
+        private void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = false;
+            // General Settings
+            tabPageGeneral.Text = "General Settings";
+            labelCompanyName.Text = "Company Name";
+            labelCompanyAdress.Text = "Company Adress";
+            labelCompanyEmail.Text = "Company Email";
+            labelCompanyTel.Text = "Company Tel";
+            labelCurrency.Text = "Default Currency";
+            labelDamageDuration.Text = "Notification Duration (Days)";
+            buttonSaveGeneralSettings.Text = "Save Settings";
+            // Server Settings
+            tabPageServer.Text = "Server Settings";
+            labelServer.Text = "Server Name";
+            labelDataBase.Text = "Database Name";
+            labelPort.Text = "Port";
+            labelUser.Text = "User Name";
+            labelPassword.Text = "Password"; 
+            buttonSaveServerSettings.Text = "Save Connection Settings";
+            tabPageGeneral.Text = "Last BackUp:" + "(" + Properties.Settings.Default.LastBackUpDate + ")";
+            buttonBackUp.Text = "Back Up";
+            buttonRestore.Text = "Restore BackUp";
+            // Form Settings
+            this.Text = "Settings";
+            radioButtonLocalConnect.Properties.OffText = "Local";
+            radioButtonLocalConnect.Properties.OnText = "Network";
+
+        }
+
+
     }
 }

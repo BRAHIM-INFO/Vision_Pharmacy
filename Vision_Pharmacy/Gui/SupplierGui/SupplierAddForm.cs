@@ -268,33 +268,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
             }
         }
 
-        public void SwitchPanelDirection(Panel pnl, bool rtl)
-        {
-            if (rtl)
-            {
-                pnl.RightToLeft = RightToLeft.Yes;
-
-                foreach (Control ctrl in pnl.Controls)
-                {
-                    ctrl.RightToLeft = RightToLeft.Yes;
-
-                    // تعكس مكان العنصر
-                    ctrl.Left = pnl.Width - ctrl.Width - ctrl.Left;
-                }
-            }
-            else
-            {
-                pnl.RightToLeft = RightToLeft.No;
-
-                foreach (Control ctrl in pnl.Controls)
-                {
-                    ctrl.RightToLeft = RightToLeft.No;
-
-                    // تعيد مكان العنصر
-                    ctrl.Left = pnl.Width - ctrl.Width - ctrl.Left;
-                }
-            }
-        }
+       
 
 
         public void ArabicLanguage()
@@ -302,13 +276,8 @@ namespace Vision_Pharmacy.Gui.SupplierGui
             // Change Language to Arabic
             this.RightToLeft = RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            SwitchPanelDirection(panel1,true);
-            SwitchPanelDirection(panel2, false);
+            pnlContaint.RightToLeft = RightToLeft.Yes;
 
-            separatorControl1.Dock = DockStyle.Right;
-            pictureBox3.Dock = DockStyle.Right;
-            lblTitle.Dock = DockStyle.Right;
-            pictureBox1.Dock = DockStyle.Left;
             // Change Texts
             lblTitle.Text = "ادارة الموردين >  اضافة مورد جديد";
             lblSupplierName.Text = "الاسم  *";
@@ -316,7 +285,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
             lblSupplierPhone.Text = "الهاتف";
             lblSupplierEmail.Text = "البريد الإلكتروني ";
             lblSupplierNotes.Text = "ملاحظات";
-            chkSupplierIsActive.Text = "المورد نشط";
+            lblSupplierIsActive.Text = "المورد نشط";
             btnSave.Text = "حفظ";
         }
 
@@ -325,12 +294,8 @@ namespace Vision_Pharmacy.Gui.SupplierGui
         {
             this.RightToLeft = RightToLeft.No;
             this.RightToLeftLayout = false;
-            SwitchPanelDirection(panel1, false);
-            SwitchPanelDirection(panel2, false);
-            pictureBox1.Dock = DockStyle.Right;
-            lblTitle.Dock = DockStyle.Left;
-            separatorControl1.Dock = DockStyle.Left;
-            pictureBox3.Dock = DockStyle.Left;
+            pnlContaint.RightToLeft = RightToLeft.No;
+
             // Change Texts
             lblTitle.Text = "Supplier Management > Add a New Supplier";
             lblSupplierName.Text = "Supplier Name *";
@@ -338,7 +303,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
             lblSupplierPhone.Text = "Supplier Phone";
             lblSupplierEmail.Text = "Supplier Email";
             lblSupplierNotes.Text = "Notes";
-            chkSupplierIsActive.Text = "Supplier Is Active";
+            lblSupplierIsActive.Text = "Supplier Is Active";
             btnSave.Text = "Save";
         }
 

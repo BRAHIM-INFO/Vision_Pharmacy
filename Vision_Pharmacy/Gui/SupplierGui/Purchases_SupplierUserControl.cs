@@ -23,7 +23,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
         private readonly IDataHelper<Suppliers> _dataHelper;
         private readonly IDataHelper<Purchase> _dataHelperPurchase;
         private readonly LoadingUser loading;
-        private Label labelEmptyData;
+        private Label labelEmptyData; 
         private List<Purchase> purchasesList;
         AllClasses AllClasses = new AllClasses();
         public Purchases_SupplierUserControl()
@@ -34,7 +34,16 @@ namespace Vision_Pharmacy.Gui.SupplierGui
             _dataHelper = (IDataHelper<Suppliers>)ContainerConfig.ObjectType("Supplier");
             _dataHelperPurchase = (IDataHelper<Purchase>)ContainerConfig.ObjectType("Purchase");
             LoadDataSupplier();
-            AllClasses.RoundButtonCorners(btnPrintSup, 15);
+            AllClasses.RoundButtonCorners(btnPrint, 15);
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                 ApplyEnglishResources();
+            }
         }
 
         //Methods
@@ -43,7 +52,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
         // Set DataGridView Columns
         private void SetDataGridViewColumns()
         {
-            try
+            if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 gridView1.Columns[0].Visible = false; // Hide Column
                 gridView1.Columns[1].Caption = "تاريخ الفاتورة";
@@ -59,9 +68,21 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                 gridView1.Columns[11].Caption = "مبلغ الفاتورة";
                 gridView1.Columns[12].Visible = false; // Hide Column 
             }
-            catch
+            else
             {
-                // تجاهل الخطأ (يفضل تسجيله)
+                gridView1.Columns[0].Visible = false; // Hide Column
+                gridView1.Columns[1].Caption = "Invoice Date";
+                gridView1.Columns[2].Caption = "Invoice Number";
+                gridView1.Columns[3].Caption = "Payment Type";
+                gridView1.Columns[4].Caption = "Medicine Barcode";
+                gridView1.Columns[5].Visible = false; // Hide Column
+                gridView1.Columns[6].Caption = "Quantity";
+                gridView1.Columns[7].Caption = "Purchase Price";
+                gridView1.Columns[8].Caption = "Sale Price";
+                gridView1.Columns[9].Caption = "Total";
+                gridView1.Columns[10].Visible = false; // Hide Column
+                gridView1.Columns[11].Caption = "Invoice Amount";
+                gridView1.Columns[12].Visible = false; // Hide Column
             }
             // Hide Columns
         }
@@ -235,5 +256,48 @@ namespace Vision_Pharmacy.Gui.SupplierGui
             }
             PrintGridControl();
         }
+
+
+        // تغيير اللغة إلى العربية
+        private void ApplyArabicResources()
+        { 
+            // تغيير اتجاه النص إلى اليمين
+            this.RightToLeft = RightToLeft.Yes;
+            // تغيير النصوص إلى العربية
+            lblSup.Text = "قائمة المشتريات من الموردين";
+            lblSupplier.Text = "المورد";
+            lblDateDu.Text = "من تاريخ";
+            lblDateAu.Text = "إلى تاريخ";
+            btnPrint.Text = "طباعة قائمة المشتريات";
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+            // تحديث الأعمدة في DataGridView إذا كانت البيانات موجودة
+            if (gridView1.RowCount > 0)
+            {
+                SetDataGridViewColumns();
+            } 
+        }
+
+        // تغيير اللغة إلى الانجليزية
+        private void ApplyEnglishResources()
+        {
+            // تغيير اتجاه النص إلى اليمين
+            this.RightToLeft = RightToLeft.No;
+            // تغيير النصوص إلى العربية
+            lblSup.Text = "Supplier Purchase List";
+            lblSupplier.Text = "Supplier";
+            lblDateDu.Text = "From Date";
+            lblDateAu.Text = "To Date";
+            btnPrint.Text = "Print Purchase List";
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+            // تحديث الأعمدة في DataGridView إذا كانت البيانات موجودة
+            if (gridView1.RowCount > 0)
+            {
+                SetDataGridViewColumns();
+            }
+
+        }
+
+
+
     }
 }

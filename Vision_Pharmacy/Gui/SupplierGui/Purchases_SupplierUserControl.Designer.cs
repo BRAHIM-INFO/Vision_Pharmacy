@@ -29,111 +29,63 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Purchases_SupplierUserControl));
-            panel1 = new Panel();
-            lblSup = new Label();
-            separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            pictureBox1 = new PictureBox();
-            btnPrintSup = new DevExpress.XtraEditors.SimpleButton();
+            btnPrint = new DevExpress.XtraEditors.SimpleButton();
             DGListeSupplier = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            label14 = new Label();
+            lblDateDu = new Label();
             DateDu = new DevExpress.XtraEditors.DateEdit();
-            label1 = new Label();
+            lblDateAu = new Label();
             DateAu = new DevExpress.XtraEditors.DateEdit();
             txtSupplier = new ComboBox();
-            label3 = new Label();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            lblSupplier = new Label();
+            pnlTop = new FlowLayoutPanel();
+            PicLaterale = new PictureBox();
+            SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
+            lblSup = new Label();
+            pnlSet = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)DGListeSupplier).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DateDu.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DateDu.Properties.CalendarTimeProperties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DateAu.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DateAu.Properties.CalendarTimeProperties).BeginInit();
+            pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
+            pnlSet.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // btnPrint
             // 
-            panel1.BackColor = Color.FromArgb(60, 71, 151);
-            panel1.Controls.Add(lblSup);
-            panel1.Controls.Add(separatorControl1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1298, 70);
-            panel1.TabIndex = 11;
-            // 
-            // lblSup
-            // 
-            lblSup.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblSup.AutoSize = true;
-            lblSup.Font = new Font("Cairo Medium", 12F);
-            lblSup.ForeColor = Color.White;
-            lblSup.Location = new Point(928, 16);
-            lblSup.Name = "lblSup";
-            lblSup.Size = new Size(263, 37);
-            lblSup.TabIndex = 1;
-            lblSup.Text = "قائمة المشتريات من الموردين";
-            // 
-            // separatorControl1
-            // 
-            separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.Dock = DockStyle.Right;
-            separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(1208, 0);
-            separatorControl1.Name = "separatorControl1";
-            separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(10, 70);
-            separatorControl1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Silver;
-            pictureBox1.Dock = DockStyle.Right;
-            pictureBox1.Image = Properties.Resources.shopping_basket_15712813;
-            pictureBox1.Location = new Point(1218, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 70);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
-            // btnPrintSup
-            // 
-            btnPrintSup.Appearance.BackColor = Color.Gray;
-            btnPrintSup.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnPrintSup.Appearance.Options.UseBackColor = true;
-            btnPrintSup.Appearance.Options.UseFont = true;
-            btnPrintSup.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnPrintSup.AppearanceDisabled.Options.UseFont = true;
-            btnPrintSup.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnPrintSup.AppearanceHovered.Options.UseFont = true;
-            btnPrintSup.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnPrintSup.AppearancePressed.Options.UseFont = true;
-            btnPrintSup.Cursor = Cursors.Hand;
-            btnPrintSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrintSup.ImageOptions.SvgImage");
-            btnPrintSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrintSup.Location = new Point(3, 76);
-            btnPrintSup.Name = "btnPrintSup";
-            btnPrintSup.RightToLeft = RightToLeft.Yes;
-            btnPrintSup.Size = new Size(137, 45);
-            btnPrintSup.TabIndex = 15;
-            btnPrintSup.Text = "طباعة";
-            btnPrintSup.ToolTipTitle = "اضافة";
-            btnPrintSup.Click += btnPrintSup_Click;
+            btnPrint.Appearance.BackColor = Color.Gray;
+            btnPrint.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnPrint.Appearance.Options.UseBackColor = true;
+            btnPrint.Appearance.Options.UseFont = true;
+            btnPrint.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceDisabled.Options.UseFont = true;
+            btnPrint.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceHovered.Options.UseFont = true;
+            btnPrint.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearancePressed.Options.UseFont = true;
+            btnPrint.Cursor = Cursors.Hand;
+            btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
+            btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnPrint.Location = new Point(35, 3);
+            btnPrint.Name = "btnPrint";
+            btnPrint.RightToLeft = RightToLeft.Yes;
+            btnPrint.Size = new Size(261, 45);
+            btnPrint.TabIndex = 15;
+            btnPrint.Text = "طباعة قائمة المشتريات";
+            btnPrint.ToolTipTitle = "اضافة";
+            btnPrint.Click += btnPrintSup_Click;
             // 
             // DGListeSupplier
             // 
             DGListeSupplier.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeSupplier.Location = new Point(3, 127);
+            DGListeSupplier.Location = new Point(3, 142);
             DGListeSupplier.MainView = gridView1;
             DGListeSupplier.Name = "DGListeSupplier";
-            DGListeSupplier.RightToLeft = RightToLeft.Yes;
-            DGListeSupplier.Size = new Size(1298, 638);
+            DGListeSupplier.Size = new Size(1298, 623);
             DGListeSupplier.TabIndex = 16;
             DGListeSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -182,25 +134,25 @@
             gridView1.GridControl = DGListeSupplier;
             gridView1.Name = "gridView1";
             // 
-            // label14
+            // lblDateDu
             // 
-            label14.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label14.AutoSize = true;
-            label14.BackColor = Color.Transparent;
-            label14.Font = new Font("Cairo Medium", 9F);
-            label14.Location = new Point(845, 84);
-            label14.Margin = new Padding(4, 0, 4, 0);
-            label14.Name = "label14";
-            label14.RightToLeft = RightToLeft.Yes;
-            label14.Size = new Size(80, 29);
-            label14.TabIndex = 117;
-            label14.Text = "الفترة بين : ";
+            lblDateDu.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblDateDu.AutoSize = true;
+            lblDateDu.BackColor = Color.Transparent;
+            lblDateDu.Font = new Font("Cairo Medium", 9F);
+            lblDateDu.Location = new Point(871, 0);
+            lblDateDu.Margin = new Padding(4, 0, 4, 0);
+            lblDateDu.Name = "lblDateDu";
+            lblDateDu.RightToLeft = RightToLeft.Yes;
+            lblDateDu.Size = new Size(80, 29);
+            lblDateDu.TabIndex = 117;
+            lblDateDu.Text = "الفترة بين : ";
             // 
             // DateDu
             // 
             DateDu.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DateDu.EditValue = null;
-            DateDu.Location = new Point(593, 85);
+            DateDu.Location = new Point(959, 2);
             DateDu.Margin = new Padding(4, 2, 4, 2);
             DateDu.Name = "DateDu";
             DateDu.Properties.Appearance.BackColor = Color.White;
@@ -214,25 +166,25 @@
             DateDu.Size = new Size(246, 30);
             DateDu.TabIndex = 116;
             // 
-            // label1
+            // lblDateAu
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Cairo Medium", 9F);
-            label1.Location = new Point(554, 84);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(35, 29);
-            label1.TabIndex = 119;
-            label1.Text = "الى ";
+            lblDateAu.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblDateAu.AutoSize = true;
+            lblDateAu.BackColor = Color.Transparent;
+            lblDateAu.Font = new Font("Cairo Medium", 9F);
+            lblDateAu.Location = new Point(574, 0);
+            lblDateAu.Margin = new Padding(4, 0, 4, 0);
+            lblDateAu.Name = "lblDateAu";
+            lblDateAu.RightToLeft = RightToLeft.Yes;
+            lblDateAu.Size = new Size(35, 29);
+            lblDateAu.TabIndex = 119;
+            lblDateAu.Text = "الى ";
             // 
             // DateAu
             // 
             DateAu.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DateAu.EditValue = null;
-            DateAu.Location = new Point(302, 85);
+            DateAu.Location = new Point(617, 2);
             DateAu.Margin = new Padding(4, 2, 4, 2);
             DateAu.Name = "DateAu";
             DateAu.Properties.Appearance.BackColor = Color.White;
@@ -253,70 +205,128 @@
             txtSupplier.FlatStyle = FlatStyle.System;
             txtSupplier.Font = new Font("Cairo Medium", 10F);
             txtSupplier.FormattingEnabled = true;
-            txtSupplier.Location = new Point(934, 79);
+            txtSupplier.Location = new Point(303, 2);
             txtSupplier.Margin = new Padding(4, 2, 4, 2);
             txtSupplier.Name = "txtSupplier";
             txtSupplier.Size = new Size(263, 40);
             txtSupplier.TabIndex = 120;
             txtSupplier.SelectedValueChanged += txtSupplier_SelectedValueChanged;
             // 
-            // label3
+            // lblSupplier
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Cairo Medium", 9F);
-            label3.Location = new Point(1205, 84);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(81, 29);
-            label3.TabIndex = 121;
-            label3.Text = "اسم المورد";
+            lblSupplier.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblSupplier.AutoSize = true;
+            lblSupplier.BackColor = Color.Transparent;
+            lblSupplier.Font = new Font("Cairo Medium", 9F);
+            lblSupplier.Location = new Point(1213, 0);
+            lblSupplier.Margin = new Padding(4, 0, 4, 0);
+            lblSupplier.Name = "lblSupplier";
+            lblSupplier.Size = new Size(81, 29);
+            lblSupplier.TabIndex = 121;
+            lblSupplier.Text = "اسم المورد";
+            // 
+            // pnlTop
+            // 
+            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
+            pnlTop.Controls.Add(PicLaterale);
+            pnlTop.Controls.Add(SeparatLat);
+            pnlTop.Controls.Add(lblSup);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(1298, 77);
+            pnlTop.TabIndex = 122;
+            // 
+            // PicLaterale
+            // 
+            PicLaterale.BackColor = Color.Silver;
+            PicLaterale.Image = Properties.Resources.shopping_basket_15712813;
+            PicLaterale.Location = new Point(1215, 3);
+            PicLaterale.Name = "PicLaterale";
+            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLaterale.TabIndex = 10;
+            PicLaterale.TabStop = false;
+            // 
+            // SeparatLat
+            // 
+            SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
+            SeparatLat.LineOrientation = Orientation.Vertical;
+            SeparatLat.LineThickness = 10;
+            SeparatLat.Location = new Point(1199, 3);
+            SeparatLat.Name = "SeparatLat";
+            SeparatLat.Padding = new Padding(0);
+            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.TabIndex = 11;
+            // 
+            // lblSup
+            // 
+            lblSup.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblSup.AutoSize = true;
+            lblSup.Font = new Font("Cairo Medium", 12F);
+            lblSup.ForeColor = Color.White;
+            lblSup.Location = new Point(930, 0);
+            lblSup.Name = "lblSup";
+            lblSup.Size = new Size(263, 37);
+            lblSup.TabIndex = 12;
+            lblSup.Text = "قائمة المشتريات من الموردين";
+            // 
+            // pnlSet
+            // 
+            pnlSet.Controls.Add(lblSupplier);
+            pnlSet.Controls.Add(DateDu);
+            pnlSet.Controls.Add(lblDateDu);
+            pnlSet.Controls.Add(DateAu);
+            pnlSet.Controls.Add(lblDateAu);
+            pnlSet.Controls.Add(txtSupplier);
+            pnlSet.Controls.Add(btnPrint);
+            pnlSet.Dock = DockStyle.Top;
+            pnlSet.Location = new Point(0, 77);
+            pnlSet.Name = "pnlSet";
+            pnlSet.Size = new Size(1298, 59);
+            pnlSet.TabIndex = 123;
             // 
             // Purchases_SupplierUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(txtSupplier);
-            Controls.Add(label3);
-            Controls.Add(label1);
-            Controls.Add(DateAu);
-            Controls.Add(label14);
-            Controls.Add(DateDu);
+            Controls.Add(pnlSet);
+            Controls.Add(pnlTop);
             Controls.Add(DGListeSupplier);
-            Controls.Add(btnPrintSup);
-            Controls.Add(panel1);
             Name = "Purchases_SupplierUserControl";
+            RightToLeft = RightToLeft.Yes;
             Size = new Size(1298, 768);
             Load += Purchases_SupplierUserControl_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGListeSupplier).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)DateDu.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)DateDu.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)DateAu.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)DateAu.Properties).EndInit();
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
+            pnlSet.ResumeLayout(false);
+            pnlSet.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Panel panel1;
-        private Label lblSup;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
-        private PictureBox pictureBox1;
-        private DevExpress.XtraEditors.SimpleButton btnPrintSup;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraGrid.GridControl DGListeSupplier;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private Label label14;
+        private Label lblDateDu;
         private DevExpress.XtraEditors.DateEdit DateDu;
-        private Label label1;
+        private Label lblDateAu;
         private DevExpress.XtraEditors.DateEdit DateAu;
         private ComboBox txtSupplier;
-        private Label label3;
+        private Label lblSupplier;
+        private FlowLayoutPanel pnlTop;
+        private PictureBox PicLaterale;
+        private DevExpress.XtraEditors.SeparatorControl SeparatLat;
+        private Label lblSup;
+        private FlowLayoutPanel pnlSet;
     }
 }

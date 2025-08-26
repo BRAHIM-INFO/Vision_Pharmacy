@@ -297,6 +297,15 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à قائمة المشتريات.
+        /// </summary>
+        internal static string TitlePurchase {
+            get {
+                return ResourceManager.GetString("TitlePurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à قائمة المستخدمين.
         /// </summary>
         internal static string TitleUser {

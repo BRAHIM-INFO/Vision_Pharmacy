@@ -31,27 +31,29 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierUserControl));
             DGListeSupplier = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            btnPrintSup = new DevExpress.XtraEditors.SimpleButton();
-            btnAddSup = new DevExpress.XtraEditors.SimpleButton();
-            pictureBox1 = new PictureBox();
-            panel1 = new Panel();
+            btnPrint = new DevExpress.XtraEditors.SimpleButton();
+            btnAdd = new DevExpress.XtraEditors.SimpleButton();
             lblSup = new Label();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            pictureBox1 = new PictureBox();
+            pnlSet = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)DGListeSupplier).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlSet.SuspendLayout();
             SuspendLayout();
             // 
             // DGListeSupplier
             // 
             DGListeSupplier.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeSupplier.Location = new Point(3, 127);
+            DGListeSupplier.Location = new Point(3, 136);
             DGListeSupplier.MainView = gridView1;
             DGListeSupplier.Name = "DGListeSupplier";
             DGListeSupplier.RightToLeft = RightToLeft.Yes;
-            DGListeSupplier.Size = new Size(1303, 536);
+            DGListeSupplier.Size = new Size(1303, 527);
             DGListeSupplier.TabIndex = 15;
             DGListeSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -100,77 +102,53 @@
             gridView1.GridControl = DGListeSupplier;
             gridView1.Name = "gridView1";
             // 
-            // btnPrintSup
+            // btnPrint
             // 
-            btnPrintSup.Appearance.BackColor = Color.Gray;
-            btnPrintSup.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnPrintSup.Appearance.Options.UseBackColor = true;
-            btnPrintSup.Appearance.Options.UseFont = true;
-            btnPrintSup.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnPrintSup.AppearanceDisabled.Options.UseFont = true;
-            btnPrintSup.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnPrintSup.AppearanceHovered.Options.UseFont = true;
-            btnPrintSup.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnPrintSup.AppearancePressed.Options.UseFont = true;
-            btnPrintSup.Cursor = Cursors.Hand;
-            btnPrintSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrintSup.ImageOptions.SvgImage");
-            btnPrintSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrintSup.Location = new Point(3, 76);
-            btnPrintSup.Name = "btnPrintSup";
-            btnPrintSup.RightToLeft = RightToLeft.Yes;
-            btnPrintSup.Size = new Size(137, 45);
-            btnPrintSup.TabIndex = 14;
-            btnPrintSup.Text = "طباعة";
-            btnPrintSup.ToolTipTitle = "اضافة";
-            btnPrintSup.Click += btnPrintSup_Click;
+            btnPrint.Appearance.BackColor = Color.Gray;
+            btnPrint.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnPrint.Appearance.Options.UseBackColor = true;
+            btnPrint.Appearance.Options.UseFont = true;
+            btnPrint.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceDisabled.Options.UseFont = true;
+            btnPrint.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceHovered.Options.UseFont = true;
+            btnPrint.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearancePressed.Options.UseFont = true;
+            btnPrint.Cursor = Cursors.Hand;
+            btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
+            btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnPrint.Location = new Point(3, 3);
+            btnPrint.Name = "btnPrint";
+            btnPrint.RightToLeft = RightToLeft.Yes;
+            btnPrint.Size = new Size(137, 45);
+            btnPrint.TabIndex = 14;
+            btnPrint.Text = "طباعة";
+            btnPrint.ToolTipTitle = "اضافة";
+            btnPrint.Click += btnPrintSup_Click;
             // 
-            // btnAddSup
+            // btnAdd
             // 
-            btnAddSup.Appearance.BackColor = Color.FromArgb(74, 89, 180);
-            btnAddSup.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnAddSup.Appearance.Options.UseBackColor = true;
-            btnAddSup.Appearance.Options.UseFont = true;
-            btnAddSup.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnAddSup.AppearanceDisabled.Options.UseFont = true;
-            btnAddSup.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnAddSup.AppearanceHovered.Options.UseFont = true;
-            btnAddSup.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnAddSup.AppearancePressed.Options.UseFont = true;
-            btnAddSup.Cursor = Cursors.Hand;
-            btnAddSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAddSup.ImageOptions.SvgImage");
-            btnAddSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAddSup.Location = new Point(146, 76);
-            btnAddSup.Name = "btnAddSup";
-            btnAddSup.RightToLeft = RightToLeft.Yes;
-            btnAddSup.Size = new Size(137, 45);
-            btnAddSup.TabIndex = 13;
-            btnAddSup.Text = "اضافة";
-            btnAddSup.ToolTipTitle = "اضافة";
-            btnAddSup.Click += btnAddSup_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Silver;
-            pictureBox1.Dock = DockStyle.Right;
-            pictureBox1.Image = Properties.Resources.trolley_9284599;
-            pictureBox1.Location = new Point(1226, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(80, 70);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(60, 71, 151);
-            panel1.Controls.Add(lblSup);
-            panel1.Controls.Add(separatorControl1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1306, 70);
-            panel1.TabIndex = 10;
+            btnAdd.Appearance.BackColor = Color.FromArgb(74, 89, 180);
+            btnAdd.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnAdd.Appearance.Options.UseBackColor = true;
+            btnAdd.Appearance.Options.UseFont = true;
+            btnAdd.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnAdd.AppearanceDisabled.Options.UseFont = true;
+            btnAdd.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnAdd.AppearanceHovered.Options.UseFont = true;
+            btnAdd.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnAdd.AppearancePressed.Options.UseFont = true;
+            btnAdd.Cursor = Cursors.Hand;
+            btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
+            btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnAdd.Location = new Point(146, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.RightToLeft = RightToLeft.Yes;
+            btnAdd.Size = new Size(137, 45);
+            btnAdd.TabIndex = 13;
+            btnAdd.Text = "اضافة";
+            btnAdd.ToolTipTitle = "اضافة";
+            btnAdd.Click += btnAddSup_Click;
             // 
             // lblSup
             // 
@@ -178,7 +156,7 @@
             lblSup.AutoSize = true;
             lblSup.Font = new Font("Cairo Medium", 12F);
             lblSup.ForeColor = Color.White;
-            lblSup.Location = new Point(1067, 23);
+            lblSup.Location = new Point(1058, 0);
             lblSup.Name = "lblSup";
             lblSup.Size = new Size(143, 37);
             lblSup.TabIndex = 1;
@@ -187,34 +165,67 @@
             // separatorControl1
             // 
             separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.Dock = DockStyle.Right;
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
             separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(1216, 0);
+            separatorControl1.Location = new Point(1207, 3);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
             separatorControl1.Size = new Size(10, 70);
             separatorControl1.TabIndex = 1;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(60, 71, 151);
+            flowLayoutPanel1.Controls.Add(pictureBox1);
+            flowLayoutPanel1.Controls.Add(separatorControl1);
+            flowLayoutPanel1.Controls.Add(lblSup);
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1306, 77);
+            flowLayoutPanel1.TabIndex = 16;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Silver;
+            pictureBox1.Image = Properties.Resources.trolley_9284599;
+            pictureBox1.Location = new Point(1223, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(80, 70);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
+            // pnlSet
+            // 
+            pnlSet.Controls.Add(btnPrint);
+            pnlSet.Controls.Add(btnAdd);
+            pnlSet.Dock = DockStyle.Top;
+            pnlSet.Location = new Point(0, 77);
+            pnlSet.Name = "pnlSet";
+            pnlSet.RightToLeft = RightToLeft.No;
+            pnlSet.Size = new Size(1306, 53);
+            pnlSet.TabIndex = 17;
+            // 
             // SupplierUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(pnlSet);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(DGListeSupplier);
-            Controls.Add(btnPrintSup);
-            Controls.Add(btnAddSup);
-            Controls.Add(panel1);
             Name = "SupplierUserControl";
             RightToLeft = RightToLeft.Yes;
             Size = new Size(1306, 666);
             Load += SupplierUserControl_Load;
             ((System.ComponentModel.ISupportInitialize)DGListeSupplier).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlSet.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -222,11 +233,12 @@
 
         private DevExpress.XtraGrid.GridControl DGListeSupplier;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton btnPrintSup;
-        private DevExpress.XtraEditors.SimpleButton btnAddSup;
-        private PictureBox pictureBox1;
-        private Panel panel1;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
         private Label lblSup;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private PictureBox pictureBox1;
+        private FlowLayoutPanel pnlSet;
     }
 }

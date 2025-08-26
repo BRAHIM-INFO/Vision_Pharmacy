@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseUserControl));
-            pnlTop = new Panel();
             lblTitlePurchase = new Label();
             SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
             PicLaterale = new PictureBox();
@@ -38,33 +37,22 @@
             DGListePurchase = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             lblCounter = new Label();
-            pnlTop.SuspendLayout();
+            pnlTop = new FlowLayoutPanel();
+            pnlSet = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGListePurchase).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
+            pnlTop.SuspendLayout();
+            pnlSet.SuspendLayout();
             SuspendLayout();
-            // 
-            // pnlTop
-            // 
-            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
-            pnlTop.Controls.Add(lblTitlePurchase);
-            pnlTop.Controls.Add(SeparatLat);
-            pnlTop.Controls.Add(PicLaterale);
-            pnlTop.Dock = DockStyle.Top;
-            pnlTop.Location = new Point(0, 0);
-            pnlTop.Margin = new Padding(4, 2, 4, 2);
-            pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1346, 70);
-            pnlTop.TabIndex = 28;
             // 
             // lblTitlePurchase
             // 
             lblTitlePurchase.AutoSize = true;
-            lblTitlePurchase.Dock = DockStyle.Right;
             lblTitlePurchase.Font = new Font("Cairo Medium", 12F);
             lblTitlePurchase.ForeColor = Color.White;
-            lblTitlePurchase.Location = new Point(1101, 0);
+            lblTitlePurchase.Location = new Point(1081, 0);
             lblTitlePurchase.Margin = new Padding(4, 0, 4, 0);
             lblTitlePurchase.Name = "lblTitlePurchase";
             lblTitlePurchase.Size = new Size(155, 37);
@@ -74,11 +62,10 @@
             // SeparatLat
             // 
             SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
-            SeparatLat.Dock = DockStyle.Right;
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
             SeparatLat.LineThickness = 10;
-            SeparatLat.Location = new Point(1256, 0);
+            SeparatLat.Location = new Point(1244, 2);
             SeparatLat.Margin = new Padding(4, 2, 4, 2);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
@@ -88,9 +75,8 @@
             // PicLaterale
             // 
             PicLaterale.BackColor = Color.Silver;
-            PicLaterale.Dock = DockStyle.Right;
             PicLaterale.Image = Properties.Resources.trolley_9284599;
-            PicLaterale.Location = new Point(1266, 0);
+            PicLaterale.Location = new Point(1262, 2);
             PicLaterale.Margin = new Padding(4, 2, 4, 2);
             PicLaterale.Name = "PicLaterale";
             PicLaterale.Size = new Size(80, 70);
@@ -113,7 +99,7 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(4, 75);
+            btnPrint.Location = new Point(4, 2);
             btnPrint.Margin = new Padding(4, 2, 4, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
@@ -138,7 +124,7 @@
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(147, 75);
+            btnAdd.Location = new Point(148, 2);
             btnAdd.Margin = new Padding(4, 2, 4, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
@@ -152,12 +138,12 @@
             // 
             DGListePurchase.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGListePurchase.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
-            DGListePurchase.Location = new Point(0, 126);
+            DGListePurchase.Location = new Point(0, 132);
             DGListePurchase.MainView = gridView1;
             DGListePurchase.Margin = new Padding(4, 2, 4, 2);
             DGListePurchase.Name = "DGListePurchase";
             DGListePurchase.RightToLeft = RightToLeft.Yes;
-            DGListePurchase.Size = new Size(1346, 652);
+            DGListePurchase.Size = new Size(1346, 646);
             DGListePurchase.TabIndex = 36;
             DGListePurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -209,16 +195,39 @@
             // 
             // lblCounter
             // 
-            lblCounter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblCounter.AutoSize = true;
             lblCounter.Font = new Font("Cairo Medium", 12F);
             lblCounter.ForeColor = Color.Black;
-            lblCounter.Location = new Point(1183, 84);
+            lblCounter.Location = new Point(292, 0);
             lblCounter.Margin = new Padding(4, 0, 4, 0);
             lblCounter.Name = "lblCounter";
             lblCounter.Size = new Size(28, 37);
             lblCounter.TabIndex = 37;
             lblCounter.Text = "0";
+            // 
+            // pnlTop
+            // 
+            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
+            pnlTop.Controls.Add(PicLaterale);
+            pnlTop.Controls.Add(SeparatLat);
+            pnlTop.Controls.Add(lblTitlePurchase);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(1346, 74);
+            pnlTop.TabIndex = 38;
+            // 
+            // pnlSet
+            // 
+            pnlSet.Controls.Add(btnPrint);
+            pnlSet.Controls.Add(btnAdd);
+            pnlSet.Controls.Add(lblCounter);
+            pnlSet.Dock = DockStyle.Top;
+            pnlSet.Location = new Point(0, 74);
+            pnlSet.Name = "pnlSet";
+            pnlSet.RightToLeft = RightToLeft.No;
+            pnlSet.Size = new Size(1346, 53);
+            pnlSet.TabIndex = 39;
             // 
             // PurchaseUserControl
             // 
@@ -226,27 +235,26 @@
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(lblCounter);
-            Controls.Add(DGListePurchase);
-            Controls.Add(btnPrint);
-            Controls.Add(btnAdd);
+            Controls.Add(pnlSet);
             Controls.Add(pnlTop);
+            Controls.Add(DGListePurchase);
             Margin = new Padding(4, 2, 4, 2);
             Name = "PurchaseUserControl";
+            RightToLeft = RightToLeft.Yes;
             Size = new Size(1346, 780);
             Load += PurchaseUserControl_Load;
-            pnlTop.ResumeLayout(false);
-            pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGListePurchase).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            pnlSet.ResumeLayout(false);
+            pnlSet.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-        private Panel pnlTop;
         private Label lblTitlePurchase;
         private DevExpress.XtraEditors.SeparatorControl SeparatLat;
         private PictureBox PicLaterale;
@@ -255,5 +263,7 @@
         private DevExpress.XtraGrid.GridControl DGListePurchase;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private Label lblCounter;
+        private FlowLayoutPanel pnlTop;
+        private FlowLayoutPanel pnlSet;
     }
 }

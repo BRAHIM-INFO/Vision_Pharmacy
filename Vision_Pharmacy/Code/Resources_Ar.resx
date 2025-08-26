@@ -200,4 +200,7 @@
   <data name="lblTitleCustom" xml:space="preserve">
     <value>قائمة العملاء</value>
   </data>
+  <data name="TitlePurchase" xml:space="preserve">
+    <value>قائمة المشتريات</value>
+  </data>
 </root>

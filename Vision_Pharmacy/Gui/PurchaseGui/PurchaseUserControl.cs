@@ -497,15 +497,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         public void ApplyArabicResources()
         {
             this.RightToLeft = RightToLeft.Yes;
-            PicLaterale.Dock = DockStyle.Right;
-            SeparatLat.Dock = DockStyle.Right;
-            lblTitlePurchase.Dock = DockStyle.Right;
+            pnlTop.RightToLeft = RightToLeft.Yes;
+            pnlSet.RightToLeft = RightToLeft.No;
 
-            btnPrint.Location = new Point(3, 76);
-            btnAdd.Location = new Point(146, 76);
-
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Left;
 
             lblTitlePurchase.Text = Resources_Ar.TitleUser;
             btnAdd.Text = Resources_Ar.AddButton_User;
@@ -519,17 +513,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         public void ApplyEnglishResources()
         {
             this.RightToLeft = RightToLeft.No;
-            PicLaterale.Dock = DockStyle.Left;
-            SeparatLat.Dock = DockStyle.Left;
-            lblTitlePurchase.Dock = DockStyle.Left;
+            pnlTop.RightToLeft = RightToLeft.No;
+            pnlSet.RightToLeft = RightToLeft.Yes;
 
-            btnPrint.Location = new Point(this.Size.Width - 140, 76);
-            btnAdd.Location = new Point(this.Size.Width - 283, 76);
 
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-
-            lblTitlePurchase.Text = Resources_En.TitleUser;
+            //lblTitlePurchase.Text = Resources_En.TitlePurchase;
             btnAdd.Text = Resources_En.AddButton_User;
             btnPrint.Text = Resources_En.PrintButton_User;
             labelEmptyData.Text = Resources_En.EmptyDataText;

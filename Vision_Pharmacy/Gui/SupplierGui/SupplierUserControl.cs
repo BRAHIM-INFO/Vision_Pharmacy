@@ -46,8 +46,16 @@ namespace Vision_Pharmacy.Gui.SupplierGui
             _dataHelper = (IDataHelper<Suppliers>)ContainerConfig.ObjectType("Supplier");
             loading = LoadingUser.Instance();
             LoadData();
-            AllClasses.RoundButtonCorners(btnAddSup, 15); 
-            AllClasses.RoundButtonCorners(btnPrintSup, 15); 
+            AllClasses.RoundButtonCorners(btnAdd, 15); 
+            AllClasses.RoundButtonCorners(btnPrint, 15);
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
         }
 
 
@@ -210,10 +218,10 @@ namespace Vision_Pharmacy.Gui.SupplierGui
         }
         private void SetDataGridViewColumns()
         {
-            try
+            if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 gridView1.Columns[0].Caption = "المعرف";
-                gridView1.Columns[1].Caption = "الاسم الكامل"; 
+                gridView1.Columns[1].Caption = "الاسم الكامل";
                 gridView1.Columns[2].Caption = "العنوان";
                 gridView1.Columns[3].Caption = "الهاتف";
                 gridView1.Columns[4].Caption = "البريد الإلكتروني";
@@ -221,11 +229,17 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                 gridView1.Columns[6].Caption = "ملاحظات إضافية";
                 gridView1.Columns[7].Visible = false;
             }
-            catch
+            else
             {
-                // تجاهل الخطأ (يفضل تسجيله)
-            }
-            // Hide Columns
+                gridView1.Columns[0].Caption = "ID";
+                gridView1.Columns[1].Caption = "Full Name";
+                gridView1.Columns[2].Caption = "Address";
+                gridView1.Columns[3].Caption = "Phone";
+                gridView1.Columns[4].Caption = "Email";
+                gridView1.Columns[5].Caption = "Active";
+                gridView1.Columns[6].Caption = "Additional Notes";
+                gridView1.Columns[7].Visible = false;
+            } 
         }
 
         // Singleton Instance
@@ -483,5 +497,44 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                 }
 
         }
+        // تغيير اللغة إلى العربية
+        private void ApplyArabicResources()
+        {
+            // تغيير اتجاه النص إلى اليمين
+            this.RightToLeft  = System.Windows.Forms.RightToLeft.Yes;
+            pnlSet.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            // تغيير النصوص إلى العربية
+            lblSup.Text = "قائمة الموردين"; 
+            btnAdd.Text = "اضافة";
+            btnPrint.Text = "طباعة";
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+            DGListeSupplier.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            // تحديث الأعمدة في DataGridView إذا كانت البيانات موجودة
+            if (gridView1.RowCount > 0)
+            {
+                SetDataGridViewColumns();
+            }
+        }
+
+
+        //تغيير الى اللغة الانجليزية
+        private void ApplyEnglishResources()
+        {
+            // تغيير اتجاه النص إلى اليسار
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            pnlSet.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            // تغيير النصوص إلى الإنجليزية
+            lblSup.Text = "Suppliers List"; 
+            btnAdd.Text = "Add";
+            btnPrint.Text = "Print";
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+            DGListeSupplier.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            // تحديث الأعمدة في DataGridView إذا كانت البيانات موجودة
+            if (gridView1.RowCount > 0)
+            {
+                SetDataGridViewColumns();
+            }
+        }
+
     }
 }
