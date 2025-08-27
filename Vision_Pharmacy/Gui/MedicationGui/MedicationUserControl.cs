@@ -93,7 +93,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         /// تحديث عدد الأدوية في التسمية عند تغيير عدد الصفوف في GridView
         private void gridView1_RowCountChanged(object sender, EventArgs e)
         {
-            lblCounter.Text = $"عدد الأدوية: {gridView1.RowCount}";
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+                lblCounter.Text = $"عدد الأدوية: {gridView1.RowCount}";
+            else lblCounter.Text = $"Medications Count: {gridView1.RowCount}";
         }
 
         /// <summary>
@@ -110,6 +112,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
 
                 // عمود الأزرار
                 GridColumn colAction = view.Columns.AddVisible("Action", "الإجراءات");
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                    colAction.Caption = "الإجراءات";
+                else colAction.Caption = "Actions";
                 colAction.UnboundType = DevExpress.Data.UnboundColumnType.Object;
                 colAction.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
                 colAction.Width = 100; // عرض العمود
@@ -164,9 +169,14 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             {
                 // نبني النص على شكل قائمة
                 string message = "الأدوية المنتهية الصلاحية:\n";
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                    message = "الأدوية المنتهية الصلاحية:\n";
+                else message = "Expired Medications:\n";
                 foreach (var med in expiredMeds)
                 {
-                    message += $"- {med.Name} (انتهى في {med.ExpiryDate:dd-MM-yyyy})\n";
+                    if (Properties.Settings.Default.ChangeLang == "Ar")
+                        message += $"- {med.Name} (انتهى في {med.ExpiryDate:dd-MM-yyyy})\n";
+                    else message += $"- {med.Name} (Expired on {med.ExpiryDate:dd-MM-yyyy})\n";
                 }
 
                 // نظهر الـ Notification
@@ -193,7 +203,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             NotifyIcon notifyIcon = new NotifyIcon();
             notifyIcon.Visible = true;
             notifyIcon.Icon = SystemIcons.Warning; // يمكنك استبداله بأيقونة مخصصة
-            notifyIcon.BalloonTipTitle = "تنبيه صلاحية الأدوية";
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+                notifyIcon.BalloonTipTitle = "تنبيه صلاحية الأدوية";
+            else notifyIcon.BalloonTipTitle = "Medication Expiry Alert";
             notifyIcon.BalloonTipText = message;
             notifyIcon.ShowBalloonTip(5000); // يظهر 5 ثواني
         }
@@ -416,7 +428,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
 
         private void SetDataGridViewColumns()
         {
-            try
+            if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 gridView1.Columns[0].Visible = false; // Hide Column
                 gridView1.Columns[1].Caption = "باركود الدواء";
@@ -443,11 +455,33 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 gridView1.Columns[22].Visible = false; // Hide Column
                 gridView1.Columns[23].Visible = false; // Hide Column
             }
-            catch
+            else
             {
-                // تجاهل الخطأ (يفضل تسجيله)
-            }
-            // Hide Columns
+                gridView1.Columns[0].Visible = false; // Hide Column
+                gridView1.Columns[1].Caption = "Drug Barcode";
+                gridView1.Columns[2].Caption = "Drug Name";
+                gridView1.Columns[3].Caption = "Generic Name";
+                gridView1.Columns[4].Visible = false; // Hide Column
+                gridView1.Columns[5].Caption = "Dosage Form";
+                gridView1.Columns[6].Caption = "Concentration";
+                gridView1.Columns[7].Caption = "Classification";
+                gridView1.Columns[8].Caption = "Purchase Price";
+                gridView1.Columns[9].Caption = "Sales Price";
+                gridView1.Columns[10].Caption = "Unit";
+                gridView1.Columns[11].Caption = "Available Quantity";
+                gridView1.Columns[12].Caption = "Alert Minimum";
+                gridView1.Columns[13].Caption = "Expiration Date";
+                gridView1.Columns[14].Visible = false; // Hide Column
+                gridView1.Columns[15].Caption = "Master Supplier";
+                gridView1.Columns[16].Visible = false; // Hide Column
+                gridView1.Columns[17].Visible = false; // Hide Column
+                gridView1.Columns[18].Visible = false; // Hide Column
+                gridView1.Columns[19].Visible = false; // Hide Column
+                gridView1.Columns[20].Caption = "Storage Location";
+                gridView1.Columns[21].Visible = false; // Hide Column 
+                gridView1.Columns[22].Visible = false; // Hide Column 
+                gridView1.Columns[23].Visible = false; // Hide Column
+            } 
         }
 
         // Singleton Instance
@@ -505,6 +539,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
 
                     // 🔹 عنوان التقرير (منتصف الصفحة)
                     string title = "قائمة الموظفين ";
+                    if (Properties.Settings.Default.ChangeLang == "Ar")
+                        title = "قائمة الأدوية";
+                    else title = "Medications List";
                     e.Graph.Font = new Font("Cairo Medium", 18, FontStyle.Bold);
                     e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين 
                     e.Graph.DrawString(title, Color.Black, new RectangleF(350, 150, 1250, 45), DevExpress.XtraPrinting.BorderSide.None);
@@ -512,6 +549,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
 
                     //// 🔹 التاريخ في الزاوية اليمنى
                     string date = "التاريخ : " + DateTime.Now.ToShortDateString();
+                    if (Properties.Settings.Default.ChangeLang == "Ar")
+                        date = "التاريخ : " + DateTime.Now.ToShortDateString();
+                    else date = "Date : " + DateTime.Now.ToShortDateString();
                     e.Graph.Font = new Font("Cairo Medium", 12);
                     e.Graph.DrawString(date, Color.Black, new RectangleF(10, 170, 250, 30), DevExpress.XtraPrinting.BorderSide.None);
                 };
@@ -526,7 +566,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ خطأ أثناء الطباعة: " + ex.Message);
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                    MessageBox.Show("❌ خطأ أثناء الطباعة: " + ex.Message);
+                else MessageBox.Show("❌ Error during printing: " + ex.Message);
             }
         }
 
@@ -589,7 +631,9 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 }
 
                 //context.SaveChanges();
-                MessageBox.Show("✅ تم استيراد بيانات الأدوية بنجاح!");
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                    MessageBox.Show("✅ تم استيراد بيانات الأدوية بنجاح!");
+                else MessageBox.Show("✅ Medications data imported successfully!");
             }
         }
 

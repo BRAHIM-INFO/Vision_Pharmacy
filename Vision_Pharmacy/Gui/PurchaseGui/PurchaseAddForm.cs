@@ -3,7 +3,9 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraScheduler.Native;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,8 +52,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         // في أعلى الفورم:
         private List<Medication> _meds;
         private Dictionary<string, Medication> _medByBarcode;
-        private BindingList<PurchaseItem> purchaseItems = new BindingList<PurchaseItem>(); 
-        private RepositoryItemButtonEdit actionButtons; 
+        private BindingList<PurchaseItem> purchaseItems = new BindingList<PurchaseItem>();
+        private RepositoryItemButtonEdit actionButtons;
         public PurchaseAddForm(int Id, PurchaseUserControl PurchaseUserControl)
         {
             InitializeComponent();
@@ -67,7 +69,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             _dataHelperStrength = (IDataHelper<Strength>)ContainerConfig.ObjectType("Strength");
             _dataHelperMedicineType = (IDataHelper<MedicineType>)ContainerConfig.ObjectType("MedicineType");
             _dataHelperCategory = (IDataHelper<Category>)ContainerConfig.ObjectType("Category");
-            LoadDataSupplier(); 
+            LoadDataSupplier();
             AutoCompleteBarcode();
             // Set Property Instance
             id = Id;
@@ -80,7 +82,16 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 txtFactureNum.Text = GenerateFactureNum();
                 txtFactureNum.HideSelection = true;
                 txtSupplier.Focus();
-            } 
+            }
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                 ApplyArabicResources();
+            }
+            else
+            {
+                 ApplyEnglishResources();
+            }
         }
 
         private async void SetDataToFileds()
@@ -102,7 +113,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     var med = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == item.Barcode);
                     // عرف قائمة من PurchaseItem
                     purchaseItems = new BindingList<PurchaseItem>();
-                     
+
                     purchaseItems.Add(new PurchaseItem
                     {
                         Barcode = item.Barcode,
@@ -112,7 +123,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         PurchasePrice = item.PurchasePrice,
                         SalePrice = item.SalePrice,
                         TotalItem = item.TotalItem
-                    }); 
+                    });
                 }
 
 
@@ -168,7 +179,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 DGListePurchase.DataSource = purchaseItems;
                 // تحميل البيانات بشكل غير متزامن
                 //SetDataGridViewColumns();
-                var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView; 
+                var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView;
                 view.OptionsView.ShowGroupPanel = false;
                 if (view != null)
                 {
@@ -204,15 +215,28 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     // ربط القائمة بالـ GridControl
                     //var view = DGListePurchase.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
 
-
-                    // تعيين مصدر البيانات للـ GridControl
-                    view.Columns["Barcode"].Caption = "باركود الدواء";
-                    view.Columns["Name"].Caption = "اسم الدواء";
-                    view.Columns["GenericName"].Caption = "اسم العلمي";
-                    view.Columns["Quantity"].Caption = "كمية المتوفرة";
-                    view.Columns["PurchasePrice"].Caption = "سعر الشراء";
-                    view.Columns["SalePrice"].Caption = "سعر البيع";
-                    view.Columns["TotalItem"].Caption = "المجموع";
+                    if (Properties.Settings.Default.ChangeLang == "Ar")
+                    {
+                        // تعيين مصدر البيانات للـ GridControl
+                        view.Columns["Barcode"].Caption = "باركود الدواء";
+                        view.Columns["Name"].Caption = "اسم الدواء";
+                        view.Columns["GenericName"].Caption = "اسم العلمي";
+                        view.Columns["Quantity"].Caption = "كمية المتوفرة";
+                        view.Columns["PurchasePrice"].Caption = "سعر الشراء";
+                        view.Columns["SalePrice"].Caption = "سعر البيع";
+                        view.Columns["TotalItem"].Caption = "المجموع";
+                    }
+                    else
+                    {
+                        // Set the data source for the GridControl
+                        view.Columns["Barcode"].Caption = "Drug Barcode";
+                        view.Columns["Name"].Caption = "Drug Name";
+                        view.Columns["GenericName"].Caption = "Generic Name";
+                        view.Columns["Quantity"].Caption = "Quantity Available";
+                        view.Columns["PurchasePrice"].Caption = "Purchase Price";
+                        view.Columns["SalePrice"].Caption = "Sale Price";
+                        view.Columns["TotalItem"].Caption = "Total";
+                    } 
 
                     // مثال: عمود السعر
                     view.Columns["PurchasePrice"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center; // محاذاة لليمين
@@ -284,12 +308,13 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             }
             loading.Hide();
         }
-         
+
         // تحميل صورة الدواء
         private void LoadImage()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "اختر صورة الدواء";
+            if (Properties.Settings.Default.ChangeLang == "Ar") openFileDialog.Title = "اختر صورة الدواء"; 
+            else openFileDialog.Title = "Select medicine image"; 
             openFileDialog.RestoreDirectory = true;
             openFileDialog.Filter = "Image (.png,jpg)|*.png;*.jpg";
             var result = openFileDialog.ShowDialog();
@@ -331,7 +356,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             if (e.KeyCode == Keys.Enter)
             {
                 string barcode = Barcodetxt.Text.Trim();
-
+                string msg = "";
                 if (string.IsNullOrEmpty(barcode))
                     return;
 
@@ -349,7 +374,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     MedicineTypetxt.Text = medication.Form; // الشكل الصيدلي
                     Categorytxt.Text = medication.Category;
                     Strengthtxt.Text = medication.Strength;
-                    Unitetxt.Text = medication.Unite; 
+                    Unitetxt.Text = medication.Unite;
                     QuantityInStocktxt.Text = "0";
                     MinimumStockLeveltxt.Text = "0";
                     BatchNumbertxt.Text = medication.BatchNumber;
@@ -358,7 +383,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 }
                 else
                 {
-                    var msg = "❌ الباركود غير موجود في قاعدة البيانات\nهل تريد إنشاء منتج جديد؟";
+                    if (Properties.Settings.Default.ChangeLang == "Ar")   msg = "❌ الباركود غير موجود في قاعدة البيانات\nهل تريد إنشاء منتج جديد؟";
+                    else   msg = "❌ The barcode does not exist in the database.\nDo you want to create a new product?"; 
                     var result = MessageBox.Show(msg, "تنبيه",
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Warning);
@@ -367,12 +393,24 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     {
                         if (string.IsNullOrWhiteSpace(txtSupplier.Text))
                         {
-                            MessageBox.Show(
-                                "⚠️ يرجى اختيار المورد أولاً قبل إنشاء المنتج الجديد.",
-                                "تنبيه",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning
-                            );
+                            if (Properties.Settings.Default.ChangeLang == "Ar")
+                            {
+                                MessageBox.Show(
+                                    "⚠️ يرجى اختيار المورد أولاً قبل إنشاء المنتج الجديد.",
+                                    "تنبيه",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning
+                                );
+                            }
+                            else
+                            {
+                                MessageBox.Show(
+                                    "⚠️ Please select a supplier first before creating a new product.",
+                                    "Warning",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning
+                                );
+                            }
                             return; // إيقاف العملية وعدم فتح النافذة &é"&"&  
 
                         }
@@ -402,7 +440,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         {
             LoadImage();
         }
-         
+
         // التنقل بين الحقول Textbox
         #region
         private void txtSupplier_KeyDown(object sender, KeyEventArgs e)
@@ -567,7 +605,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             public string GenericName { get; set; }
             public int Quantity { get; set; }
             public decimal PurchasePrice { get; set; }
-            public decimal SalePrice { get; set; } 
+            public decimal SalePrice { get; set; }
             public decimal TotalItem { get; set; }
         }
 
@@ -584,18 +622,27 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             if (!string.IsNullOrEmpty(tag))
             {
                 switch (tag)
-                {  
+                {
                     case "delete":
                         {
                             try
                             {
-
-                                if (MessageBox.Show($"هل تريد حذف المنتج رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                if (Properties.Settings.Default.ChangeLang == "Ar")
                                 {
-                                    view.DeleteRow(view.FocusedRowHandle);
-                                    loading.Show(); 
+                                    if (MessageBox.Show($"هل تريد حذف المنتج رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    {
+                                        view.DeleteRow(view.FocusedRowHandle);
+                                        loading.Show();
+                                    }
                                 }
-
+                                else
+                                {
+                                    if (MessageBox.Show($"Do you want to delete product number: {row.FactureNum}?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    {
+                                        view.DeleteRow(view.FocusedRowHandle);
+                                        loading.Show();
+                                    }
+                                } 
                             }
                             catch
                             {
@@ -612,8 +659,17 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             int idx = repo.Buttons.IndexOf(e.Button); // 0=view, 1=edit, 2=delete
             if (idx == 0)
             {
-                if (MessageBox.Show($"هل تريد حذف المنتج رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    view.DeleteRow(view.FocusedRowHandle); 
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                {
+                    if (MessageBox.Show($"هل تريد حذف المنتج رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        view.DeleteRow(view.FocusedRowHandle);
+                }
+                else
+                {
+                    if (MessageBox.Show($"Do you want to delete product number: {row.FactureNum}?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        view.DeleteRow(view.FocusedRowHandle);
+                }
+                   
 
             }
         }
@@ -622,11 +678,19 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         {
             try
             {
-                if(Barcodetxt.Text == string.Empty || Nametxt.Text == string.Empty || GenericNametxt.Text == string.Empty || QuantityInStocktxt.Text == string.Empty || PurchasePricetxt.Text == string.Empty || SalePricetxt.Text == string.Empty)
+                if (Barcodetxt.Text == string.Empty || Nametxt.Text == string.Empty || GenericNametxt.Text == string.Empty || QuantityInStocktxt.Text == string.Empty || PurchasePricetxt.Text == string.Empty || SalePricetxt.Text == string.Empty)
                 {
-                    MessageBox.Show("الرجاء ملء جميع الحقول المطلوبة.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (Properties.Settings.Default.ChangeLang == "Ar")
+                    {
+                        MessageBox.Show("الرجاء ملء جميع الحقول المطلوبة.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please fill in all required fields.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                   
                     return;
-                }   
+                }
 
                 int.TryParse(QuantityInStocktxt.Text, out int quantity);
                 decimal.TryParse(PurchasePricetxt.Text, out decimal price);
@@ -650,17 +714,33 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 Nametxt.Clear();
                 GenericNametxt.Clear();
                 QuantityInStocktxt.Clear();
-                PurchasePricetxt.Clear(); 
+                PurchasePricetxt.Clear();
 
-                // تفريغ الحقول بعد الإضافة
-                Barcodetxt.PlaceholderText = "باركود الدواء";
-                Nametxt.PlaceholderText = "اسم الدواء";
-                GenericNametxt.PlaceholderText = "الاسم العلمي";
-                Manufacturertxt.PlaceholderText = "الشركة المصنعة";
-                QuantityInStocktxt.PlaceholderText = "الكمية";
-                MinimumStockLeveltxt.PlaceholderText = "الحد الأدنى";
-                BatchNumbertxt.PlaceholderText = "رقم الدفعة";
-                LocationInStoretxt.PlaceholderText = "مكان التخزين";
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                {
+                    // تفريغ الحقول بعد الإضافة
+                    Barcodetxt.PlaceholderText = "باركود الدواء";
+                    Nametxt.PlaceholderText = "اسم الدواء";
+                    GenericNametxt.PlaceholderText = "الاسم العلمي";
+                    Manufacturertxt.PlaceholderText = "الشركة المصنعة";
+                    QuantityInStocktxt.PlaceholderText = "الكمية";
+                    MinimumStockLeveltxt.PlaceholderText = "الحد الأدنى";
+                    BatchNumbertxt.PlaceholderText = "رقم الدفعة";
+                    LocationInStoretxt.PlaceholderText = "مكان التخزين";
+                }
+                else
+                {
+                    // Clear fields after adding
+                    Barcodetxt.PlaceholderText = "Drug Barcode";
+                    Nametxt.PlaceholderText = "Drug Name";
+                    GenericNametxt.PlaceholderText = "Generic Name";
+                    Manufacturertxt.PlaceholderText = "Manufacturer";
+                    QuantityInStocktxt.PlaceholderText = "Quantity";
+                    MinimumStockLeveltxt.PlaceholderText = "Minimum";
+                    BatchNumbertxt.PlaceholderText = "Batch Number";
+                    LocationInStoretxt.PlaceholderText = "Storage Location";
+                }
+                   
                 Barcodetxt.Clear();
                 Nametxt.Clear();
                 GenericNametxt.Clear();
@@ -732,11 +812,13 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             Supplier = _dataHelperSupplier.GetData().FirstOrDefault(s => s.Name == txtSupplier.Text);
             if (Supplier == null)
             {
-                MessageBox.Show("الفاتورة غير موجودة في قاعدة البيانات. يرجى إضافتها أولاً.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                    MessageBox.Show("الفاتورة غير موجودة في قاعدة البيانات. يرجى إضافتها أولاً.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("The invoice does not exist in the database. Please add it first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             // 1. إنشاء الفاتورة من TextBox
-            Purchase = new Purchase(); 
+            Purchase = new Purchase();
             // 2. المرور على الأصناف في GridControl
             var view = DGListePurchase.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
             if (view != null)
@@ -751,14 +833,14 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     Purchase.TotalAmount = decimal.TryParse(txtTotalAmount.Text, out var total) ? total : 0;
                     Purchase.Notes = txtNotes.Text;
                     Purchase.SupplierName = txtSupplier.Text;
-                    Purchase.SupplierId = Supplier.Id;  
+                    Purchase.SupplierId = Supplier.Id;
                     Purchase.Barcode = view.GetRowCellValue(i, "Barcode")?.ToString();
                     Purchase.PurchasePrice = view.GetRowCellValue(i, "PurchasePrice") != null ?
                                              Convert.ToDecimal(view.GetRowCellValue(i, "PurchasePrice")) : 0;
                     Purchase.SalePrice = view.GetRowCellValue(i, "SalePrice") != null ?
                                             Convert.ToDecimal(view.GetRowCellValue(i, "SalePrice")) : 0;
                     Purchase.Quantity = view.GetRowCellValue(i, "Quantity") != null ?
-                                        Convert.ToInt32(view.GetRowCellValue(i, "Quantity")) : 0; 
+                                        Convert.ToInt32(view.GetRowCellValue(i, "Quantity")) : 0;
 
                     // 3. تحديث جدول Medication
                     var med = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == Purchase.Barcode);
@@ -794,27 +876,27 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         //// تحديث الأسعار والكمية
                         med.Id = med.Id;
                         // تحديث المخزون
-                        med.QuantityInStock += newQty; 
+                        med.QuantityInStock += newQty;
                     }
                     _dataHelperMedication.Edit(med);
                     _dataHelperPurchase.Add(Purchase);
                     Purchase = new Purchase();
-                } 
-            }  
+                }
+            }
         }
-         
+
         private async void AddData()
         {
             // Set Data
             SetDataForAdd();
             // Send data and get result
-            
+
             // check the result of proccess
             if (ResultAddOrEdit == 1) // Seccessfuly
             {
                 // Show Notifiction
                 MessageCollection.ShowAddNotification();
-                 
+
                 // Updat View
                 if (PurchaseUserControl != null) PurchaseUserControl.LoadData();
             }
@@ -833,8 +915,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     {
                         RowId = IdList[i];
                         _dataHelperPurchase.Delete(RowId);
-                    } 
-                } 
+                    }
+                }
             }
 
             // Set Data
@@ -878,6 +960,107 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 loading.Hide();
                 this.Close();
             }
+        }
+
+        // // تغيير اللغة إلى العربية
+        private void ApplyArabicResources()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+
+            // General Settings
+            lblSupForm.Text = "ادارة المشتريات >  اضافة فاتورة جديدة";
+            label1.Text = "رقم الفاتورة";
+            label3.Text = "المورد";
+            lblEmpEmail.Text = "تاريخ الشراء";
+            label4.Text = "طريقة الدفع";
+            label16.Text = "باركود الدواء";
+            lblSupplierName.Text = "اسم الدواء";
+            lblSupplierAddress.Text = "الاسم العلمي";
+            lblSupplierPhone.Text = "الشركة المصنعة";
+
+
+            Barcodetxt.PlaceholderText = "باركود الدواء";
+            Nametxt.PlaceholderText = "اسم الدواء";
+            GenericNametxt.PlaceholderText = "الاسم العلمي";
+            Manufacturertxt.PlaceholderText = "الشركة المصنعة";
+
+            label9.Text = "الشكل الصيدلي";
+            label8.Text = "التصنيف";
+            lblSupplierEmail.Text = "التركيز";
+            label7.Text = "الوحدة";
+            label10.Text = "سعر الشراء";
+            lblSupplierNotes.Text = "سعر البيع";
+
+            label11.Text = "الكمية";
+            label12.Text = "الحد الأدنى";  
+            label13.Text = "رقم الدفعة";
+            label15.Text = "مكان التخزين";
+
+            QuantityInStocktxt.Text = "الكمية";
+            MinimumStockLeveltxt.Text = "الحد الأدنى";
+            BatchNumbertxt.Text = "رقم الدفعة";
+            LocationInStoretxt.Text = "مكان التخزين";
+
+            label14.Text = "انتهاء الصلاحية";
+            label17.Text = "هل يتطلب وصفة طبية؟";
+            btnAdd.Text = "اضافة";
+            label6.Text = "السعر الفاتورة  الاجمالي";
+            btnSave.Text = "حفظ"; 
+            label19.Text = "ملاحظات";
+            txtNotes.PlaceholderText = " تسجيل ملاحظات ";
+            // Form Settings
+            this.Text = "اضافة فاتورة جديدة";
+        }
+
+        // // تغيير اللغة إلى العربية
+        private void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = false;
+
+            // General Settings
+            lblSupForm.Text = "Purchase Management > Add New Invoice";
+            label1.Text = "Invoice Number";
+            label3.Text = "Supplier";
+            lblEmpEmail.Text = "Purchase Date";
+            label4.Text = "Payment Method";
+            label16.Text = "Medication Barcode";
+            lblSupplierName.Text = "Medication Name";
+            lblSupplierAddress.Text = "Generic Name";
+            lblSupplierPhone.Text = "Manufacturer";
+
+            Barcodetxt.PlaceholderText = "Medication Barcode";
+            Nametxt.PlaceholderText = "Medication Name";
+            GenericNametxt.PlaceholderText = "Generic Name";
+            Manufacturertxt.PlaceholderText = "Manufacturer";
+
+            label9.Text = "Dosage Form";
+            label8.Text = "Classification";
+            lblSupplierEmail.Text = "Concentration";
+            label7.Text = "Unit";
+            label10.Text = "Purchase Price";
+            lblSupplierNotes.Text = "Selling Price";
+
+            label11.Text = "Quantity";
+            label12.Text = "Minimum";
+            label13.Text = "Batch Number";
+            label15.Text = "Store Location";
+
+            QuantityInStocktxt.Text = "Quantity";
+            MinimumStockLeveltxt.Text = "Minimum";
+            BatchNumbertxt.Text = "Batch Number";
+            LocationInStoretxt.Text = "Store Location";
+
+            label14.Text = "Expiration";
+            label17.Text = "Does a prescription require?";
+            btnAdd.Text = "Add";
+            label6.Text = "Total Invoice Price";
+            btnSave.Text = "Save";
+            label19.Text = "Notes";
+            txtNotes.PlaceholderText = "Record Notes";
+            // Form Settings
+            this.Text = "Add a new invoice";
         }
     }
 }

@@ -46,11 +46,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             _dataHelperMedication = (IDataHelper<Medication>)ContainerConfig.ObjectType("Medication");
             AllClasses.RoundButtonCorners(btnAdd, 15);
             AllClasses.RoundButtonCorners(btnPrint, 15);
-
-
-            // Set DataGridView Columns
-            SetDataGridViewColumns();
-
+            LoadData();
+             
             if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 ApplyArabicResources();
@@ -99,8 +96,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 // في حالة حدوث خطأ، يمكن تسجيله أو إظهاره للمستخدم
             }
         }
-
-
+         
         public void RecalculateMedicationPrice(string barcode)
         {
             var factureItem = _dataHelper.GetData().Where(p => p.Barcode == barcode).ToList();
@@ -315,8 +311,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         }
 
         private void SetDataGridViewColumns()
-        {
-            try
+        { 
+            if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 gridView1.Columns[0].Visible = false; // Hide Column
                 gridView1.Columns[1].Caption = "تاريخ الفاتورة";
@@ -332,11 +328,22 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 gridView1.Columns[11].Caption = "مبلغ الفاتورة";
                 gridView1.Columns[12].Visible = false; // Hide Column 
             }
-            catch
+            else
             {
-                // تجاهل الخطأ (يفضل تسجيله)
+                gridView1.Columns[0].Visible = false; // Hide Column
+                gridView1.Columns[1].Caption = "Invoice Date";
+                gridView1.Columns[2].Caption = "Invoice Number";
+                gridView1.Columns[3].Caption = "Payment Type";
+                gridView1.Columns[4].Caption = "Medicine Barcode";
+                gridView1.Columns[5].Visible = false; // Hide Column
+                gridView1.Columns[6].Caption = "Quantity";
+                gridView1.Columns[7].Caption = "Purchase Price";
+                gridView1.Columns[8].Caption = "Sales Price";
+                gridView1.Columns[9].Caption = "Total";
+                gridView1.Columns[10].Caption = "Master Supplier";
+                gridView1.Columns[11].Caption = "Invoice Amount";
+                gridView1.Columns[12].Visible = false; // Hide Column
             }
-            // Hide Columns
         }
 
         // Singleton Instance
@@ -394,6 +401,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
                     // 🔹 عنوان التقرير (منتصف الصفحة)
                     string title = "قائمة المشتريات ";
+                    if (Properties.Settings.Default.ChangeLang == "Ar") title = "قائمة المشتريات ";
+                    else title = "Purchases List";
                     e.Graph.Font = new Font("Cairo Medium", 18, FontStyle.Bold);
                     e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين 
                     e.Graph.DrawString(title, Color.Black, new RectangleF(350, 150, 1250, 45), DevExpress.XtraPrinting.BorderSide.None);
@@ -401,6 +410,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
                     //// 🔹 التاريخ في الزاوية اليمنى
                     string date = "التاريخ : " + DateTime.Now.ToShortDateString();
+                    if (Properties.Settings.Default.ChangeLang == "Ar") date = "التاريخ : " + DateTime.Now.ToShortDateString();
+                    else date = "Date : " + DateTime.Now.ToShortDateString();
+
                     e.Graph.Font = new Font("Cairo Medium", 12);
                     e.Graph.DrawString(date, Color.Black, new RectangleF(10, 170, 250, 30), DevExpress.XtraPrinting.BorderSide.None);
                 };
@@ -415,7 +427,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ خطأ أثناء الطباعة: " + ex.Message);
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                    MessageBox.Show("❌ خطأ أثناء الطباعة: " + ex.Message);
+                else MessageBox.Show("❌ Error during printing: " + ex.Message);
             }
         }
 
@@ -431,7 +445,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         /// تحديث عدد الأدوية في التسمية عند تغيير عدد الصفوف في GridView
         private void gridView1_RowCountChanged(object sender, EventArgs e)
         {
-            lblCounter.Text = $"عدد الفواتير: {gridView1.RowCount}";
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+                lblCounter.Text = $"عدد الفواتير: {gridView1.RowCount}";  
+            else
+                lblCounter.Text = $"Number of Purchases: {gridView1.RowCount}"; 
         }
 
         private async void PurchaseUserControl_Load(object sender, EventArgs e)
@@ -446,9 +463,12 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 //SetDataGridViewColumns();
                 var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView;
                 view.OptionsView.ShowGroupPanel = false;
-
-                // عمود الأزرار
-                GridColumn colAction = view.Columns.AddVisible("Action", "الإجراءات");
+                GridColumn colAction;
+                    
+                    // عمود الأزرار
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                     colAction = view.Columns.AddVisible("Action", "الإجراءات");
+                else colAction = view.Columns.AddVisible("Action", "Action");
                 colAction.UnboundType = DevExpress.Data.UnboundColumnType.Object;
                 colAction.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
                 colAction.Width = 100; // عرض العمود
@@ -499,9 +519,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             this.RightToLeft = RightToLeft.Yes;
             pnlTop.RightToLeft = RightToLeft.Yes;
             pnlSet.RightToLeft = RightToLeft.No;
-
-
-            lblTitlePurchase.Text = Resources_Ar.TitleUser;
+             
+            lblTitlePurchase.Text = "قائمة المشتريات";
             btnAdd.Text = Resources_Ar.AddButton_User;
             btnPrint.Text = Resources_Ar.PrintButton_User;
             labelEmptyData.Text = Resources_Ar.EmptyDataText;
@@ -516,7 +535,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             pnlTop.RightToLeft = RightToLeft.No;
             pnlSet.RightToLeft = RightToLeft.Yes;
 
-
+            lblTitlePurchase.Text = "Purchase List";
             //lblTitlePurchase.Text = Resources_En.TitlePurchase;
             btnAdd.Text = Resources_En.AddButton_User;
             btnPrint.Text = Resources_En.PrintButton_User;

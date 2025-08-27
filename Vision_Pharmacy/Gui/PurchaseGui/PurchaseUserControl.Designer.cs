@@ -52,10 +52,9 @@
             lblTitlePurchase.AutoSize = true;
             lblTitlePurchase.Font = new Font("Cairo Medium", 12F);
             lblTitlePurchase.ForeColor = Color.White;
-            lblTitlePurchase.Location = new Point(1081, 0);
-            lblTitlePurchase.Margin = new Padding(4, 0, 4, 0);
+            lblTitlePurchase.Location = new Point(939, 0);
             lblTitlePurchase.Name = "lblTitlePurchase";
-            lblTitlePurchase.Size = new Size(155, 37);
+            lblTitlePurchase.Size = new Size(122, 30);
             lblTitlePurchase.TabIndex = 1;
             lblTitlePurchase.Text = "قائمة المشتريات";
             // 
@@ -64,22 +63,22 @@
             SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
-            SeparatLat.LineThickness = 10;
-            SeparatLat.Location = new Point(1244, 2);
-            SeparatLat.Margin = new Padding(4, 2, 4, 2);
+            SeparatLat.LineThickness = 8;
+            SeparatLat.Location = new Point(1067, 2);
+            SeparatLat.Margin = new Padding(3, 2, 3, 2);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
-            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.Size = new Size(9, 57);
             SeparatLat.TabIndex = 1;
             // 
             // PicLaterale
             // 
             PicLaterale.BackColor = Color.Silver;
             PicLaterale.Image = Properties.Resources.trolley_9284599;
-            PicLaterale.Location = new Point(1262, 2);
-            PicLaterale.Margin = new Padding(4, 2, 4, 2);
+            PicLaterale.Location = new Point(1082, 2);
+            PicLaterale.Margin = new Padding(3, 2, 3, 2);
             PicLaterale.Name = "PicLaterale";
-            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.Size = new Size(69, 57);
             PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLaterale.TabIndex = 26;
             PicLaterale.TabStop = false;
@@ -99,11 +98,11 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(4, 2);
-            btnPrint.Margin = new Padding(4, 2, 4, 2);
+            btnPrint.Location = new Point(3, 2);
+            btnPrint.Margin = new Padding(3, 2, 3, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
-            btnPrint.Size = new Size(136, 46);
+            btnPrint.Size = new Size(117, 37);
             btnPrint.TabIndex = 35;
             btnPrint.Text = "طباعة";
             btnPrint.ToolTipTitle = "اضافة";
@@ -124,11 +123,11 @@
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(148, 2);
-            btnAdd.Margin = new Padding(4, 2, 4, 2);
+            btnAdd.Location = new Point(126, 2);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
-            btnAdd.Size = new Size(136, 46);
+            btnAdd.Size = new Size(117, 37);
             btnAdd.TabIndex = 34;
             btnAdd.Text = "اضافة";
             btnAdd.ToolTipTitle = "اضافة";
@@ -137,13 +136,13 @@
             // DGListePurchase
             // 
             DGListePurchase.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListePurchase.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
-            DGListePurchase.Location = new Point(0, 132);
+            DGListePurchase.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            DGListePurchase.Location = new Point(0, 107);
             DGListePurchase.MainView = gridView1;
-            DGListePurchase.Margin = new Padding(4, 2, 4, 2);
+            DGListePurchase.Margin = new Padding(3, 2, 3, 2);
             DGListePurchase.Name = "DGListePurchase";
             DGListePurchase.RightToLeft = RightToLeft.Yes;
-            DGListePurchase.Size = new Size(1346, 646);
+            DGListePurchase.Size = new Size(1154, 525);
             DGListePurchase.TabIndex = 36;
             DGListePurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -189,8 +188,10 @@
             gridView1.Appearance.TopNewRow.Options.UseFont = true;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 10F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
+            gridView1.DetailHeight = 284;
             gridView1.GridControl = DGListePurchase;
             gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             gridView1.RowCountChanged += gridView1_RowCountChanged;
             // 
             // lblCounter
@@ -198,10 +199,9 @@
             lblCounter.AutoSize = true;
             lblCounter.Font = new Font("Cairo Medium", 12F);
             lblCounter.ForeColor = Color.Black;
-            lblCounter.Location = new Point(292, 0);
-            lblCounter.Margin = new Padding(4, 0, 4, 0);
+            lblCounter.Location = new Point(249, 0);
             lblCounter.Name = "lblCounter";
-            lblCounter.Size = new Size(28, 37);
+            lblCounter.Size = new Size(22, 30);
             lblCounter.TabIndex = 37;
             lblCounter.Text = "0";
             // 
@@ -213,8 +213,9 @@
             pnlTop.Controls.Add(lblTitlePurchase);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
+            pnlTop.Margin = new Padding(3, 2, 3, 2);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1346, 74);
+            pnlTop.Size = new Size(1154, 60);
             pnlTop.TabIndex = 38;
             // 
             // pnlSet
@@ -223,25 +224,26 @@
             pnlSet.Controls.Add(btnAdd);
             pnlSet.Controls.Add(lblCounter);
             pnlSet.Dock = DockStyle.Top;
-            pnlSet.Location = new Point(0, 74);
+            pnlSet.Location = new Point(0, 60);
+            pnlSet.Margin = new Padding(3, 2, 3, 2);
             pnlSet.Name = "pnlSet";
             pnlSet.RightToLeft = RightToLeft.No;
-            pnlSet.Size = new Size(1346, 53);
+            pnlSet.Size = new Size(1154, 43);
             pnlSet.TabIndex = 39;
             // 
             // PurchaseUserControl
             // 
             Appearance.BackColor = Color.WhiteSmoke;
             Appearance.Options.UseBackColor = true;
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlSet);
             Controls.Add(pnlTop);
             Controls.Add(DGListePurchase);
-            Margin = new Padding(4, 2, 4, 2);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PurchaseUserControl";
             RightToLeft = RightToLeft.Yes;
-            Size = new Size(1346, 780);
+            Size = new Size(1154, 634);
             Load += PurchaseUserControl_Load;
             ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
