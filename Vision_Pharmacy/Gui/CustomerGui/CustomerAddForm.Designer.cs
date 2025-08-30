@@ -32,11 +32,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerAddForm));
             pictureBox1 = new PictureBox();
-            panel1 = new Panel();
-            label1 = new Label();
+            lbltitle = new Label();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             pictureBox3 = new PictureBox();
-            label6 = new Label();
             lblCustomerEmail = new Label();
             lblCustomerPhone = new Label();
             buttonSaveSup = new DevExpress.XtraEditors.SimpleButton();
@@ -50,21 +48,23 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             lblCustomerNotes = new Label();
             txtCustomerEmail = new TextBox();
             txtCustomerNotes = new TextBox();
-            panel2 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicChange).BeginInit();
-            panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Dock = DockStyle.Left;
             pictureBox1.Image = Resources._3850595;
-            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Location = new Point(4, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(214, 531);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -72,39 +72,25 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             pictureBox1.TabStop = false;
             pictureBox1.MouseDown += pictureBox1_MouseDown;
             // 
-            // panel1
+            // lbltitle
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(separatorControl1);
-            panel1.Controls.Add(pictureBox3);
-            panel1.Location = new Point(26, 22);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(963, 70);
-            panel1.TabIndex = 16;
-            panel1.MouseDown += panel1_MouseDown;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Cairo Medium", 12F);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(572, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(296, 37);
-            label1.TabIndex = 18;
-            label1.Text = "ادارة العملاء >  اضافة عميل  جديد";
+            lbltitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbltitle.AutoSize = true;
+            lbltitle.Font = new Font("Cairo Medium", 12F);
+            lbltitle.ForeColor = Color.Black;
+            lbltitle.Location = new Point(644, 0);
+            lbltitle.Name = "lbltitle";
+            lbltitle.Size = new Size(296, 37);
+            lbltitle.TabIndex = 18;
+            lbltitle.Text = "ادارة العملاء >  اضافة عميل  جديد";
             // 
             // separatorControl1
             // 
             separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.Dock = DockStyle.Right;
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
             separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(873, 0);
+            separatorControl1.Location = new Point(946, 3);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
             separatorControl1.Size = new Size(10, 70);
@@ -113,35 +99,21 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Silver;
-            pictureBox3.Dock = DockStyle.Right;
             pictureBox3.Image = Resources.trolley_9284599;
-            pictureBox3.Location = new Point(883, 0);
+            pictureBox3.Location = new Point(962, 3);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(80, 70);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 17;
             pictureBox3.TabStop = false;
             // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Cairo Medium", 10F);
-            label6.ForeColor = Color.Red;
-            label6.Location = new Point(819, 22);
-            label6.Name = "label6";
-            label6.Size = new Size(21, 32);
-            label6.TabIndex = 27;
-            label6.Text = "*";
-            // 
             // lblCustomerEmail
             // 
             lblCustomerEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblCustomerEmail.AutoSize = true;
-            lblCustomerEmail.BackColor = Color.White;
+            lblCustomerEmail.BackColor = Color.Transparent;
             lblCustomerEmail.Font = new Font("Cairo Medium", 10F);
-            lblCustomerEmail.Location = new Point(802, 229);
+            lblCustomerEmail.Location = new Point(645, 152);
             lblCustomerEmail.Name = "lblCustomerEmail";
             lblCustomerEmail.Size = new Size(124, 32);
             lblCustomerEmail.TabIndex = 24;
@@ -151,9 +123,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // 
             lblCustomerPhone.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblCustomerPhone.AutoSize = true;
-            lblCustomerPhone.BackColor = Color.White;
+            lblCustomerPhone.BackColor = Color.Transparent;
             lblCustomerPhone.Font = new Font("Cairo Medium", 10F);
-            lblCustomerPhone.Location = new Point(802, 160);
+            lblCustomerPhone.Location = new Point(645, 100);
             lblCustomerPhone.Name = "lblCustomerPhone";
             lblCustomerPhone.Size = new Size(63, 32);
             lblCustomerPhone.TabIndex = 23;
@@ -172,14 +144,15 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             buttonSaveSup.AppearancePressed.Font = new Font("Cairo Medium", 10F);
             buttonSaveSup.AppearancePressed.Options.UseFont = true;
             buttonSaveSup.Cursor = Cursors.Hand;
+            buttonSaveSup.Dock = DockStyle.Bottom;
             buttonSaveSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveSup.ImageOptions.SvgImage");
             buttonSaveSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            buttonSaveSup.Location = new Point(343, 471);
+            buttonSaveSup.Location = new Point(186, 513);
             buttonSaveSup.Name = "buttonSaveSup";
             buttonSaveSup.RightToLeft = RightToLeft.Yes;
-            buttonSaveSup.Size = new Size(159, 45);
+            buttonSaveSup.Size = new Size(453, 45);
             buttonSaveSup.TabIndex = 26;
-            buttonSaveSup.Text = "حفظ";
+            buttonSaveSup.Text = "حفظ البيانات";
             buttonSaveSup.ToolTipTitle = "اضافة";
             buttonSaveSup.Click += buttonSaveSup_Click;
             // 
@@ -188,7 +161,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             txtCustomerPhone.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtCustomerPhone.BackColor = Color.FromArgb(232, 246, 255);
             txtCustomerPhone.Font = new Font("Cairo Medium", 10F);
-            txtCustomerPhone.Location = new Point(343, 160);
+            txtCustomerPhone.Location = new Point(186, 103);
             txtCustomerPhone.Name = "txtCustomerPhone";
             txtCustomerPhone.Size = new Size(452, 39);
             txtCustomerPhone.TabIndex = 22;
@@ -197,9 +170,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // 
             lblCustomerAddress.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblCustomerAddress.AutoSize = true;
-            lblCustomerAddress.BackColor = Color.White;
+            lblCustomerAddress.BackColor = Color.Transparent;
             lblCustomerAddress.Font = new Font("Cairo Medium", 10F);
-            lblCustomerAddress.Location = new Point(802, 89);
+            lblCustomerAddress.Location = new Point(645, 50);
             lblCustomerAddress.Name = "lblCustomerAddress";
             lblCustomerAddress.Size = new Size(66, 32);
             lblCustomerAddress.TabIndex = 21;
@@ -210,7 +183,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             txtCustomerName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtCustomerName.BackColor = Color.FromArgb(232, 246, 255);
             txtCustomerName.Font = new Font("Cairo Medium", 10F);
-            txtCustomerName.Location = new Point(343, 15);
+            txtCustomerName.Location = new Point(186, 3);
             txtCustomerName.Name = "txtCustomerName";
             txtCustomerName.Size = new Size(452, 39);
             txtCustomerName.TabIndex = 18;
@@ -220,7 +193,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             txtCustomerAddress.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtCustomerAddress.BackColor = Color.FromArgb(232, 246, 255);
             txtCustomerAddress.Font = new Font("Cairo Medium", 10F);
-            txtCustomerAddress.Location = new Point(343, 86);
+            txtCustomerAddress.Location = new Point(186, 53);
             txtCustomerAddress.Name = "txtCustomerAddress";
             txtCustomerAddress.Size = new Size(452, 39);
             txtCustomerAddress.TabIndex = 20;
@@ -229,9 +202,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // 
             lblCustomerName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblCustomerName.AutoSize = true;
-            lblCustomerName.BackColor = Color.White;
+            lblCustomerName.BackColor = Color.Transparent;
             lblCustomerName.Font = new Font("Cairo Medium", 10F);
-            lblCustomerName.Location = new Point(793, 22);
+            lblCustomerName.Location = new Point(645, 0);
             lblCustomerName.Name = "lblCustomerName";
             lblCustomerName.Size = new Size(167, 32);
             lblCustomerName.TabIndex = 19;
@@ -243,7 +216,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             btnClose.Cursor = Cursors.Hand;
             btnClose.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnClose.ImageOptions.SvgImage");
             btnClose.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnClose.Location = new Point(26, 646);
+            btnClose.Location = new Point(12, 646);
             btnClose.Name = "btnClose";
             btnClose.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             btnClose.Size = new Size(40, 40);
@@ -256,9 +229,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             PicChange.BackColor = Color.Silver;
             PicChange.Cursor = Cursors.Hand;
             PicChange.Image = Resources.pictur;
-            PicChange.Location = new Point(222, 15);
+            PicChange.Location = new Point(9, 200);
             PicChange.Name = "PicChange";
-            PicChange.Size = new Size(107, 103);
+            PicChange.Size = new Size(171, 137);
             PicChange.SizeMode = PictureBoxSizeMode.StretchImage;
             PicChange.TabIndex = 32;
             PicChange.TabStop = false;
@@ -268,9 +241,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // 
             lblCustomerNotes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblCustomerNotes.AutoSize = true;
-            lblCustomerNotes.BackColor = Color.White;
+            lblCustomerNotes.BackColor = Color.Transparent;
             lblCustomerNotes.Font = new Font("Cairo Medium", 10F);
-            lblCustomerNotes.Location = new Point(802, 299);
+            lblCustomerNotes.Location = new Point(645, 197);
             lblCustomerNotes.Name = "lblCustomerNotes";
             lblCustomerNotes.Size = new Size(131, 32);
             lblCustomerNotes.TabIndex = 35;
@@ -281,7 +254,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             txtCustomerEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtCustomerEmail.BackColor = Color.FromArgb(232, 246, 255);
             txtCustomerEmail.Font = new Font("Cairo Medium", 10F);
-            txtCustomerEmail.Location = new Point(343, 226);
+            txtCustomerEmail.Location = new Point(186, 155);
             txtCustomerEmail.Name = "txtCustomerEmail";
             txtCustomerEmail.Size = new Size(452, 39);
             txtCustomerEmail.TabIndex = 36;
@@ -290,71 +263,97 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // 
             txtCustomerNotes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtCustomerNotes.Font = new Font("Cairo Medium", 10F);
-            txtCustomerNotes.Location = new Point(343, 299);
+            txtCustomerNotes.Location = new Point(186, 200);
             txtCustomerNotes.Multiline = true;
             txtCustomerNotes.Name = "txtCustomerNotes";
             txtCustomerNotes.Size = new Size(452, 137);
             txtCustomerNotes.TabIndex = 37;
             // 
-            // panel2
+            // flowLayoutPanel1
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(pictureBox1);
-            panel2.Controls.Add(PicChange);
-            panel2.Controls.Add(txtCustomerNotes);
-            panel2.Controls.Add(buttonSaveSup);
-            panel2.Controls.Add(txtCustomerEmail);
-            panel2.Controls.Add(txtCustomerName);
-            panel2.Controls.Add(lblCustomerNotes);
-            panel2.Controls.Add(lblCustomerName);
-            panel2.Controls.Add(txtCustomerAddress);
-            panel2.Controls.Add(lblCustomerAddress);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(txtCustomerPhone);
-            panel2.Controls.Add(lblCustomerEmail);
-            panel2.Controls.Add(lblCustomerPhone);
-            panel2.Location = new Point(26, 109);
-            panel2.Name = "panel2";
-            panel2.RightToLeft = RightToLeft.Yes;
-            panel2.Size = new Size(963, 531);
-            panel2.TabIndex = 40;
+            flowLayoutPanel1.Controls.Add(pictureBox3);
+            flowLayoutPanel1.Controls.Add(separatorControl1);
+            flowLayoutPanel1.Controls.Add(lbltitle);
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1045, 68);
+            flowLayoutPanel1.TabIndex = 41;
             // 
-            // CustumerAddForm
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.7165356F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 72.28346F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 182F));
+            tableLayoutPanel1.Controls.Add(lblCustomerName, 0, 0);
+            tableLayoutPanel1.Controls.Add(PicChange, 2, 4);
+            tableLayoutPanel1.Controls.Add(lblCustomerAddress, 0, 1);
+            tableLayoutPanel1.Controls.Add(buttonSaveSup, 1, 5);
+            tableLayoutPanel1.Controls.Add(txtCustomerNotes, 1, 4);
+            tableLayoutPanel1.Controls.Add(txtCustomerName, 1, 0);
+            tableLayoutPanel1.Controls.Add(txtCustomerAddress, 1, 1);
+            tableLayoutPanel1.Controls.Add(lblCustomerNotes, 0, 4);
+            tableLayoutPanel1.Controls.Add(txtCustomerEmail, 1, 3);
+            tableLayoutPanel1.Controls.Add(lblCustomerPhone, 0, 2);
+            tableLayoutPanel1.Controls.Add(txtCustomerPhone, 1, 2);
+            tableLayoutPanel1.Controls.Add(lblCustomerEmail, 0, 3);
+            tableLayoutPanel1.Location = new Point(224, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 6;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 158F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 205F));
+            tableLayoutPanel1.Size = new Size(818, 561);
+            tableLayoutPanel1.TabIndex = 42;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(tableLayoutPanel1);
+            flowLayoutPanel2.Controls.Add(pictureBox1);
+            flowLayoutPanel2.Dock = DockStyle.Top;
+            flowLayoutPanel2.Location = new Point(0, 68);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(1045, 572);
+            flowLayoutPanel2.TabIndex = 42;
+            // 
+            // CustomerAddForm
             // 
             Appearance.BackColor = Color.FromArgb(232, 246, 255);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1012, 698);
-            Controls.Add(panel2);
+            ClientSize = new Size(1045, 698);
+            Controls.Add(flowLayoutPanel2);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(btnClose);
-            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "CustumerAddForm";
+            Name = "CustomerAddForm";
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CustomerAddForm";
             MouseDown += CustomerAddForm_MouseDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicChange).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private PictureBox pictureBox1;
-        private Panel panel1;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private PictureBox pictureBox3;
-        private Label label6;
         private Label lblCustomerEmail;
         private Label lblCustomerPhone;
         private DevExpress.XtraEditors.SimpleButton buttonSaveSup;
@@ -368,7 +367,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         private Label lblCustomerNotes;
         private TextBox txtCustomerEmail;
         private TextBox txtCustomerNotes;
-        private Label label1;
-        private Panel panel2;
+        private Label lbltitle;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanel2;
     }
 }

@@ -54,9 +54,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         public EmployeeAddForm(int Id, EmployeeUserControl EmployeeUserControl)
         {
             InitializeComponent();
-            AllClasses.RoundPanelCornersForm(this, 25); // 15 مثل bunifu
-            AllClasses.RoundPanelCorners(panel1, 25); // 15 مثل bunifu
-            AllClasses.RoundPanelCorners(panel2, 25); // 15 مثل bunifu
+            AllClasses.RoundPanelCornersForm(this, 25); // 15 مثل bunifu 
 
             // Set Property Instance
             id = Id;
@@ -67,6 +65,15 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             if (id > 0)
             {
                 SetDataToFileds();
+            }
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
             }
         }
 
@@ -271,5 +278,39 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             if ((ch == '.' || ch == ',') && (txtEmpSalaire.Text.Contains('.') || txtEmpSalaire.Text.Contains(',')))
                 e.Handled = true;
         }
+
+        //ملف ترجمة الى اللغة العربية
+        private void ApplyArabicResources()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+
+            lblSupForm.Text = "ادارة الموظفين >  اضافة موظف جديد";
+            lblEmpName.Text = "الاسم الكامل *";
+            lblEmpAddress.Text = "الوظيفة";
+            lblEmpPhone.Text = "الهاتف";
+            lblEmpEmail.Text = "تاريخ التوظيف";
+            lblEmpNotes.Text = "الراتب";
+            lblEmpIsActive.Text = "هل الموظف نشط؟";
+            buttonSaveEmp.Text = "حفظ";
+            btnClose.Text = "إغلاق";
+        }
+
+        //ملف ترجمة الى اللغة الانجليزية
+        private void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = false;
+            lblSupForm.Text = "Employee Management > Add New Employee";
+            lblEmpName.Text = "Full Name *";
+            lblEmpAddress.Text = "Role";
+            lblEmpPhone.Text = "Phone";
+            lblEmpEmail.Text = "Hire Date";
+            lblEmpNotes.Text = "Salary";
+            lblEmpIsActive.Text = "Is Employee Active?";
+            buttonSaveEmp.Text = "Save";
+            btnClose.Text = "Close";
+        }
+
     }
 }

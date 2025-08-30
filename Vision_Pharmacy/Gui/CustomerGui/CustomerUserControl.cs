@@ -161,6 +161,11 @@ namespace Vision_Pharmacy.Gui.CustomerGui
 
                     // 🔹 عنوان التقرير (منتصف الصفحة)
                     string title = "قائمة الموردين ";
+                    if (Properties.Settings.Default.ChangeLang == "Ar") title = "قائمة الموردين ";
+                    else title = "CUSTOMERS LIST ";
+
+
+
                     e.Graph.Font = new Font("Cairo Medium", 18, FontStyle.Bold);
                     e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين 
                     e.Graph.DrawString(title, Color.Black, new RectangleF(350, 150, 1250, 45), BorderSide.None);
@@ -168,6 +173,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
 
                     //// 🔹 التاريخ في الزاوية اليمنى
                     string date = "التاريخ : " + DateTime.Now.ToShortDateString();
+                    if (Properties.Settings.Default.ChangeLang == "Ar") date = "التاريخ : " + DateTime.Now.ToShortDateString();
+                    else date = "Date : " + DateTime.Now.ToShortDateString();
+
                     e.Graph.Font = new Font("Cairo Medium", 12);
                     e.Graph.DrawString(date, Color.Black, new RectangleF(50, 150, 250, 30), BorderSide.None);
                 };
@@ -191,7 +199,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ خطأ أثناء الطباعة: " + ex.Message);
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                    MessageBox.Show("❌ خطأ أثناء الطباعة: " + ex.Message);
+                else MessageBox.Show("❌ Error during printing: " + ex.Message);
             }
         }
         public async void LoadData()
@@ -284,18 +294,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         //ملف الموارد العربي
         public void ApplyArabicResources()
         {
-            this.RightToLeft = RightToLeft.Yes;
-            PicLaterale.Dock = DockStyle.Right;
-            SeparatLat.Dock = DockStyle.Right;
-            lblTitleCustom.Dock = DockStyle.Right;
+            this.RightToLeft = RightToLeft.Yes; 
 
-            btnPrint.Location = new Point(3, 76);
-            btnAdd.Location = new Point(146, 76);
-
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-
-            lblTitleCustom.Text = Resources_Ar.TitleUser;
+            lblTitleCustom.Text = "قائمة العملاء";
             btnAdd.Text = Resources_Ar.AddButton_User;
             btnPrint.Text = Resources_Ar.PrintButton_User;
             labelEmptyData.Text = Resources_Ar.EmptyDataText;
@@ -308,25 +309,14 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         //ملف الموارد انجليزي
         public void ApplyEnglishResources()
         {
-            this.RightToLeft = RightToLeft.No;
-            PicLaterale.Dock = DockStyle.Left;
-            SeparatLat.Dock = DockStyle.Left;
-            lblTitleCustom.Dock = DockStyle.Left;
-
-            btnPrint.Location = new Point(this.Size.Width - 140, 76);
-            btnAdd.Location = new Point(this.Size.Width - 283, 76);
-
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-
-            lblTitleCustom.Text = Resources_En.TitleUser;
+            this.RightToLeft = RightToLeft.No; 
+            lblTitleCustom.Text = "CUSTOMERS LIST";
             btnAdd.Text = Resources_En.AddButton_User;
             btnPrint.Text = Resources_En.PrintButton_User;
             labelEmptyData.Text = Resources_En.EmptyDataText;
-
             DGListeCustomer.RightToLeft = RightToLeft.No;
-             
 
         }
+
     }
 }

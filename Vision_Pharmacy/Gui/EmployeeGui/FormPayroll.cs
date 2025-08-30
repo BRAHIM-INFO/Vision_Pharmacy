@@ -37,6 +37,14 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             loading = LoadingUser.Instance();
             _dataHelper = (IDataHelper<Payroll>)ContainerConfig.ObjectType("Payroll");
             labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
         }
 
         private void FormPayroll_Load(object sender, EventArgs e)
@@ -44,8 +52,8 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             loading.Show();
             // تعبئة ComboBox بالأشهر (1 إلى 12)
             comboBoxMonth.Items.AddRange(System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames.ToArray());//.Take(12).ToArray());
-            comboBoxMonth.SelectedIndex =  selectedMonth - 1;
-         
+            comboBoxMonth.SelectedIndex = selectedMonth - 1;
+
             // تعبئة ComboBox بالسنوات (مثلاً: من 2020 إلى السنة الحالية +1)
             for (int year = 2020; year <= DateTime.Now.Year + 1; year++)
                 comboBoxYear.Items.Add(year);
@@ -238,7 +246,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         }
 
         private void btnCalculatee_Click(object sender, EventArgs e)
-        { 
+        {
             loading.Show();
             int month = AllClasses.GetMonthNumber(comboBoxMonth.Text);// Convert.ToInt32(comboBoxMonth.SelectedItem);
             int year = Convert.ToInt32(comboBoxYear.SelectedItem);
@@ -330,17 +338,18 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         public void ApplyArabicResources()
         {
             this.RightToLeft = RightToLeft.Yes;
-            PicLaterale.Dock = DockStyle.Right;
-            SeparatLat.Dock = DockStyle.Right;
-            lblTitlePay.Dock = DockStyle.Right;
+            topLabel.RightToLeft = RightToLeft.Yes;
+            flowLayoutPanel1.RightToLeft = RightToLeft.No;
 
-            btnPrint.Location = new Point(3, 76);
-            btnSave.Location = new Point(146, 76);
 
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            lblTitlePay.Text = "قائمة رواتب الموظفين";
+            btnPrintFiche.Text = "طباعة كشف راتب";
+            btnPrint.Text = "طباعة القائمة";
+            lblMonths.Text = "الشهر";
+            lblYear.Text = "السنة";
+            btnCalculatee.Text = "حساب الرواتب";
+            btnSave.Text = "حفظ";
 
-            lblTitlePay.Text = Resources_Ar.TitleUser;
             btnSave.Text = Resources_Ar.AddButton_User;
             btnPrint.Text = Resources_Ar.PrintButton_User;
             labelEmptyData.Text = Resources_Ar.EmptyDataText;
@@ -352,22 +361,20 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         public void ApplyEnglishResources()
         {
             this.RightToLeft = RightToLeft.No;
-            PicLaterale.Dock = DockStyle.Left;
-            SeparatLat.Dock = DockStyle.Left;
-            lblTitlePay.Dock = DockStyle.Left;
-
-            btnPrint.Location = new Point(this.Size.Width - 140, 76);
-            btnSave.Location = new Point(this.Size.Width - 283, 76);
-
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-
-            lblTitlePay.Text = Resources_En.TitleUser;
+            topLabel.RightToLeft = RightToLeft.No;
+            flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
+            lblTitlePay.Text = "Employee Payroll List";
+            btnPrintFiche.Text = "Print Pay Slip";
+            btnPrint.Text = "Print List";
+            lblMonths.Text = "Month";
+            lblYear.Text = "Year";
+            btnCalculatee.Text = "Calculate Payroll";
+            btnSave.Text = "Save";
             btnSave.Text = Resources_En.AddButton_User;
             btnPrint.Text = Resources_En.PrintButton_User;
             labelEmptyData.Text = Resources_En.EmptyDataText;
-
             DGListeEmployee.RightToLeft = RightToLeft.No;
+
         }
     }
 }

@@ -78,6 +78,7 @@ namespace Vision_Pharmacy
                 this.StartPosition = FormStartPosition.CenterScreen;
                 isMaximized = false;
             }
+            MessageBox.Show(Properties.Settings.Default.ChangeLang);
         }
 
         private void MaximizeWithoutCoveringTaskbar()

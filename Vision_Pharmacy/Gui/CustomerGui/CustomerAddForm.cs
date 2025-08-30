@@ -60,6 +60,15 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             {
                 SetDataToFileds();
             }
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
         }
 
         private void PicChange_Click(object sender, EventArgs e)
@@ -102,7 +111,8 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         private void LoadImage()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "اختر صورة المورد";
+            if (Properties.Settings.Default.ChangeLang == "Ar")  openFileDialog.Title = "اختر صورة المورد";
+            else  openFileDialog.Title = "Select Supplier Image";
             openFileDialog.RestoreDirectory = true;
             openFileDialog.Filter = "Image (.png,jpg)|*.png;*.jpg";
             var result = openFileDialog.ShowDialog();
@@ -251,5 +261,50 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                 SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
+
+        //ملف ترجمة الى اللغة العربية
+        private void ApplyArabicResources()
+        {
+            this.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+
+            lbltitle.Text = "إضافة عميل جديد"; 
+            lblCustomerName.Text = "اسم العميل *";
+            lblCustomerPhone.Text = "رقم الهاتف";
+            lblCustomerEmail.Text = "البريد الإلكتروني";
+            lblCustomerAddress.Text = "العنوان";
+            lblCustomerNotes.Text = "ملاحظات";
+
+            txtCustomerName.PlaceholderText = "اسم العميل *";
+            txtCustomerPhone.PlaceholderText = "رقم الهاتف";
+            txtCustomerEmail.PlaceholderText = "البريد الإلكتروني";
+            txtCustomerAddress.PlaceholderText = "العنوان";
+            txtCustomerNotes.PlaceholderText = "ملاحظات"; 
+
+            buttonSaveSup.Text = "حفظ البيانات";
+        }
+
+        //ملف ترجمة الى اللغة الانجليزية
+        private void ApplyEnglishResources()
+        {
+            this.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = false;
+
+            lbltitle.Text = "Add New Customer";
+            lblCustomerName.Text = "Customer Name *";
+            lblCustomerPhone.Text = "Phone";
+            lblCustomerEmail.Text = "Email";
+            lblCustomerAddress.Text = "Address";
+            lblCustomerNotes.Text = "Notes";
+
+            txtCustomerName.PlaceholderText = "Customer Name *";
+            txtCustomerPhone.PlaceholderText = "Phone Number";
+            txtCustomerEmail.PlaceholderText = "Email";
+            txtCustomerAddress.PlaceholderText = "Address";
+            txtCustomerNotes.PlaceholderText = "Notes";
+
+            buttonSaveSup.Text = "Save Data";
+        }
+
     }
 }

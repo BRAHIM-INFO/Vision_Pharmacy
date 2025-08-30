@@ -33,7 +33,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             InitializeComponent();
             labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
             loading = LoadingUser.Instance();
-            LoadMonthYearSelectors(); 
+            LoadMonthYearSelectors();
             LoadAttendanceData(AllClasses.GetEnglishMonthName(DateTime.Now.Month), selectedYear);
 
             if (Properties.Settings.Default.ChangeLang == "Ar")
@@ -51,9 +51,9 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         #region
         private void LoadMonthYearSelectors()
         {
-            comboBoxMonth.Items.AddRange(System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames.ToArray());//.Take(12).ToArray());
+            txtMonthDu.Items.AddRange(System.Globalization.DateTimeFormatInfo.InvariantInfo.MonthNames.ToArray());//.Take(12).ToArray());
             // comboBoxMonth.SelectedIndex = selectedMonth - 1;
-            comboBoxMonth.Text = AllClasses.GetEnglishMonthName(selectedMonth - 1);
+            txtMonthDu.Text = AllClasses.GetEnglishMonthName(selectedMonth - 1);
 
             for (int year = 2020; year <= DateTime.Now.Year + 1; year++)
                 comboBoxYear.Items.Add(year);
@@ -61,10 +61,10 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         }
 
         private async void LoadAttendanceData(string _Month, int _Year)
-        { 
+        {
             selectedMonth = AllClasses.GetMonthNumber(_Month);// comboBoxMonth.SelectedIndex + 1;
             selectedYear = _Year; // Convert.ToInt32(comboBoxYear.SelectedItem);
-           
+
             attendanceTable = new DataTable();
             attendanceTable.Columns.Add("Id_Emp", typeof(int));
             attendanceTable.Columns.Add("Name_Emp", typeof(string));
@@ -108,7 +108,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
 
             // Apply CheckEdit to day columns
             ApplyCheckboxColumns(daysInMonth);
-             
+
         }
 
         private void ApplyCheckboxColumns(int daysInMonth)
@@ -312,11 +312,11 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             MessageBox.Show("تم حفظ الحضور بنجاح.");
         }
 
-        private   void comboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             loading.Show();
-            if (comboBoxMonth.Text != string.Empty & comboBoxYear.Text != string.Empty)
-                LoadAttendanceData(comboBoxMonth.Text, int.Parse(comboBoxYear.Text));
+            if (txtMonthDu.Text != string.Empty & comboBoxYear.Text != string.Empty)
+                LoadAttendanceData(txtMonthDu.Text, int.Parse(comboBoxYear.Text));
             loading.Hide();
         }
 
@@ -324,9 +324,9 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         private async void comboBoxMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             loading.Show();
-            if (comboBoxMonth.SelectedItem == null || comboBoxYear.SelectedItem == null)
+            if (txtMonthDu.SelectedItem == null || comboBoxYear.SelectedItem == null)
                 return;
-            LoadAttendanceData(comboBoxMonth.Text, int.Parse(comboBoxYear.Text));
+            LoadAttendanceData(txtMonthDu.Text, int.Parse(comboBoxYear.Text));
 
             loading.Hide();
         }
@@ -345,21 +345,15 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         //ملف الموارد العربي
         public void ApplyArabicResources()
         {
-            this.RightToLeft = RightToLeft.Yes;
-            PicLaterale.Dock = DockStyle.Right;
-            SeparatLat.Dock = DockStyle.Right;
-            lblTitleAttend.Dock = DockStyle.Right;
-
-            btnPrint.Location = new Point(3, 76);
-            btnSave.Location = new Point(146, 76);
-
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-
-            lblTitleAttend.Text = Resources_Ar.TitleUser;
+            this.RightToLeft = RightToLeft.Yes; 
+            lblTitleAttend.Text = "تسجيل الغيابات و حظور الموظفين";
             btnSave.Text = Resources_Ar.AddButton_User;
             btnPrint.Text = Resources_Ar.PrintButton_User;
             labelEmptyData.Text = Resources_Ar.EmptyDataText;
+            YearDu.Text = "السنة";
+            MonthDu.Text = "الشهر";
+            btnSave.Text = "حفظ";
+            btnPrint.Text = "طباعة";
 
             DGListeEmployee.RightToLeft = RightToLeft.Yes;
         }
@@ -368,22 +362,16 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         public void ApplyEnglishResources()
         {
             this.RightToLeft = RightToLeft.No;
-            PicLaterale.Dock = DockStyle.Left;
-            SeparatLat.Dock = DockStyle.Left;
-            lblTitleAttend.Dock = DockStyle.Left;
-
-            btnPrint.Location = new Point(this.Size.Width - 140, 76);
-            btnSave.Location = new Point(this.Size.Width - 283, 76);
-
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnSave.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-
-            lblTitleAttend.Text = Resources_En.TitleUser;
+            lblTitleAttend.Text = "Employee Attendance and Absence Tracking";
             btnSave.Text = Resources_En.AddButton_User;
             btnPrint.Text = Resources_En.PrintButton_User;
             labelEmptyData.Text = Resources_En.EmptyDataText;
-
+            YearDu.Text = "Year";
+            MonthDu.Text = "Month";
+            btnSave.Text = "Save";
+            btnPrint.Text = "Print";
             DGListeEmployee.RightToLeft = RightToLeft.No;
+
         }
     }
 }

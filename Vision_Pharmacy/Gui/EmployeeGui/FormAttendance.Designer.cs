@@ -32,30 +32,31 @@
             DGListeEmployee = new DevExpress.XtraGrid.GridControl();
             gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             PicLaterale = new PictureBox();
-            pnlTop = new Panel();
             lblTitleAttend = new Label();
             SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
             btnSave = new DevExpress.XtraEditors.SimpleButton();
-            labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            comboBoxMonth = new ComboBox();
+            MonthDu = new DevExpress.XtraEditors.LabelControl();
+            YearDu = new DevExpress.XtraEditors.LabelControl();
+            txtMonthDu = new ComboBox();
             comboBoxYear = new ComboBox();
             btnPrint = new DevExpress.XtraEditors.SimpleButton();
+            pnlTop = new FlowLayoutPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)DGListeEmployee).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
-            pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
+            pnlTop.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // DGListeEmployee
             // 
             DGListeEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeEmployee.Location = new Point(0, 122);
+            DGListeEmployee.Location = new Point(0, 140);
             DGListeEmployee.MainView = gridView2;
             DGListeEmployee.Name = "DGListeEmployee";
-            DGListeEmployee.RightToLeft = RightToLeft.Yes;
-            DGListeEmployee.Size = new Size(1271, 633);
+            DGListeEmployee.Size = new Size(1271, 615);
             DGListeEmployee.TabIndex = 23;
             DGListeEmployee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView2 });
             // 
@@ -107,34 +108,20 @@
             // PicLaterale
             // 
             PicLaterale.BackColor = Color.Transparent;
-            PicLaterale.Dock = DockStyle.Right;
             PicLaterale.Image = Properties.Resources.tasking_15578464;
-            PicLaterale.Location = new Point(1191, 0);
+            PicLaterale.Location = new Point(1188, 3);
             PicLaterale.Name = "PicLaterale";
             PicLaterale.Size = new Size(80, 70);
             PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLaterale.TabIndex = 24;
             PicLaterale.TabStop = false;
             // 
-            // pnlTop
-            // 
-            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
-            pnlTop.Controls.Add(lblTitleAttend);
-            pnlTop.Controls.Add(SeparatLat);
-            pnlTop.Controls.Add(PicLaterale);
-            pnlTop.Dock = DockStyle.Top;
-            pnlTop.Location = new Point(0, 0);
-            pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1271, 70);
-            pnlTop.TabIndex = 25;
-            // 
             // lblTitleAttend
             // 
             lblTitleAttend.AutoSize = true;
-            lblTitleAttend.Dock = DockStyle.Right;
             lblTitleAttend.Font = new Font("Cairo Medium", 12F);
             lblTitleAttend.ForeColor = Color.White;
-            lblTitleAttend.Location = new Point(889, 0);
+            lblTitleAttend.Location = new Point(874, 0);
             lblTitleAttend.Name = "lblTitleAttend";
             lblTitleAttend.Size = new Size(292, 37);
             lblTitleAttend.TabIndex = 1;
@@ -143,11 +130,10 @@
             // SeparatLat
             // 
             SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
-            SeparatLat.Dock = DockStyle.Right;
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
             SeparatLat.LineThickness = 10;
-            SeparatLat.Location = new Point(1181, 0);
+            SeparatLat.Location = new Point(1172, 3);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
             SeparatLat.Size = new Size(10, 70);
@@ -168,7 +154,7 @@
             btnSave.Cursor = Cursors.Hand;
             btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
             btnSave.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnSave.Location = new Point(611, 76);
+            btnSave.Location = new Point(612, 8);
             btnSave.Name = "btnSave";
             btnSave.RightToLeft = RightToLeft.Yes;
             btnSave.Size = new Size(144, 40);
@@ -177,51 +163,51 @@
             btnSave.ToolTipTitle = "اضافة";
             btnSave.Click += btnSaveAttend_Click;
             // 
-            // labelControl2
+            // MonthDu
             // 
-            labelControl2.Appearance.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
-            labelControl2.Appearance.ForeColor = SystemColors.ControlDarkDark;
-            labelControl2.Appearance.Options.UseFont = true;
-            labelControl2.Appearance.Options.UseForeColor = true;
-            labelControl2.Appearance.Options.UseTextOptions = true;
-            labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            labelControl2.Location = new Point(365, 79);
-            labelControl2.Name = "labelControl2";
-            labelControl2.Size = new Size(46, 32);
-            labelControl2.TabIndex = 29;
-            labelControl2.Text = "الشهر";
+            MonthDu.Appearance.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
+            MonthDu.Appearance.ForeColor = SystemColors.ControlDarkDark;
+            MonthDu.Appearance.Options.UseFont = true;
+            MonthDu.Appearance.Options.UseForeColor = true;
+            MonthDu.Appearance.Options.UseTextOptions = true;
+            MonthDu.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            MonthDu.Location = new Point(368, 8);
+            MonthDu.Name = "MonthDu";
+            MonthDu.Size = new Size(46, 32);
+            MonthDu.TabIndex = 29;
+            MonthDu.Text = "الشهر";
             // 
-            // labelControl1
+            // YearDu
             // 
-            labelControl1.Appearance.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
-            labelControl1.Appearance.ForeColor = SystemColors.ControlDarkDark;
-            labelControl1.Appearance.Options.UseFont = true;
-            labelControl1.Appearance.Options.UseForeColor = true;
-            labelControl1.Appearance.Options.UseTextOptions = true;
-            labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            labelControl1.Location = new Point(558, 79);
-            labelControl1.Name = "labelControl1";
-            labelControl1.Size = new Size(45, 32);
-            labelControl1.TabIndex = 30;
-            labelControl1.Text = "السنة";
+            YearDu.Appearance.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
+            YearDu.Appearance.ForeColor = SystemColors.ControlDarkDark;
+            YearDu.Appearance.Options.UseFont = true;
+            YearDu.Appearance.Options.UseForeColor = true;
+            YearDu.Appearance.Options.UseTextOptions = true;
+            YearDu.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            YearDu.Location = new Point(561, 8);
+            YearDu.Name = "YearDu";
+            YearDu.Size = new Size(45, 32);
+            YearDu.TabIndex = 30;
+            YearDu.Text = "السنة";
             // 
-            // comboBoxMonth
+            // txtMonthDu
             // 
-            comboBoxMonth.FlatStyle = FlatStyle.System;
-            comboBoxMonth.Font = new Font("Cairo Medium", 10F);
-            comboBoxMonth.FormattingEnabled = true;
-            comboBoxMonth.Location = new Point(172, 76);
-            comboBoxMonth.Name = "comboBoxMonth";
-            comboBoxMonth.Size = new Size(184, 40);
-            comboBoxMonth.TabIndex = 31;
-            comboBoxMonth.SelectedIndexChanged += comboBoxMonth_SelectedIndexChanged;
+            txtMonthDu.FlatStyle = FlatStyle.System;
+            txtMonthDu.Font = new Font("Cairo Medium", 10F);
+            txtMonthDu.FormattingEnabled = true;
+            txtMonthDu.Location = new Point(178, 8);
+            txtMonthDu.Name = "txtMonthDu";
+            txtMonthDu.Size = new Size(184, 40);
+            txtMonthDu.TabIndex = 31;
+            txtMonthDu.SelectedIndexChanged += comboBoxMonth_SelectedIndexChanged;
             // 
             // comboBoxYear
             // 
             comboBoxYear.FlatStyle = FlatStyle.System;
             comboBoxYear.Font = new Font("Cairo Medium", 10F);
             comboBoxYear.FormattingEnabled = true;
-            comboBoxYear.Location = new Point(417, 76);
+            comboBoxYear.Location = new Point(420, 8);
             comboBoxYear.Name = "comboBoxYear";
             comboBoxYear.Size = new Size(135, 40);
             comboBoxYear.TabIndex = 32;
@@ -242,7 +228,7 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(3, 76);
+            btnPrint.Location = new Point(8, 8);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
             btnPrint.Size = new Size(164, 40);
@@ -251,14 +237,39 @@
             btnPrint.ToolTipTitle = "اضافة";
             btnPrint.Click += btnPrintEmp_Click;
             // 
+            // pnlTop
+            // 
+            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
+            pnlTop.Controls.Add(PicLaterale);
+            pnlTop.Controls.Add(SeparatLat);
+            pnlTop.Controls.Add(lblTitleAttend);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(1271, 76);
+            pnlTop.TabIndex = 34;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.White;
+            flowLayoutPanel1.Controls.Add(btnPrint);
+            flowLayoutPanel1.Controls.Add(txtMonthDu);
+            flowLayoutPanel1.Controls.Add(MonthDu);
+            flowLayoutPanel1.Controls.Add(comboBoxYear);
+            flowLayoutPanel1.Controls.Add(YearDu);
+            flowLayoutPanel1.Controls.Add(btnSave);
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 76);
+            flowLayoutPanel1.Margin = new Padding(5);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Padding = new Padding(5);
+            flowLayoutPanel1.RightToLeft = RightToLeft.No;
+            flowLayoutPanel1.Size = new Size(1271, 56);
+            flowLayoutPanel1.TabIndex = 35;
+            // 
             // FormAttendance
             // 
-            Controls.Add(btnPrint);
-            Controls.Add(comboBoxYear);
-            Controls.Add(comboBoxMonth);
-            Controls.Add(labelControl1);
-            Controls.Add(labelControl2);
-            Controls.Add(btnSave);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(pnlTop);
             Controls.Add(DGListeEmployee);
             Name = "FormAttendance";
@@ -268,25 +279,27 @@
             ((System.ComponentModel.ISupportInitialize)DGListeEmployee).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private DevExpress.XtraGrid.GridControl DGListeEmployee;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private PictureBox PicLaterale;
-        private Panel pnlTop;
         private Label lblTitleAttend;
         private DevExpress.XtraEditors.SeparatorControl SeparatLat;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private ComboBox comboBoxMonth;
+        private DevExpress.XtraEditors.LabelControl MonthDu;
+        private DevExpress.XtraEditors.LabelControl YearDu;
+        private ComboBox txtMonthDu;
         private ComboBox comboBoxYear;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
+        private FlowLayoutPanel pnlTop;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

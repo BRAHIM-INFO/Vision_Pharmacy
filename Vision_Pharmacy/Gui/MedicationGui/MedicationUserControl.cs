@@ -53,7 +53,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             AllClasses.RoundButtonCorners(btnExcel, 15);
             AllClasses.RoundButtonCorners(btnPrint, 15);
             //gridView1.OptionsBehavior.Editable = false;
-
+            MessageBox.Show(Properties.Settings.Default.ChangeLang);
             if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 ApplyArabicResources();
@@ -106,7 +106,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             if (_dataHelper.IsDbConnect())
             {
                 DGListeMedication.DataSource = await Task.Run(() => _dataHelper.GetData()); // تحميل البيانات بشكل غير متزامن
-                SetDataGridViewColumns();
+                //SetDataGridViewColumns();
                 var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListeMedication.MainView;
                 view.OptionsView.ShowGroupPanel = false;
 
@@ -396,8 +396,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             if (_dataHelper.IsDbConnect())
             {
                 // Loading Data
-                DGListeMedication.DataSource = await Task.Run(() => _dataHelper.GetData());
-
+                DGListeMedication.DataSource = await Task.Run(() => _dataHelper.GetData()); 
                 // Set DataGridView Columns
                 SetDataGridViewColumns();
 
@@ -435,25 +434,23 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 gridView1.Columns[2].Caption = "اسم الدواء";
                 gridView1.Columns[3].Caption = "الاسم العلمي";
                 gridView1.Columns[4].Visible = false; // Hide Column
-                gridView1.Columns[5].Caption = "الشكل الصيدلي";
-                gridView1.Columns[6].Caption = "التركيز";
-                gridView1.Columns[7].Caption = "التصنيف";
-                gridView1.Columns[8].Caption = "سعر الشراء";
-                gridView1.Columns[9].Caption = "سعر البيع";
-                gridView1.Columns[10].Caption = "الوحدة";
-                gridView1.Columns[11].Caption = "كمية المتوفرة";
-                gridView1.Columns[12].Caption = "الحد الأدنى للتنبيه";
-                gridView1.Columns[13].Caption = "تاريخ انتهاء الصلاحية";
+                gridView1.Columns[5].Visible = false; // Hide Column
+                gridView1.Columns[6].Caption = "الشكل الصيدلي";
+                gridView1.Columns[7].Caption = "التركيز";
+                gridView1.Columns[8].Caption = "التصنيف";
+                gridView1.Columns[9].Caption = "الوحدة"; 
+                gridView1.Columns[10].Caption = "سعر الشراء";
+                gridView1.Columns[11].Caption = "سعر البيع";  
+                gridView1.Columns[12].Caption = "كمية المتوفرة";
+                gridView1.Columns[13].Caption = "الحد الأدنى للتنبيه";
                 gridView1.Columns[14].Visible = false; // Hide Column
-                gridView1.Columns[15].Caption = "المورد الرئيسي";
+                gridView1.Columns[14].Caption = "تاريخ انتهاء الصلاحية";
+                gridView1.Columns[14].Visible = false; // Hide Column
+                gridView1.Columns[15].Visible = false; // Hide Column
                 gridView1.Columns[16].Visible = false; // Hide Column
-                gridView1.Columns[17].Visible = false; // Hide Column
+                gridView1.Columns[17].Caption = "مكان التخزين";
                 gridView1.Columns[18].Visible = false; // Hide Column
-                gridView1.Columns[19].Visible = false; // Hide Column
-                gridView1.Columns[20].Caption = "مكان التخزين";
-                gridView1.Columns[21].Visible = false; // Hide Column
-                gridView1.Columns[22].Visible = false; // Hide Column
-                gridView1.Columns[23].Visible = false; // Hide Column
+                gridView1.Columns[19].Visible = false; // Hide Column  
             }
             else
             {
@@ -462,25 +459,23 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 gridView1.Columns[2].Caption = "Drug Name";
                 gridView1.Columns[3].Caption = "Generic Name";
                 gridView1.Columns[4].Visible = false; // Hide Column
-                gridView1.Columns[5].Caption = "Dosage Form";
-                gridView1.Columns[6].Caption = "Concentration";
-                gridView1.Columns[7].Caption = "Classification";
-                gridView1.Columns[8].Caption = "Purchase Price";
-                gridView1.Columns[9].Caption = "Sales Price";
-                gridView1.Columns[10].Caption = "Unit";
-                gridView1.Columns[11].Caption = "Available Quantity";
-                gridView1.Columns[12].Caption = "Alert Minimum";
-                gridView1.Columns[13].Caption = "Expiration Date";
+                gridView1.Columns[5].Visible = false; // Hide Column
+                gridView1.Columns[6].Caption = "Dosage Form";
+                gridView1.Columns[7].Caption = "Concentration";
+                gridView1.Columns[8].Caption = "Classification";
+                gridView1.Columns[9].Caption = "Unit";
+                gridView1.Columns[10].Caption = "Purchase Price";
+                gridView1.Columns[11].Caption = "Sale Price";
+                gridView1.Columns[12].Caption = "Available Quantity";
+                gridView1.Columns[13].Caption = "Alert Minimum";
                 gridView1.Columns[14].Visible = false; // Hide Column
-                gridView1.Columns[15].Caption = "Master Supplier";
+                gridView1.Columns[14].Caption = "Expiration Date";
+                gridView1.Columns[14].Visible = false; // Hide Column
+                gridView1.Columns[15].Visible = false; // Hide Column
                 gridView1.Columns[16].Visible = false; // Hide Column
-                gridView1.Columns[17].Visible = false; // Hide Column
-                gridView1.Columns[18].Visible = false; // Hide Column
+                gridView1.Columns[17].Caption = "Storage Location";
+                gridView1.Columns[18].Visible = false; // Hide Column 
                 gridView1.Columns[19].Visible = false; // Hide Column
-                gridView1.Columns[20].Caption = "Storage Location";
-                gridView1.Columns[21].Visible = false; // Hide Column 
-                gridView1.Columns[22].Visible = false; // Hide Column 
-                gridView1.Columns[23].Visible = false; // Hide Column
             } 
         }
 
