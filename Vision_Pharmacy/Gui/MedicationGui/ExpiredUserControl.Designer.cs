@@ -30,7 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpiredUserControl));
-            pnlTop = new Panel();
             lblTitleExpired = new Label();
             SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
             PicLaterale = new PictureBox();
@@ -41,34 +40,23 @@
             _timer = new System.Windows.Forms.Timer(components);
             comboBoxExpiry = new ComboBox();
             dateTimeExpired = new DateTimePicker();
-            label7 = new Label();
-            pnlTop.SuspendLayout();
+            lblDate = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGListeMedication).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // pnlTop
-            // 
-            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
-            pnlTop.Controls.Add(lblTitleExpired);
-            pnlTop.Controls.Add(SeparatLat);
-            pnlTop.Controls.Add(PicLaterale);
-            pnlTop.Dock = DockStyle.Top;
-            pnlTop.Location = new Point(0, 0);
-            pnlTop.Margin = new Padding(4, 2, 4, 2);
-            pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1393, 70);
-            pnlTop.TabIndex = 28;
             // 
             // lblTitleExpired
             // 
             lblTitleExpired.AutoSize = true;
-            lblTitleExpired.Dock = DockStyle.Right;
             lblTitleExpired.Font = new Font("Cairo Medium", 12F);
             lblTitleExpired.ForeColor = Color.White;
-            lblTitleExpired.Location = new Point(1026, 0);
+            lblTitleExpired.Location = new Point(1014, 0);
             lblTitleExpired.Margin = new Padding(4, 0, 4, 0);
             lblTitleExpired.Name = "lblTitleExpired";
             lblTitleExpired.Size = new Size(277, 37);
@@ -78,11 +66,10 @@
             // SeparatLat
             // 
             SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
-            SeparatLat.Dock = DockStyle.Right;
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
             SeparatLat.LineThickness = 10;
-            SeparatLat.Location = new Point(1303, 0);
+            SeparatLat.Location = new Point(1299, 2);
             SeparatLat.Margin = new Padding(4, 2, 4, 2);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
@@ -92,10 +79,9 @@
             // PicLaterale
             // 
             PicLaterale.BackColor = Color.Silver;
-            PicLaterale.Dock = DockStyle.Right;
             PicLaterale.Image = Properties.Resources.pill_bottle_15968729;
             PicLaterale.Location = new Point(1313, 0);
-            PicLaterale.Margin = new Padding(4, 2, 4, 2);
+            PicLaterale.Margin = new Padding(0);
             PicLaterale.Name = "PicLaterale";
             PicLaterale.Size = new Size(80, 70);
             PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -106,12 +92,11 @@
             // 
             DGListeMedication.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGListeMedication.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
-            DGListeMedication.Location = new Point(1, 124);
+            DGListeMedication.Location = new Point(1, 125);
             DGListeMedication.MainView = gridView1;
             DGListeMedication.Margin = new Padding(4, 2, 4, 2);
             DGListeMedication.Name = "DGListeMedication";
-            DGListeMedication.RightToLeft = RightToLeft.Yes;
-            DGListeMedication.Size = new Size(1392, 579);
+            DGListeMedication.Size = new Size(1392, 578);
             DGListeMedication.TabIndex = 33;
             DGListeMedication.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -175,7 +160,7 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(4, 74);
+            btnPrint.Location = new Point(4, 2);
             btnPrint.Margin = new Padding(4, 2, 4, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
@@ -208,7 +193,7 @@
             comboBoxExpiry.Font = new Font("Cairo Medium", 9F);
             comboBoxExpiry.FormattingEnabled = true;
             comboBoxExpiry.Items.AddRange(new object[] { "اخر 30 يوم", "الشهر الماضي", "الشهر الحالي", "العام الماضي", "العام الحالي", "فترة محددة" });
-            comboBoxExpiry.Location = new Point(1107, 83);
+            comboBoxExpiry.Location = new Point(408, 2);
             comboBoxExpiry.Margin = new Padding(4, 2, 4, 2);
             comboBoxExpiry.Name = "comboBoxExpiry";
             comboBoxExpiry.RightToLeft = RightToLeft.Yes;
@@ -223,51 +208,74 @@
             dateTimeExpired.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             dateTimeExpired.Font = new Font("Tahoma", 11F);
             dateTimeExpired.Format = DateTimePickerFormat.Short;
-            dateTimeExpired.Location = new Point(846, 82);
+            dateTimeExpired.Location = new Point(147, 3);
             dateTimeExpired.Name = "dateTimeExpired";
             dateTimeExpired.Size = new Size(153, 30);
             dateTimeExpired.TabIndex = 123;
             dateTimeExpired.ValueChanged += dateTimeExpired_ValueChanged;
             // 
-            // label7
+            // lblDate
             // 
-            label7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label7.Font = new Font("Cairo Medium", 10F);
-            label7.ForeColor = Color.FromArgb(64, 64, 64);
-            label7.Location = new Point(1005, 88);
-            label7.Name = "label7";
-            label7.RightToLeft = RightToLeft.Yes;
-            label7.Size = new Size(95, 34);
-            label7.TabIndex = 124;
-            label7.Text = "تاريخ محدد";
+            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblDate.Font = new Font("Cairo Medium", 10F);
+            lblDate.ForeColor = Color.FromArgb(64, 64, 64);
+            lblDate.Location = new Point(306, 0);
+            lblDate.Name = "lblDate";
+            lblDate.RightToLeft = RightToLeft.Yes;
+            lblDate.Size = new Size(95, 34);
+            lblDate.TabIndex = 124;
+            lblDate.Text = "تاريخ محدد";
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(60, 71, 151);
+            flowLayoutPanel1.Controls.Add(PicLaterale);
+            flowLayoutPanel1.Controls.Add(SeparatLat);
+            flowLayoutPanel1.Controls.Add(lblTitleExpired);
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Margin = new Padding(0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1393, 70);
+            flowLayoutPanel1.TabIndex = 125;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(btnPrint);
+            flowLayoutPanel2.Controls.Add(dateTimeExpired);
+            flowLayoutPanel2.Controls.Add(lblDate);
+            flowLayoutPanel2.Controls.Add(comboBoxExpiry);
+            flowLayoutPanel2.Dock = DockStyle.Top;
+            flowLayoutPanel2.Location = new Point(0, 70);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.RightToLeft = RightToLeft.No;
+            flowLayoutPanel2.Size = new Size(1393, 50);
+            flowLayoutPanel2.TabIndex = 126;
             // 
             // ExpiredUserControl
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label7);
-            Controls.Add(dateTimeExpired);
-            Controls.Add(comboBoxExpiry);
+            Controls.Add(flowLayoutPanel2);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(labelExpired);
-            Controls.Add(btnPrint);
             Controls.Add(DGListeMedication);
-            Controls.Add(pnlTop);
             Name = "ExpiredUserControl";
+            RightToLeft = RightToLeft.Yes;
             Size = new Size(1393, 750);
             Load += ExpiredUserControl_Load;
-            pnlTop.ResumeLayout(false);
-            pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGListeMedication).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Panel pnlTop;
         private Label lblTitleExpired;
         private DevExpress.XtraEditors.SeparatorControl SeparatLat;
         private PictureBox PicLaterale;
@@ -278,6 +286,8 @@
         private System.Windows.Forms.Timer _timer;
         private ComboBox comboBoxExpiry;
         private DateTimePicker dateTimeExpired;
-        private Label label7;
+        private Label lblDate;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanel2;
     }
 }

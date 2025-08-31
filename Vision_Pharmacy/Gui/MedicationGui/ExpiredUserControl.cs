@@ -232,36 +232,37 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         public void ApplyArabicResources()
         {
             this.RightToLeft = RightToLeft.Yes;
-            PicLaterale.Dock = DockStyle.Right;
-            SeparatLat.Dock = DockStyle.Right;
-            lblTitleExpired.Dock = DockStyle.Right;
-
-            btnPrint.Location = new Point(3, 76); 
-
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Left; 
-
-            lblTitleExpired.Text = Resources_Ar.TitleUser; 
-            btnPrint.Text = Resources_Ar.PrintButton_User; 
-
+            flowLayoutPanel2.RightToLeft = RightToLeft.No;
             DGListeMedication.RightToLeft = RightToLeft.Yes;
+
+            string[] Listes = { "اخر 30 يوم", "الشهر الماضي", "الشهر الحالي", "العام الماضي", "العام الحالي", "فترة محددة" };
+            foreach (var item in Listes)
+            {
+                comboBoxExpiry.Items.Add(item);
+            }
+            lblDate.Text = "تاريخ محدد";
+            btnPrint.Text = "طباعة";
+            lblTitleExpired.Text = "قائمة الأدوية المنتهية الصلاحية";   
         }
 
         //ملف الموارد انجليزي
         public void ApplyEnglishResources()
         {
-            this.RightToLeft = RightToLeft.No;
-            PicLaterale.Dock = DockStyle.Left;
-            SeparatLat.Dock = DockStyle.Left;
-            lblTitleExpired.Dock = DockStyle.Left;
+            this.RightToLeft = RightToLeft.Yes;
+            flowLayoutPanel2.RightToLeft = RightToLeft.No;
+            DGListeMedication.RightToLeft = RightToLeft.Yes;
 
-            btnPrint.Location = new Point(this.Size.Width - 140, 76); 
-
-            btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right; 
-
-            lblTitleExpired.Text = Resources_En.TitleUser; 
-            btnPrint.Text = Resources_En.PrintButton_User; 
-
-            DGListeMedication.RightToLeft = RightToLeft.No;
+            string[] Listes = { "Last 30 Days", "Last Month", "Current Month", "Last Year", "Current Year", "Specific Period" };
+            foreach (var item in Listes)
+            {
+                comboBoxExpiry.Items.Add(item);
+            }
+            lblDate.Text = "Specific Date";
+            btnPrint.Text = "Print";
+            lblTitleExpired.Text = "List of Expired Medications";
         }
+
+
+
     }
 }
