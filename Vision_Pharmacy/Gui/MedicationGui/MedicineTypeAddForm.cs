@@ -42,6 +42,16 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 SetDataToFileds();
             }
             LoadData();
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
+
         }
 
         #region Methods 
@@ -230,5 +240,45 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             }
             loading.Hide();
         }
+
+
+        //ملف الموارد العربي
+        private void ApplyArabicResources()
+        {
+            // Set Right to Left for Form
+            this.Text = "الشكل الصيدلي";
+            this.RightToLeft = RightToLeft.Yes;
+            flowLayoutPanel2.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = true;
+             
+
+            // Labels
+            label5.Text = "الشكل الصيدلي";
+            label1.Text = "اسم ";
+            btnSave.Text = Resources_Ar.ButtonSave; 
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+        }
+
+        //ملف الموارد الانجليزي
+        private void ApplyEnglishResources()
+        {
+            // Set Right to Left for Form
+            this.Text = "Pharmaceutical Form";
+            this.RightToLeft = RightToLeft.No;
+            flowLayoutPanel2.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = false;
+             
+
+            // Labels
+            label5.Text = "Pharmaceutical Form";
+            label1.Text = "Name";
+            btnSave.Text = Resources_En.ButtonSave;
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+        }
+
+
+
+
+
     }
 }

@@ -41,6 +41,16 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 SetDataToFileds();
             }
             LoadData();
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -230,5 +240,39 @@ namespace Vision_Pharmacy.Gui.MedicationGui
 
         }
         #endregion
+
+        //ملف الموارد العربية
+        private void ApplyArabicResources()
+        {
+            // Set Right to Left for Form
+            this.Text = "الوحدة";
+            this.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+            gridControl1.RightToLeft = RightToLeft.Yes; 
+
+            // Labels
+            label5.Text = "الوحدة";
+            label1.Text = "اسم ";
+            btnSave.Text = Resources_Ar.ButtonSave;
+            labelEmptyData.Text = Resources_Ar.EmptyDataText;
+        }
+
+        //ملف الموارد الانجليزية
+        private void ApplyEnglishResources()
+        {
+            // Set Right to Left for Form
+            this.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = false;
+            gridControl1.RightToLeft = RightToLeft.No;
+
+            // Labels
+            this.Text = "Unit";
+            label5.Text = "Unit";
+            label1.Text = "Name";
+            btnSave.Text = Resources_En.ButtonSave;
+            labelEmptyData.Text = Resources_En.EmptyDataText;
+        }
+
+
     }
 }

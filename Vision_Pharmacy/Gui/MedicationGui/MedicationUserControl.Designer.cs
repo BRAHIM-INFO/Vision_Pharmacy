@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MedicationUserControl));
             SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
             PicLaterale = new PictureBox();
-            pnlTop = new Panel();
             lblTitleMedicat = new Label();
             btnExcel = new DevExpress.XtraEditors.SimpleButton();
             btnPrint = new DevExpress.XtraEditors.SimpleButton();
@@ -42,64 +41,52 @@
             PicChange = new PictureBox();
             lblCounter = new Label();
             toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(components);
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
-            pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DGListeMedication).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicChange).BeginInit();
             ((System.ComponentModel.ISupportInitialize)toastNotificationsManager1).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // SeparatLat
             // 
             SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
-            SeparatLat.Dock = DockStyle.Right;
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
-            SeparatLat.LineThickness = 8;
-            SeparatLat.Location = new Point(1062, 0);
-            SeparatLat.Margin = new Padding(3, 2, 3, 2);
+            SeparatLat.LineThickness = 10;
+            SeparatLat.Location = new Point(1228, 2);
+            SeparatLat.Margin = new Padding(4, 2, 4, 2);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
-            SeparatLat.Size = new Size(9, 57);
+            SeparatLat.Size = new Size(10, 70);
             SeparatLat.TabIndex = 1;
             // 
             // PicLaterale
             // 
             PicLaterale.BackColor = Color.Silver;
-            PicLaterale.Dock = DockStyle.Right;
             PicLaterale.Image = Properties.Resources.pill_bottle_15968729;
-            PicLaterale.Location = new Point(1071, 0);
-            PicLaterale.Margin = new Padding(3, 2, 3, 2);
+            PicLaterale.Location = new Point(1246, 2);
+            PicLaterale.Margin = new Padding(4, 2, 4, 2);
             PicLaterale.Name = "PicLaterale";
-            PicLaterale.Size = new Size(69, 57);
+            PicLaterale.Size = new Size(80, 70);
             PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLaterale.TabIndex = 26;
             PicLaterale.TabStop = false;
             // 
-            // pnlTop
-            // 
-            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
-            pnlTop.Controls.Add(lblTitleMedicat);
-            pnlTop.Controls.Add(SeparatLat);
-            pnlTop.Controls.Add(PicLaterale);
-            pnlTop.Dock = DockStyle.Top;
-            pnlTop.Location = new Point(0, 0);
-            pnlTop.Margin = new Padding(3, 2, 3, 2);
-            pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1140, 57);
-            pnlTop.TabIndex = 27;
-            // 
             // lblTitleMedicat
             // 
             lblTitleMedicat.AutoSize = true;
-            lblTitleMedicat.Dock = DockStyle.Right;
             lblTitleMedicat.Font = new Font("Cairo Medium", 12F);
             lblTitleMedicat.ForeColor = Color.White;
-            lblTitleMedicat.Location = new Point(962, 0);
+            lblTitleMedicat.Location = new Point(1092, 0);
+            lblTitleMedicat.Margin = new Padding(4, 0, 4, 0);
             lblTitleMedicat.Name = "lblTitleMedicat";
-            lblTitleMedicat.Size = new Size(100, 30);
+            lblTitleMedicat.Size = new Size(128, 37);
             lblTitleMedicat.TabIndex = 1;
             lblTitleMedicat.Text = "قائمة الأدوية";
             // 
@@ -118,11 +105,11 @@
             btnExcel.Cursor = Cursors.Hand;
             btnExcel.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnExcel.ImageOptions.SvgImage");
             btnExcel.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnExcel.Location = new Point(125, 62);
-            btnExcel.Margin = new Padding(3, 2, 3, 2);
+            btnExcel.Location = new Point(148, 2);
+            btnExcel.Margin = new Padding(4, 2, 4, 2);
             btnExcel.Name = "btnExcel";
             btnExcel.RightToLeft = RightToLeft.Yes;
-            btnExcel.Size = new Size(117, 37);
+            btnExcel.Size = new Size(136, 46);
             btnExcel.TabIndex = 33;
             btnExcel.Text = "تحميل قائمة";
             btnExcel.ToolTipTitle = "اضافة";
@@ -143,11 +130,11 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(3, 62);
-            btnPrint.Margin = new Padding(3, 2, 3, 2);
+            btnPrint.Location = new Point(4, 2);
+            btnPrint.Margin = new Padding(4, 2, 4, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
-            btnPrint.Size = new Size(117, 37);
+            btnPrint.Size = new Size(136, 46);
             btnPrint.TabIndex = 31;
             btnPrint.Text = "طباعة";
             btnPrint.ToolTipTitle = "اضافة";
@@ -168,11 +155,11 @@
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(248, 62);
-            btnAdd.Margin = new Padding(3, 2, 3, 2);
+            btnAdd.Location = new Point(292, 2);
+            btnAdd.Margin = new Padding(4, 2, 4, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
-            btnAdd.Size = new Size(117, 37);
+            btnAdd.Size = new Size(136, 46);
             btnAdd.TabIndex = 30;
             btnAdd.Text = "اضافة";
             btnAdd.ToolTipTitle = "اضافة";
@@ -181,13 +168,13 @@
             // DGListeMedication
             // 
             DGListeMedication.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeMedication.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            DGListeMedication.Location = new Point(0, 103);
+            DGListeMedication.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
+            DGListeMedication.Location = new Point(0, 126);
             DGListeMedication.MainView = gridView1;
-            DGListeMedication.Margin = new Padding(3, 2, 3, 2);
+            DGListeMedication.Margin = new Padding(4, 2, 4, 2);
             DGListeMedication.Name = "DGListeMedication";
             DGListeMedication.RightToLeft = RightToLeft.Yes;
-            DGListeMedication.Size = new Size(1140, 514);
+            DGListeMedication.Size = new Size(1330, 634);
             DGListeMedication.TabIndex = 32;
             DGListeMedication.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -233,10 +220,8 @@
             gridView1.Appearance.TopNewRow.Options.UseFont = true;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 10F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
-            gridView1.DetailHeight = 284;
             gridView1.GridControl = DGListeMedication;
             gridView1.Name = "gridView1";
-            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             gridView1.RowCountChanged += gridView1_RowCountChanged;
             // 
             // PicChange
@@ -244,10 +229,10 @@
             PicChange.BackColor = Color.Transparent;
             PicChange.Cursor = Cursors.Hand;
             PicChange.Image = Properties.Resources.product;
-            PicChange.Location = new Point(508, 351);
-            PicChange.Margin = new Padding(3, 2, 3, 2);
+            PicChange.Location = new Point(593, 432);
+            PicChange.Margin = new Padding(4, 2, 4, 2);
             PicChange.Name = "PicChange";
-            PicChange.Size = new Size(12, 8);
+            PicChange.Size = new Size(14, 10);
             PicChange.SizeMode = PictureBoxSizeMode.StretchImage;
             PicChange.TabIndex = 117;
             PicChange.TabStop = false;
@@ -258,10 +243,11 @@
             lblCounter.AutoSize = true;
             lblCounter.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
             lblCounter.ForeColor = Color.Black;
-            lblCounter.Location = new Point(1016, 73);
+            lblCounter.Location = new Point(436, 0);
+            lblCounter.Margin = new Padding(4, 0, 4, 0);
             lblCounter.Name = "lblCounter";
             lblCounter.RightToLeft = RightToLeft.Yes;
-            lblCounter.Size = new Size(21, 26);
+            lblCounter.Size = new Size(25, 32);
             lblCounter.TabIndex = 120;
             lblCounter.Text = "0";
             // 
@@ -269,40 +255,63 @@
             // 
             toastNotificationsManager1.ApplicationId = "b68012f4-4e35-4104-82c2-36b8508f0629";
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(60, 71, 151);
+            flowLayoutPanel1.Controls.Add(PicLaterale);
+            flowLayoutPanel1.Controls.Add(SeparatLat);
+            flowLayoutPanel1.Controls.Add(lblTitleMedicat);
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1330, 74);
+            flowLayoutPanel1.TabIndex = 121;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(btnPrint);
+            flowLayoutPanel2.Controls.Add(btnExcel);
+            flowLayoutPanel2.Controls.Add(btnAdd);
+            flowLayoutPanel2.Controls.Add(lblCounter);
+            flowLayoutPanel2.Dock = DockStyle.Top;
+            flowLayoutPanel2.Location = new Point(0, 74);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.RightToLeft = RightToLeft.No;
+            flowLayoutPanel2.Size = new Size(1330, 51);
+            flowLayoutPanel2.TabIndex = 122;
+            // 
             // MedicationUserControl
             // 
             Appearance.BackColor = Color.WhiteSmoke;
             Appearance.Options.UseBackColor = true;
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(lblCounter);
-            Controls.Add(btnExcel);
+            Controls.Add(flowLayoutPanel2);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(DGListeMedication);
-            Controls.Add(pnlTop);
-            Controls.Add(btnPrint);
             Controls.Add(PicChange);
-            Controls.Add(btnAdd);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "MedicationUserControl";
-            Size = new Size(1140, 618);
+            RightToLeft = RightToLeft.Yes;
+            Size = new Size(1330, 761);
             Load += MedicationUserControl_Load;
             ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
-            pnlTop.ResumeLayout(false);
-            pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DGListeMedication).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicChange).EndInit();
             ((System.ComponentModel.ISupportInitialize)toastNotificationsManager1).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private DevExpress.XtraEditors.SeparatorControl SeparatLat;
         private PictureBox PicLaterale;
-        private Panel pnlTop;
         private Label lblTitleMedicat;
         private DevExpress.XtraGrid.GridControl DGListeMedication;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -312,5 +321,7 @@
         private PictureBox PicChange;
         private Label lblCounter;
         private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel flowLayoutPanel2;
     }
 }

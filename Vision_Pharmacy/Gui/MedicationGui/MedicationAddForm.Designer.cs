@@ -83,10 +83,10 @@
             lblSupplierNotes = new Label();
             btnClose = new DevExpress.XtraEditors.SimpleButton();
             tableLayoutPanel1 = new TableLayoutPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            flowLayoutPanel3 = new FlowLayoutPanel();
             flowLayoutPanel4 = new FlowLayoutPanel();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             flowLayoutPanel5 = new FlowLayoutPanel();
             flowLayoutPanel6 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
@@ -100,10 +100,10 @@
             ((System.ComponentModel.ISupportInitialize)IsActivetxt.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicChange).BeginInit();
             tableLayoutPanel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel5.SuspendLayout();
             flowLayoutPanel6.SuspendLayout();
             SuspendLayout();
@@ -149,7 +149,7 @@
             LocationInStoretxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LocationInStoretxt.BackColor = Color.FromArgb(232, 246, 255);
             LocationInStoretxt.Font = new Font("Cairo Medium", 10F);
-            LocationInStoretxt.Location = new Point(3, 207);
+            LocationInStoretxt.Location = new Point(3, 187);
             LocationInStoretxt.Name = "LocationInStoretxt";
             LocationInStoretxt.PlaceholderText = "مكان التخزين";
             LocationInStoretxt.Size = new Size(292, 39);
@@ -160,7 +160,7 @@
             // 
             DateAddedtxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DateAddedtxt.EditValue = null;
-            DateAddedtxt.Location = new Point(510, 459);
+            DateAddedtxt.Location = new Point(510, 415);
             DateAddedtxt.Name = "DateAddedtxt";
             DateAddedtxt.Properties.Appearance.Font = new Font("Tahoma", 13F);
             DateAddedtxt.Properties.Appearance.Options.UseFont = true;
@@ -242,7 +242,7 @@
             label14.AutoSize = true;
             label14.BackColor = Color.White;
             label14.Font = new Font("Cairo Medium", 10F);
-            label14.Location = new Point(811, 502);
+            label14.Location = new Point(811, 460);
             label14.Name = "label14";
             label14.Size = new Size(131, 32);
             label14.TabIndex = 51;
@@ -254,7 +254,7 @@
             label13.AutoSize = true;
             label13.BackColor = Color.White;
             label13.Font = new Font("Cairo Medium", 10F);
-            label13.Location = new Point(811, 456);
+            label13.Location = new Point(811, 412);
             label13.Name = "label13";
             label13.Size = new Size(140, 32);
             label13.TabIndex = 50;
@@ -266,7 +266,7 @@
             label5.AutoSize = true;
             label5.BackColor = Color.White;
             label5.Font = new Font("Cairo Medium", 10F);
-            label5.Location = new Point(811, 360);
+            label5.Location = new Point(811, 323);
             label5.Name = "label5";
             label5.Size = new Size(62, 32);
             label5.TabIndex = 43;
@@ -278,7 +278,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.White;
             label3.Font = new Font("Cairo Medium", 10F);
-            label3.Location = new Point(811, 309);
+            label3.Location = new Point(811, 276);
             label3.Name = "label3";
             label3.Size = new Size(72, 32);
             label3.TabIndex = 41;
@@ -290,7 +290,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.Font = new Font("Cairo Medium", 10F);
-            label2.Location = new Point(811, 204);
+            label2.Location = new Point(811, 184);
             label2.Name = "label2";
             label2.Size = new Size(123, 32);
             label2.TabIndex = 40;
@@ -302,7 +302,7 @@
             lblSupplierName.AutoSize = true;
             lblSupplierName.BackColor = Color.White;
             lblSupplierName.Font = new Font("Cairo Medium", 10F);
-            lblSupplierName.Location = new Point(811, 48);
+            lblSupplierName.Location = new Point(811, 44);
             lblSupplierName.Name = "lblSupplierName";
             lblSupplierName.Size = new Size(90, 32);
             lblSupplierName.TabIndex = 19;
@@ -314,7 +314,7 @@
             lblSupplierAddress.AutoSize = true;
             lblSupplierAddress.BackColor = Color.White;
             lblSupplierAddress.Font = new Font("Cairo Medium", 10F);
-            lblSupplierAddress.Location = new Point(811, 100);
+            lblSupplierAddress.Location = new Point(811, 90);
             lblSupplierAddress.Name = "lblSupplierAddress";
             lblSupplierAddress.Size = new Size(112, 32);
             lblSupplierAddress.TabIndex = 21;
@@ -326,7 +326,7 @@
             lblSupplierEmail.AutoSize = true;
             lblSupplierEmail.BackColor = Color.White;
             lblSupplierEmail.Font = new Font("Cairo Medium", 10F);
-            lblSupplierEmail.Location = new Point(811, 257);
+            lblSupplierEmail.Location = new Point(811, 233);
             lblSupplierEmail.Name = "lblSupplierEmail";
             lblSupplierEmail.Size = new Size(55, 32);
             lblSupplierEmail.TabIndex = 24;
@@ -338,7 +338,7 @@
             lblSupplierPhone.AutoSize = true;
             lblSupplierPhone.BackColor = Color.White;
             lblSupplierPhone.Font = new Font("Cairo Medium", 10F);
-            lblSupplierPhone.Location = new Point(811, 152);
+            lblSupplierPhone.Location = new Point(811, 137);
             lblSupplierPhone.Name = "lblSupplierPhone";
             lblSupplierPhone.Size = new Size(132, 32);
             lblSupplierPhone.TabIndex = 23;
@@ -350,7 +350,7 @@
             label9.AutoSize = true;
             label9.BackColor = Color.White;
             label9.Font = new Font("Cairo Medium", 10F);
-            label9.Location = new Point(811, 408);
+            label9.Location = new Point(811, 369);
             label9.Name = "label9";
             label9.Size = new Size(155, 32);
             label9.TabIndex = 46;
@@ -447,7 +447,7 @@
             buttonSaveSup.Cursor = Cursors.Hand;
             buttonSaveSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveSup.ImageOptions.SvgImage");
             buttonSaveSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            buttonSaveSup.Location = new Point(3, 505);
+            buttonSaveSup.Location = new Point(3, 463);
             buttonSaveSup.Name = "buttonSaveSup";
             buttonSaveSup.RightToLeft = RightToLeft.Yes;
             buttonSaveSup.Size = new Size(264, 43);
@@ -462,17 +462,17 @@
             label20.AutoSize = true;
             label20.BackColor = Color.White;
             label20.Font = new Font("Cairo Medium", 10F);
-            label20.Location = new Point(307, 456);
+            label20.Location = new Point(307, 412);
             label20.Name = "label20";
-            label20.Size = new Size(132, 32);
+            label20.Size = new Size(135, 32);
             label20.TabIndex = 84;
-            label20.Text = "هل الدواء نشط؟";
+            label20.Text = "مفعل/غير مفعل";
             // 
             // RequiresPrescriptiontxt
             // 
             RequiresPrescriptiontxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             RequiresPrescriptiontxt.EditValue = true;
-            RequiresPrescriptiontxt.Location = new Point(3, 411);
+            RequiresPrescriptiontxt.Location = new Point(3, 372);
             RequiresPrescriptiontxt.Name = "RequiresPrescriptiontxt";
             RequiresPrescriptiontxt.Properties.OffText = "لا";
             RequiresPrescriptiontxt.Properties.OnText = "نعم";
@@ -483,7 +483,7 @@
             // 
             ExpiryDatetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ExpiryDatetxt.EditValue = null;
-            ExpiryDatetxt.Location = new Point(510, 411);
+            ExpiryDatetxt.Location = new Point(510, 372);
             ExpiryDatetxt.Name = "ExpiryDatetxt";
             ExpiryDatetxt.Properties.Appearance.Font = new Font("Tahoma", 13F);
             ExpiryDatetxt.Properties.Appearance.Options.UseFont = true;
@@ -525,7 +525,7 @@
             MinimumStockLeveltxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             MinimumStockLeveltxt.BackColor = Color.FromArgb(232, 246, 255);
             MinimumStockLeveltxt.Font = new Font("Cairo Medium", 10F);
-            MinimumStockLeveltxt.Location = new Point(3, 51);
+            MinimumStockLeveltxt.Location = new Point(3, 47);
             MinimumStockLeveltxt.Name = "MinimumStockLeveltxt";
             MinimumStockLeveltxt.PlaceholderText = "الحد الأدنى للتنبيه";
             MinimumStockLeveltxt.Size = new Size(292, 39);
@@ -550,7 +550,7 @@
             Suppliertxt.FlatStyle = FlatStyle.System;
             Suppliertxt.Font = new Font("Cairo Medium", 10F);
             Suppliertxt.FormattingEnabled = true;
-            Suppliertxt.Location = new Point(3, 155);
+            Suppliertxt.Location = new Point(3, 140);
             Suppliertxt.Name = "Suppliertxt";
             Suppliertxt.Size = new Size(292, 40);
             Suppliertxt.TabIndex = 8;
@@ -561,10 +561,10 @@
             Discounttxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Discounttxt.BackColor = Color.FromArgb(232, 246, 255);
             Discounttxt.Font = new Font("Cairo Medium", 10F);
-            Discounttxt.Location = new Point(3, 363);
+            Discounttxt.Location = new Point(3, 326);
             Discounttxt.Name = "Discounttxt";
             Discounttxt.RightToLeft = RightToLeft.No;
-            Discounttxt.Size = new Size(264, 39);
+            Discounttxt.Size = new Size(292, 39);
             Discounttxt.TabIndex = 16;
             Discounttxt.Text = "0";
             Discounttxt.TextAlign = HorizontalAlignment.Center;
@@ -575,7 +575,7 @@
             SalePricetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SalePricetxt.BackColor = Color.FromArgb(232, 246, 255);
             SalePricetxt.Font = new Font("Cairo Medium", 10F);
-            SalePricetxt.Location = new Point(3, 312);
+            SalePricetxt.Location = new Point(3, 279);
             SalePricetxt.Name = "SalePricetxt";
             SalePricetxt.RightToLeft = RightToLeft.No;
             SalePricetxt.Size = new Size(292, 39);
@@ -591,7 +591,7 @@
             PurchasePricetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             PurchasePricetxt.BackColor = Color.FromArgb(232, 246, 255);
             PurchasePricetxt.Font = new Font("Cairo Medium", 10F);
-            PurchasePricetxt.Location = new Point(3, 260);
+            PurchasePricetxt.Location = new Point(3, 236);
             PurchasePricetxt.Name = "PurchasePricetxt";
             PurchasePricetxt.RightToLeft = RightToLeft.No;
             PurchasePricetxt.Size = new Size(292, 39);
@@ -607,7 +607,7 @@
             BatchNumbertxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BatchNumbertxt.BackColor = Color.FromArgb(232, 246, 255);
             BatchNumbertxt.Font = new Font("Cairo Medium", 10F);
-            BatchNumbertxt.Location = new Point(3, 103);
+            BatchNumbertxt.Location = new Point(3, 93);
             BatchNumbertxt.Name = "BatchNumbertxt";
             BatchNumbertxt.PlaceholderText = "رقم الدفعة";
             BatchNumbertxt.Size = new Size(292, 39);
@@ -619,7 +619,7 @@
             Manufacturertxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Manufacturertxt.BackColor = Color.FromArgb(232, 246, 255);
             Manufacturertxt.Font = new Font("Cairo Medium", 10F);
-            Manufacturertxt.Location = new Point(510, 155);
+            Manufacturertxt.Location = new Point(510, 140);
             Manufacturertxt.Name = "Manufacturertxt";
             Manufacturertxt.PlaceholderText = "الشركة المصنعة";
             Manufacturertxt.Size = new Size(292, 39);
@@ -631,7 +631,7 @@
             GenericNametxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             GenericNametxt.BackColor = Color.FromArgb(232, 246, 255);
             GenericNametxt.Font = new Font("Cairo Medium", 10F);
-            GenericNametxt.Location = new Point(510, 103);
+            GenericNametxt.Location = new Point(510, 93);
             GenericNametxt.Name = "GenericNametxt";
             GenericNametxt.PlaceholderText = "الاسم العلمي";
             GenericNametxt.Size = new Size(292, 39);
@@ -643,7 +643,7 @@
             Nametxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Nametxt.BackColor = Color.FromArgb(232, 246, 255);
             Nametxt.Font = new Font("Cairo Medium", 10F);
-            Nametxt.Location = new Point(510, 51);
+            Nametxt.Location = new Point(510, 47);
             Nametxt.Name = "Nametxt";
             Nametxt.PlaceholderText = "اسم الدواء";
             Nametxt.Size = new Size(292, 39);
@@ -656,7 +656,7 @@
             label17.AutoSize = true;
             label17.BackColor = Color.White;
             label17.Font = new Font("Cairo Medium", 10F);
-            label17.Location = new Point(307, 360);
+            label17.Location = new Point(307, 323);
             label17.Name = "label17";
             label17.Size = new Size(113, 32);
             label17.TabIndex = 54;
@@ -668,7 +668,7 @@
             label15.AutoSize = true;
             label15.BackColor = Color.White;
             label15.Font = new Font("Cairo Medium", 10F);
-            label15.Location = new Point(307, 204);
+            label15.Location = new Point(307, 184);
             label15.Name = "label15";
             label15.Size = new Size(104, 32);
             label15.TabIndex = 52;
@@ -680,7 +680,7 @@
             label12.AutoSize = true;
             label12.BackColor = Color.White;
             label12.Font = new Font("Cairo Medium", 10F);
-            label12.Location = new Point(307, 408);
+            label12.Location = new Point(307, 369);
             label12.Name = "label12";
             label12.Size = new Size(179, 32);
             label12.TabIndex = 49;
@@ -692,7 +692,7 @@
             label11.AutoSize = true;
             label11.BackColor = Color.White;
             label11.Font = new Font("Cairo Medium", 10F);
-            label11.Location = new Point(307, 152);
+            label11.Location = new Point(307, 137);
             label11.Name = "label11";
             label11.Size = new Size(116, 32);
             label11.TabIndex = 48;
@@ -704,7 +704,7 @@
             label10.AutoSize = true;
             label10.BackColor = Color.White;
             label10.Font = new Font("Cairo Medium", 10F);
-            label10.Location = new Point(307, 100);
+            label10.Location = new Point(307, 90);
             label10.Name = "label10";
             label10.Size = new Size(94, 32);
             label10.TabIndex = 47;
@@ -716,7 +716,7 @@
             label8.AutoSize = true;
             label8.BackColor = Color.White;
             label8.Font = new Font("Cairo Medium", 10F);
-            label8.Location = new Point(307, 48);
+            label8.Location = new Point(307, 44);
             label8.Name = "label8";
             label8.Size = new Size(135, 32);
             label8.TabIndex = 45;
@@ -740,7 +740,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.White;
             label4.Font = new Font("Cairo Medium", 10F);
-            label4.Location = new Point(307, 257);
+            label4.Location = new Point(307, 233);
             label4.Name = "label4";
             label4.Size = new Size(92, 32);
             label4.TabIndex = 42;
@@ -761,7 +761,7 @@
             // 
             IsActivetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             IsActivetxt.EditValue = true;
-            IsActivetxt.Location = new Point(3, 459);
+            IsActivetxt.Location = new Point(3, 415);
             IsActivetxt.Name = "IsActivetxt";
             IsActivetxt.Properties.OffText = "غير نشط";
             IsActivetxt.Properties.OnText = "نشط";
@@ -786,11 +786,11 @@
             // 
             Notestxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Notestxt.Font = new Font("Cairo Medium", 10F);
-            Notestxt.Location = new Point(510, 505);
+            Notestxt.Location = new Point(510, 463);
             Notestxt.Multiline = true;
             Notestxt.Name = "Notestxt";
             Notestxt.PlaceholderText = "ملاحظات إضافية";
-            Notestxt.Size = new Size(295, 43);
+            Notestxt.Size = new Size(295, 160);
             Notestxt.TabIndex = 19;
             // 
             // Barcodetxt
@@ -811,7 +811,7 @@
             lblSupplierNotes.AutoSize = true;
             lblSupplierNotes.BackColor = Color.White;
             lblSupplierNotes.Font = new Font("Cairo Medium", 10F);
-            lblSupplierNotes.Location = new Point(307, 309);
+            lblSupplierNotes.Location = new Point(307, 276);
             lblSupplierNotes.Name = "lblSupplierNotes";
             lblSupplierNotes.Size = new Size(79, 32);
             lblSupplierNotes.TabIndex = 35;
@@ -823,7 +823,7 @@
             btnClose.Cursor = Cursors.Hand;
             btnClose.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnClose.ImageOptions.SvgImage");
             btnClose.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnClose.Location = new Point(12, 646);
+            btnClose.Location = new Point(0, 719);
             btnClose.Name = "btnClose";
             btnClose.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             btnClose.Size = new Size(40, 40);
@@ -885,58 +885,58 @@
             tableLayoutPanel1.Location = new Point(437, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 11;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 53F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.54369F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 51.45631F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
-            tableLayoutPanel1.Size = new Size(992, 551);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 174F));
+            tableLayoutPanel1.Size = new Size(992, 635);
             tableLayoutPanel1.TabIndex = 92;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(MedicineTypetxt);
-            flowLayoutPanel1.Controls.Add(btnForm);
-            flowLayoutPanel1.Location = new Point(522, 207);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(283, 40);
-            flowLayoutPanel1.TabIndex = 93;
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.Controls.Add(Strengthtxt);
-            flowLayoutPanel2.Controls.Add(btnStrength);
-            flowLayoutPanel2.Location = new Point(520, 257);
-            flowLayoutPanel2.Margin = new Padding(0);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(288, 40);
-            flowLayoutPanel2.TabIndex = 94;
-            // 
-            // flowLayoutPanel3
-            // 
-            flowLayoutPanel3.Controls.Add(Categorytxt);
-            flowLayoutPanel3.Controls.Add(btnCategory);
-            flowLayoutPanel3.Location = new Point(515, 309);
-            flowLayoutPanel3.Margin = new Padding(0);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(293, 45);
-            flowLayoutPanel3.TabIndex = 93;
             // 
             // flowLayoutPanel4
             // 
             flowLayoutPanel4.Controls.Add(Unitetxt);
             flowLayoutPanel4.Controls.Add(btnUnite);
-            flowLayoutPanel4.Location = new Point(517, 360);
+            flowLayoutPanel4.Location = new Point(517, 323);
             flowLayoutPanel4.Margin = new Padding(0);
             flowLayoutPanel4.Name = "flowLayoutPanel4";
             flowLayoutPanel4.Size = new Size(291, 43);
             flowLayoutPanel4.TabIndex = 93;
+            // 
+            // flowLayoutPanel3
+            // 
+            flowLayoutPanel3.Controls.Add(Categorytxt);
+            flowLayoutPanel3.Controls.Add(btnCategory);
+            flowLayoutPanel3.Location = new Point(515, 276);
+            flowLayoutPanel3.Margin = new Padding(0);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(293, 45);
+            flowLayoutPanel3.TabIndex = 93;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(Strengthtxt);
+            flowLayoutPanel2.Controls.Add(btnStrength);
+            flowLayoutPanel2.Location = new Point(520, 233);
+            flowLayoutPanel2.Margin = new Padding(0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(288, 40);
+            flowLayoutPanel2.TabIndex = 94;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(MedicineTypetxt);
+            flowLayoutPanel1.Controls.Add(btnForm);
+            flowLayoutPanel1.Location = new Point(522, 187);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(283, 40);
+            flowLayoutPanel1.TabIndex = 93;
             // 
             // flowLayoutPanel5
             // 
@@ -958,7 +958,7 @@
             flowLayoutPanel6.Dock = DockStyle.Top;
             flowLayoutPanel6.Location = new Point(0, 75);
             flowLayoutPanel6.Name = "flowLayoutPanel6";
-            flowLayoutPanel6.Size = new Size(1432, 561);
+            flowLayoutPanel6.Size = new Size(1432, 638);
             flowLayoutPanel6.TabIndex = 55;
             // 
             // MedicationAddForm
@@ -967,7 +967,7 @@
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1432, 698);
+            ClientSize = new Size(1432, 760);
             Controls.Add(flowLayoutPanel6);
             Controls.Add(flowLayoutPanel5);
             Controls.Add(btnClose);
@@ -990,10 +990,10 @@
             ((System.ComponentModel.ISupportInitialize)PicChange).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel2.ResumeLayout(false);
-            flowLayoutPanel3.ResumeLayout(false);
             flowLayoutPanel4.ResumeLayout(false);
+            flowLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel5.ResumeLayout(false);
             flowLayoutPanel5.PerformLayout();
             flowLayoutPanel6.ResumeLayout(false);

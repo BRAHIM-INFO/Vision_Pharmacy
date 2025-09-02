@@ -106,6 +106,16 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 SetDataToFileds();
             }
 
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
+            }
+            else
+            {
+                ApplyEnglishResources();
+            }
+
+
         }
 
         public async void LoadDataCategory()
@@ -703,5 +713,98 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         {
             LoadImage();
         }
+
+        //ملف ترجمة الى اللغة العربية
+        private void ApplyArabicResources()
+        {
+            // تغيير اتجاه النص إلى اليمين
+            this.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+
+            // تحديث النصوص إلى العربية
+            label1.Text = "إضافة / تعديل دواء";
+            label16.Text = "باركود الدواء";
+            lblSupplierName.Text = "اسم الدواء";
+            lblSupplierAddress.Text = "الاسم العلمي";
+            lblSupplierPhone.Text = "الشركة المصنعة";
+            label10.Text = "رقم الدفعة";
+            label11.Text = "المورد الرئيسي";
+            label2.Text = "الشكل الصيدلي";
+            lblSupplierEmail.Text = "التركيز";
+            label3.Text = "التصنيف";
+            label5.Text = "الوحدة";
+            label4.Text = "سعر الشراء";
+            lblSupplierNotes.Text = "سعر البيع";
+            label7.Text = "الكمية المتوفرة";
+            label8.Text = "الحد الأدنى للتنبيه";
+            label15.Text = "مكان التخزين";
+            label9.Text = "تاريخ انتهاء الصلاحية";
+            label13.Text = "تاريخ الإضافة";
+            label17.Text = "نسبة الخصم %";
+            label12.Text = "هل يتطلب وصفة طبية؟";
+            label20.Text = "مفعل/غير مفعل";
+            label14.Text = "ملاحظات إضافية";
+            buttonSaveSup.Text = "حفظ";
+
+            Nametxt.PlaceholderText = "اسم الدواء";
+            GenericNametxt.PlaceholderText = "الاسم العلمي";
+            Manufacturertxt.PlaceholderText = "الشركة المصنعة";
+            QuantityInStocktxt.PlaceholderText = "كمية المتوفرة";
+            MinimumStockLeveltxt.PlaceholderText = "الحد الأدنى للتنبيه";
+            BatchNumbertxt.PlaceholderText = "رقم الدفعة";
+            LocationInStoretxt.PlaceholderText = "مكان التخزين";
+            Barcodetxt.PlaceholderText = "باركود الدواء";
+            Notestxt.PlaceholderText = "ملاحظات إضافية";
+            Discounttxt.PlaceholderText = "0";
+            btnCategory.ToolTipTitle = "إدارة التصنيفات";
+            btnForm.ToolTipTitle = "إدارة الأشكال الصيدلانية";
+            btnStrength.ToolTipTitle = "إدارة التركيزات";
+        }
+
+        //ملف ترجمة الى اللغة الانجليزية
+        private void ApplyEnglishResources()
+        {
+            // Change text direction to left-to-right
+            this.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = false;
+            // Update texts to English
+            label1.Text = "Add / Edit Medication";
+            label16.Text = "Medication Barcode";
+            lblSupplierName.Text = "Medication Name";
+            lblSupplierAddress.Text = "Generic Name";
+            lblSupplierPhone.Text = "Manufacturer";
+            label10.Text = "Batch Number";
+            label11.Text = "Main Supplier";
+            label2.Text = "Medicine Type";
+            lblSupplierEmail.Text = "Strength";
+            label3.Text = "Category";
+            label5.Text = "Unit";
+            label4.Text = "Purchase Price";
+            lblSupplierNotes.Text = "Sale Price";
+            label7.Text = "Quantity In Stock";
+            label8.Text = "Minimum Stock Level";
+            label15.Text = "Location In Store";
+            label9.Text = "Expiry Date";
+            label13.Text = "Date Added";
+            label17.Text = "Discount %";
+            label12.Text = "Requires Prescription?";
+            label20.Text = "Active/Inactive";
+            label14.Text = "Additional Notes";
+            buttonSaveSup.Text = "Save";
+            Nametxt.PlaceholderText = "Medication Name";
+            GenericNametxt.PlaceholderText = "Generic Name";
+            Manufacturertxt.PlaceholderText = "Manufacturer";
+            QuantityInStocktxt.PlaceholderText = "Quantity In Stock";
+            MinimumStockLeveltxt.PlaceholderText = "Minimum Stock Level";
+            BatchNumbertxt.PlaceholderText = "Batch Number";
+            LocationInStoretxt.PlaceholderText = "Location In Store";
+            Barcodetxt.PlaceholderText = "Medication Barcode";
+            Notestxt.PlaceholderText = "Additional Notes";
+            Discounttxt.PlaceholderText = "0";
+            btnCategory.ToolTipTitle = "Manage Categories";
+            btnForm.ToolTipTitle = "Manage Medicine Types";
+            btnStrength.ToolTipTitle = "Manage Strengths";
+        }
+
     }
 }

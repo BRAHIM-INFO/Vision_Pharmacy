@@ -235,6 +235,7 @@ namespace Vision_Pharmacy
         {
             sliderlateral.Toggle();
             PnlSetting.Visible = true;
+            PnlSetting.Size = new Size(this.Size.Width, 75);  
             //timer2.Start();
         }
 
