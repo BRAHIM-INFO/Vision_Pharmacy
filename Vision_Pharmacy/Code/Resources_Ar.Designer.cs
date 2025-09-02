@@ -70,6 +70,15 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à تمت عملية الاضافة بنجاح.
+        /// </summary>
+        internal static string AddNotificationText {
+            get {
+                return ResourceManager.GetString("AddNotificationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à تسجيل الدخول.
         /// </summary>
         internal static string btnLogin {
@@ -88,6 +97,78 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à هل انت متأكد من هذا الاجراء. لا يمكن استرجاع البيانات.
+        /// </summary>
+        internal static string DeleteActionCaption {
+            get {
+                return ResourceManager.GetString("DeleteActionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à اجراء حذف.
+        /// </summary>
+        internal static string DeleteActionText {
+            get {
+                return ResourceManager.GetString("DeleteActionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à تمت عملية الحذف بنجاح.
+        /// </summary>
+        internal static string DeleteNotificationText {
+            get {
+                return ResourceManager.GetString("DeleteNotificationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à اجراء حذف.
+        /// </summary>
+        internal static string DeleteOutComeText {
+            get {
+                return ResourceManager.GetString("DeleteOutComeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ان عملية الحذف هذه لا تؤثر على المواد ( المواد  المتوفرة). اذا كنت بصدد ازالة المواد ايضا يجب عليك التعديل ثم الازالة.
+        /// </summary>
+        internal static string DeletOutComeCaption {
+            get {
+                return ResourceManager.GetString("DeletOutComeCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à بعض البيانات لا يجب ان تتكرر مثل المعرف. تأكد من تغييرة ثم اعد المحاولة.
+        /// </summary>
+        internal static string DuplicateDataCaption {
+            get {
+                return ResourceManager.GetString("DuplicateDataCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à تكرار البيانات.
+        /// </summary>
+        internal static string DuplicateDataText {
+            get {
+                return ResourceManager.GetString("DuplicateDataText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à تمت عملية التعديل بنجاح.
+        /// </summary>
+        internal static string EditNotificationText {
+            get {
+                return ResourceManager.GetString("EditNotificationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à لا يوجد بيانات. استخدم الازار اعلاه لاجراء العمليات على البيانات.
         /// </summary>
         internal static string EmptyDataText {
@@ -97,11 +178,74 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à شبكة عرض البيانات فارغة. تأكد من اختيار صف لاتمام العملية.
+        /// </summary>
+        internal static string EmptyGridViewCaption {
+            get {
+                return ResourceManager.GetString("EmptyGridViewCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à شبكة عرض البيانات لديك فارغة.
+        /// </summary>
+        internal static string EmptyGridViewText {
+            get {
+                return ResourceManager.GetString("EmptyGridViewText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à الحقول التي تحتوي على علامة * هي مطلوبة. تأكد من ادخالها ثم اعد المحاولة.
+        /// </summary>
+        internal static string FiledsEmptyCaption {
+            get {
+                return ResourceManager.GetString("FiledsEmptyCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à بعض الحقول مطلوبة.
+        /// </summary>
+        internal static string FiledsEmptyText {
+            get {
+                return ResourceManager.GetString("FiledsEmptyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à نموذج مستخدم جديد.
         /// </summary>
         internal static string FormTitle {
             get {
                 return ResourceManager.GetString("FormTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à مخزن.
+        /// </summary>
+        internal static string GeneralText {
+            get {
+                return ResourceManager.GetString("GeneralText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à يرجى ادخال قيمة صحيحة.
+        /// </summary>
+        internal static string InvalidInputCaption {
+            get {
+                return ResourceManager.GetString("InvalidInputCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à خطأ ادخال.
+        /// </summary>
+        internal static string InvalidIputText {
+            get {
+                return ResourceManager.GetString("InvalidIputText", resourceCulture);
             }
         }
         
@@ -261,11 +405,65 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à سيتم نقل المادة الى قسم المواد التالفة.
+        /// </summary>
+        internal static string OnDamgeCaption {
+            get {
+                return ResourceManager.GetString("OnDamgeCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à اجراء اتلاف.
+        /// </summary>
+        internal static string OnDamgeText {
+            get {
+                return ResourceManager.GetString("OnDamgeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à سيتم نقل المادة الى قسم المواد التي خارج الذمة.
+        /// </summary>
+        internal static string OutOfConscinceCaption {
+            get {
+                return ResourceManager.GetString("OutOfConscinceCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à نقل خارج الذمة.
+        /// </summary>
+        internal static string OutOfConscinceText {
+            get {
+                return ResourceManager.GetString("OutOfConscinceText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à طباعة.
         /// </summary>
         internal static string PrintButton_User {
             get {
                 return ResourceManager.GetString("PrintButton_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à لا يمكن ان تكون الكمية المضافة اكبر من الكمية المتوفرة, انظر الى الكمية للمادة الحالية وتأكد من انها اكبر او لا تساوي صفر ثم اعد المحاولة.
+        /// </summary>
+        internal static string QuantityMaterialCaption {
+            get {
+                return ResourceManager.GetString("QuantityMaterialCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à كمية غير صحيحة.
+        /// </summary>
+        internal static string QuantityMaterialText {
+            get {
+                return ResourceManager.GetString("QuantityMaterialText", resourceCulture);
             }
         }
         
@@ -284,6 +482,87 @@ namespace Vision_Pharmacy.Code {
         internal static string RoleUser {
             get {
                 return ResourceManager.GetString("RoleUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à يبدو انك لم تقم بعملية الحفظ ولديك بيانات مضافة. سوف نحتفظ بها ويمكنك الرجوع لها في عملية الاضافة القادمة.
+        /// </summary>
+        internal static string SavedDataCaption {
+            get {
+                return ResourceManager.GetString("SavedDataCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à تذكر !.
+        /// </summary>
+        internal static string SavedDataText {
+            get {
+                return ResourceManager.GetString("SavedDataText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à يبدو ان لديك مشكلة في في هذه العملية وهذا يعزى الى عده اسباب من بينها علاقة تربط هذه البيانات في بيانات اخرى يجب حذفها اولا او ريما عدم صحة تثبيت السيرفر او صلاحيات الوصول او عدم تثبيت قاعدة البيانات او خطأ في الاتصال في قاعدة البيانات. يمكنك تعديل نص الاتصال في اعدادات النظام او يمكنك الاتصال في مدير النظام لحل المشكلة.
+        /// </summary>
+        internal static string ServerConnectionCaption {
+            get {
+                return ResourceManager.GetString("ServerConnectionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à خطأ في الاتصال في قاعدة البيانات.
+        /// </summary>
+        internal static string ServerConnectionText {
+            get {
+                return ResourceManager.GetString("ServerConnectionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à ان هذا الاجراء يؤدي الى حذف المادة بشكل كامل من هنا وايضا من المواد.
+        /// </summary>
+        internal static string ShowDeleteMaterialCaption {
+            get {
+                return ResourceManager.GetString("ShowDeleteMaterialCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à تؤدي هذه العملية الى حذف المادة بشكل كامل وسيتم التأثير في المواد .
+        /// </summary>
+        internal static string ShowMoveDamgeCaption {
+            get {
+                return ResourceManager.GetString("ShowMoveDamgeCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à حذف مادة.
+        /// </summary>
+        internal static string ShowMoveDamgeText {
+            get {
+                return ResourceManager.GetString("ShowMoveDamgeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à لحساسية اجراء الحذف لابد لك ان تقوم بأختيار كامل السطر, واذا اردت حذف كامل البيانات يمكنك الضغط CTRL+A.
+        /// </summary>
+        internal static string ShowRowsCaption {
+            get {
+                return ResourceManager.GetString("ShowRowsCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à تأكد من اختيار كامل السطر لحذفة.
+        /// </summary>
+        internal static string ShowRowText {
+            get {
+                return ResourceManager.GetString("ShowRowText", resourceCulture);
             }
         }
         

@@ -1,6 +1,9 @@
-﻿using DevExpress.XtraExport.Helpers;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
+using DocumentFormat.OpenXml.Spreadsheet;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using Vision_Pharmacy.Code;
 using Vision_Pharmacy.Gui.DoashbordGui;
 using Vision_Pharmacy.Gui.EmployeeGui;
@@ -77,8 +80,16 @@ namespace Vision_Pharmacy
                 this.Size = new Size(1500, 1000); // الحجم العادي الذي تريده
                 this.StartPosition = FormStartPosition.CenterScreen;
                 isMaximized = false;
+            } 
+
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+            {
+                ApplyArabicResources();
             }
-            MessageBox.Show(Properties.Settings.Default.ChangeLang);
+            else
+            {
+                ApplyEnglishResources();
+            }
         }
 
         private void MaximizeWithoutCoveringTaskbar()
@@ -97,8 +108,8 @@ namespace Vision_Pharmacy
                 {
                     Text = levels[i],
                     AutoSize = true,
-                    LinkColor = Color.Navy,
-                    Font = new Font("Cairo Medium", 10, FontStyle.Bold),
+                    LinkColor = System.Drawing.Color.Navy,
+                    Font = new System.Drawing.Font("Cairo Medium", 10, FontStyle.Bold),
                     Margin = new Padding(0, 0, 5, 0),
                     Tag = i  // يمكنك استخدامه لمعرفة أي مرحلة تم الضغط عليها
                 };
@@ -120,8 +131,8 @@ namespace Vision_Pharmacy
                     {
                         Text = " > ",
                         AutoSize = true,
-                        ForeColor = Color.Gray,
-                        Font = new Font("Cairo Medium", 10, FontStyle.Regular),
+                        ForeColor = System.Drawing.Color.Gray,
+                        Font = new System.Drawing.Font("Cairo Medium", 10, FontStyle.Regular),
                         Margin = new Padding(0, 0, 5, 0)
                     };
                     breadcrumbPanel.Controls.Add(separator);
@@ -145,9 +156,7 @@ namespace Vision_Pharmacy
             //uc.Dock = DockStyle.Fill; // لملء الـ panel
             //panelMain.Controls.Add(uc);
         }
-
-
-
+         
         private void btnCases_Click(object sender, EventArgs e)
         {
             pnlCases.Toggle();
@@ -235,7 +244,8 @@ namespace Vision_Pharmacy
         {
             sliderlateral.Toggle();
             PnlSetting.Visible = true;
-            PnlSetting.Size = new Size(this.Size.Width, 75);  
+            PnlSetting.Location = new Point(Location.X + flowLayoutPanel1.Size.Width - 20, 10);
+            //= new Location(flowLayoutPanel1.Size.Width-20, 10);  
             //timer2.Start();
         }
 
@@ -361,6 +371,97 @@ namespace Vision_Pharmacy
             ExpiredUserControl ExpiredUserControl = new ExpiredUserControl();
             ExpiredUserControl.Dock = DockStyle.Fill; // لملء الـ panel
             panelContainer.Controls.Add(ExpiredUserControl);
+        }
+
+        //ملف ترجمة الى اللغة العربية
+        private void ApplyArabicResources()
+        {
+            // تغيير اتجاه النموذج إلى اليمين لليسار
+            this.RightToLeft = RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            // تغيير الخطوط إلى خطوط تدعم العربية
+            //Font arabicFont = new Font("Cairo Medium", 10); // اختر خطًا يدعم العربية
+            //this.Font = arabicFont;
+
+            // تغيير نصوص الأزرار والعناصر الأخرى إلى العربية 
+            label1.Text = Resources_Ar.label2;
+            btnUser.Text = "المستخدمين";
+            btnSett.Text = "الإعدادات";
+            btnExit.Text = "تسجيل الخروج";
+
+            btnHome.Text = "لوحة التحكم";
+            btnGDS.Text = "إدارة المخزون";
+            btnProduct.Text = "قائمة الأدوية";
+            btnExpired.Text = "المنتجات منتهية الصلاحية";
+            btnPurchases.Text = "إدارة المشتريات";
+            btnAddFact.Text = "إضافة فاتورة شراء";
+            simpleButton4.Text = "قائمة المشتريات";
+            btnCases.Text = "إدارة الموردين";
+            btnSupplier.Text = "قائمة الموردين";
+            MovSupplier.Text = "حركات الموردين";
+            btnSession.Text = "نقطة البيع (POS)";
+            btnRH.Text = "الموارد البشرية";
+            btnListEmp.Text = "قائمة الموظفين";
+            btnAttendEmp.Text = "تسجيل الحضور و الغياب";
+            btnPayEmp.Text = "الرواتب الشهرية";
+            btnFinance.Text = "الإدارة المالية";
+            btnCalander.Text = "دعم الباركود QR Code";
+            btnRepports.Text = "المستخدمون والصلاحيات";
+            btnSetings.Text = "الاعدادات";
+            simpleButton11.Text = "القضايا";
+            simpleButton12.Text = "أنواع القضايا";
+            simpleButton21.Text = "أنواع القضايا"; 
+            simpleButton19.Text = "صلاحيات المستخدمين";
+            btnUsers.Text = "المستخدمون";
+            btnListUsers.Text = "قائمة المستخدمين";
+            btnStngs.Text = "الإعدادات"; 
+        }
+
+        //ملف ترجمة الى اللغة الانجليزية
+        private void ApplyEnglishResources()
+        {
+            // Change the form orientation to right-to-left
+            this.RightToLeft = RightToLeft.No;
+            this.RightToLeftLayout = false;
+            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+
+            // Change the fonts to Arabic-supported fonts
+            //Font arabicFont = new Font("Cairo Medium", 10); // Choose a font that supports Arabic
+            //this.Font = arabicFont;
+
+            // Change the text of buttons and other elements to Arabic
+            label1.Text = Resources_En.label2;
+            btnUser.Text = "Users";
+            btnSett.Text = "Settings";
+            btnExit.Text = "Log Out";
+
+            btnHome.Text = "Control Panel";
+            btnGDS.Text = "Inventory Management";
+            btnProduct.Text = "Medication List";
+            btnExpired.Text = "Expired Products";
+            btnPurchases.Text = "Purchase Management";
+            btnAddFact.Text = "Add a Purchase Invoice";
+            simpleButton4.Text = "Purchase List";
+            btnCases.Text = "Supplier Management";
+            btnSupplier.Text = "Supplier List";
+            MovSupplier.Text = "Supplier Transactions";
+            btnSession.Text = "Point of Sale (POS)";
+            btnRH.Text = "Human Resources";
+            btnListEmp.Text = "Employee List";
+            btnAttendEmp.Text = "Attendance and Absence Recording";
+            btnPayEmp.Text = "Monthly Payroll";
+            btnFinance.Text = "Financial Management";
+            btnCalander.Text = "QR Code Support";
+            btnRepports.Text = "Users and Permissions";
+            btnSetings.Text = "Settings";
+            simpleButton11.Text = "Issues";
+            simpleButton12.Text = "Issues Types";
+            simpleButton21.Text = "Issues Types";
+            simpleButton19.Text = "User Permissions";
+            btnUsers.Text = "Users";
+            btnListUsers.Text = "User List";
+            btnStngs.Text = "Settings";
         }
     }
 

@@ -28,7 +28,9 @@ namespace Vision_Pharmacy.Code
             labelEmptyData.AutoSize = false;
             labelEmptyData.Dock = DockStyle.Bottom;
             labelEmptyData.Size = new System.Drawing.Size(300, 80);
-            labelEmptyData.Text = Properties.Resources.EmptyDataText;
+            if (Properties.Settings.Default.ChangeLang == "Ar")
+                labelEmptyData.Text = Resources_Ar.EmptyDataText;
+            else labelEmptyData.Text = Resources_En.EmptyDataText;
             labelEmptyData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             labelEmptyData.Font = new System.Drawing.Font("Cairo Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             return labelEmptyData;

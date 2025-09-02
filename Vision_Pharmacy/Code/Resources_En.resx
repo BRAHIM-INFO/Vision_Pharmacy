@@ -117,7 +117,194 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnLogin" xml:space="preserve">
+
+	<data name="btnLogin" xml:space="preserve">
+<value>Login</value>
+</data>
+	<data name="SwitchLang" xml:space="preserve">
+<value>English</value>
+</data>
+	<data name="ButtonSave" xml:space="preserve">
+<value>Save</value>
+</data>
+	<data name="FormTitle" xml:space="preserve">
+<value>New User Form</value>
+</data>
+	<data name="label2" xml:space="preserve">
+<value>Iraq Vision Pharmacy Management Program
+© 2025 - All Rights Reserved
+</value>
+</data>
+	<data name="labelControl1" xml:space="preserve">
+<value>Password</value>
+</data>
+	<data name="labelControl2" xml:space="preserve">
+<value>Name User</value>
+
+</data>
+	<data name="labelControl3" xml:space="preserve">
+<value>Welcome</value>
+
+</data>
+	<data name="LabelName" xml:space="preserve">
+<value>Name</value>
+
+</data>
+	<data name="LabelNewUser" xml:space="preserve">
+<value>New User</value>
+
+</data>
+	<data name="LabelPassword" xml:space="preserve">
+<value>Password</value>
+
+</data>
+	<data name="LabelRole" xml:space="preserve">
+<value>Authority</value>
+
+</data>
+	<data name="LabelUsername" xml:space="preserve">
+<value>Username</value>
+
+</data>
+	<data name="lblTitle" xml:space="preserve">
+<value>Iraq Vision Pharmacy Management Program</value>
+</data>
+	<data name="RoleAdmin" xml:space="preserve">
+<value>Administrator</value>
+</data>
+	<data name="RoleUser" xml:space="preserve">
+<value>User</value>
+</data>
+	<data name="AddButton_User" xml:space="preserve">
+<value>Add</value>
+</data>
+	<data name="PrintButton_User" xml:space="preserve">
+<value>Print</value>
+</data>
+	<data name="TitleUser" xml:space="preserve">
+<value>User List</value>
+</data>
+	<data name="EmptyDataText" xml:space="preserve">
+<value>No data. Use the buttons above to perform data operations.</value>
+</data>
+	<data name="lblTitlePurchase" xml:space="preserve">
+<value>Purchase List</value>
+</data>
+	<data name="lblTitleMedicat" xml:space="preserve">
+<value>Medicine List</value>
+</data>
+	<data name="lblTitleExpired" xml:space="preserve">
+<value>Expired Medication List</value>
+</data>
+	<data name="lblTitleEmp" xml:space="preserve">
+<value>Employee List</value>
+</data>
+	<data name="lblTitleAttend" xml:space="preserve">
+<value>Employee Attendance and Absence Recording</value>
+</data>
+	<data name="lblTitlePay" xml:space="preserve">
+<value>Employee Payroll List</value>
+</data>
+	<data name="lblTitleCustom" xml:space="preserve">
+<value>Customer List</value>
+</data>
+	<data name="TitlePurchase" xml:space="preserve">
+<value>Purchase List</value>
+</data>
+	<data name="AddNotificationText" xml:space="preserve">
+<value>Add operation completed successfully</value>
+</data>
+	<data name="DeleteActionCaption" xml:space="preserve">
+<value>Are you sure you want to do this? Data cannot be recovered.</value>
+</data>
+	<data name="DeleteActionText" xml:space="preserve">
+<value>Delete action</value>
+</data>
+	<data name="DeleteNotificationText" xml:space="preserve">
+<value>Delete operation completed successfully.</value>
+</data>
+	<data name="DeleteOutComeText" xml:space="preserve">
+<value>Delete action.</value>
+</data>
+	<data name="DeletOutComeCaption" xml:space="preserve">
+<value>This deletion operation does not affect existing items. If you are also removing items, you must edit them and then delete them.</value>
+</data>
+	<data name="DuplicateDataCaption" xml:space="preserve">
+<value>Some data, such as the ID, should not be repeated. Make sure to change it and try again.</value>
+</data>
+	<data name="DuplicateDataText" xml:space="preserve">
+<value>Duplicate data.</value>
+</data>
+	<data name="EditNotificationText" xml:space="preserve">
+<value>Edit operation successful.</value>
+</data>
+	<data name="EmptyGridViewCaption" xml:space="preserve">
+<value>The data grid is empty. Make sure you have selected a row to complete the operation.</value>
+</data>
+	<data name="EmptyGridViewText" xml:space="preserve">
+<value>Your data grid is empty.</value>
+</data>
+	<data name="FiledsEmptyCaption" xml:space="preserve">
+<value>Fields marked with an asterisk (*) are required. Make sure you enter it correctly and try again.</value>
+</data>
+	<data name="FiledsEmptyText" xml:space="preserve">
+<value>Some fields are required.</value>
+</data>
+	<data name="GeneralText" xml:space="preserve">
+<value>Warehouse.</value>
+</data>
+	<data name="InvalidInputCaption" xml:space="preserve">
+<value>Please enter a valid value.</value>
+</data>
+	<data name="InvalidIputText" xml:space="preserve">
+<value>Input error.</value>
+</data>
+	<data name="OnDamgeCaption" xml:space="preserve">
+<value>The item will be moved to the damaged section.</value>
+</data>
+	<data name="OnDamgeText" xml:space="preserve">
+<value>Action Destroy</value>
+</data>
+	<data name="OutOfConscinceCaption" xml:space="preserve">
+<value>The item will be moved to the Out of Conscince section.</value>
+</data>
+	<data name="OutOfConscinceText" xml:space="preserve">
+<value>Move Out of Conscience.</value>
+</data>
+	<data name="QuantityMaterialCaption" xml:space="preserve">
+<value>The added quantity cannot be greater than the available quantity. Check the quantity for the current item and make sure it is greater than or equal to zero, then try again.</value>
+</data>
+	<data name="QuantityMaterialText" xml:space="preserve">
+<value>Invalid quantity.</value>
+</data>
+	<data name="SavedDataCaption" xml:space="preserve">
+<value>It appears that you did not save and have added data. We'll keep it, and you can refer to it in the next add operation.</value>
+</data>
+	<data name="SavedDataText" xml:space="preserve">
+<value>Remember!</value>
+</data>
+	<data name="ServerConnectionCaption" xml:space="preserve">
+<value>It seems you're having a problem with this operation. This could be due to several reasons, including a connection between this data and other data that needs to be deleted first. It could also be due to incorrect server installation, incorrect access permissions, an uninstalled database, or a database connection error. You can modify the connection text in the system settings, or you can contact the system administrator to resolve the issue.</value>
+</data>
+	<data name="ServerConnectionText" xml:space="preserve">
+<value>Database connection error.</value>
+</data>
+	<data name="ShowDeleteMaterialCaption" xml:space="preserve">
+<value>This action will completely delete the material from here and from other materials.</value>
+</data>
+	<data name="ShowMoveDamgeCaption" xml:space="preserve">
+<value>This action will completely delete the material, and other materials will be affected.</value>
+</data>
+	<data name="ShowMoveDamgeText" xml:space="preserve">
+<value>Delete Material.</value>
+</data>
+	<data name="ShowRowsCaption" xml:space="preserve">
+<value>For sensitivity, you must select "Complete." The line. If you want to delete the entire data, you can press CTRL+A.</value>
+</data>
+	<data name="ShowRowText" xml:space="preserve">
+<value>Make sure to select the entire line to delete.</value>
+</data>
+  <!--<data name="btnLogin" xml:space="preserve">
     <value>Log in</value>
   </data>
   <data name="SwitchLang" xml:space="preserve">
@@ -198,5 +385,5 @@
   </data>
   <data name="lblTitleCustom" xml:space="preserve">
     <value>Customer list</value>
-  </data>
+  </data>--> 
 </root>

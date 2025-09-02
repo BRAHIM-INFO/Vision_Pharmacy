@@ -94,12 +94,15 @@
             label1 = new Label();
             LogoLateral = new DevExpress.XtraEditors.PictureEdit();
             bunifuShadowPanel1 = new Panel();
-            btnMaximizeRestore = new DevExpress.XtraEditors.SimpleButton();
-            btnMinimize = new DevExpress.XtraEditors.SimpleButton();
-            btnClose = new DevExpress.XtraEditors.SimpleButton();
-            bunifuLabel3 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             BtnSlider = new DevExpress.XtraEditors.SimpleButton();
+            panel21 = new Panel();
+            btnMinimize = new DevExpress.XtraEditors.SimpleButton();
+            btnMaximizeRestore = new DevExpress.XtraEditors.SimpleButton();
             btnUsers = new DevExpress.XtraEditors.SimpleButton();
+            bunifuLabel3 = new Label();
+            btnClose = new DevExpress.XtraEditors.SimpleButton();
+            breadcrumbPanel = new FlowLayoutPanel();
             PnlSetting = new FlowLayoutPanel();
             btnUser = new DevExpress.XtraEditors.SimpleButton();
             btnSett = new DevExpress.XtraEditors.SimpleButton();
@@ -107,9 +110,6 @@
             btnExit = new DevExpress.XtraEditors.SimpleButton();
             panelContainer = new Panel();
             slideTimer = new System.Windows.Forms.Timer(components);
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            panel21 = new Panel();
-            breadcrumbPanel = new FlowLayoutPanel();
             pnlSlideHome.SuspendLayout();
             pnl_11.SuspendLayout();
             pnl_10.SuspendLayout();
@@ -125,9 +125,9 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)LogoLateral.Properties).BeginInit();
             bunifuShadowPanel1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             PnlSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // pnlSlideHome
@@ -795,7 +795,7 @@
             btnAddFact.Name = "btnAddFact";
             btnAddFact.Size = new Size(223, 50);
             btnAddFact.TabIndex = 32;
-            btnAddFact.Text = "فاتورة جديدة";
+            btnAddFact.Text = "إضافة فاتورة شراء";
             btnAddFact.Click += btnAddFact_Click;
             // 
             // panel14
@@ -902,7 +902,7 @@
             btnExpired.Name = "btnExpired";
             btnExpired.Size = new Size(223, 50);
             btnExpired.TabIndex = 34;
-            btnExpired.Text = "قائمة الأدوية انتهت صلاحيتها";
+            btnExpired.Text = "المنتجات منتهية الصلاحية";
             btnExpired.Click += btnExpired_Click;
             // 
             // panel7
@@ -994,59 +994,23 @@
             bunifuShadowPanel1.Size = new Size(1306, 114);
             bunifuShadowPanel1.TabIndex = 3;
             // 
-            // btnMaximizeRestore
+            // flowLayoutPanel1
             // 
-            btnMaximizeRestore.Cursor = Cursors.Hand;
-            btnMaximizeRestore.ImageOptions.Image = Properties.Resources.icons8_maximiser_la_fenêtre_48;
-            btnMaximizeRestore.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            btnMaximizeRestore.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.Full;
-            btnMaximizeRestore.ImageOptions.SvgImageSize = new Size(20, 20);
-            btnMaximizeRestore.Location = new Point(229, 3);
-            btnMaximizeRestore.Name = "btnMaximizeRestore";
-            btnMaximizeRestore.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            btnMaximizeRestore.Size = new Size(40, 40);
-            btnMaximizeRestore.TabIndex = 9;
-            btnMaximizeRestore.Click += btnMaximizeRestore_Click;
-            // 
-            // btnMinimize
-            // 
-            btnMinimize.Cursor = Cursors.Hand;
-            btnMinimize.ImageOptions.Image = Properties.Resources.icons8_réduire_la_fenêtre_48;
-            btnMinimize.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            btnMinimize.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnMinimize.Location = new Point(272, 0);
-            btnMinimize.Margin = new Padding(0);
-            btnMinimize.Name = "btnMinimize";
-            btnMinimize.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            btnMinimize.Size = new Size(40, 40);
-            btnMinimize.TabIndex = 8;
-            btnMinimize.Text = "simpleButton1";
-            btnMinimize.Click += btnMinimize_Click;
-            // 
-            // btnClose
-            // 
-            btnClose.Cursor = Cursors.Hand;
-            btnClose.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnClose.ImageOptions.SvgImage");
-            btnClose.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnClose.Location = new Point(6, 3);
-            btnClose.Name = "btnClose";
-            btnClose.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            btnClose.Size = new Size(40, 40);
-            btnClose.TabIndex = 7;
-            btnClose.Text = "simpleButton1";
-            btnClose.Click += btnClose_Click;
-            // 
-            // bunifuLabel3
-            // 
-            bunifuLabel3.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
-            bunifuLabel3.ForeColor = Color.FromArgb(0, 192, 0);
-            bunifuLabel3.Location = new Point(52, 0);
-            bunifuLabel3.Name = "bunifuLabel3";
-            bunifuLabel3.RightToLeft = RightToLeft.Yes;
-            bunifuLabel3.Size = new Size(125, 28);
-            bunifuLabel3.TabIndex = 5;
-            bunifuLabel3.Text = "Admin";
-            bunifuLabel3.TextAlign = ContentAlignment.TopCenter;
+            flowLayoutPanel1.Controls.Add(BtnSlider);
+            flowLayoutPanel1.Controls.Add(panel21);
+            flowLayoutPanel1.Controls.Add(btnMinimize);
+            flowLayoutPanel1.Controls.Add(btnMaximizeRestore);
+            flowLayoutPanel1.Controls.Add(btnUsers);
+            flowLayoutPanel1.Controls.Add(bunifuLabel3);
+            flowLayoutPanel1.Controls.Add(btnClose);
+            flowLayoutPanel1.Controls.Add(breadcrumbPanel);
+            flowLayoutPanel1.Controls.Add(PnlSetting);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
+            flowLayoutPanel1.Size = new Size(1306, 114);
+            flowLayoutPanel1.TabIndex = 0;
             // 
             // BtnSlider
             // 
@@ -1066,6 +1030,42 @@
             BtnSlider.Text = "لوحة التحكم";
             BtnSlider.Click += BtnSlider_Click;
             // 
+            // panel21
+            // 
+            panel21.Location = new Point(315, 3);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(939, 44);
+            panel21.TabIndex = 2;
+            // 
+            // btnMinimize
+            // 
+            btnMinimize.Cursor = Cursors.Hand;
+            btnMinimize.ImageOptions.Image = Properties.Resources.icons8_réduire_la_fenêtre_48;
+            btnMinimize.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            btnMinimize.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnMinimize.Location = new Point(272, 0);
+            btnMinimize.Margin = new Padding(0);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            btnMinimize.Size = new Size(40, 40);
+            btnMinimize.TabIndex = 8;
+            btnMinimize.Text = "simpleButton1";
+            btnMinimize.Click += btnMinimize_Click;
+            // 
+            // btnMaximizeRestore
+            // 
+            btnMaximizeRestore.Cursor = Cursors.Hand;
+            btnMaximizeRestore.ImageOptions.Image = Properties.Resources.icons8_maximiser_la_fenêtre_48;
+            btnMaximizeRestore.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            btnMaximizeRestore.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.Full;
+            btnMaximizeRestore.ImageOptions.SvgImageSize = new Size(20, 20);
+            btnMaximizeRestore.Location = new Point(229, 3);
+            btnMaximizeRestore.Name = "btnMaximizeRestore";
+            btnMaximizeRestore.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            btnMaximizeRestore.Size = new Size(40, 40);
+            btnMaximizeRestore.TabIndex = 9;
+            btnMaximizeRestore.Click += btnMaximizeRestore_Click;
+            // 
             // btnUsers
             // 
             btnUsers.Cursor = Cursors.Hand;
@@ -1078,6 +1078,39 @@
             btnUsers.TabIndex = 3;
             btnUsers.Text = "simpleButton1";
             btnUsers.Click += btnUsers_Click;
+            // 
+            // bunifuLabel3
+            // 
+            bunifuLabel3.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
+            bunifuLabel3.ForeColor = Color.FromArgb(0, 192, 0);
+            bunifuLabel3.Location = new Point(52, 0);
+            bunifuLabel3.Name = "bunifuLabel3";
+            bunifuLabel3.RightToLeft = RightToLeft.Yes;
+            bunifuLabel3.Size = new Size(125, 28);
+            bunifuLabel3.TabIndex = 5;
+            bunifuLabel3.Text = "Admin";
+            bunifuLabel3.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // btnClose
+            // 
+            btnClose.Cursor = Cursors.Hand;
+            btnClose.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnClose.ImageOptions.SvgImage");
+            btnClose.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnClose.Location = new Point(6, 3);
+            btnClose.Name = "btnClose";
+            btnClose.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            btnClose.RightToLeft = RightToLeft.No;
+            btnClose.Size = new Size(40, 40);
+            btnClose.TabIndex = 7;
+            btnClose.Text = "simpleButton1";
+            btnClose.Click += btnClose_Click;
+            // 
+            // breadcrumbPanel
+            // 
+            breadcrumbPanel.Location = new Point(248, 53);
+            breadcrumbPanel.Name = "breadcrumbPanel";
+            breadcrumbPanel.Size = new Size(1055, 51);
+            breadcrumbPanel.TabIndex = 10;
             // 
             // PnlSetting
             // 
@@ -1162,37 +1195,6 @@
             // 
             slideTimer.Interval = 150;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(BtnSlider);
-            flowLayoutPanel1.Controls.Add(panel21);
-            flowLayoutPanel1.Controls.Add(btnMinimize);
-            flowLayoutPanel1.Controls.Add(btnMaximizeRestore);
-            flowLayoutPanel1.Controls.Add(btnUsers);
-            flowLayoutPanel1.Controls.Add(bunifuLabel3);
-            flowLayoutPanel1.Controls.Add(btnClose);
-            flowLayoutPanel1.Controls.Add(breadcrumbPanel);
-            flowLayoutPanel1.Controls.Add(PnlSetting);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1306, 114);
-            flowLayoutPanel1.TabIndex = 0;
-            // 
-            // panel21
-            // 
-            panel21.Location = new Point(315, 3);
-            panel21.Name = "panel21";
-            panel21.Size = new Size(939, 44);
-            panel21.TabIndex = 2;
-            // 
-            // breadcrumbPanel
-            // 
-            breadcrumbPanel.Location = new Point(248, 53);
-            breadcrumbPanel.Name = "breadcrumbPanel";
-            breadcrumbPanel.Size = new Size(1055, 51);
-            breadcrumbPanel.TabIndex = 10;
-            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -1225,9 +1227,9 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)LogoLateral.Properties).EndInit();
             bunifuShadowPanel1.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             PnlSetting.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 

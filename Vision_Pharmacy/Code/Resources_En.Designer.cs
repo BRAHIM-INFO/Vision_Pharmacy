@@ -70,7 +70,16 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Log in.
+        ///   Recherche une chaîne localisée semblable à Add operation completed successfully.
+        /// </summary>
+        internal static string AddNotificationText {
+            get {
+                return ResourceManager.GetString("AddNotificationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Login.
         /// </summary>
         internal static string btnLogin {
             get {
@@ -88,11 +97,119 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à No data. Use the button above to perform operations on the data..
+        ///   Recherche une chaîne localisée semblable à Are you sure you want to do this? Data cannot be recovered..
+        /// </summary>
+        internal static string DeleteActionCaption {
+            get {
+                return ResourceManager.GetString("DeleteActionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete action.
+        /// </summary>
+        internal static string DeleteActionText {
+            get {
+                return ResourceManager.GetString("DeleteActionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete operation completed successfully..
+        /// </summary>
+        internal static string DeleteNotificationText {
+            get {
+                return ResourceManager.GetString("DeleteNotificationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete action..
+        /// </summary>
+        internal static string DeleteOutComeText {
+            get {
+                return ResourceManager.GetString("DeleteOutComeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à This deletion operation does not affect existing items. If you are also removing items, you must edit them and then delete them..
+        /// </summary>
+        internal static string DeletOutComeCaption {
+            get {
+                return ResourceManager.GetString("DeletOutComeCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Some data, such as the ID, should not be repeated. Make sure to change it and try again..
+        /// </summary>
+        internal static string DuplicateDataCaption {
+            get {
+                return ResourceManager.GetString("DuplicateDataCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Duplicate data..
+        /// </summary>
+        internal static string DuplicateDataText {
+            get {
+                return ResourceManager.GetString("DuplicateDataText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Edit operation successful..
+        /// </summary>
+        internal static string EditNotificationText {
+            get {
+                return ResourceManager.GetString("EditNotificationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à No data. Use the buttons above to perform data operations..
         /// </summary>
         internal static string EmptyDataText {
             get {
                 return ResourceManager.GetString("EmptyDataText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The data grid is empty. Make sure you have selected a row to complete the operation..
+        /// </summary>
+        internal static string EmptyGridViewCaption {
+            get {
+                return ResourceManager.GetString("EmptyGridViewCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Your data grid is empty..
+        /// </summary>
+        internal static string EmptyGridViewText {
+            get {
+                return ResourceManager.GetString("EmptyGridViewText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Fields marked with an asterisk (*) are required. Make sure you enter it correctly and try again..
+        /// </summary>
+        internal static string FiledsEmptyCaption {
+            get {
+                return ResourceManager.GetString("FiledsEmptyCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Some fields are required..
+        /// </summary>
+        internal static string FiledsEmptyText {
+            get {
+                return ResourceManager.GetString("FiledsEmptyText", resourceCulture);
             }
         }
         
@@ -106,8 +223,36 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Warehouse..
+        /// </summary>
+        internal static string GeneralText {
+            get {
+                return ResourceManager.GetString("GeneralText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Please enter a valid value..
+        /// </summary>
+        internal static string InvalidInputCaption {
+            get {
+                return ResourceManager.GetString("InvalidInputCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Input error..
+        /// </summary>
+        internal static string InvalidIputText {
+            get {
+                return ResourceManager.GetString("InvalidIputText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Iraq Vision Pharmacy Management Program
-        ///© 2025 - All Rights Reserved.
+        ///© 2025 - All Rights Reserved
+        ///.
         /// </summary>
         internal static string label2 {
             get {
@@ -125,7 +270,7 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Username.
+        ///   Recherche une chaîne localisée semblable à Name User.
         /// </summary>
         internal static string labelControl2 {
             get {
@@ -170,7 +315,7 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Role.
+        ///   Recherche une chaîne localisée semblable à Authority.
         /// </summary>
         internal static string LabelRole {
             get {
@@ -197,7 +342,7 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Recording employee absences and attendance.
+        ///   Recherche une chaîne localisée semblable à Employee Attendance and Absence Recording.
         /// </summary>
         internal static string lblTitleAttend {
             get {
@@ -206,7 +351,7 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Customer list.
+        ///   Recherche une chaîne localisée semblable à Customer List.
         /// </summary>
         internal static string lblTitleCustom {
             get {
@@ -215,7 +360,7 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Staff List.
+        ///   Recherche une chaîne localisée semblable à Employee List.
         /// </summary>
         internal static string lblTitleEmp {
             get {
@@ -224,7 +369,7 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à List of expired medicines.
+        ///   Recherche une chaîne localisée semblable à Expired Medication List.
         /// </summary>
         internal static string lblTitleExpired {
             get {
@@ -233,7 +378,7 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à List of medications.
+        ///   Recherche une chaîne localisée semblable à Medicine List.
         /// </summary>
         internal static string lblTitleMedicat {
             get {
@@ -242,7 +387,7 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Employee payroll.
+        ///   Recherche une chaîne localisée semblable à Employee Payroll List.
         /// </summary>
         internal static string lblTitlePay {
             get {
@@ -251,11 +396,47 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Shopping list.
+        ///   Recherche une chaîne localisée semblable à Purchase List.
         /// </summary>
         internal static string lblTitlePurchase {
             get {
                 return ResourceManager.GetString("lblTitlePurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The item will be moved to the damaged section..
+        /// </summary>
+        internal static string OnDamgeCaption {
+            get {
+                return ResourceManager.GetString("OnDamgeCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Action Destroy.
+        /// </summary>
+        internal static string OnDamgeText {
+            get {
+                return ResourceManager.GetString("OnDamgeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The item will be moved to the Out of Conscince section..
+        /// </summary>
+        internal static string OutOfConscinceCaption {
+            get {
+                return ResourceManager.GetString("OutOfConscinceCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Move Out of Conscience..
+        /// </summary>
+        internal static string OutOfConscinceText {
+            get {
+                return ResourceManager.GetString("OutOfConscinceText", resourceCulture);
             }
         }
         
@@ -265,6 +446,24 @@ namespace Vision_Pharmacy.Code {
         internal static string PrintButton_User {
             get {
                 return ResourceManager.GetString("PrintButton_User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à The added quantity cannot be greater than the available quantity. Check the quantity for the current item and make sure it is greater than or equal to zero, then try again..
+        /// </summary>
+        internal static string QuantityMaterialCaption {
+            get {
+                return ResourceManager.GetString("QuantityMaterialCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Invalid quantity..
+        /// </summary>
+        internal static string QuantityMaterialText {
+            get {
+                return ResourceManager.GetString("QuantityMaterialText", resourceCulture);
             }
         }
         
@@ -287,11 +486,101 @@ namespace Vision_Pharmacy.Code {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à عربي.
+        ///   Recherche une chaîne localisée semblable à It appears that you did not save and have added data. We&apos;ll keep it, and you can refer to it in the next add operation..
+        /// </summary>
+        internal static string SavedDataCaption {
+            get {
+                return ResourceManager.GetString("SavedDataCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Remember!.
+        /// </summary>
+        internal static string SavedDataText {
+            get {
+                return ResourceManager.GetString("SavedDataText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à It seems you&apos;re having a problem with this operation. This could be due to several reasons, including a connection between this data and other data that needs to be deleted first. It could also be due to incorrect server installation, incorrect access permissions, an uninstalled database, or a database connection error. You can modify the connection text in the system settings, or you can contact the system administrator to resolve the issue..
+        /// </summary>
+        internal static string ServerConnectionCaption {
+            get {
+                return ResourceManager.GetString("ServerConnectionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Database connection error..
+        /// </summary>
+        internal static string ServerConnectionText {
+            get {
+                return ResourceManager.GetString("ServerConnectionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à This action will completely delete the material from here and from other materials..
+        /// </summary>
+        internal static string ShowDeleteMaterialCaption {
+            get {
+                return ResourceManager.GetString("ShowDeleteMaterialCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à This action will completely delete the material, and other materials will be affected..
+        /// </summary>
+        internal static string ShowMoveDamgeCaption {
+            get {
+                return ResourceManager.GetString("ShowMoveDamgeCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Delete Material..
+        /// </summary>
+        internal static string ShowMoveDamgeText {
+            get {
+                return ResourceManager.GetString("ShowMoveDamgeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à For sensitivity, you must select &quot;Complete.&quot; The line. If you want to delete the entire data, you can press CTRL+A..
+        /// </summary>
+        internal static string ShowRowsCaption {
+            get {
+                return ResourceManager.GetString("ShowRowsCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Make sure to select the entire line to delete..
+        /// </summary>
+        internal static string ShowRowText {
+            get {
+                return ResourceManager.GetString("ShowRowText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à English.
         /// </summary>
         internal static string SwitchLang {
             get {
                 return ResourceManager.GetString("SwitchLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Purchase List.
+        /// </summary>
+        internal static string TitlePurchase {
+            get {
+                return ResourceManager.GetString("TitlePurchase", resourceCulture);
             }
         }
         
