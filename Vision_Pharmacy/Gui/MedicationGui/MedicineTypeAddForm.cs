@@ -35,6 +35,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         {
             InitializeComponent();
             loading = LoadingUser.Instance();
+            labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
             _dataHelper = (IDataHelper<MedicineType>)ContainerConfig.ObjectType("MedicineType");
             // Set DataFileds for Edit void
             if (id > 0)

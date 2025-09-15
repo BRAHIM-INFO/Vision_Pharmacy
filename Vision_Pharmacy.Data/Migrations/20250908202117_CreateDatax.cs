@@ -5,7 +5,7 @@
 namespace Vision_Pharmacy.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CreataDb : Migration
+    public partial class CreateDatax : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

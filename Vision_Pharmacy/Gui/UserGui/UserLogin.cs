@@ -53,6 +53,8 @@ namespace Vision_Pharmacy.Gui.UserGui
             LoadData();
             allClasses.RoundPictCorners(pictureBox2, 40); // 15 مثل bunifu
             allClasses.RoundPanelCornersForm(this, 50); // 15 مثل bunifu
+            Properties.Settings.Default.ChangeLang = "Ar";
+            Properties.Settings.Default.Save();
 
         }
 
@@ -93,6 +95,15 @@ namespace Vision_Pharmacy.Gui.UserGui
                     FormMain main = new FormMain();
                     Properties.Settings.Default.User = user.FullName;
                     Properties.Settings.Default.Role = user.Role;
+                    if (SwitchLang.IsOn == true)
+                    {
+                        Properties.Settings.Default.ChangeLang = "En";  
+                    }
+                    else
+                    {
+                        Properties.Settings.Default.ChangeLang = "Ar"; 
+                    }
+
                     Properties.Settings.Default.Save();
                     main.Show();
                     IsLogin = true;

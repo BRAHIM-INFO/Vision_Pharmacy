@@ -80,7 +80,7 @@ namespace Vision_Pharmacy
                 this.Size = new Size(1500, 1000); // الحجم العادي الذي تريده
                 this.StartPosition = FormStartPosition.CenterScreen;
                 isMaximized = false;
-            } 
+            }
 
             if (Properties.Settings.Default.ChangeLang == "Ar")
             {
@@ -156,7 +156,7 @@ namespace Vision_Pharmacy
             //uc.Dock = DockStyle.Fill; // لملء الـ panel
             //panelMain.Controls.Add(uc);
         }
-         
+
         private void btnCases_Click(object sender, EventArgs e)
         {
             pnlCases.Toggle();
@@ -379,10 +379,9 @@ namespace Vision_Pharmacy
             // تغيير اتجاه النموذج إلى اليمين لليسار
             this.RightToLeft = RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
-            // تغيير الخطوط إلى خطوط تدعم العربية
-            //Font arabicFont = new Font("Cairo Medium", 10); // اختر خطًا يدعم العربية
-            //this.Font = arabicFont;
+            bunifuShadowPanel1.RightToLeft = RightToLeft.Yes;
+            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+            flowLayoutPanel1.RightToLeft = RightToLeft.Yes;
 
             // تغيير نصوص الأزرار والعناصر الأخرى إلى العربية 
             label1.Text = Resources_Ar.label2;
@@ -411,11 +410,11 @@ namespace Vision_Pharmacy
             btnSetings.Text = "الاعدادات";
             simpleButton11.Text = "القضايا";
             simpleButton12.Text = "أنواع القضايا";
-            simpleButton21.Text = "أنواع القضايا"; 
+            simpleButton21.Text = "أنواع القضايا";
             simpleButton19.Text = "صلاحيات المستخدمين";
             btnUsers.Text = "المستخدمون";
             btnListUsers.Text = "قائمة المستخدمين";
-            btnStngs.Text = "الإعدادات"; 
+            btnStngs.Text = "الإعدادات";
         }
 
         //ملف ترجمة الى اللغة الانجليزية
@@ -424,11 +423,11 @@ namespace Vision_Pharmacy
             // Change the form orientation to right-to-left
             this.RightToLeft = RightToLeft.No;
             this.RightToLeftLayout = false;
-            flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+            bunifuShadowPanel1.RightToLeft = RightToLeft.No;
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.RightToLeft = RightToLeft.No;
 
-            // Change the fonts to Arabic-supported fonts
-            //Font arabicFont = new Font("Cairo Medium", 10); // Choose a font that supports Arabic
-            //this.Font = arabicFont;
+
 
             // Change the text of buttons and other elements to Arabic
             label1.Text = Resources_En.label2;
@@ -463,6 +462,8 @@ namespace Vision_Pharmacy
             btnListUsers.Text = "User List";
             btnStngs.Text = "Settings";
         }
+
+       
     }
 
 }

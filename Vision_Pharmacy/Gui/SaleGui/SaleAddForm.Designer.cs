@@ -31,11 +31,6 @@ namespace Vision_Pharmacy.Gui.SaleGui
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // SaleAddForm
-            // 
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseAddForm));
             panel1 = new Panel();
             pictureBox2 = new PictureBox();
             lblSupForm = new Label();
@@ -99,7 +94,6 @@ namespace Vision_Pharmacy.Gui.SaleGui
             txtTotalAmount = new TextBox();
             label6 = new Label();
             btnSave = new DevExpress.XtraEditors.SimpleButton();
-            timer1 = new System.Windows.Forms.Timer(components);
             label19 = new Label();
             txtNotes = new TextBox();
             panel1.SuspendLayout();
@@ -154,9 +148,9 @@ namespace Vision_Pharmacy.Gui.SaleGui
             lblSupForm.Location = new Point(1150, 12);
             lblSupForm.Margin = new Padding(4, 0, 4, 0);
             lblSupForm.Name = "lblSupForm";
-            lblSupForm.Size = new Size(332, 37);
+            lblSupForm.Size = new Size(319, 37);
             lblSupForm.TabIndex = 1;
-            lblSupForm.Text = "ادارة المشتريات >  اضافة فاتورة جديدة";
+            lblSupForm.Text = "ادارة المبيعات >  اضافة وصفة جديدة";
             // 
             // separatorControl1
             // 
@@ -357,7 +351,6 @@ namespace Vision_Pharmacy.Gui.SaleGui
             btnAdd.AppearancePressed.Font = new Font("Cairo Medium", 10F);
             btnAdd.AppearancePressed.Options.UseFont = true;
             btnAdd.Cursor = Cursors.Hand;
-            btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
             btnAdd.Location = new Point(12, 137);
             btnAdd.Margin = new Padding(4, 2, 4, 2);
@@ -842,9 +835,9 @@ namespace Vision_Pharmacy.Gui.SaleGui
             label3.Location = new Point(1506, 55);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(51, 29);
+            label3.Size = new Size(54, 29);
             label3.TabIndex = 79;
-            label3.Text = "المورد";
+            label3.Text = "الطبيب";
             // 
             // txtPurchaseDate
             // 
@@ -1102,7 +1095,6 @@ namespace Vision_Pharmacy.Gui.SaleGui
             btnSave.AppearancePressed.Font = new Font("Cairo Medium", 10F);
             btnSave.AppearancePressed.Options.UseFont = true;
             btnSave.Cursor = Cursors.Hand;
-            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
             btnSave.ImageOptions.SvgImageSize = new Size(25, 25);
             btnSave.Location = new Point(1394, 706);
             btnSave.Margin = new Padding(4, 2, 4, 2);
@@ -1113,10 +1105,6 @@ namespace Vision_Pharmacy.Gui.SaleGui
             btnSave.Text = "حفظ";
             btnSave.ToolTipTitle = "حفظ";
             btnSave.Click += btnSave_Click;
-            // 
-            // timer1
-            // 
-            timer1.Tick += timer1_Tick;
             // 
             // label19
             // 
@@ -1143,7 +1131,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             txtNotes.Size = new Size(1237, 36);
             txtNotes.TabIndex = 85;
             // 
-            // PurchaseAddForm
+            // SaleAddForm
             // 
             Appearance.BackColor = Color.FromArgb(227, 237, 249);
             Appearance.Options.UseBackColor = true;
@@ -1158,7 +1146,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 2, 4, 2);
-            Name = "PurchaseAddForm";
+            Name = "SaleAddForm";
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
