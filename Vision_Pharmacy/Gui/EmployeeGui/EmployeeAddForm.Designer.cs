@@ -393,7 +393,7 @@
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private Label lblEmpEmail;
         private Label lblEmpPhone;
-        private DevExpress.XtraEditors.SimpleButton buttonSaveEmp;
+        public DevExpress.XtraEditors.SimpleButton buttonSaveEmp;
         private TextBox txtEmpPhone;
         private Label lblEmpAddress;
         private TextBox txtEmpName;

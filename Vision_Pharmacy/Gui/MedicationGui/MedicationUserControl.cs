@@ -497,8 +497,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             else
             {
                 labelEmptyData.Visible = true;
-            }
-
+            } 
         }
 
         private void PrintGridControl()

@@ -65,10 +65,11 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(3, 3);
+            btnPrint.Location = new Point(3, 2);
+            btnPrint.Margin = new Padding(3, 2, 3, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
-            btnPrint.Size = new Size(137, 45);
+            btnPrint.Size = new Size(117, 37);
             btnPrint.TabIndex = 14;
             btnPrint.Text = "طباعة";
             btnPrint.ToolTipTitle = "اضافة";
@@ -89,10 +90,11 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(146, 3);
+            btnAdd.Location = new Point(126, 2);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
-            btnAdd.Size = new Size(137, 45);
+            btnAdd.Size = new Size(117, 37);
             btnAdd.TabIndex = 13;
             btnAdd.Text = "اضافة";
             btnAdd.ToolTipTitle = "اضافة";
@@ -102,9 +104,10 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // 
             PicLaterale.BackColor = Color.Silver;
             PicLaterale.Image = Resources.trolley_9284599;
-            PicLaterale.Location = new Point(1223, 3);
+            PicLaterale.Location = new Point(1047, 2);
+            PicLaterale.Margin = new Padding(3, 2, 3, 2);
             PicLaterale.Name = "PicLaterale";
-            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.Size = new Size(69, 57);
             PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLaterale.TabIndex = 9;
             PicLaterale.TabStop = false;
@@ -124,10 +127,11 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             btnEditSup.Cursor = Cursors.Hand;
             btnEditSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEditSup.ImageOptions.SvgImage");
             btnEditSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnEditSup.Location = new Point(781, 3);
+            btnEditSup.Location = new Point(675, 2);
+            btnEditSup.Margin = new Padding(3, 2, 3, 2);
             btnEditSup.Name = "btnEditSup";
             btnEditSup.RightToLeft = RightToLeft.Yes;
-            btnEditSup.Size = new Size(137, 45);
+            btnEditSup.Size = new Size(117, 37);
             btnEditSup.TabIndex = 12;
             btnEditSup.Text = "تعديل";
             btnEditSup.ToolTipTitle = "اضافة";
@@ -148,10 +152,11 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             btnDeleteSup.Cursor = Cursors.Hand;
             btnDeleteSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDeleteSup.ImageOptions.SvgImage");
             btnDeleteSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnDeleteSup.Location = new Point(924, 3);
+            btnDeleteSup.Location = new Point(798, 2);
+            btnDeleteSup.Margin = new Padding(3, 2, 3, 2);
             btnDeleteSup.Name = "btnDeleteSup";
             btnDeleteSup.RightToLeft = RightToLeft.Yes;
-            btnDeleteSup.Size = new Size(137, 45);
+            btnDeleteSup.Size = new Size(117, 37);
             btnDeleteSup.TabIndex = 11;
             btnDeleteSup.Text = "حذف";
             btnDeleteSup.ToolTipTitle = "اضافة";
@@ -162,9 +167,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             lblTitleCustom.AutoSize = true;
             lblTitleCustom.Font = new Font("Cairo Medium", 12F);
             lblTitleCustom.ForeColor = Color.White;
-            lblTitleCustom.Location = new Point(1067, 0);
+            lblTitleCustom.Location = new Point(921, 0);
             lblTitleCustom.Name = "lblTitleCustom";
-            lblTitleCustom.Size = new Size(134, 37);
+            lblTitleCustom.Size = new Size(105, 30);
             lblTitleCustom.TabIndex = 1;
             lblTitleCustom.Text = "قائمة العملاء";
             // 
@@ -173,11 +178,12 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
-            SeparatLat.LineThickness = 10;
-            SeparatLat.Location = new Point(1207, 3);
+            SeparatLat.LineThickness = 8;
+            SeparatLat.Location = new Point(1032, 2);
+            SeparatLat.Margin = new Padding(3, 2, 3, 2);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
-            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.Size = new Size(9, 57);
             SeparatLat.TabIndex = 1;
             // 
             // pnlTop
@@ -190,8 +196,9 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             pnlTop.Controls.Add(btnEditSup);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
+            pnlTop.Margin = new Padding(3, 2, 3, 2);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1306, 76);
+            pnlTop.Size = new Size(1119, 62);
             pnlTop.TabIndex = 16;
             // 
             // flowLayoutPanel1
@@ -199,10 +206,11 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             flowLayoutPanel1.Controls.Add(btnPrint);
             flowLayoutPanel1.Controls.Add(btnAdd);
             flowLayoutPanel1.Dock = DockStyle.Top;
-            flowLayoutPanel1.Location = new Point(0, 76);
+            flowLayoutPanel1.Location = new Point(0, 62);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.No;
-            flowLayoutPanel1.Size = new Size(1306, 51);
+            flowLayoutPanel1.Size = new Size(1119, 41);
             flowLayoutPanel1.TabIndex = 17;
             // 
             // gridView1
@@ -247,29 +255,35 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             gridView1.Appearance.TopNewRow.Options.UseFont = true;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 10F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
+            gridView1.DetailHeight = 284;
             gridView1.GridControl = DGListeCustomer;
             gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             // 
             // DGListeCustomer
             // 
             DGListeCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeCustomer.Location = new Point(3, 130);
+            DGListeCustomer.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            DGListeCustomer.Location = new Point(3, 106);
             DGListeCustomer.MainView = gridView1;
+            DGListeCustomer.Margin = new Padding(3, 2, 3, 2);
             DGListeCustomer.Name = "DGListeCustomer";
-            DGListeCustomer.Size = new Size(1303, 536);
+            DGListeCustomer.Size = new Size(1117, 436);
             DGListeCustomer.TabIndex = 15;
             DGListeCustomer.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // CustomerUserControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pnlTop);
             Controls.Add(DGListeCustomer);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CustomerUserControl";
             RightToLeft = RightToLeft.Yes;
-            Size = new Size(1306, 666);
+            Size = new Size(1119, 541);
+            Load += CustomerUserControl_Load;
             ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             pnlTop.ResumeLayout(false);

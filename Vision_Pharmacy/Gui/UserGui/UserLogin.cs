@@ -257,21 +257,21 @@ namespace Vision_Pharmacy.Gui.UserGui
             SwitchLang.Properties.OffText = Resources_En.SwitchLang;
         }
 
-        private void ChangeLanguage(string langCode)
-        {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(langCode);
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(langCode);
-            //Controls.Clear();
-            //InitializeComponent();
-            if (langCode == "ar")
-            {
-                ApplyArabicResources();
-            }
-            else if (langCode == "en")
-            {
-                ApplyEnglishResources();
-            }
-        }
+        //private void ChangeLanguage(string langCode)
+        //{
+        //    Thread.CurrentThread.CurrentUICulture = new CultureInfo(langCode);
+        //    Thread.CurrentThread.CurrentCulture = new CultureInfo(langCode);
+        //    //Controls.Clear();
+        //    //InitializeComponent();
+        //    if (langCode == "ar")
+        //    {
+        //        ApplyArabicResources();
+        //    }
+        //    else if (langCode == "en")
+        //    {
+        //        ApplyEnglishResources();
+        //    }
+        //}
 
         private void SwitchLang_Toggled(object sender, EventArgs e)
         {
@@ -280,13 +280,13 @@ namespace Vision_Pharmacy.Gui.UserGui
                 Properties.Settings.Default.ChangeLang = "En";
                 Properties.Settings.Default.Save();
                 ApplyEnglishResources();
-                 
+
             }
             else
             {
                 Properties.Settings.Default.ChangeLang = "Ar";
                 Properties.Settings.Default.Save();
-                ApplyArabicResources(); 
+                ApplyArabicResources();
             }
         }
 

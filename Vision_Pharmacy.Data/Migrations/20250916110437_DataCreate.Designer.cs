@@ -12,8 +12,8 @@ using Vision_Pharmacy.Data.EFSqlServer;
 namespace Vision_Pharmacy.Data.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20250908202117_CreateDatax")]
-    partial class CreateDatax
+    [Migration("20250916110437_DataCreate")]
+    partial class DataCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

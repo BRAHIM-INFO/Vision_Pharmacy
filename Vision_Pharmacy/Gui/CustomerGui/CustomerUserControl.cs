@@ -1,10 +1,15 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils.Svg;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +17,9 @@ using System.Windows.Forms;
 using Vision_Pharmacy.Code;
 using Vision_Pharmacy.Core;
 using Vision_Pharmacy.Data;
-using Vision_Pharmacy.Gui.OtherGui;
 using Vision_Pharmacy.Gui.CustomerGui;
+using Vision_Pharmacy.Gui.OtherGui;
+using Vision_Pharmacy.Gui.PurchaseGui;
 
 namespace Vision_Pharmacy.Gui.CustomerGui
 {
@@ -27,6 +33,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         private List<int> IdList = new List<int>();
         private Label labelEmptyData;
         private string searchItem;
+        private RepositoryItemButtonEdit actionButtons;
 
         // Constructores
         public CustomerUserControl()
@@ -96,9 +103,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                             else
                             {
                                 MessageCollection.ShowSlectRowsNotification();
-
                             }
-
                         }
                         else
                         {
@@ -109,7 +114,6 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                 else
                 {
                     MessageCollection.ShowEmptyDataMessage();
-
                 }
             }
             catch
@@ -121,13 +125,14 @@ namespace Vision_Pharmacy.Gui.CustomerGui
 
         private void btnPrintSup_Click(object sender, EventArgs e)
         {
-            PrintGridControl(); 
+            PrintGridControl();
         }
         #endregion
 
 
         // Methods
         #region Methods 
+         
         private void PrintGridControl()
         {
             try
@@ -153,7 +158,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                     string headerText = Properties.Settings.Default.CompanyName + "\n" + Properties.Settings.Default.CompanyAdress + "\n" + Properties.Settings.Default.CompanyEmail + "\n" + " رقم الهاتف : " + Properties.Settings.Default.CompanyTel;
                     e.Graph.Font = new Font("Cairo Medium", 12, FontStyle.Bold); // ⬅️ استخدام خط "Cairo Medium"
                     e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين
-                    e.Graph.DrawString(headerText, Color.Black, new RectangleF(240, 10, 600, 120), BorderSide.None);
+                    e.Graph.DrawString(headerText, Color.Black, new RectangleF(240, 10, 600, 120), DevExpress.XtraPrinting.BorderSide.None);// DevExpress.XtraEditors.Controls.BorderSide.None);
 
                     // 🔹 رسم مستطيل رمادي خلف العنوان باستخدام DrawRect
                     //RectangleF titleRect = new RectangleF(10, 145, 1050, 40);
@@ -168,7 +173,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
 
                     e.Graph.Font = new Font("Cairo Medium", 18, FontStyle.Bold);
                     e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين 
-                    e.Graph.DrawString(title, Color.Black, new RectangleF(350, 150, 1250, 45), BorderSide.None);
+                    e.Graph.DrawString(title, Color.Black, new RectangleF(350, 150, 1250, 45), DevExpress.XtraPrinting.BorderSide.None);
                     //e.Graph.DrawString(title, titleRect);
 
                     //// 🔹 التاريخ في الزاوية اليمنى
@@ -177,7 +182,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                     else date = "Date : " + DateTime.Now.ToShortDateString();
 
                     e.Graph.Font = new Font("Cairo Medium", 12);
-                    e.Graph.DrawString(date, Color.Black, new RectangleF(50, 150, 250, 30), BorderSide.None);
+                    e.Graph.DrawString(date, Color.Black, new RectangleF(50, 150, 250, 30), DevExpress.XtraPrinting.BorderSide.None);
                 };
 
                 // 3️⃣ إعداد التذييل في أسفل الصفحة
@@ -261,7 +266,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                 gridView1.Columns[5].Caption = "Email";
                 gridView1.Columns[6].Caption = "Active";
                 gridView1.Columns[7].Caption = "Additional Notes";
-            } 
+            }
         }
 
         // Singleton Instance
@@ -285,16 +290,10 @@ namespace Vision_Pharmacy.Gui.CustomerGui
 
         }
 
-
-
-        #endregion
-
-
-
         //ملف الموارد العربي
         public void ApplyArabicResources()
         {
-            this.RightToLeft = RightToLeft.Yes; 
+            this.RightToLeft = RightToLeft.Yes;
 
             lblTitleCustom.Text = "قائمة العملاء";
             btnAdd.Text = Resources_Ar.AddButton_User;
@@ -302,14 +301,14 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             labelEmptyData.Text = Resources_Ar.EmptyDataText;
 
             DGListeCustomer.RightToLeft = RightToLeft.Yes;
-             
-            
+
+
         }
 
         //ملف الموارد انجليزي
         public void ApplyEnglishResources()
         {
-            this.RightToLeft = RightToLeft.No; 
+            this.RightToLeft = RightToLeft.No;
             lblTitleCustom.Text = "CUSTOMERS LIST";
             btnAdd.Text = Resources_En.AddButton_User;
             btnPrint.Text = Resources_En.PrintButton_User;
@@ -317,6 +316,11 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             DGListeCustomer.RightToLeft = RightToLeft.No;
 
         }
+        #endregion
 
+        private async void CustomerUserControl_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

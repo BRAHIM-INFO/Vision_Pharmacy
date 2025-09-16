@@ -37,5 +37,6 @@ namespace Vision_Pharmacy.Data.EFSqlServer
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Purchase> Purchase { get; set; }
         public DbSet<Doctor> Doctor { get; set; }
+        public DbSet<Sale> Sale { get; set; }
     }
 }

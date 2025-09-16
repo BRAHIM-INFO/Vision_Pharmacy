@@ -51,10 +51,12 @@
             // DGListeEmployee
             // 
             DGListeEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeEmployee.Location = new Point(0, 130);
+            DGListeEmployee.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            DGListeEmployee.Location = new Point(0, 106);
             DGListeEmployee.MainView = gridView1;
+            DGListeEmployee.Margin = new Padding(3, 2, 3, 2);
             DGListeEmployee.Name = "DGListeEmployee";
-            DGListeEmployee.Size = new Size(1324, 597);
+            DGListeEmployee.Size = new Size(1135, 485);
             DGListeEmployee.TabIndex = 22;
             DGListeEmployee.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -100,8 +102,10 @@
             gridView1.Appearance.TopNewRow.Options.UseFont = true;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 10F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
+            gridView1.DetailHeight = 284;
             gridView1.GridControl = DGListeEmployee;
             gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             // 
             // btnPrint
             // 
@@ -118,10 +122,11 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(1041, 3);
+            btnPrint.Location = new Point(892, 2);
+            btnPrint.Margin = new Padding(3, 2, 3, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
-            btnPrint.Size = new Size(137, 45);
+            btnPrint.Size = new Size(117, 37);
             btnPrint.TabIndex = 21;
             btnPrint.Text = "طباعة";
             btnPrint.ToolTipTitle = "اضافة";
@@ -142,10 +147,11 @@
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(1184, 3);
+            btnAdd.Location = new Point(1015, 2);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
-            btnAdd.Size = new Size(137, 45);
+            btnAdd.Size = new Size(117, 37);
             btnAdd.TabIndex = 20;
             btnAdd.Text = "اضافة";
             btnAdd.ToolTipTitle = "اضافة";
@@ -155,9 +161,10 @@
             // 
             PicLaterale.BackColor = Color.Silver;
             PicLaterale.Image = Properties.Resources.hr_19008748;
-            PicLaterale.Location = new Point(1241, 3);
+            PicLaterale.Location = new Point(1063, 2);
+            PicLaterale.Margin = new Padding(3, 2, 3, 2);
             PicLaterale.Name = "PicLaterale";
-            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.Size = new Size(69, 57);
             PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLaterale.TabIndex = 16;
             PicLaterale.TabStop = false;
@@ -177,10 +184,11 @@
             btnEditEmp.Cursor = Cursors.Hand;
             btnEditEmp.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEditEmp.ImageOptions.SvgImage");
             btnEditEmp.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnEditEmp.Location = new Point(920, 3);
+            btnEditEmp.Location = new Point(797, 2);
+            btnEditEmp.Margin = new Padding(3, 2, 3, 2);
             btnEditEmp.Name = "btnEditEmp";
             btnEditEmp.RightToLeft = RightToLeft.Yes;
-            btnEditEmp.Size = new Size(137, 45);
+            btnEditEmp.Size = new Size(117, 37);
             btnEditEmp.TabIndex = 19;
             btnEditEmp.Text = "تعديل";
             btnEditEmp.ToolTipTitle = "اضافة";
@@ -201,10 +209,11 @@
             btnDeleteEmp.Cursor = Cursors.Hand;
             btnDeleteEmp.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDeleteEmp.ImageOptions.SvgImage");
             btnDeleteEmp.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnDeleteEmp.Location = new Point(777, 3);
+            btnDeleteEmp.Location = new Point(674, 2);
+            btnDeleteEmp.Margin = new Padding(3, 2, 3, 2);
             btnDeleteEmp.Name = "btnDeleteEmp";
             btnDeleteEmp.RightToLeft = RightToLeft.Yes;
-            btnDeleteEmp.Size = new Size(137, 45);
+            btnDeleteEmp.Size = new Size(117, 37);
             btnDeleteEmp.TabIndex = 18;
             btnDeleteEmp.Text = "حذف";
             btnDeleteEmp.ToolTipTitle = "اضافة";
@@ -215,9 +224,9 @@
             lblTitleEmp.AutoSize = true;
             lblTitleEmp.Font = new Font("Cairo Medium", 12F);
             lblTitleEmp.ForeColor = Color.White;
-            lblTitleEmp.Location = new Point(1063, 0);
+            lblTitleEmp.Location = new Point(920, 0);
             lblTitleEmp.Name = "lblTitleEmp";
-            lblTitleEmp.Size = new Size(156, 37);
+            lblTitleEmp.Size = new Size(122, 30);
             lblTitleEmp.TabIndex = 1;
             lblTitleEmp.Text = "قائمة الموظفين";
             // 
@@ -226,11 +235,12 @@
             SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
-            SeparatLat.LineThickness = 10;
-            SeparatLat.Location = new Point(1225, 3);
+            SeparatLat.LineThickness = 8;
+            SeparatLat.Location = new Point(1048, 2);
+            SeparatLat.Margin = new Padding(3, 2, 3, 2);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
-            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.Size = new Size(9, 57);
             SeparatLat.TabIndex = 1;
             // 
             // pnlTop
@@ -243,8 +253,9 @@
             pnlTop.Controls.Add(btnDeleteEmp);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
+            pnlTop.Margin = new Padding(3, 2, 3, 2);
             pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1324, 76);
+            pnlTop.Size = new Size(1135, 62);
             pnlTop.TabIndex = 23;
             // 
             // flowLayoutPanel1
@@ -252,21 +263,24 @@
             flowLayoutPanel1.Controls.Add(btnAdd);
             flowLayoutPanel1.Controls.Add(btnPrint);
             flowLayoutPanel1.Dock = DockStyle.Top;
-            flowLayoutPanel1.Location = new Point(0, 76);
+            flowLayoutPanel1.Location = new Point(0, 62);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1324, 51);
+            flowLayoutPanel1.Size = new Size(1135, 41);
             flowLayoutPanel1.TabIndex = 24;
             // 
             // EmployeeUserControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(flowLayoutPanel1);
             Controls.Add(pnlTop);
             Controls.Add(DGListeEmployee);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "EmployeeUserControl";
             RightToLeft = RightToLeft.Yes;
-            Size = new Size(1324, 727);
+            Size = new Size(1135, 591);
+            Load += EmployeeUserControl_Load;
             ((System.ComponentModel.ISupportInitialize)DGListeEmployee).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();

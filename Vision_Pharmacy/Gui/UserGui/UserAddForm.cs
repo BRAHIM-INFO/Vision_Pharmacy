@@ -58,12 +58,14 @@ namespace Vision_Pharmacy.Gui.UserGui
             this.userUserControl = userUserControl;
             this.IsUsersEmpty = IsUsersEmpty;
             loading = LoadingUser.Instance();
-            _dataHelper = (IDataHelper<User>)ContainerConfig.ObjectType("User");
+            _dataHelper = (IDataHelper<User>)ContainerConfig.ObjectType("User"); 
             // Set DataFileds for Edit void
             if (id > 0)
             {
                 SetDataToFileds();
             }
+
+            MessageBox.Show(Properties.Settings.Default.ChangeLang);
 
             // Set Language
             if (Properties.Settings.Default.ChangeLang == "Ar")
@@ -75,9 +77,7 @@ namespace Vision_Pharmacy.Gui.UserGui
                 EnglishLanguage();
             }
         }
-
-
-
+         
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -226,7 +226,10 @@ namespace Vision_Pharmacy.Gui.UserGui
             if (IsUsersEmpty)
             {
                 Application.Exit();
-                MessageBox.Show("اعد تشغيل البرنامج لطفا");
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                    MessageBox.Show("اعد تشغيل البرنامج لطفا");
+                else
+                    MessageBox.Show("Please restart the application");
             }
         }
 

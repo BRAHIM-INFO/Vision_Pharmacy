@@ -121,9 +121,9 @@
             lblTitleAttend.AutoSize = true;
             lblTitleAttend.Font = new Font("Cairo Medium", 12F);
             lblTitleAttend.ForeColor = Color.White;
-            lblTitleAttend.Location = new Point(874, 0);
+            lblTitleAttend.Location = new Point(934, 0);
             lblTitleAttend.Name = "lblTitleAttend";
-            lblTitleAttend.Size = new Size(292, 37);
+            lblTitleAttend.Size = new Size(232, 30);
             lblTitleAttend.TabIndex = 1;
             lblTitleAttend.Text = "تسجيل الغيابات و حظور الموظفين";
             // 
@@ -154,7 +154,7 @@
             btnSave.Cursor = Cursors.Hand;
             btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
             btnSave.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnSave.Location = new Point(612, 8);
+            btnSave.Location = new Point(596, 8);
             btnSave.Name = "btnSave";
             btnSave.RightToLeft = RightToLeft.Yes;
             btnSave.Size = new Size(144, 40);
@@ -173,7 +173,7 @@
             MonthDu.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             MonthDu.Location = new Point(368, 8);
             MonthDu.Name = "MonthDu";
-            MonthDu.Size = new Size(46, 32);
+            MonthDu.Size = new Size(38, 26);
             MonthDu.TabIndex = 29;
             MonthDu.Text = "الشهر";
             // 
@@ -185,9 +185,9 @@
             YearDu.Appearance.Options.UseForeColor = true;
             YearDu.Appearance.Options.UseTextOptions = true;
             YearDu.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            YearDu.Location = new Point(561, 8);
+            YearDu.Location = new Point(553, 8);
             YearDu.Name = "YearDu";
-            YearDu.Size = new Size(45, 32);
+            YearDu.Size = new Size(37, 26);
             YearDu.TabIndex = 30;
             YearDu.Text = "السنة";
             // 
@@ -198,7 +198,7 @@
             txtMonthDu.FormattingEnabled = true;
             txtMonthDu.Location = new Point(178, 8);
             txtMonthDu.Name = "txtMonthDu";
-            txtMonthDu.Size = new Size(184, 40);
+            txtMonthDu.Size = new Size(184, 32);
             txtMonthDu.TabIndex = 31;
             txtMonthDu.SelectedIndexChanged += comboBoxMonth_SelectedIndexChanged;
             // 
@@ -207,9 +207,9 @@
             comboBoxYear.FlatStyle = FlatStyle.System;
             comboBoxYear.Font = new Font("Cairo Medium", 10F);
             comboBoxYear.FormattingEnabled = true;
-            comboBoxYear.Location = new Point(420, 8);
+            comboBoxYear.Location = new Point(412, 8);
             comboBoxYear.Name = "comboBoxYear";
-            comboBoxYear.Size = new Size(135, 40);
+            comboBoxYear.Size = new Size(135, 32);
             comboBoxYear.TabIndex = 32;
             comboBoxYear.SelectedIndexChanged += comboBoxYear_SelectedIndexChanged;
             // 
