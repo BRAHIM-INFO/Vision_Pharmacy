@@ -139,7 +139,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             flowLayoutPanel2.Controls.Add(IsActivetxt);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 0);
-            flowLayoutPanel2.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanel2.Margin = new Padding(4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(1567, 55);
             flowLayoutPanel2.TabIndex = 65;
@@ -1109,7 +1109,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             tableLayoutPanel1.Controls.Add(Categorytxt, 5, 1);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 55);
-            tableLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
+            tableLayoutPanel1.Margin = new Padding(4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50.7042236F));
@@ -1124,7 +1124,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             panel3.Controls.Add(txtSupplier);
             panel3.Controls.Add(btnForm);
             panel3.Location = new Point(1237, 53);
-            panel3.Margin = new Padding(4, 4, 4, 4);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new Size(234, 39);
             panel3.TabIndex = 20;
@@ -1136,7 +1136,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
             flowLayoutPanel1.Location = new Point(0, 779);
-            flowLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanel1.Margin = new Padding(4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1567, 46);
             flowLayoutPanel1.TabIndex = 86;
