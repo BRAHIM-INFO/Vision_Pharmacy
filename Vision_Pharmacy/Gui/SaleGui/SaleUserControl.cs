@@ -17,5 +17,11 @@ namespace Vision_Pharmacy.Gui.SaleGui
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            SaleAddForm SaleAddForm = new SaleAddForm(0, this);
+            SaleAddForm.ShowDialog();
+        }
     }
 }

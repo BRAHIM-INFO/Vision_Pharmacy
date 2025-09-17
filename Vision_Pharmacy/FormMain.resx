@@ -204,7 +204,7 @@
         Y2U9InByZXNlcnZlIiBpZD0iTGF5ZXIxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAz
         MiAzMiI+DQogIDxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+CgkJLldoaXRlCgkJewoJCQlmaWxsOiNGRkZG
         RkY7CgkJCWZvbnQtZmFtaWx5OidkeC1mb250LWljb25zJzsKCQkJZm9udC1zaXplOjMycHg7CgkJfQoJ
-        PC9zdHlsZT4NCiAgPHRleHQgeD0iMHB4IiB5PSIzMnB4IiBjbGFzcz0iV2hpdGUiPu6tizwvdGV4dD4N
+        PC9zdHlsZT4NCiAgPHRleHQgeD0iMHB4IiB5PSIzMnB4IiBjbGFzcz0iV2hpdGUiPu+CgTwvdGV4dD4N
         Cjwvc3ZnPgs=
 </value>
   </data>
@@ -313,6 +313,9 @@
         L3N2Zz4L
 </value>
   </data>
+  <metadata name="slideTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="btnUser.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI1LjEsIFZlcnNpb249MjUuMS4z
@@ -343,9 +346,6 @@
         Cjwvc3ZnPgs=
 </value>
   </data>
-  <metadata name="slideTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="FormMain.IconOptions.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
