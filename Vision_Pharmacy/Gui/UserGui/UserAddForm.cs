@@ -65,7 +65,7 @@ namespace Vision_Pharmacy.Gui.UserGui
                 SetDataToFileds();
             }
 
-            MessageBox.Show(Properties.Settings.Default.ChangeLang);
+            
 
             // Set Language
             if (Properties.Settings.Default.ChangeLang == "Ar")

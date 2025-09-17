@@ -43,13 +43,13 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         private int ResultAddOrEdit;
 
         // قائمة الأدوية
-        List<Medication> medications = new List<Medication>(); 
+        List<Medication> medications = new List<Medication>();
         private RepositoryItemButtonEdit actionButtons;
 
         public PurchasesAddForm(int Id, PurchaseUserControl PurchaseUserControl)
         {
             InitializeComponent();
-            AllClasses.RoundButtonCorners(btnAdd, 15); 
+            AllClasses.RoundButtonCorners(btnAdd, 15);
 
             _dataHelperPurchase = (IDataHelper<Purchase>)ContainerConfig.ObjectType("Purchase");
             _dataHelper = (IDataHelper<Suppliers>)ContainerConfig.ObjectType("Supplier");
@@ -186,7 +186,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 Suppliers Sup = _dataHelper.Search(txtSupplier.Text).First();
                 Purchase.SupplierId = Sup.Id; // ربط بالمفتاح الأجنبي فقط 
             }
-             Purchase.TotalAmount = decimal.Parse(txtTotalAmount.Text);
+            Purchase.TotalAmount = decimal.Parse(txtTotalAmount.Text);
 
         }
         private void SetDataForEdit()
@@ -208,11 +208,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 Id = this.id,
                 TypePaimt = txtTypePaimt.Text,
                 FactureNum = txtFactureNum.Text,
-                 //Supplier = new Suppliers
+                //Supplier = new Suppliers
                 //{
                 //    Name = txtSupplier.Text
                 //},
-                 TotalAmount = decimal.Parse(txtTotalAmount.Text),
+                TotalAmount = decimal.Parse(txtTotalAmount.Text),
             };
         }
         private bool IsRequiredFiledEmpty()
@@ -303,7 +303,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 }
             }
         }
-         
+
         // حساب المجموع لكل سطر
         private void GridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
@@ -550,7 +550,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     view.DeleteRow(view.FocusedRowHandle);
             }
         }
-         
+
 
         private void txtFactureNum_KeyDown(object sender, KeyEventArgs e)
         {
@@ -586,6 +586,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+        private void btnForm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

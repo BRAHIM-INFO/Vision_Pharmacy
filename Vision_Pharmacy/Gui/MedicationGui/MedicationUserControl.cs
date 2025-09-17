@@ -53,7 +53,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             AllClasses.RoundButtonCorners(btnExcel, 15);
             AllClasses.RoundButtonCorners(btnPrint, 15);
             //gridView1.OptionsBehavior.Editable = false;
-            MessageBox.Show(Properties.Settings.Default.ChangeLang);
+            
             if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 ApplyArabicResources();
@@ -85,8 +85,23 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         ///  زر استيراد بيانات الأدوية من ملف Excel
         private void btnExcel_Click(object sender, EventArgs e)
         {
-            string excelPath = @"D:\\LISTE MEDICATIONS 2025.xlsx"; // ملف الإكسل
-            ImportMedications(excelPath);
+            //string excelPath = @"D:\\LISTE MEDICATIONS 2025.xlsx"; // ملف الإكسل
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "اختر ملف الإكسل";
+                ofd.Filter = "ملفات إكسل (*.xlsx)|*.xlsx|ملفات إكسل قديمة (*.xls)|*.xls";
+                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string excelPath = ofd.FileName; // ✅ هذا هو المسار الذي تختاره من الحوار
+                    MessageBox.Show("تم اختيار الملف: " + excelPath);
+
+                    // هنا تقدر تستعمل excelPath في القراءة أو المعالجة
+                    ImportMedications(excelPath);
+                }
+            }
+           
         }
 
         // <summary>

@@ -634,6 +634,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             btnForm.Size = new Size(35, 40);
             btnForm.TabIndex = 83;
             btnForm.ToolTipTitle = "اضافة";
+            btnForm.Click += btnForm_Click;
             // 
             // txtTypePaimt
             // 

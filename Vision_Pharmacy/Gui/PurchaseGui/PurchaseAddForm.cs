@@ -86,11 +86,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
             if (Properties.Settings.Default.ChangeLang == "Ar")
             {
-                 ApplyArabicResources();
+                ApplyArabicResources();
             }
             else
             {
-                 ApplyEnglishResources();
+                ApplyEnglishResources();
             }
         }
 
@@ -236,7 +236,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         view.Columns["PurchasePrice"].Caption = "Purchase Price";
                         view.Columns["SalePrice"].Caption = "Sale Price";
                         view.Columns["TotalItem"].Caption = "Total";
-                    } 
+                    }
 
                     // مثال: عمود السعر
                     view.Columns["PurchasePrice"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center; // محاذاة لليمين
@@ -313,8 +313,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         private void LoadImage()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (Properties.Settings.Default.ChangeLang == "Ar") openFileDialog.Title = "اختر صورة الدواء"; 
-            else openFileDialog.Title = "Select medicine image"; 
+            if (Properties.Settings.Default.ChangeLang == "Ar") openFileDialog.Title = "اختر صورة الدواء";
+            else openFileDialog.Title = "Select medicine image";
             openFileDialog.RestoreDirectory = true;
             openFileDialog.Filter = "Image (.png,jpg)|*.png;*.jpg";
             var result = openFileDialog.ShowDialog();
@@ -383,8 +383,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 }
                 else
                 {
-                    if (Properties.Settings.Default.ChangeLang == "Ar")   msg = "❌ الباركود غير موجود في قاعدة البيانات\nهل تريد إنشاء منتج جديد؟";
-                    else   msg = "❌ The barcode does not exist in the database.\nDo you want to create a new product?"; 
+                    if (Properties.Settings.Default.ChangeLang == "Ar") msg = "❌ الباركود غير موجود في قاعدة البيانات\nهل تريد إنشاء منتج جديد؟";
+                    else msg = "❌ The barcode does not exist in the database.\nDo you want to create a new product?";
                     var result = MessageBox.Show(msg, "تنبيه",
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Warning);
@@ -631,7 +631,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                                         view.DeleteRow(view.FocusedRowHandle);
                                         loading.Show();
                                     }
-                                } 
+                                }
                             }
                             catch
                             {
@@ -658,7 +658,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     if (MessageBox.Show($"Do you want to delete product number: {row.FactureNum}?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         view.DeleteRow(view.FocusedRowHandle);
                 }
-                   
+
 
             }
         }
@@ -677,7 +677,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     {
                         MessageBox.Show("Please fill in all required fields.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                   
+
                     return;
                 }
 
@@ -729,7 +729,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     BatchNumbertxt.PlaceholderText = "Batch Number";
                     LocationInStoretxt.PlaceholderText = "Storage Location";
                 }
-                   
+
                 Barcodetxt.Clear();
                 Nametxt.Clear();
                 GenericNametxt.Clear();
@@ -982,7 +982,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             lblSupplierNotes.Text = "سعر البيع";
 
             label11.Text = "الكمية";
-            label12.Text = "الحد الأدنى";  
+            label12.Text = "الحد الأدنى";
             label13.Text = "رقم الدفعة";
             label15.Text = "مكان التخزين";
 
@@ -995,7 +995,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label17.Text = "هل يتطلب وصفة طبية؟";
             btnAdd.Text = "اضافة";
             label6.Text = "السعر الفاتورة  الاجمالي";
-            btnSave.Text = "حفظ"; 
+            btnSave.Text = "حفظ";
             label19.Text = "ملاحظات";
             txtNotes.PlaceholderText = " تسجيل ملاحظات ";
             // Form Settings
@@ -1050,6 +1050,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             txtNotes.PlaceholderText = "Record Notes";
             // Form Settings
             this.Text = "Add a new invoice";
+        }
+
+        private void btnForm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

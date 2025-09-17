@@ -400,8 +400,7 @@ namespace Vision_Pharmacy
             btnCases.Text = "إدارة المبيعات"; 
             btnSession.Text = "إدارة الموردين";
             btnSupplier.Text = "قائمة الموردين";
-            MovSuppliers.Text = "حركات الموردين";
-            btnSession.Text = "نقطة البيع (POS)";
+            MovSuppliers.Text = "حركات الموردين"; 
             btnRH.Text = "الموارد البشرية";
             btnListEmp.Text = "قائمة الموظفين";
             btnAttendEmp.Text = "تسجيل الحضور و الغياب";
