@@ -141,6 +141,7 @@
             // 
             // textBoxPassword
             // 
+            textBoxPassword.Enabled = false;
             textBoxPassword.Font = new Font("Cairo Medium", 12F);
             textBoxPassword.Location = new Point(3, 262);
             textBoxPassword.Name = "textBoxPassword";
@@ -176,6 +177,7 @@
             // 
             // textBoxUser
             // 
+            textBoxUser.Enabled = false;
             textBoxUser.Font = new Font("Cairo Medium", 12F);
             textBoxUser.Location = new Point(3, 210);
             textBoxUser.Name = "textBoxUser";
@@ -198,6 +200,7 @@
             // 
             // textBoxPort
             // 
+            textBoxPort.Enabled = false;
             textBoxPort.Font = new Font("Cairo Medium", 12F);
             textBoxPort.Location = new Point(3, 157);
             textBoxPort.Name = "textBoxPort";

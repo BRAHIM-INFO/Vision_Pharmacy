@@ -135,7 +135,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
                 MessageCollection.ShowAddNotification();
                 ClearFileds();
                 // Updat View
-                CustomerUserControl.LoadData();
+                if (CustomerUserControl != null)  CustomerUserControl.LoadData();
             }
             else // End with database error
             {

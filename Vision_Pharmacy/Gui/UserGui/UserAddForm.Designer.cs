@@ -46,16 +46,13 @@
             label6 = new Label();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
-            panel1 = new Panel();
-            pictureBox4 = new PictureBox();
-            lblSup = new Label();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)comboBoxRole.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // comboBoxRole
@@ -191,7 +188,7 @@
             labelTitle.BackColor = Color.Transparent;
             labelTitle.Font = new Font("Cairo Medium", 14F);
             labelTitle.ForeColor = Color.Black;
-            labelTitle.Location = new Point(432, 14);
+            labelTitle.Location = new Point(398, 0);
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(157, 45);
             labelTitle.TabIndex = 2;
@@ -252,11 +249,10 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Dock = DockStyle.Right;
             pictureBox2.Image = Properties.Resources.Users2;
-            pictureBox2.Location = new Point(614, 0);
+            pictureBox2.Location = new Point(577, 3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(45, 70);
+            pictureBox2.Size = new Size(80, 70);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 15;
             pictureBox2.TabStop = false;
@@ -274,55 +270,29 @@
             pictureBox1.TabStop = false;
             pictureBox1.MouseDown += pictureBox1_MouseDown;
             // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.FromArgb(232, 246, 255);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(lblSup);
-            panel1.Controls.Add(separatorControl1);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(labelTitle);
-            panel1.Location = new Point(2, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(659, 70);
-            panel1.TabIndex = 18;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBox4.Image = Properties.Resources.Supplier;
-            pictureBox4.Location = new Point(1342, 10);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(45, 45);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 8;
-            pictureBox4.TabStop = false;
-            // 
-            // lblSup
-            // 
-            lblSup.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblSup.AutoSize = true;
-            lblSup.Font = new Font("Cairo Medium", 12F);
-            lblSup.ForeColor = Color.Black;
-            lblSup.Location = new Point(1193, 18);
-            lblSup.Name = "lblSup";
-            lblSup.Size = new Size(143, 37);
-            lblSup.TabIndex = 1;
-            lblSup.Text = "قائمة الموردين";
-            // 
             // separatorControl1
             // 
             separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
-            separatorControl1.Dock = DockStyle.Right;
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
             separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(604, 0);
+            separatorControl1.Location = new Point(561, 3);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
             separatorControl1.Size = new Size(10, 70);
             separatorControl1.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.BackColor = Color.Transparent;
+            flowLayoutPanel1.Controls.Add(pictureBox2);
+            flowLayoutPanel1.Controls.Add(separatorControl1);
+            flowLayoutPanel1.Controls.Add(labelTitle);
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(660, 71);
+            flowLayoutPanel1.TabIndex = 19;
             // 
             // UserAddForm
             // 
@@ -331,7 +301,7 @@
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1001, 632);
-            Controls.Add(panel1);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(btnSave);
             Controls.Add(comboBoxRole);
             Controls.Add(label9);
@@ -358,10 +328,9 @@
             ((System.ComponentModel.ISupportInitialize)comboBoxRole.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -384,9 +353,7 @@
         private Label label9;
         private Label label8;
         private Label label7;
-        private Panel panel1;
-        private PictureBox pictureBox4;
-        private Label lblSup;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

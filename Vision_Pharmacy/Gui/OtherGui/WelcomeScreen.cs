@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraSplashScreen;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Windows.Forms;
 using Vision_Pharmacy.Code;
 using Vision_Pharmacy.Core;
 using Vision_Pharmacy.Data;
+using Vision_Pharmacy.Data.EFSqlServer;
 using Vision_Pharmacy.Gui.UserGui;
 
 namespace Vision_Pharmacy.Gui.OtherGui
@@ -20,6 +22,11 @@ namespace Vision_Pharmacy.Gui.OtherGui
         public WelcomeScreen()
         {
             InitializeComponent();
+            // 2. طبق الـ Migration أو أنشئ الجداول
+            using (var context = new DBContext())
+            {
+                context.Database.Migrate(); // يعمل Apply لكل Migrations
+            }
             _dataHelper = (IDataHelper<User>)ContainerConfig.ObjectType("User");
         }
 

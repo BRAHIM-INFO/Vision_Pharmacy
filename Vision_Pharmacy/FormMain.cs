@@ -399,7 +399,8 @@ namespace Vision_Pharmacy
             simpleButton4.Text = "قائمة المشتريات";
             btnCases.Text = "إدارة المبيعات"; 
             btnSession.Text = "إدارة الموردين";
-            btnSupplier.Text = "قائمة الموردين";
+            btnListFacts.Text = "قائمة المبيعات";
+            btnFactNew.Text = "إضافة فاتورة بيع";
             MovSuppliers.Text = "حركات الموردين"; 
             btnRH.Text = "الموارد البشرية";
             btnListEmp.Text = "قائمة الموظفين";
@@ -410,8 +411,7 @@ namespace Vision_Pharmacy
             btnRepports.Text = "المستخدمون والصلاحيات";
             btnSetings.Text = "الاعدادات";
             simpleButton11.Text = "القضايا";
-            simpleButton12.Text = "أنواع القضايا";
-            simpleButton21.Text = "أنواع القضايا";
+            simpleButton12.Text = "أنواع القضايا"; 
             simpleButton19.Text = "صلاحيات المستخدمين";
             btnUsers.Text = "المستخدمون";
             btnListUsers.Text = "قائمة المستخدمين";
@@ -434,18 +434,17 @@ namespace Vision_Pharmacy
             label1.Text = Resources_En.label2;
             btnUser.Text = "Users";
             btnSett.Text = "Settings";
-            btnExit.Text = "Log Out";
-
+            btnExit.Text = "Log Out"; 
+            btnListFacts.Text = "Sales List"; 
             btnHome.Text = "Control Panel";
             btnGDS.Text = "Inventory Management";
             btnProduct.Text = "Medication List";
             btnExpired.Text = "Expired Products";
             btnPurchases.Text = "Purchase Management";
-            btnAddFact.Text = "Add a Purchase Invoice";
+            btnFactNew.Text = "Add a Sale Invoice";
             simpleButton4.Text = "Purchase List";
             btnCases.Text = "Sales Management";
-            btnSession.Text = "Manage Suppliers";
-            btnSupplier.Text = "Supplier List";
+            btnSession.Text = "Manage Suppliers"; 
             MovSuppliers.Text = "Supplier Transactions"; 
             btnRH.Text = "Human Resources";
             btnListEmp.Text = "Employee List";
@@ -456,8 +455,7 @@ namespace Vision_Pharmacy
             btnRepports.Text = "Users and Permissions";
             btnSetings.Text = "Settings";
             simpleButton11.Text = "Issues";
-            simpleButton12.Text = "Issues Types";
-            simpleButton21.Text = "Issues Types";
+            simpleButton12.Text = "Issues Types"; 
             simpleButton19.Text = "User Permissions";
             btnUsers.Text = "Users";
             btnListUsers.Text = "User List";

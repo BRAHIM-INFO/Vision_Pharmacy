@@ -5,23 +5,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vision_Pharmacy.Core;
+using System.Configuration;
+using Microsoft.Data.SqlClient;
 
 namespace Vision_Pharmacy.Data.EFSqlServer
 {
     public class DBContext : DbContext
     {
+        public string _connectionString;
 
         // Constructores
-        public DBContext()
-        {
+        public DBContext() 
+        { 
         }
-        //Methods -- Override
+        //Methods -- Override 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var DevelopmentConString = @"Server=.\SQLEXPRESS;DataBase=DB_VisionPharmacy;Integrated Security=True;TrustServerCertificate=True;";
-            //optionsBuilder.UseSqlServer(ConfigDictionary.keyValuePairs["ConString"]);
+        { 
+            var DevelopmentConString = @"Server=.;DataBase=DB_VisionPharmacy;Integrated Security=True;TrustServerCertificate=True;";
+            //optionsBuilder.UseSqlServer( ConfigDictionary.keyValuePairs["ConString"]);
+            EnsureDatabaseExists(DevelopmentConString);
             optionsBuilder.UseSqlServer(DevelopmentConString);
+
+           
         }
+
+        private void EnsureDatabaseExists(string connectionString)
+        {
+            var builder = new SqlConnectionStringBuilder(connectionString);
+            string dbName = builder.InitialCatalog;
+
+            // اتصل بـ master بدلاً من قاعدة البيانات
+            builder.InitialCatalog = "master";
+
+            using (var connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+                using (var cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = $"IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = '{dbName}') " +
+                                      $"CREATE DATABASE [{dbName}]";
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
         // Tables 
         public DbSet<User> User { get; set; } 
         public DbSet<Suppliers> Suppliers { get; set; }

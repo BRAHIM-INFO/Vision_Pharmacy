@@ -49,7 +49,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
 
         private void buttonSaveServerSettings_Click(object sender, EventArgs e)
         {
-            SaveConString();
+             SaveConString();
 
         }
 
@@ -182,15 +182,15 @@ namespace Vision_Pharmacy.Gui.SettingGui
         {
             if (radioButtonLocalConnect.IsOn == true)
             {
-                textBoxPort.Enabled = false;
-                textBoxUser.Enabled = false;
-                textBoxPassword.Enabled = false;
+                textBoxPort.Enabled = true;
+                textBoxUser.Enabled = true;
+                textBoxPassword.Enabled = true; 
             }
             else
             {
-                textBoxPort.Enabled = true;
-                textBoxUser.Enabled = true;
-                textBoxPassword.Enabled = true;
+                textBoxPort.Enabled = false;
+                textBoxUser.Enabled = false;
+                textBoxPassword.Enabled = false;
             }
         }
 
@@ -216,10 +216,8 @@ namespace Vision_Pharmacy.Gui.SettingGui
 
                     Properties.Settings.Default.SQLServerConString = ConString;
                     Properties.Settings.Default.Save();
-
-
-                    MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات ");
-                    Application.Exit();
+                    System.Threading.Thread.Sleep(2000); 
+                    MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات "); 
                 }
                 else
                 {
@@ -228,10 +226,10 @@ namespace Vision_Pharmacy.Gui.SettingGui
 
                     Properties.Settings.Default.SQLServerConString = ConString;
                     Properties.Settings.Default.Save();
-
-                    MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات ");
-                    Application.Exit();
-                }
+                    System.Threading.Thread.Sleep(2000); 
+                    MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات "); 
+                } 
+                Application.Restart(); 
             }
 
 

@@ -120,8 +120,8 @@ namespace Vision_Pharmacy.Gui.SaleGui
                         Name = med.Name,
                         GenericName = med.GenericName,
                         Quantity = item.Quantity,
-                        UnitPrice = item.SalePrice,  
-                        Discount = item.Discount 
+                        UnitPrice = item.SalePrice,
+                        Discount = item.Discount
                     });
                 }
 
@@ -522,7 +522,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                     return;
                 }
 
-                int.TryParse(QuantityInStocktxt.Text, out int quantity); 
+                int.TryParse(QuantityInStocktxt.Text, out int quantity);
                 decimal.TryParse(SalePricetxt.Text, out decimal UnitPrice);
 
                 var item = new SaleItem
@@ -531,7 +531,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                     Name = Nametxt.Text,
                     GenericName = GenericNametxt.Text,
                     Quantity = quantity,
-                     UnitPrice = UnitPrice 
+                    UnitPrice = UnitPrice
                 };
 
                 SaleItems.Add(item);
@@ -634,15 +634,15 @@ namespace Vision_Pharmacy.Gui.SaleGui
             }
         }
 
-        
 
 
-         
-        
+
+
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         // // تغيير اللغة إلى العربية
@@ -652,9 +652,9 @@ namespace Vision_Pharmacy.Gui.SaleGui
             this.RightToLeftLayout = true;
 
             // General Settings
-            lblSupForm.Text = "ادارة المشتريات >  اضافة فاتورة جديدة";
+            lblSupForm.Text = "ادارة المبيعات >  اضافة فاتورة جديدة";
             label1.Text = "رقم الفاتورة";
-            label3.Text = "المورد";
+            label3.Text = "العميل";
             lblEmpEmail.Text = "تاريخ الشراء";
             label4.Text = "طريقة الدفع";
             label16.Text = "باركود الدواء";
@@ -671,7 +671,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             label9.Text = "الشكل الصيدلي";
             label8.Text = "التصنيف";
             lblConcentr.Text = "التركيز";
-            label7.Text = "الوحدة"; 
+            label7.Text = "الوحدة";
             //lblCustomerNotes.Text = "سعر البيع";
 
             label11.Text = "الكمية";
@@ -720,7 +720,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             label9.Text = "Dosage Form";
             label8.Text = "Classification";
             lblConcentr.Text = "Concentration";
-            label7.Text = "Unit"; 
+            label7.Text = "Unit";
             //lblCustomerNotes.Text = "Selling Price";
 
             label11.Text = "Quantity";
@@ -742,6 +742,12 @@ namespace Vision_Pharmacy.Gui.SaleGui
             txtNotes.PlaceholderText = "Record Notes";
             // Form Settings
             this.Text = "Add a new invoice";
+        }
+
+        private void btnForm_Click(object sender, EventArgs e)
+        {
+            CustomerAddForm CustomerAddForm = new CustomerAddForm(0, null);
+            CustomerAddForm.ShowDialog();
         }
     }
 }
