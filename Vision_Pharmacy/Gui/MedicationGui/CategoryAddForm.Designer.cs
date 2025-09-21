@@ -40,7 +40,6 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             label6 = new Label();
             label1 = new Label();
             btnSave = new DevExpress.XtraEditors.SimpleButton();
-            btnDelete = new DevExpress.XtraEditors.SimpleButton();
             flowLayoutPanel1 = new FlowLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
@@ -149,7 +148,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             // 
             textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxName.Font = new Font("Cairo Medium", 10F);
-            textBoxName.Location = new Point(184, 3);
+            textBoxName.Location = new Point(146, 3);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(560, 39);
             textBoxName.TabIndex = 20;
@@ -173,7 +172,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             label1.AutoSize = true;
             label1.BackColor = Color.White;
             label1.Font = new Font("Cairo Medium", 10F);
-            label1.Location = new Point(750, 0);
+            label1.Location = new Point(712, 0);
             label1.Name = "label1";
             label1.Size = new Size(55, 32);
             label1.TabIndex = 21;
@@ -194,7 +193,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             btnSave.Cursor = Cursors.Hand;
             btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
             btnSave.ImageOptions.SvgImageSize = new Size(20, 20);
-            btnSave.Location = new Point(41, 3);
+            btnSave.Location = new Point(3, 3);
             btnSave.Name = "btnSave";
             btnSave.RightToLeft = RightToLeft.Yes;
             btnSave.Size = new Size(137, 39);
@@ -202,30 +201,6 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             btnSave.Text = "حفظ";
             btnSave.ToolTipTitle = "حفظ";
             btnSave.Click += btnSave_Click;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Appearance.BackColor = Color.FromArgb(192, 0, 0);
-            btnDelete.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnDelete.Appearance.Options.UseBackColor = true;
-            btnDelete.Appearance.Options.UseFont = true;
-            btnDelete.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnDelete.AppearanceDisabled.Options.UseFont = true;
-            btnDelete.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnDelete.AppearanceHovered.Options.UseFont = true;
-            btnDelete.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnDelete.AppearancePressed.Options.UseFont = true;
-            btnDelete.Cursor = Cursors.Hand;
-            btnDelete.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDelete.ImageOptions.SvgImage");
-            btnDelete.ImageOptions.SvgImageSize = new Size(20, 20);
-            btnDelete.Location = new Point(3, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.RightToLeft = RightToLeft.Yes;
-            btnDelete.Size = new Size(32, 37);
-            btnDelete.TabIndex = 24;
-            btnDelete.Text = "حذف";
-            btnDelete.ToolTipTitle = "اضافة";
-            btnDelete.Click += btnDelete_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -242,7 +217,6 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.Controls.Add(btnDelete);
             flowLayoutPanel2.Controls.Add(btnSave);
             flowLayoutPanel2.Controls.Add(textBoxName);
             flowLayoutPanel2.Controls.Add(label1);
@@ -296,7 +270,6 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         private Label label6;
         private Label label1;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
     }

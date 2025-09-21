@@ -369,7 +369,7 @@
             pictureBoxCompanyLogo.Image = Properties.Resources.logo_2025;
             pictureBoxCompanyLogo.Location = new Point(360, 344);
             pictureBoxCompanyLogo.Name = "pictureBoxCompanyLogo";
-            pictureBoxCompanyLogo.Size = new Size(212, 118);
+            pictureBoxCompanyLogo.Size = new Size(212, 149);
             pictureBoxCompanyLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxCompanyLogo.TabIndex = 17;
             pictureBoxCompanyLogo.TabStop = false;

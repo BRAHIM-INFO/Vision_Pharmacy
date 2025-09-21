@@ -35,7 +35,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
 
         // Fileds  
         private int RowId;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private readonly MedicationUserControl medicationUserControl;
         private readonly int id;
         private readonly LoadingUser loading;

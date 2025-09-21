@@ -56,10 +56,10 @@
             pnlTop.Controls.Add(btnEdit);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
-            pnlTop.Margin = new Padding(3, 2, 3, 2);
+            pnlTop.Margin = new Padding(4, 2, 4, 2);
             pnlTop.Name = "pnlTop";
             pnlTop.RightToLeft = RightToLeft.Yes;
-            pnlTop.Size = new Size(1119, 57);
+            pnlTop.Size = new Size(1306, 70);
             pnlTop.TabIndex = 0;
             // 
             // lblTitle
@@ -68,9 +68,10 @@
             lblTitle.Dock = DockStyle.Right;
             lblTitle.Font = new Font("Cairo Medium", 12F);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(902, 0);
+            lblTitle.Location = new Point(1041, 0);
+            lblTitle.Margin = new Padding(4, 0, 4, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(139, 30);
+            lblTitle.Size = new Size(175, 37);
             lblTitle.TabIndex = 1;
             lblTitle.Text = "قائمة المستخدمين";
             // 
@@ -80,12 +81,12 @@
             SeparatLat.Dock = DockStyle.Right;
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
-            SeparatLat.LineThickness = 8;
-            SeparatLat.Location = new Point(1041, 0);
-            SeparatLat.Margin = new Padding(3, 2, 3, 2);
+            SeparatLat.LineThickness = 10;
+            SeparatLat.Location = new Point(1216, 0);
+            SeparatLat.Margin = new Padding(4, 2, 4, 2);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
-            SeparatLat.Size = new Size(9, 57);
+            SeparatLat.Size = new Size(10, 70);
             SeparatLat.TabIndex = 1;
             // 
             // PicLaterale
@@ -93,10 +94,10 @@
             PicLaterale.BackColor = Color.Silver;
             PicLaterale.Dock = DockStyle.Right;
             PicLaterale.Image = Properties.Resources.tasking_15578464;
-            PicLaterale.Location = new Point(1050, 0);
-            PicLaterale.Margin = new Padding(3, 2, 3, 2);
+            PicLaterale.Location = new Point(1226, 0);
+            PicLaterale.Margin = new Padding(4, 2, 4, 2);
             PicLaterale.Name = "PicLaterale";
-            PicLaterale.Size = new Size(69, 57);
+            PicLaterale.Size = new Size(80, 70);
             PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLaterale.TabIndex = 0;
             PicLaterale.TabStop = false;
@@ -116,11 +117,11 @@
             btnDelete.Cursor = Cursors.Hand;
             btnDelete.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDelete.ImageOptions.SvgImage");
             btnDelete.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnDelete.Location = new Point(310, 2);
-            btnDelete.Margin = new Padding(3, 2, 3, 2);
+            btnDelete.Location = new Point(362, 2);
+            btnDelete.Margin = new Padding(4, 2, 4, 2);
             btnDelete.Name = "btnDelete";
             btnDelete.RightToLeft = RightToLeft.Yes;
-            btnDelete.Size = new Size(55, 37);
+            btnDelete.Size = new Size(64, 46);
             btnDelete.TabIndex = 4;
             btnDelete.Text = "حذف";
             btnDelete.ToolTipTitle = "اضافة";
@@ -141,11 +142,11 @@
             btnEdit.Cursor = Cursors.Hand;
             btnEdit.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEdit.ImageOptions.SvgImage");
             btnEdit.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnEdit.Location = new Point(370, 2);
-            btnEdit.Margin = new Padding(3, 2, 3, 2);
+            btnEdit.Location = new Point(432, 2);
+            btnEdit.Margin = new Padding(4, 2, 4, 2);
             btnEdit.Name = "btnEdit";
             btnEdit.RightToLeft = RightToLeft.Yes;
-            btnEdit.Size = new Size(73, 37);
+            btnEdit.Size = new Size(85, 46);
             btnEdit.TabIndex = 5;
             btnEdit.Text = "تعديل";
             btnEdit.ToolTipTitle = "اضافة";
@@ -166,11 +167,11 @@
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(125, 62);
-            btnAdd.Margin = new Padding(3, 2, 3, 2);
+            btnAdd.Location = new Point(146, 76);
+            btnAdd.Margin = new Padding(4, 2, 4, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
-            btnAdd.Size = new Size(117, 37);
+            btnAdd.Size = new Size(136, 46);
             btnAdd.TabIndex = 6;
             btnAdd.Text = "اضافة";
             btnAdd.ToolTipTitle = "اضافة";
@@ -191,11 +192,11 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(3, 62);
-            btnPrint.Margin = new Padding(3, 2, 3, 2);
+            btnPrint.Location = new Point(4, 76);
+            btnPrint.Margin = new Padding(4, 2, 4, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
-            btnPrint.Size = new Size(117, 37);
+            btnPrint.Size = new Size(136, 46);
             btnPrint.TabIndex = 7;
             btnPrint.Text = "طباعة";
             btnPrint.ToolTipTitle = "اضافة";
@@ -204,13 +205,13 @@
             // gridControl1
             // 
             gridControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gridControl1.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            gridControl1.Location = new Point(3, 103);
+            gridControl1.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
+            gridControl1.Location = new Point(4, 127);
             gridControl1.MainView = gridView1;
-            gridControl1.Margin = new Padding(3, 2, 3, 2);
+            gridControl1.Margin = new Padding(4, 2, 4, 2);
             gridControl1.Name = "gridControl1";
             gridControl1.RightToLeft = RightToLeft.Yes;
-            gridControl1.Size = new Size(1117, 438);
+            gridControl1.Size = new Size(1303, 539);
             gridControl1.TabIndex = 8;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -256,25 +257,24 @@
             gridView1.Appearance.TopNewRow.Options.UseFont = true;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 10F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
-            gridView1.DetailHeight = 284;
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
-            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             // 
             // UserUserControl
             // 
             Appearance.BackColor = Color.White;
             Appearance.Options.UseBackColor = true;
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(gridControl1);
             Controls.Add(btnPrint);
             Controls.Add(btnAdd);
             Controls.Add(pnlTop);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "UserUserControl";
             RightToLeft = RightToLeft.Yes;
-            Size = new Size(1119, 541);
+            Size = new Size(1306, 666);
+            Load += UserUserControl_Load;
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();

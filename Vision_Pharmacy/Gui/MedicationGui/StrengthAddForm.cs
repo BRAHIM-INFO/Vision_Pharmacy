@@ -1,11 +1,16 @@
-﻿using DevExpress.Xpo.Helpers;
+﻿using DevExpress.Utils.Svg;
+using DevExpress.Xpo.Helpers;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base.ViewInfo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,17 +28,19 @@ namespace Vision_Pharmacy.Gui.MedicationGui
     {
         // Fileds  
         private int RowId;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private Label labelEmptyData;
         private readonly int id;
         private readonly LoadingUser loading;
         private IDataHelper<Strength> _dataHelper;
         private Strength Strength;
         private int ResultAddOrEdit;
+        private RepositoryItemButtonEdit actionButtons;
         public StrengthAddForm()
         {
             InitializeComponent();
             loading = LoadingUser.Instance();
+            labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
             _dataHelper = (IDataHelper<Strength>)ContainerConfig.ObjectType("Strength");
             // Set DataFileds for Edit void
             if (id > 0)
@@ -53,10 +60,173 @@ namespace Vision_Pharmacy.Gui.MedicationGui
 
         }
 
-        private void StrengthAddForm_Load(object sender, EventArgs e)
+        private async void StrengthAddForm_Load(object sender, EventArgs e)
         {
+            loading.Show();
+            if (_dataHelper.IsDbConnect())
+            {
+                gridControl1.DataSource = await Task.Run(() => _dataHelper.GetData()); // تحميل البيانات بشكل غير متزامن
 
+                var view = (DevExpress.XtraGrid.Views.Grid.GridView)gridControl1.MainView;
+                view.OptionsView.ShowGroupPanel = false;
+
+                // عمود الأزرار
+                GridColumn colAction = view.Columns.AddVisible("Action", "الإجراءات");
+                colAction.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+                colAction.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+                colAction.Width = 100; // عرض العمود
+
+                // RepositoryItemButtonEdit واحد بثلاثة أزرار
+                actionButtons = new RepositoryItemButtonEdit
+                {
+                    TextEditStyle = TextEditStyles.HideTextEditor
+                };
+                // أفرغ الأزرار الافتراضية
+                actionButtons.Buttons.Clear();
+                //زر حذف
+                var btnDelete = new EditorButton(ButtonPredefines.Glyph);
+                btnDelete.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.delete));
+                btnDelete.Tag = "delete";
+                actionButtons.Buttons.Add(btnDelete);
+
+
+                gridControl1.RepositoryItems.Add(actionButtons);
+                colAction.ColumnEdit = actionButtons;
+
+                // حدث النقر
+                actionButtons.ButtonClick += ActionButtons_ButtonClick;
+            }
+            else
+            {
+                MessageCollection.ShowServerMessage();
+                return;
+            }
+            loading.Hide();
+            LoadData();
         }
+
+        /// <summary>
+        ///  اجراءات الأزرار في عمود الإجراءات )عرض، تعديل، حذف(
+        private void ActionButtons_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            var view = (DevExpress.XtraGrid.Views.Grid.GridView)gridControl1.MainView;
+
+
+            var row = view.GetFocusedRow() as Strength;
+            if (row == null) return;
+
+            // 1) التمييز بالـ Tag (الأفضل)
+            var tag = e.Button.Tag as string;
+            if (!string.IsNullOrEmpty(tag))
+            {
+                switch (tag)
+                {
+                    case "delete":
+                        {
+                            try
+                            {
+                                if (gridView1.RowCount > 0)
+                                {
+                                    IdList = new List<int>(); SetIDSelcted();
+                                    if (MessageBox.Show($"هل تريد حذف {row.Name}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    {
+                                        loading.Show();
+                                        if (_dataHelper.IsDbConnect())
+                                        {
+                                            if (IdList.Count > 0)
+                                            {
+                                                for (int i = 0; i < IdList.Count; i++)
+                                                {
+                                                    RowId = IdList[i];
+                                                    _dataHelper.Delete(RowId);
+                                                }
+                                                LoadData();
+                                                MessageCollection.ShowDeletNotification();
+                                            }
+                                            else
+                                            {
+                                                MessageCollection.ShowSlectRowsNotification();
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            MessageCollection.ShowServerMessage();
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    MessageCollection.ShowEmptyDataMessage();
+
+                                }
+                            }
+                            catch
+                            {
+                                MessageCollection.ShowServerMessage();
+                            }
+                            loading.Hide();
+                            return;
+                        }
+                }
+            }
+
+            // 2) فfallback بالفهرس داخل نفس الـ Repository (لو لأي سبب الـ Tag ماوصل)
+            var repo = (RepositoryItemButtonEdit)sender;
+            int idx = repo.Buttons.IndexOf(e.Button); // 0=view, 1=edit, 2=delete
+            if (idx == 0)
+            {
+                if (MessageBox.Show($"هل تريد حذف {row.Name}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (gridView1.RowCount > 0)
+                        {
+                            IdList = new List<int>(); SetIDSelcted();
+                            var result = MessageCollection.DeleteActtion();
+                            if (result == true)
+                            {
+                                loading.Show();
+                                if (_dataHelper.IsDbConnect())
+                                {
+                                    if (IdList.Count > 0)
+                                    {
+                                        for (int i = 0; i < IdList.Count; i++)
+                                        {
+                                            RowId = IdList[i];
+                                            _dataHelper.Delete(RowId);
+                                        }
+                                        LoadData();
+                                        MessageCollection.ShowDeletNotification();
+                                    }
+                                    else
+                                    {
+                                        MessageCollection.ShowSlectRowsNotification(); 
+                                    } 
+                                }
+                                else
+                                {
+                                    MessageCollection.ShowServerMessage();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageCollection.ShowEmptyDataMessage();
+
+                        }
+                    }
+                    catch
+                    {
+                        MessageCollection.ShowServerMessage();
+                    }
+                    loading.Hide();
+                }
+            }
+        }
+
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -77,56 +247,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                 loading.Hide();
             }
         }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (gridView1.RowCount > 0)
-                {
-                    SetIDSelcted();
-                    var result = MessageCollection.DeleteActtion();
-                    if (result == true)
-                    {
-                        loading.Show();
-                        if (_dataHelper.IsDbConnect())
-                        {
-                            if (IdList.Count > 0)
-                            {
-                                for (int i = 0; i < IdList.Count; i++)
-                                {
-                                    RowId = IdList[i];
-                                    _dataHelper.Delete(RowId);
-                                }
-                                LoadData();
-                                MessageCollection.ShowDeletNotification();
-                            }
-                            else
-                            {
-                                MessageCollection.ShowSlectRowsNotification();
-
-                            }
-
-                        }
-                        else
-                        {
-                            MessageCollection.ShowServerMessage();
-                        }
-                    }
-                }
-                else
-                {
-                    MessageCollection.ShowEmptyDataMessage();
-
-                }
-            }
-            catch
-            {
-                MessageCollection.ShowServerMessage();
-            }
-            loading.Hide();
-        }
-
+         
 
         #region Methods 
         public async void LoadData()
@@ -244,7 +365,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             }
 
         }
-        #endregion
+       
 
         //ملف الموارد العربي
         private void ApplyArabicResources()
@@ -276,6 +397,6 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             btnSave.Text = Resources_En.ButtonSave;
             labelEmptyData.Text = Resources_En.EmptyDataText;
         }
-
+        #endregion
     }
 }

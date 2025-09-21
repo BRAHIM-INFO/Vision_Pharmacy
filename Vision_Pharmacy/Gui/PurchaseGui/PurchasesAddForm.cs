@@ -19,8 +19,7 @@ using Vision_Pharmacy.Core;
 using Vision_Pharmacy.Data;
 using Vision_Pharmacy.Gui.MedicationGui;
 using Vision_Pharmacy.Gui.OtherGui;
-using Vision_Pharmacy.Gui.SupplierGui;
-using static Vision_Pharmacy.Gui.PurchaseGui.XtraForm1;
+using Vision_Pharmacy.Gui.SupplierGui; 
 
 namespace Vision_Pharmacy.Gui.PurchaseGui
 {
@@ -37,7 +36,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         private Purchase Purchase;
         private int RowId;
         private static SupplierUserControl _supplierUser;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private string searchItem;
         AllClasses AllClasses = new AllClasses();
         private int ResultAddOrEdit;

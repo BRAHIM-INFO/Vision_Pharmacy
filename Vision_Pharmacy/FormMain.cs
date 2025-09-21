@@ -1,10 +1,12 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Mvvm.POCO;
+using DevExpress.XtraEditors;
 using DevExpress.XtraExport.Helpers;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Vision_Pharmacy.Code;
+using Vision_Pharmacy.Gui.CustomerGui;
 using Vision_Pharmacy.Gui.DoashbordGui;
 using Vision_Pharmacy.Gui.EmployeeGui;
 using Vision_Pharmacy.Gui.MedicationGui;
@@ -70,7 +72,7 @@ namespace Vision_Pharmacy
             pnlRepports = new PanelSlider(pnl_10, btnRepports.Height + 2, 235, 15, false); // حركة طولية
             pnlParametres = new PanelSlider(pnl_11, btnSetings.Height + 2, 150, 15, false); // حركة طولية
             pnlGDS = new PanelSlider(pnl_03, btnGDS.Height + 2, 180, 15, false); // حركة طولية
-            pnlbtnSession = new PanelSlider(pnl_06, btnSession.Height + 2, 180, 15, false); // حركة طولية
+            pnlbtnSession = new PanelSlider(pnl_06, btnSession.Height + 2, 285, 15, false); // حركة طولية
 
             // نكبير الشاشة تلقائياً عند فتح النموذج
             if (!isMaximized)
@@ -169,7 +171,7 @@ namespace Vision_Pharmacy
         private void btnSession_Click(object sender, EventArgs e)
         {
             pnlbtnSession.Toggle();
-            UpdateBreadcrumb("إدارة الموردين");
+            UpdateBreadcrumb("إدارة الموردين و العملاء");
         }
 
         private void btnCalander_Click(object sender, EventArgs e)
@@ -301,7 +303,7 @@ namespace Vision_Pharmacy
 
         private void btnSupplier_Click(object sender, EventArgs e)
         {
-            
+
             panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
             SaleUserControl SaleUserControl = new SaleUserControl();
             SaleUserControl.Dock = DockStyle.Fill; // لملء الـ panel
@@ -340,9 +342,25 @@ namespace Vision_Pharmacy
             panelContainer.Controls.Add(MedicationUserControl);
         }
 
+        // hide all panel when click another button
+        // اخفاء جميع اللوحات عند النقر على زر آخر  
+        private void HideAllPanel(FlowLayoutPanel Pn01, FlowLayoutPanel Pn02, FlowLayoutPanel Pn03, FlowLayoutPanel Pn04, 
+                                  FlowLayoutPanel Pn05, FlowLayoutPanel Pn06, FlowLayoutPanel Pn07, FlowLayoutPanel Pn08)
+        { 
+            Pn01.Size = new Size(268, 62); 
+            Pn02.Size = new Size(268, 62);
+            Pn03.Size = new Size(268, 62);
+            Pn04.Size = new Size(268, 62);
+            Pn05.Size = new Size(268, 62);
+            Pn06.Size = new Size(268, 62);
+            Pn07.Size = new Size(268, 62);
+            Pn08.Size = new Size(268, 62);
+        }
+
         private void btnGDS_Click(object sender, EventArgs e)
         {
             pnlGDS.Toggle();
+            HideAllPanel(PnlSetting, pnl_04, pnl_05, pnl_08, pnl_07, pnl_10, pnl_11, pnl_06);
             UpdateBreadcrumb("إدارة المخزون");
 
         }
@@ -358,12 +376,14 @@ namespace Vision_Pharmacy
         private void btnPurchases_Click(object sender, EventArgs e)
         {
             pnlPurchase.Toggle();
+            HideAllPanel(PnlSetting, pnl_03, pnl_05, pnl_08, pnl_07, pnl_10, pnl_11, pnl_06);
+
             UpdateBreadcrumb("إدارة المشتريات");
         }
 
         private void MovSuppliers_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnExpired_Click(object sender, EventArgs e)
@@ -397,11 +417,11 @@ namespace Vision_Pharmacy
             btnPurchases.Text = "إدارة المشتريات";
             btnAddFact.Text = "إضافة فاتورة شراء";
             simpleButton4.Text = "قائمة المشتريات";
-            btnCases.Text = "إدارة المبيعات"; 
-            btnSession.Text = "إدارة الموردين";
+            btnCases.Text = "إدارة المبيعات";
+            btnSession.Text = "إدارة الموردين ز العملاء";
             btnListFacts.Text = "قائمة المبيعات";
             btnFactNew.Text = "إضافة فاتورة بيع";
-            MovSuppliers.Text = "حركات الموردين"; 
+            MovSuppliers.Text = "حركات الموردين";
             btnRH.Text = "الموارد البشرية";
             btnListEmp.Text = "قائمة الموظفين";
             btnAttendEmp.Text = "تسجيل الحضور و الغياب";
@@ -411,7 +431,7 @@ namespace Vision_Pharmacy
             btnRepports.Text = "المستخدمون والصلاحيات";
             btnSetings.Text = "الاعدادات";
             simpleButton11.Text = "القضايا";
-            simpleButton12.Text = "أنواع القضايا"; 
+            simpleButton12.Text = "أنواع القضايا";
             simpleButton19.Text = "صلاحيات المستخدمين";
             btnUsers.Text = "المستخدمون";
             btnListUsers.Text = "قائمة المستخدمين";
@@ -434,8 +454,8 @@ namespace Vision_Pharmacy
             label1.Text = Resources_En.label2;
             btnUser.Text = "Users";
             btnSett.Text = "Settings";
-            btnExit.Text = "Log Out"; 
-            btnListFacts.Text = "Sales List"; 
+            btnExit.Text = "Log Out";
+            btnListFacts.Text = "Sales List";
             btnHome.Text = "Control Panel";
             btnGDS.Text = "Inventory Management";
             btnProduct.Text = "Medication List";
@@ -444,8 +464,8 @@ namespace Vision_Pharmacy
             btnFactNew.Text = "Add a Sale Invoice";
             simpleButton4.Text = "Purchase List";
             btnCases.Text = "Sales Management";
-            btnSession.Text = "Manage Suppliers"; 
-            MovSuppliers.Text = "Supplier Transactions"; 
+            btnSession.Text = "Manage Suppliers & Customers";
+            MovSuppliers.Text = "Supplier Transactions";
             btnRH.Text = "Human Resources";
             btnListEmp.Text = "Employee List";
             btnAttendEmp.Text = "Attendance and Absence Recording";
@@ -455,7 +475,7 @@ namespace Vision_Pharmacy
             btnRepports.Text = "Users and Permissions";
             btnSetings.Text = "Settings";
             simpleButton11.Text = "Issues";
-            simpleButton12.Text = "Issues Types"; 
+            simpleButton12.Text = "Issues Types";
             simpleButton19.Text = "User Permissions";
             btnUsers.Text = "Users";
             btnListUsers.Text = "User List";
@@ -476,6 +496,14 @@ namespace Vision_Pharmacy
             Purchases_SupplierUserControl Purchases_SupplierUserControl = new Purchases_SupplierUserControl();
             Purchases_SupplierUserControl.Dock = DockStyle.Fill; // لملء الـ panel
             panelContainer.Controls.Add(Purchases_SupplierUserControl);
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
+            CustomerUserControl CustomerUserControl = new CustomerUserControl();
+            CustomerUserControl.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(CustomerUserControl);
         }
     }
 

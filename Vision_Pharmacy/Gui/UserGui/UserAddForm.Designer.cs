@@ -337,7 +337,6 @@
 
         #endregion
         private TextBox textBoxName;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
         private Label labelName;
         private Label labelRole;
         private Label labelPassword;
@@ -355,5 +354,6 @@
         private Label label7;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private FlowLayoutPanel flowLayoutPanel1;
+        public DevExpress.XtraEditors.SimpleButton btnSave;
     }
 }

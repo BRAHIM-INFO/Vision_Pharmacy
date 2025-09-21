@@ -356,7 +356,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         private PictureBox pictureBox3;
         private Label lblCustomerEmail;
         private Label lblCustomerPhone;
-        private DevExpress.XtraEditors.SimpleButton buttonSaveSup;
+        public DevExpress.XtraEditors.SimpleButton buttonSaveSup;
         private TextBox txtCustomerPhone;
         private Label lblCustomerAddress;
         private TextBox txtCustomerName;

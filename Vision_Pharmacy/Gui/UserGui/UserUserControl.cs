@@ -1,5 +1,9 @@
 ﻿using DevExpress.Drawing;
+using DevExpress.Utils.Svg;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraReports.Serialization;
 using DevExpress.XtraScheduler;
 using System;
@@ -7,6 +11,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,9 +31,10 @@ namespace Vision_Pharmacy.Gui.UserGui
         private readonly LoadingUser loading;
         private int RowId;
         private static UserUserControl _userUser;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private Label labelEmptyData;
         private string searchItem;
+        private RepositoryItemButtonEdit actionButtons;
 
 
         // Constructores
@@ -39,8 +45,7 @@ namespace Vision_Pharmacy.Gui.UserGui
             _dataHelper = (IDataHelper<User>)ContainerConfig.ObjectType("User");
             loading = LoadingUser.Instance();
             LoadData();
-            gridView1.OptionsBehavior.Editable = false;
-
+ 
             //DataTable table = new DataTable();
             //table.Columns.Add("ID", typeof(int));
             //table.Columns.Add("الاسم", typeof(string));
@@ -58,7 +63,7 @@ namespace Vision_Pharmacy.Gui.UserGui
             gridView1.OptionsFind.ShowClearButton = true;
             gridView1.OptionsFind.ShowFindButton = true;
 
-            if (Properties.Settings.Default.ChangeLang  == "Ar")
+            if (Properties.Settings.Default.ChangeLang == "Ar")
             {
                 ApplyArabicResources();
             }
@@ -95,43 +100,43 @@ namespace Vision_Pharmacy.Gui.UserGui
         {
             //try
             //{
-                if (gridView1.RowCount > 0)
+            if (gridView1.RowCount > 0)
+            {
+                IdList = new List<int>(); SetIDSelcted();
+                var result = MessageCollection.DeleteActtion();
+                if (result == true)
                 {
-                    SetIDSelcted();
-                    var result = MessageCollection.DeleteActtion();
-                    if (result == true)
+                    loading.Show();
+                    if (_dataHelper.IsDbConnect())
                     {
-                        loading.Show();
-                        if (_dataHelper.IsDbConnect())
+                        if (IdList.Count > 0)
                         {
-                            if (IdList.Count > 0)
+                            for (int i = 0; i < IdList.Count; i++)
                             {
-                                for (int i = 0; i < IdList.Count; i++)
-                                {
-                                    RowId = IdList[i];
-                                    _dataHelper.Delete(RowId);
-                                }
-                                LoadData();
-                                MessageCollection.ShowDeletNotification();
+                                RowId = IdList[i];
+                                _dataHelper.Delete(RowId);
                             }
-                            else
-                            {
-                                MessageCollection.ShowSlectRowsNotification();
-
-                            }
-
+                            LoadData();
+                            MessageCollection.ShowDeletNotification();
                         }
                         else
                         {
-                            MessageCollection.ShowServerMessage();
+                            MessageCollection.ShowSlectRowsNotification();
+
                         }
+
+                    }
+                    else
+                    {
+                        MessageCollection.ShowServerMessage();
                     }
                 }
-                else
-                {
-                    MessageCollection.ShowEmptyDataMessage();
+            }
+            else
+            {
+                MessageCollection.ShowEmptyDataMessage();
 
-                }
+            }
             //}
             //catch
             //{
@@ -232,7 +237,7 @@ namespace Vision_Pharmacy.Gui.UserGui
                 gridView1.Columns[2].Caption = "User Name";
                 gridView1.Columns[3].Caption = "Password";
                 gridView1.Columns[4].Caption = "Permission";
-            } 
+            }
         }
 
         // Singleton Instance
@@ -260,7 +265,7 @@ namespace Vision_Pharmacy.Gui.UserGui
 
         //ملف الموارد العربي
         public void ApplyArabicResources()
-        {  
+        {
             this.RightToLeft = RightToLeft.Yes;
             PicLaterale.Dock = DockStyle.Right;
             SeparatLat.Dock = DockStyle.Right;
@@ -273,7 +278,7 @@ namespace Vision_Pharmacy.Gui.UserGui
             btnAdd.Anchor = AnchorStyles.Top | AnchorStyles.Left;
 
             lblTitle.Text = Resources_Ar.TitleUser;
-            btnAdd.Text = Resources_Ar.AddButton_User; 
+            btnAdd.Text = Resources_Ar.AddButton_User;
             btnPrint.Text = Resources_Ar.PrintButton_User;
             labelEmptyData.Text = Resources_Ar.EmptyDataText;
 
@@ -283,12 +288,12 @@ namespace Vision_Pharmacy.Gui.UserGui
         //ملف الموارد انجليزي
         public void ApplyEnglishResources()
         {
-            this.RightToLeft = RightToLeft.No; 
+            this.RightToLeft = RightToLeft.No;
             PicLaterale.Dock = DockStyle.Left;
             SeparatLat.Dock = DockStyle.Left;
-            lblTitle.Dock = DockStyle.Left; 
+            lblTitle.Dock = DockStyle.Left;
 
-            btnPrint.Location = new Point(this.Size.Width-140, 76);
+            btnPrint.Location = new Point(this.Size.Width - 140, 76);
             btnAdd.Location = new Point(this.Size.Width - 283, 76);
 
             btnPrint.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -296,10 +301,238 @@ namespace Vision_Pharmacy.Gui.UserGui
 
             lblTitle.Text = Resources_En.TitleUser;
             btnAdd.Text = Resources_En.AddButton_User;
-            btnPrint.Text =  Resources_En.PrintButton_User;
-            labelEmptyData.Text = Resources_En.EmptyDataText; 
+            btnPrint.Text = Resources_En.PrintButton_User;
+            labelEmptyData.Text = Resources_En.EmptyDataText;
 
             gridControl1.RightToLeft = RightToLeft.No;
+        }
+
+        private async void UserUserControl_Load(object sender, EventArgs e)
+        {
+            loading.Show();
+            if (_dataHelper.IsDbConnect())
+            {
+                gridControl1.DataSource = await Task.Run(() => _dataHelper.GetData()); // تحميل البيانات بشكل غير متزامن
+                SetDataGridViewColumns();
+                var view = (DevExpress.XtraGrid.Views.Grid.GridView)gridControl1.MainView;
+                view.OptionsView.ShowGroupPanel = false;
+
+                // عمود الأزرار
+                GridColumn colAction = view.Columns.AddVisible("Action", "الإجراءات");
+                colAction.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+                colAction.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+                colAction.Width = 100; // عرض العمود
+
+                // RepositoryItemButtonEdit واحد بثلاثة أزرار
+                actionButtons = new RepositoryItemButtonEdit
+                {
+                    TextEditStyle = TextEditStyles.HideTextEditor
+                };
+                // أفرغ الأزرار الافتراضية
+                actionButtons.Buttons.Clear();
+                //زر حذف
+                var btnDelete = new EditorButton(ButtonPredefines.Glyph);
+                btnDelete.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.delete));
+                btnDelete.Tag = "delete";
+                actionButtons.Buttons.Add(btnDelete);
+
+
+                // زر تعديل
+                var btnEdit = new EditorButton(ButtonPredefines.Glyph);
+                btnEdit.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.edit));
+                btnEdit.Tag = "edit";
+                actionButtons.Buttons.Add(btnEdit);
+
+
+                // زر عرض
+                var btnView = new EditorButton(ButtonPredefines.Glyph);
+                btnView.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.view));
+                btnView.Tag = "view";
+                actionButtons.Buttons.Add(btnView);
+
+
+
+                gridControl1.RepositoryItems.Add(actionButtons);
+                colAction.ColumnEdit = actionButtons;
+
+                // حدث النقر
+                actionButtons.ButtonClick += ActionButtons_ButtonClick;
+            }
+            else
+            {
+                MessageCollection.ShowServerMessage();
+                return;
+            }
+            loading.Hide();
+        }
+
+        /// <summary>
+        ///  اجراءات الأزرار في عمود الإجراءات )عرض، تعديل، حذف(
+        private void ActionButtons_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            var view = (DevExpress.XtraGrid.Views.Grid.GridView)gridControl1.MainView;
+
+
+            var row = view.GetFocusedRow() as Customer;
+            if (row == null) return;
+
+            // 1) التمييز بالـ Tag (الأفضل)
+            var tag = e.Button.Tag as string;
+            if (!string.IsNullOrEmpty(tag))
+            {
+                switch (tag)
+                {
+                    case "view":
+                        {
+                            // عرض تفاصيل الدواء
+                            RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
+                            UserAddForm UserAddForm = new UserAddForm(RowId, this, false);
+                            UserAddForm.btnSave.Visible = false; // إخفاء زر الحفظ
+                            UserAddForm.ShowDialog();
+                            return;
+
+                        }
+                    case "edit":
+                        {
+                            if (gridView1.RowCount > 0)
+                            {
+                                RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
+                                UserAddForm UserAddForm = new UserAddForm(RowId, this, false);
+                                UserAddForm.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageCollection.ShowEmptyDataMessage();
+                            }
+                            return;
+                        }
+                    case "delete":
+                        {
+                            try
+                            {
+                                if (gridView1.RowCount > 0)
+                                {
+                                    IdList = new List<int>(); SetIDSelcted();
+                                    if (MessageBox.Show($"هل تريد حذف {row.FullName}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                    {
+                                        loading.Show();
+                                        if (_dataHelper.IsDbConnect())
+                                        {
+                                            if (IdList.Count > 0)
+                                            {
+                                                for (int i = 0; i < IdList.Count; i++)
+                                                {
+                                                    RowId = IdList[i];
+                                                    _dataHelper.Delete(RowId);
+                                                }
+
+                                                LoadData();
+                                                MessageCollection.ShowDeletNotification();
+                                            }
+                                            else
+                                            {
+                                                MessageCollection.ShowSlectRowsNotification();
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            MessageCollection.ShowServerMessage();
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    MessageCollection.ShowEmptyDataMessage();
+
+                                }
+                            }
+                            catch
+                            {
+                                MessageCollection.ShowServerMessage();
+                            }
+                            loading.Hide();
+                            return;
+                        }
+                }
+            }
+
+            // 2) فfallback بالفهرس داخل نفس الـ Repository (لو لأي سبب الـ Tag ماوصل)
+            var repo = (RepositoryItemButtonEdit)sender;
+            int idx = repo.Buttons.IndexOf(e.Button); // 0=view, 1=edit, 2=delete
+            if (idx == 0)
+            {
+                // عرض تفاصيل الدواء
+                RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
+                UserAddForm UserAddForm = new UserAddForm(RowId, this, false);
+                UserAddForm.btnSave.Visible = false; // إخفاء زر الحفظ
+                UserAddForm.ShowDialog();
+            }
+            else if (idx == 1)
+            {
+                if (gridView1.RowCount > 0)
+                {
+                    RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
+                    UserAddForm UserAddForm = new UserAddForm(RowId, this, false);
+                    UserAddForm.ShowDialog();
+                }
+                else
+                {
+                    MessageCollection.ShowEmptyDataMessage();
+                }
+            }
+
+            else if (idx == 2)
+                if (MessageBox.Show($"هل تريد حذف {row.FullName}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (gridView1.RowCount > 0)
+                        {
+                            IdList = new List<int>(); SetIDSelcted();
+                            var result = MessageCollection.DeleteActtion();
+                            if (result == true)
+                            {
+                                loading.Show();
+                                if (_dataHelper.IsDbConnect())
+                                {
+                                    if (IdList.Count > 0)
+                                    {
+                                        for (int i = 0; i < IdList.Count; i++)
+                                        {
+                                            RowId = IdList[i];
+                                            _dataHelper.Delete(RowId);
+                                        }
+                                        LoadData();
+                                        MessageCollection.ShowDeletNotification();
+                                    }
+                                    else
+                                    {
+                                        MessageCollection.ShowSlectRowsNotification();
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    MessageCollection.ShowServerMessage();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageCollection.ShowEmptyDataMessage();
+
+                        }
+                    }
+                    catch
+                    {
+                        MessageCollection.ShowServerMessage();
+                    }
+                    loading.Hide();
+                }
+
         }
     }
 }

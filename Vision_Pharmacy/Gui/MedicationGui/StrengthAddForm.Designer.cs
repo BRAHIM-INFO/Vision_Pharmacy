@@ -40,7 +40,6 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             label6 = new Label();
             label1 = new Label();
             btnSave = new DevExpress.XtraEditors.SimpleButton();
-            btnDelete = new DevExpress.XtraEditors.SimpleButton();
             flowLayoutPanel1 = new FlowLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
@@ -202,37 +201,12 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             btnSave.ToolTipTitle = "حفظ";
             btnSave.Click += btnSave_Click;
             // 
-            // btnDelete
-            // 
-            btnDelete.Appearance.BackColor = Color.FromArgb(192, 0, 0);
-            btnDelete.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnDelete.Appearance.Options.UseBackColor = true;
-            btnDelete.Appearance.Options.UseFont = true;
-            btnDelete.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnDelete.AppearanceDisabled.Options.UseFont = true;
-            btnDelete.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnDelete.AppearanceHovered.Options.UseFont = true;
-            btnDelete.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnDelete.AppearancePressed.Options.UseFont = true;
-            btnDelete.Cursor = Cursors.Hand;
-            btnDelete.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDelete.ImageOptions.SvgImage");
-            btnDelete.ImageOptions.SvgImageSize = new Size(20, 20);
-            btnDelete.Location = new Point(632, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.RightToLeft = RightToLeft.Yes;
-            btnDelete.Size = new Size(137, 37);
-            btnDelete.TabIndex = 24;
-            btnDelete.Text = "حذف";
-            btnDelete.ToolTipTitle = "اضافة";
-            btnDelete.Click += btnDelete_Click;
-            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackColor = Color.FromArgb(232, 246, 255);
             flowLayoutPanel1.Controls.Add(pictureBox2);
             flowLayoutPanel1.Controls.Add(separatorControl1);
             flowLayoutPanel1.Controls.Add(label5);
-            flowLayoutPanel1.Controls.Add(btnDelete);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -292,7 +266,6 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         private Label label6;
         private Label label1;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flowLayoutPanel2;
     }

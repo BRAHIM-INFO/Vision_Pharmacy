@@ -216,7 +216,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
 
                     Properties.Settings.Default.SQLServerConString = ConString;
                     Properties.Settings.Default.Save();
-                    System.Threading.Thread.Sleep(2000); 
+                    System.Threading.Thread.Sleep(3000); 
                     MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات "); 
                 }
                 else
@@ -226,7 +226,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
 
                     Properties.Settings.Default.SQLServerConString = ConString;
                     Properties.Settings.Default.Save();
-                    System.Threading.Thread.Sleep(2000); 
+                    System.Threading.Thread.Sleep(3000); 
                     MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات "); 
                 } 
                 Application.Restart(); 

@@ -67,6 +67,10 @@
             panel4 = new Panel();
             MovSuppliers = new DevExpress.XtraEditors.SimpleButton();
             panel5 = new Panel();
+            btnCustomer = new DevExpress.XtraEditors.SimpleButton();
+            panel19 = new Panel();
+            btnMovCustomer = new DevExpress.XtraEditors.SimpleButton();
+            panel22 = new Panel();
             pnl_05 = new FlowLayoutPanel();
             btnCases = new DevExpress.XtraEditors.SimpleButton();
             btnFactNew = new DevExpress.XtraEditors.SimpleButton();
@@ -158,7 +162,7 @@
             pnl_11.Controls.Add(btnStngs);
             pnl_11.Controls.Add(panel18);
             pnl_11.Dock = DockStyle.Top;
-            pnl_11.Location = new Point(0, 651);
+            pnl_11.Location = new Point(0, 675);
             pnl_11.Margin = new Padding(4, 2, 4, 2);
             pnl_11.Name = "pnl_11";
             pnl_11.Size = new Size(268, 50);
@@ -219,7 +223,7 @@
             pnl_10.Controls.Add(simpleButton19);
             pnl_10.Controls.Add(panel17);
             pnl_10.Dock = DockStyle.Top;
-            pnl_10.Location = new Point(0, 589);
+            pnl_10.Location = new Point(0, 613);
             pnl_10.Margin = new Padding(4, 2, 4, 2);
             pnl_10.Name = "pnl_10";
             pnl_10.Size = new Size(268, 62);
@@ -306,7 +310,7 @@
             pnl_09.Controls.Add(simpleButton10);
             pnl_09.Controls.Add(panel9);
             pnl_09.Dock = DockStyle.Top;
-            pnl_09.Location = new Point(0, 527);
+            pnl_09.Location = new Point(0, 551);
             pnl_09.Margin = new Padding(4, 2, 4, 2);
             pnl_09.Name = "pnl_09";
             pnl_09.Size = new Size(268, 62);
@@ -392,7 +396,7 @@
             pnl_08.Controls.Add(simpleButton12);
             pnl_08.Controls.Add(panel11);
             pnl_08.Dock = DockStyle.Top;
-            pnl_08.Location = new Point(0, 465);
+            pnl_08.Location = new Point(0, 489);
             pnl_08.Margin = new Padding(4, 2, 4, 2);
             pnl_08.Name = "pnl_08";
             pnl_08.Size = new Size(268, 62);
@@ -480,7 +484,7 @@
             pnl_07.Controls.Add(btnPayEmp);
             pnl_07.Controls.Add(panel15);
             pnl_07.Dock = DockStyle.Top;
-            pnl_07.Location = new Point(0, 403);
+            pnl_07.Location = new Point(0, 427);
             pnl_07.Margin = new Padding(4, 2, 4, 2);
             pnl_07.Name = "pnl_07";
             pnl_07.Size = new Size(268, 62);
@@ -594,11 +598,15 @@
             pnl_06.Controls.Add(panel4);
             pnl_06.Controls.Add(MovSuppliers);
             pnl_06.Controls.Add(panel5);
+            pnl_06.Controls.Add(btnCustomer);
+            pnl_06.Controls.Add(panel19);
+            pnl_06.Controls.Add(btnMovCustomer);
+            pnl_06.Controls.Add(panel22);
             pnl_06.Dock = DockStyle.Top;
-            pnl_06.Location = new Point(0, 353);
+            pnl_06.Location = new Point(0, 365);
             pnl_06.Margin = new Padding(4, 2, 4, 2);
             pnl_06.Name = "pnl_06";
-            pnl_06.Size = new Size(268, 50);
+            pnl_06.Size = new Size(268, 62);
             pnl_06.TabIndex = 6;
             // 
             // btnSession
@@ -617,7 +625,7 @@
             btnSession.Name = "btnSession";
             btnSession.Size = new Size(264, 57);
             btnSession.TabIndex = 1;
-            btnSession.Text = "إدارة الموردين";
+            btnSession.Text = "إدارة الموردين و العملاء";
             btnSession.Click += btnSession_Click;
             // 
             // btnSuppliers
@@ -674,6 +682,59 @@
             panel5.Size = new Size(10, 50);
             panel5.TabIndex = 35;
             // 
+            // btnCustomer
+            // 
+            btnCustomer.Appearance.BackColor = Color.FromArgb(50, 107, 244);
+            btnCustomer.Appearance.BorderColor = Color.White;
+            btnCustomer.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnCustomer.Appearance.Options.UseBackColor = true;
+            btnCustomer.Appearance.Options.UseBorderColor = true;
+            btnCustomer.Appearance.Options.UseFont = true;
+            btnCustomer.Cursor = Cursors.Hand;
+            btnCustomer.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnCustomer.Location = new Point(41, 171);
+            btnCustomer.Margin = new Padding(4, 2, 4, 2);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Size = new Size(223, 50);
+            btnCustomer.TabIndex = 36;
+            btnCustomer.Text = "قائمة العملاء";
+            btnCustomer.Click += btnCustomer_Click;
+            // 
+            // panel19
+            // 
+            panel19.BackColor = Color.FromArgb(251, 196, 25);
+            panel19.Location = new Point(23, 171);
+            panel19.Margin = new Padding(4, 2, 4, 2);
+            panel19.Name = "panel19";
+            panel19.Size = new Size(10, 50);
+            panel19.TabIndex = 37;
+            // 
+            // btnMovCustomer
+            // 
+            btnMovCustomer.Appearance.BackColor = Color.FromArgb(50, 107, 244);
+            btnMovCustomer.Appearance.BorderColor = Color.White;
+            btnMovCustomer.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnMovCustomer.Appearance.Options.UseBackColor = true;
+            btnMovCustomer.Appearance.Options.UseBorderColor = true;
+            btnMovCustomer.Appearance.Options.UseFont = true;
+            btnMovCustomer.Cursor = Cursors.Hand;
+            btnMovCustomer.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnMovCustomer.Location = new Point(41, 225);
+            btnMovCustomer.Margin = new Padding(4, 2, 4, 2);
+            btnMovCustomer.Name = "btnMovCustomer";
+            btnMovCustomer.Size = new Size(223, 50);
+            btnMovCustomer.TabIndex = 38;
+            btnMovCustomer.Text = "حركة العملاء";
+            // 
+            // panel22
+            // 
+            panel22.BackColor = Color.FromArgb(251, 196, 25);
+            panel22.Location = new Point(23, 225);
+            panel22.Margin = new Padding(4, 2, 4, 2);
+            panel22.Name = "panel22";
+            panel22.Size = new Size(10, 50);
+            panel22.TabIndex = 39;
+            // 
             // pnl_05
             // 
             pnl_05.BackColor = Color.FromArgb(42, 32, 110);
@@ -686,7 +747,7 @@
             pnl_05.Location = new Point(0, 303);
             pnl_05.Margin = new Padding(0);
             pnl_05.Name = "pnl_05";
-            pnl_05.Size = new Size(268, 50);
+            pnl_05.Size = new Size(268, 62);
             pnl_05.TabIndex = 5;
             // 
             // btnCases
@@ -1342,5 +1403,9 @@
         private DevExpress.XtraEditors.SimpleButton btnSett;
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.SimpleButton btnCustomer;
+        private Panel panel19;
+        private DevExpress.XtraEditors.SimpleButton btnMovCustomer;
+        private Panel panel22;
     }
 }

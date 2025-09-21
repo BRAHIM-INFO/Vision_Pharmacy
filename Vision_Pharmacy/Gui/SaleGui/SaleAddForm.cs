@@ -44,7 +44,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
         private Customer Customer;
         private int RowId;
         private static CustomerUserControl _CustomerUser;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private string searchItem;
         AllClasses AllClasses = new AllClasses();
         private int ResultAddOrEdit;

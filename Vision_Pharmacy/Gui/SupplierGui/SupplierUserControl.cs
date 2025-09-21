@@ -33,7 +33,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
         private readonly LoadingUser loading;
         private int RowId;
         private static SupplierUserControl _supplierUser;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private Label labelEmptyData;
         private string searchItem;
         private RepositoryItemButtonEdit actionButtons;
@@ -372,7 +372,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                             {
                                 if (gridView1.RowCount > 0)
                                 {
-                                    SetIDSelcted();
+                                    IdList = new List<int>();  SetIDSelcted();
                                     if (MessageBox.Show($"هل تريد حذف {row.Name}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                     {
                                         loading.Show();
@@ -386,8 +386,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                                                     _dataHelper.Delete(RowId);
                                                 }
 
-                                                SupplierUserControl_Load(sender, e); // إعادة تحميل البيانات
-                                                //LoadData();
+                                                 LoadData();
                                                 MessageCollection.ShowDeletNotification();
                                             }
                                             else
@@ -451,7 +450,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                     {
                         if (gridView1.RowCount > 0)
                         {
-                            SetIDSelcted();
+                            IdList = new List<int>();  SetIDSelcted();
                             var result = MessageCollection.DeleteActtion();
                             if (result == true)
                             {
@@ -465,9 +464,8 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                                             RowId = IdList[i];
                                             _dataHelper.Delete(RowId);
                                         }
-                                        SupplierUserControl_Load(sender, e); // إعادة تحميل البيانات
-
-                                        // LoadData();
+                                         
+                                        LoadData();
                                         MessageCollection.ShowDeletNotification();
                                     }
                                     else

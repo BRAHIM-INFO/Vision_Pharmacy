@@ -36,7 +36,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
         private readonly LoadingUser loading;
         private int RowId;
         private static MedicationUserControl _MedicationUser;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private Label labelEmptyData;
         private string searchItem;
         private RepositoryItemButtonEdit actionButtons;
@@ -52,7 +52,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
             AllClasses.RoundButtonCorners(btnAdd, 15);
             AllClasses.RoundButtonCorners(btnExcel, 15);
             AllClasses.RoundButtonCorners(btnPrint, 15);
-            //gridView1.OptionsBehavior.Editable = false;
+          
             
             if (Properties.Settings.Default.ChangeLang == "Ar")
             {
@@ -99,6 +99,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
 
                     // هنا تقدر تستعمل excelPath في القراءة أو المعالجة
                     ImportMedications(excelPath);
+                    LoadData();
                 }
             }
            
@@ -272,7 +273,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                             {
                                 if (gridView1.RowCount > 0)
                                 {
-                                    SetIDSelcted();
+                                    IdList = new List<int>();  SetIDSelcted();
                                     if (MessageBox.Show($"هل تريد حذف {row.Name}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                     {
                                         loading.Show();
@@ -286,8 +287,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                                                     _dataHelper.Delete(RowId);
                                                 }
 
-                                                MedicationUserControl_Load(sender, e); // إعادة تحميل البيانات
-                                                //LoadData();
+                                                LoadData();
                                                 MessageCollection.ShowDeletNotification();
                                             }
                                             else
@@ -352,7 +352,7 @@ namespace Vision_Pharmacy.Gui.MedicationGui
                     {
                         if (gridView1.RowCount > 0)
                         {
-                            SetIDSelcted();
+                            IdList = new List<int>();  SetIDSelcted();
                             var result = MessageCollection.DeleteActtion();
                             if (result == true)
                             {

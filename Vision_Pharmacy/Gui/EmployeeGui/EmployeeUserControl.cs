@@ -34,7 +34,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
         private readonly LoadingUser loading;
         private int RowId;
         private static EmployeeUserControl _EmployeesUser;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private Label labelEmptyData;
         private string searchItem;
         private RepositoryItemButtonEdit actionButtons;
@@ -47,7 +47,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
             _dataHelper = (IDataHelper<Employees>)ContainerConfig.ObjectType("Employees");
             LoadData();
-            //gridView1.OptionsBehavior.Editable = false;
+            //
 
             if (Properties.Settings.Default.ChangeLang == "Ar")
             {
@@ -85,7 +85,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
             {
                 if (gridView1.RowCount > 0)
                 {
-                    SetIDSelcted();
+                    IdList = new List<int>();  SetIDSelcted();
                     var result = MessageCollection.DeleteActtion();
                     if (result == true)
                     {
@@ -407,7 +407,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
                             {
                                 if (gridView1.RowCount > 0)
                                 {
-                                    SetIDSelcted();
+                                    IdList = new List<int>();  SetIDSelcted();
                                     if (MessageBox.Show($"هل تريد حذف {row.FullName}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                     {
                                         loading.Show();
@@ -421,8 +421,8 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
                                                     _dataHelper.Delete(RowId);
                                                 }
 
-                                                EmployeeUserControl_Load(sender, e); // إعادة تحميل البيانات
-                                                //LoadData();
+                                                 
+                                                LoadData();
                                                 MessageCollection.ShowDeletNotification();
                                             }
                                             else
@@ -486,7 +486,7 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
                     {
                         if (gridView1.RowCount > 0)
                         {
-                            SetIDSelcted();
+                            IdList = new List<int>();  SetIDSelcted();
                             var result = MessageCollection.DeleteActtion();
                             if (result == true)
                             {
@@ -500,9 +500,8 @@ namespace Vision_Pharmacy.Gui.EmployeeGui
                                             RowId = IdList[i];
                                             _dataHelper.Delete(RowId);
                                         }
-                                        EmployeeUserControl_Load(sender, e); // إعادة تحميل البيانات
-
-                                        // LoadData();
+                                       
+                                        LoadData();
                                         MessageCollection.ShowDeletNotification();
                                     }
                                     else

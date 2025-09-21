@@ -32,7 +32,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         private readonly LoadingUser loading;
         private int RowId;
         private static PurchaseUserControl _PurchaseUserControl;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private Label labelEmptyData;
         private string searchItem;
         private RepositoryItemButtonEdit actionButtons;
@@ -432,8 +432,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 else MessageBox.Show("❌ Error during printing: " + ex.Message);
             }
         }
-
-
+         
         #endregion
 
         private void btnPrintPurch_Click(object sender, EventArgs e)

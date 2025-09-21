@@ -44,7 +44,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         private Suppliers Supplier;
         private int RowId;
         private static SupplierUserControl _supplierUser;
-        private List<int> IdList = new List<int>();
+        private List<int> IdList;
         private string searchItem;
         AllClasses AllClasses = new AllClasses();
         private int ResultAddOrEdit;
@@ -1054,7 +1054,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
         private void btnForm_Click(object sender, EventArgs e)
         {
-
+            SupplierAddForm SupplierAddForm = new SupplierAddForm(0,null);
+            SupplierAddForm.ShowDialog();
+            LoadDataSupplier(); 
         }
     }
 }

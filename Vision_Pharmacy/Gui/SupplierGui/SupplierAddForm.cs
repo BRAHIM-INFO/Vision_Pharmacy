@@ -42,6 +42,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
         private readonly SupplierUserControl supplierUserControl;
         private readonly LoadingUser loading;
         private IDataHelper<Suppliers> _dataHelper;
+        private Label labelEmptyData;
         private Suppliers suppliers;
         private int ResultAddOrEdit;
         AllClasses AllClasses = new AllClasses();
@@ -135,7 +136,7 @@ namespace Vision_Pharmacy.Gui.SupplierGui
                 MessageCollection.ShowAddNotification();
                 ClearFileds();
                 // Updat View
-                supplierUserControl.LoadData();
+               if (supplierUserControl != null) supplierUserControl.LoadData();
             }
             else // End with database error
             {
