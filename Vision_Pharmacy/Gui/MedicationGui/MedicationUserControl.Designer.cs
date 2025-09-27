@@ -109,7 +109,7 @@
             btnExcel.Margin = new Padding(4, 2, 4, 2);
             btnExcel.Name = "btnExcel";
             btnExcel.RightToLeft = RightToLeft.Yes;
-            btnExcel.Size = new Size(136, 46);
+            btnExcel.Size = new Size(10, 0);
             btnExcel.TabIndex = 33;
             btnExcel.Text = "تحميل قائمة";
             btnExcel.ToolTipTitle = "اضافة";
@@ -155,7 +155,7 @@
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(292, 2);
+            btnAdd.Location = new Point(166, 2);
             btnAdd.Margin = new Padding(4, 2, 4, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
@@ -243,7 +243,7 @@
             lblCounter.AutoSize = true;
             lblCounter.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
             lblCounter.ForeColor = Color.Black;
-            lblCounter.Location = new Point(436, 0);
+            lblCounter.Location = new Point(310, 0);
             lblCounter.Margin = new Padding(4, 0, 4, 0);
             lblCounter.Name = "lblCounter";
             lblCounter.RightToLeft = RightToLeft.Yes;

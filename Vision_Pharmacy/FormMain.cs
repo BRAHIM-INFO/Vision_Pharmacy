@@ -39,11 +39,12 @@ namespace Vision_Pharmacy
         PanelSlider pnlCases;
         PanelSlider pnlFincance;
         PanelSlider pnlRH;
-        PanelSlider pnlRepports;
+        PanelSlider pnlAllUsers;
         PanelSlider pnlParametres;
         PanelSlider pnlGDS;
         PanelSlider pnlbtnSession;
         PanelSlider pnlPurchase;
+        PanelSlider pnlReppors;
         bool isMaximized = false;
 
         UserUserControl myControl;
@@ -53,7 +54,14 @@ namespace Vision_Pharmacy
         //private bool panelVisible = false;
         //private int panelTargetHeight = 190; // الارتفاع النهائي المطلوب عند الإظهار
         //private int slideStep = 10; // سرعة الحركة
+        // تعريف كل البانلات
+        FlowLayoutPanel[] panels;
 
+        // قاموس فيه الأحجام الكبيرة (لكل Panel حجم مختلف)
+        Dictionary<FlowLayoutPanel, Size> expandedSizes = new Dictionary<FlowLayoutPanel, Size>();
+
+        // الحجم الصغير (المغلق)
+        Size collapsedSize = new Size(268, 62);
 
         public FormMain()
         {
@@ -63,16 +71,30 @@ namespace Vision_Pharmacy
             // إعداد التايمر للحركة
             slideTimer.Interval = 15;
 
+
+            pnlGDS = new PanelSlider(pnl_03, btnGDS.Height + 2, 180, 15, false); // حركة طولية
             pnlPurchase = new PanelSlider(pnl_04, btnPurchases.Height + 2, 200, 15, false); // حركة طولية
+            pnlCases = new PanelSlider(pnl_05, btnCases.Height + 2, 180, 15, false); // حركة طولية
+            pnlbtnSession = new PanelSlider(pnl_06, btnSession.Height + 2, 285, 15, false); // حركة طولية
+            pnlRH = new PanelSlider(pnl_07, btnRH.Height + 2, 230, 15, false); // حركة طولية
+            pnlFincance = new PanelSlider(pnl_08, btnFinance.Height + 2, 175, 15, false); // حركة طولية
+            pnlReppors = new PanelSlider(pnl_09, btnRepports.Height + 2, 200, 15, false); // حركة طولية
+            pnlAllUsers = new PanelSlider(pnl_10, btnAllUsers.Height + 2, 235, 15, false); // حركة طولية
+            pnlParametres = new PanelSlider(pnl_11, btnSetings.Height + 2, 150, 15, false); // حركة طولية
+
             sliderlateral = new PanelSlider(PnlSetting, 0, 190, 40, false);
             sliderUsers = new PanelSlider(pnlSlideHome, 55, 270, 40, true);      // حركة عرضية 
-            pnlCases = new PanelSlider(pnl_05, btnCases.Height + 2, 180, 15, false); // حركة طولية
-            pnlFincance = new PanelSlider(pnl_08, btnFinance.Height + 2, 175, 15, false); // حركة طولية
-            pnlRH = new PanelSlider(pnl_07, btnRH.Height + 2, 230, 15, false); // حركة طولية
-            pnlRepports = new PanelSlider(pnl_10, btnRepports.Height + 2, 235, 15, false); // حركة طولية
-            pnlParametres = new PanelSlider(pnl_11, btnSetings.Height + 2, 150, 15, false); // حركة طولية
-            pnlGDS = new PanelSlider(pnl_03, btnGDS.Height + 2, 180, 15, false); // حركة طولية
-            pnlbtnSession = new PanelSlider(pnl_06, btnSession.Height + 2, 285, 15, false); // حركة طولية
+
+            // تعيين الأحجام المفتوحة (تغيرها حسب رغبتك)
+            expandedSizes[pnl_03] = new Size(268, 180);
+            expandedSizes[pnl_04] = new Size(268, 200);
+            expandedSizes[pnl_05] = new Size(268, 180);
+            expandedSizes[pnl_06] = new Size(268, 285);
+            expandedSizes[pnl_07] = new Size(268, 230);
+            expandedSizes[pnl_08] = new Size(268, 175);
+            expandedSizes[pnl_09] = new Size(268, 200);
+            expandedSizes[pnl_10] = new Size(268, 235);
+            expandedSizes[pnl_11] = new Size(268, 150);
 
             // نكبير الشاشة تلقائياً عند فتح النموذج
             if (!isMaximized)
@@ -86,6 +108,13 @@ namespace Vision_Pharmacy
                 this.StartPosition = FormStartPosition.CenterScreen;
                 isMaximized = false;
             }
+
+            panels = new FlowLayoutPanel[]
+            {
+               pnl_03,pnl_04,pnl_05,pnl_06,pnl_07,pnl_08,pnl_09,pnl_10,pnl_11
+            };
+
+
 
             if (Properties.Settings.Default.ChangeLang == "Ar")
             {
@@ -165,41 +194,45 @@ namespace Vision_Pharmacy
         private void btnCases_Click(object sender, EventArgs e)
         {
             pnlCases.Toggle();
+            if (!IsPanelOpen(pnl_05)) OpenOne(pnl_05);
             UpdateBreadcrumb("إدارة المبيعات");
         }
 
         private void btnSession_Click(object sender, EventArgs e)
         {
             pnlbtnSession.Toggle();
+            if (!IsPanelOpen(pnl_06)) OpenOne(pnl_06);
             UpdateBreadcrumb("إدارة الموردين و العملاء");
         }
 
-        private void btnCalander_Click(object sender, EventArgs e)
-        {
-            UpdateBreadcrumb("التقويم");
-        }
+        //private void btnCalander_Click(object sender, EventArgs e)
+        //{
+        //    UpdateBreadcrumb("التقويم");
+        //    if (!IsPanelOpen(pnl_09)) OpenOne(pnl_09);
+        //}
 
         private void btnFinance_Click(object sender, EventArgs e)
         {
             pnlFincance.Toggle();
+            if (!IsPanelOpen(pnl_08)) OpenOne(pnl_08);
         }
 
         private void btnRH_Click(object sender, EventArgs e)
         {
             pnlRH.Toggle();
-
+            if (!IsPanelOpen(pnl_07)) OpenOne(pnl_07);
         }
 
         private void btnRepports_Click(object sender, EventArgs e)
         {
-            pnlRepports.Toggle();
-
+            pnlAllUsers.Toggle();
+            if (!IsPanelOpen(pnl_10)) OpenOne(pnl_10);
         }
 
         private void btnSetings_Click(object sender, EventArgs e)
         {
             pnlParametres.Toggle();
-
+            if (!IsPanelOpen(pnl_11)) OpenOne(pnl_11);
         }
 
         private void FormMain_MouseDown(object sender, MouseEventArgs e)
@@ -342,25 +375,28 @@ namespace Vision_Pharmacy
             panelContainer.Controls.Add(MedicationUserControl);
         }
 
-        // hide all panel when click another button
-        // اخفاء جميع اللوحات عند النقر على زر آخر  
-        private void HideAllPanel(FlowLayoutPanel Pn01, FlowLayoutPanel Pn02, FlowLayoutPanel Pn03, FlowLayoutPanel Pn04, 
-                                  FlowLayoutPanel Pn05, FlowLayoutPanel Pn06, FlowLayoutPanel Pn07, FlowLayoutPanel Pn08)
-        { 
-            Pn01.Size = new Size(268, 62); 
-            Pn02.Size = new Size(268, 62);
-            Pn03.Size = new Size(268, 62);
-            Pn04.Size = new Size(268, 62);
-            Pn05.Size = new Size(268, 62);
-            Pn06.Size = new Size(268, 62);
-            Pn07.Size = new Size(268, 62);
-            Pn08.Size = new Size(268, 62);
+
+        private void OpenOne(FlowLayoutPanel selectedPanel)
+        {
+            foreach (var pnl in panels)
+            {
+                if (pnl == selectedPanel)
+                    pnl.Size = expandedSizes[pnl]; // يفتح المختار
+                else
+                    pnl.Size = collapsedSize;      // يغلق الباقي
+            }
+        }
+
+        // دالة ترجع true إذا الـ Panel مفتوح، false إذا مغلق
+        private bool IsPanelOpen(FlowLayoutPanel panel)
+        {
+            return panel.Size != collapsedSize;
         }
 
         private void btnGDS_Click(object sender, EventArgs e)
         {
             pnlGDS.Toggle();
-            HideAllPanel(PnlSetting, pnl_04, pnl_05, pnl_08, pnl_07, pnl_10, pnl_11, pnl_06);
+            if (!IsPanelOpen(pnl_03)) OpenOne(pnl_03);
             UpdateBreadcrumb("إدارة المخزون");
 
         }
@@ -376,8 +412,7 @@ namespace Vision_Pharmacy
         private void btnPurchases_Click(object sender, EventArgs e)
         {
             pnlPurchase.Toggle();
-            HideAllPanel(PnlSetting, pnl_03, pnl_05, pnl_08, pnl_07, pnl_10, pnl_11, pnl_06);
-
+            if (!IsPanelOpen(pnl_04)) OpenOne(pnl_04);
             UpdateBreadcrumb("إدارة المشتريات");
         }
 
@@ -427,8 +462,8 @@ namespace Vision_Pharmacy
             btnAttendEmp.Text = "تسجيل الحضور و الغياب";
             btnPayEmp.Text = "الرواتب الشهرية";
             btnFinance.Text = "الإدارة المالية";
-            btnCalander.Text = "قسم التقارير";
-            btnRepports.Text = "المستخدمون والصلاحيات";
+            btnRepports.Text = "قسم التقارير";
+            btnAllUsers.Text = "المستخدمون والصلاحيات";
             btnSetings.Text = "الاعدادات";
             simpleButton11.Text = "القضايا";
             simpleButton12.Text = "أنواع القضايا";
@@ -471,8 +506,8 @@ namespace Vision_Pharmacy
             btnAttendEmp.Text = "Attendance and Absence Recording";
             btnPayEmp.Text = "Monthly Payroll";
             btnFinance.Text = "Financial Management";
-            btnCalander.Text = "Reports Section";
-            btnRepports.Text = "Users and Permissions";
+            btnRepports.Text = "Reports Section";
+            btnAllUsers.Text = "Users and Permissions";
             btnSetings.Text = "Settings";
             simpleButton11.Text = "Issues";
             simpleButton12.Text = "Issues Types";
@@ -504,6 +539,13 @@ namespace Vision_Pharmacy
             CustomerUserControl CustomerUserControl = new CustomerUserControl();
             CustomerUserControl.Dock = DockStyle.Fill; // لملء الـ panel
             panelContainer.Controls.Add(CustomerUserControl);
+        }
+
+        private void btnRepports_Click_1(object sender, EventArgs e)
+        {
+            pnlReppors.Toggle();
+            UpdateBreadcrumb("قسم التقارير");
+            if (!IsPanelOpen(pnl_09)) OpenOne(pnl_09);
         }
     }
 
