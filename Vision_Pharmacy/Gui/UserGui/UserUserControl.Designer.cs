@@ -33,8 +33,6 @@
             lblTitle = new Label();
             SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
             PicLaterale = new PictureBox();
-            btnDelete = new DevExpress.XtraEditors.SimpleButton();
-            btnEdit = new DevExpress.XtraEditors.SimpleButton();
             btnAdd = new DevExpress.XtraEditors.SimpleButton();
             btnPrint = new DevExpress.XtraEditors.SimpleButton();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -52,8 +50,6 @@
             pnlTop.Controls.Add(lblTitle);
             pnlTop.Controls.Add(SeparatLat);
             pnlTop.Controls.Add(PicLaterale);
-            pnlTop.Controls.Add(btnDelete);
-            pnlTop.Controls.Add(btnEdit);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Margin = new Padding(4, 2, 4, 2);
@@ -101,56 +97,6 @@
             PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLaterale.TabIndex = 0;
             PicLaterale.TabStop = false;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Appearance.BackColor = Color.FromArgb(192, 0, 0);
-            btnDelete.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnDelete.Appearance.Options.UseBackColor = true;
-            btnDelete.Appearance.Options.UseFont = true;
-            btnDelete.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnDelete.AppearanceDisabled.Options.UseFont = true;
-            btnDelete.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnDelete.AppearanceHovered.Options.UseFont = true;
-            btnDelete.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnDelete.AppearancePressed.Options.UseFont = true;
-            btnDelete.Cursor = Cursors.Hand;
-            btnDelete.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDelete.ImageOptions.SvgImage");
-            btnDelete.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnDelete.Location = new Point(362, 2);
-            btnDelete.Margin = new Padding(4, 2, 4, 2);
-            btnDelete.Name = "btnDelete";
-            btnDelete.RightToLeft = RightToLeft.Yes;
-            btnDelete.Size = new Size(64, 46);
-            btnDelete.TabIndex = 4;
-            btnDelete.Text = "حذف";
-            btnDelete.ToolTipTitle = "اضافة";
-            btnDelete.Click += btnDelete_Click;
-            // 
-            // btnEdit
-            // 
-            btnEdit.Appearance.BackColor = Color.FromArgb(18, 128, 146);
-            btnEdit.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnEdit.Appearance.Options.UseBackColor = true;
-            btnEdit.Appearance.Options.UseFont = true;
-            btnEdit.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
-            btnEdit.AppearanceDisabled.Options.UseFont = true;
-            btnEdit.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
-            btnEdit.AppearanceHovered.Options.UseFont = true;
-            btnEdit.AppearancePressed.Font = new Font("Cairo Medium", 10F);
-            btnEdit.AppearancePressed.Options.UseFont = true;
-            btnEdit.Cursor = Cursors.Hand;
-            btnEdit.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnEdit.ImageOptions.SvgImage");
-            btnEdit.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnEdit.Location = new Point(432, 2);
-            btnEdit.Margin = new Padding(4, 2, 4, 2);
-            btnEdit.Name = "btnEdit";
-            btnEdit.RightToLeft = RightToLeft.Yes;
-            btnEdit.Size = new Size(85, 46);
-            btnEdit.TabIndex = 5;
-            btnEdit.Text = "تعديل";
-            btnEdit.ToolTipTitle = "اضافة";
-            btnEdit.Click += btnEdit_Click;
             // 
             // btnAdd
             // 
@@ -290,8 +236,6 @@
         private PictureBox PicLaterale;
         private DevExpress.XtraEditors.SeparatorControl SeparatLat;
         private Label lblTitle;
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
-        private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraGrid.GridControl gridControl1;

@@ -50,6 +50,7 @@ namespace Vision_Pharmacy.Gui.UserGui
             SwitchLang = new DevExpress.XtraEditors.ToggleSwitch();
             panel3 = new Panel();
             panel4 = new Panel();
+            PicLang = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textBoxUserName.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -60,6 +61,7 @@ namespace Vision_Pharmacy.Gui.UserGui
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)SwitchLang.Properties).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PicLang).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -254,6 +256,7 @@ namespace Vision_Pharmacy.Gui.UserGui
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(PicLang);
             panel2.Controls.Add(SwitchLang);
             panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(btnClose);
@@ -314,6 +317,16 @@ namespace Vision_Pharmacy.Gui.UserGui
             panel4.Size = new Size(26, 367);
             panel4.TabIndex = 15;
             // 
+            // PicLang
+            // 
+            PicLang.Image = Resources.Arab;
+            PicLang.Location = new Point(377, 428);
+            PicLang.Name = "PicLang";
+            PicLang.Size = new Size(33, 38);
+            PicLang.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLang.TabIndex = 16;
+            PicLang.TabStop = false;
+            // 
             // UserLogin
             // 
             Appearance.BackColor = Color.Black;
@@ -341,6 +354,7 @@ namespace Vision_Pharmacy.Gui.UserGui
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SwitchLang.Properties).EndInit();
             panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)PicLang).EndInit();
             ResumeLayout(false);
         }
 
@@ -365,5 +379,6 @@ namespace Vision_Pharmacy.Gui.UserGui
         private Panel panel3;
         private Panel panel4;
         private DevExpress.XtraEditors.ToggleSwitch SwitchLang;
+        private PictureBox PicLang;
     }
 }

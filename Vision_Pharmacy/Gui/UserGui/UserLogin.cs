@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Xpo;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -240,7 +241,7 @@ namespace Vision_Pharmacy.Gui.UserGui
             labelControl1.Text = Resources_Ar.labelControl1;
             btnLogin.Text = Resources_Ar.btnLogin;
             label2.Text = Resources_Ar.label2;
-            SwitchLang.Properties.OnText = Resources_En.SwitchLang;
+            SwitchLang.Properties.OffText = "عربي";
         }
 
         //ملف الموارد انجليزي
@@ -254,7 +255,7 @@ namespace Vision_Pharmacy.Gui.UserGui
             labelControl1.Text = Resources_En.labelControl1;
             btnLogin.Text = Resources_En.btnLogin;
             label2.Text = Resources_En.label2;
-            SwitchLang.Properties.OffText = Resources_En.SwitchLang;
+            SwitchLang.Properties.OffText = "انجليزي";
         }
 
         //private void ChangeLanguage(string langCode)
@@ -277,6 +278,8 @@ namespace Vision_Pharmacy.Gui.UserGui
         {
             if (SwitchLang.IsOn == true)
             {
+                PicLang.Image = null;
+                PicLang.Image = Properties.Resources.Eng; 
                 Properties.Settings.Default.ChangeLang = "En";
                 Properties.Settings.Default.Save();
                 ApplyEnglishResources();
@@ -284,6 +287,8 @@ namespace Vision_Pharmacy.Gui.UserGui
             }
             else
             {
+                PicLang.Image = null;
+                PicLang.Image = Properties.Resources.Arab; 
                 Properties.Settings.Default.ChangeLang = "Ar";
                 Properties.Settings.Default.Save();
                 ApplyArabicResources();

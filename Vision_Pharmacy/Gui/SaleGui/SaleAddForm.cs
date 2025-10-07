@@ -580,8 +580,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                 Categorytxt.Text = string.Empty;
                 Strengthtxt.Text = string.Empty;
                 Unitetxt.Text = string.Empty;
-                SalePricetxt.Text = "0";
-                SalePricetxt.Text = "0";
+                SalePricetxt.Text = "0"; 
                 Barcodetxt.Focus();
             }
             catch (Exception ex)
@@ -633,13 +632,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                 return false;
             }
         }
-
-
-
-
-
-
-
+         
         private void btnSave_Click(object sender, EventArgs e)
         {
 

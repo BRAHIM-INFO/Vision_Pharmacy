@@ -45,10 +45,9 @@
             buttonSaveServerSettings = new DevExpress.XtraEditors.SimpleButton();
             tabPageGeneral = new DevExpress.XtraEditors.GroupControl();
             tableLayoutPanel2 = new TableLayoutPanel();
-            buttonSaveGeneralSettings = new DevExpress.XtraEditors.SimpleButton();
+            label1 = new Label();
             labelCompanyName = new Label();
             numericUpDownDamageDuration = new NumericUpDown();
-            pictureBoxCompanyLogo = new PictureBox();
             textBoxCompanyName = new TextBox();
             labelDamageDuration = new Label();
             labelCompanyAdress = new Label();
@@ -59,6 +58,11 @@
             textBoxCompanyTel = new TextBox();
             labelCompanyEmail = new Label();
             textBoxCompanyEmail = new TextBox();
+            pictureBoxCompanyLogo = new PictureBox();
+            buttonSaveGeneralSettings = new DevExpress.XtraEditors.SimpleButton();
+            panel1 = new Panel();
+            PicLang = new PictureBox();
+            SwitchLang = new DevExpress.XtraEditors.ToggleSwitch();
             simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             buttonBackUp = new DevExpress.XtraEditors.SimpleButton();
             buttonRestore = new DevExpress.XtraEditors.SimpleButton();
@@ -70,8 +74,11 @@
             tabPageGeneral.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDamageDuration).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxCompanyLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)comboBoxCurrency.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCompanyLogo).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PicLang).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SwitchLang.Properties).BeginInit();
             SuspendLayout();
             // 
             // tabPageServer
@@ -285,7 +292,7 @@
             tabPageGeneral.Controls.Add(tableLayoutPanel2);
             tabPageGeneral.Location = new Point(475, 12);
             tabPageGeneral.Name = "tabPageGeneral";
-            tabPageGeneral.Size = new Size(579, 531);
+            tabPageGeneral.Size = new Size(579, 566);
             tabPageGeneral.TabIndex = 1;
             tabPageGeneral.Text = "اعدادات عامة";
             // 
@@ -295,10 +302,9 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 37.9373856F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 62.0626144F));
-            tableLayoutPanel2.Controls.Add(buttonSaveGeneralSettings, 1, 6);
+            tableLayoutPanel2.Controls.Add(label1, 0, 6);
             tableLayoutPanel2.Controls.Add(labelCompanyName, 0, 0);
             tableLayoutPanel2.Controls.Add(numericUpDownDamageDuration, 1, 5);
-            tableLayoutPanel2.Controls.Add(pictureBoxCompanyLogo, 0, 6);
             tableLayoutPanel2.Controls.Add(textBoxCompanyName, 1, 0);
             tableLayoutPanel2.Controls.Add(labelDamageDuration, 0, 5);
             tableLayoutPanel2.Controls.Add(labelCompanyAdress, 0, 1);
@@ -309,38 +315,35 @@
             tableLayoutPanel2.Controls.Add(textBoxCompanyTel, 1, 2);
             tableLayoutPanel2.Controls.Add(labelCompanyEmail, 0, 3);
             tableLayoutPanel2.Controls.Add(textBoxCompanyEmail, 1, 3);
+            tableLayoutPanel2.Controls.Add(pictureBoxCompanyLogo, 0, 7);
+            tableLayoutPanel2.Controls.Add(buttonSaveGeneralSettings, 1, 7);
+            tableLayoutPanel2.Controls.Add(panel1, 1, 6);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(2, 33);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 7;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 49.1228065F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50.8771935F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 54F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
+            tableLayoutPanel2.RowCount = 8;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 45.0980377F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 54.9019623F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 59F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 58F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 154F));
-            tableLayoutPanel2.Size = new Size(575, 496);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 63F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 72F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 126F));
+            tableLayoutPanel2.Size = new Size(575, 531);
             tableLayoutPanel2.TabIndex = 12;
             // 
-            // buttonSaveGeneralSettings
+            // label1
             // 
-            buttonSaveGeneralSettings.Appearance.BackColor = Color.FromArgb(64, 64, 64);
-            buttonSaveGeneralSettings.Appearance.Font = new Font("Cairo Medium", 10F);
-            buttonSaveGeneralSettings.Appearance.ForeColor = Color.White;
-            buttonSaveGeneralSettings.Appearance.Options.UseBackColor = true;
-            buttonSaveGeneralSettings.Appearance.Options.UseFont = true;
-            buttonSaveGeneralSettings.Appearance.Options.UseForeColor = true;
-            buttonSaveGeneralSettings.Cursor = Cursors.Hand;
-            buttonSaveGeneralSettings.Dock = DockStyle.Bottom;
-            buttonSaveGeneralSettings.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveGeneralSettings.ImageOptions.SvgImage");
-            buttonSaveGeneralSettings.ImageOptions.SvgImageSize = new Size(25, 25);
-            buttonSaveGeneralSettings.Location = new Point(3, 447);
-            buttonSaveGeneralSettings.Name = "buttonSaveGeneralSettings";
-            buttonSaveGeneralSettings.Size = new Size(351, 46);
-            buttonSaveGeneralSettings.TabIndex = 23;
-            buttonSaveGeneralSettings.Text = "حفظ الاعدادات";
-            buttonSaveGeneralSettings.Click += buttonSaveGeneralSettings_Click;
+            label1.AutoSize = true;
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Cairo Medium", 10F);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(476, 332);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 32);
+            label1.TabIndex = 24;
+            label1.Text = "لغة البرنامج";
             // 
             // labelCompanyName
             // 
@@ -357,22 +360,12 @@
             // numericUpDownDamageDuration
             // 
             numericUpDownDamageDuration.Font = new Font("Tahoma", 12F);
-            numericUpDownDamageDuration.Location = new Point(86, 286);
+            numericUpDownDamageDuration.Location = new Point(86, 272);
             numericUpDownDamageDuration.Name = "numericUpDownDamageDuration";
             numericUpDownDamageDuration.Size = new Size(268, 32);
             numericUpDownDamageDuration.TabIndex = 22;
             numericUpDownDamageDuration.TextAlign = HorizontalAlignment.Center;
             numericUpDownDamageDuration.Value = new decimal(new int[] { 60, 0, 0, 0 });
-            // 
-            // pictureBoxCompanyLogo
-            // 
-            pictureBoxCompanyLogo.Image = Properties.Resources.logo_2025;
-            pictureBoxCompanyLogo.Location = new Point(360, 344);
-            pictureBoxCompanyLogo.Name = "pictureBoxCompanyLogo";
-            pictureBoxCompanyLogo.Size = new Size(212, 149);
-            pictureBoxCompanyLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxCompanyLogo.TabIndex = 17;
-            pictureBoxCompanyLogo.TabStop = false;
             // 
             // textBoxCompanyName
             // 
@@ -390,9 +383,9 @@
             labelDamageDuration.BackColor = Color.White;
             labelDamageDuration.Font = new Font("Cairo Medium", 10F);
             labelDamageDuration.ForeColor = Color.Black;
-            labelDamageDuration.Location = new Point(431, 283);
+            labelDamageDuration.Location = new Point(431, 269);
             labelDamageDuration.Name = "labelDamageDuration";
-            labelDamageDuration.Size = new Size(141, 58);
+            labelDamageDuration.Size = new Size(141, 63);
             labelDamageDuration.TabIndex = 21;
             labelDamageDuration.Text = "التذكير للمواد التي\r\n سوف تتلف (يوم)";
             // 
@@ -402,7 +395,7 @@
             labelCompanyAdress.BackColor = Color.White;
             labelCompanyAdress.Font = new Font("Cairo Medium", 10F);
             labelCompanyAdress.ForeColor = Color.Black;
-            labelCompanyAdress.Location = new Point(506, 57);
+            labelCompanyAdress.Location = new Point(506, 44);
             labelCompanyAdress.Name = "labelCompanyAdress";
             labelCompanyAdress.Size = new Size(66, 32);
             labelCompanyAdress.TabIndex = 12;
@@ -411,7 +404,7 @@
             // comboBoxCurrency
             // 
             comboBoxCurrency.EditValue = "";
-            comboBoxCurrency.Location = new Point(89, 230);
+            comboBoxCurrency.Location = new Point(89, 217);
             comboBoxCurrency.Name = "comboBoxCurrency";
             comboBoxCurrency.Properties.Appearance.Font = new Font("Cairo Medium", 11F);
             comboBoxCurrency.Properties.Appearance.Options.UseFont = true;
@@ -437,7 +430,7 @@
             // textBoxCompanyAdress
             // 
             textBoxCompanyAdress.Font = new Font("Cairo Medium", 12F);
-            textBoxCompanyAdress.Location = new Point(3, 60);
+            textBoxCompanyAdress.Location = new Point(3, 47);
             textBoxCompanyAdress.Name = "textBoxCompanyAdress";
             textBoxCompanyAdress.RightToLeft = RightToLeft.No;
             textBoxCompanyAdress.Size = new Size(351, 45);
@@ -450,7 +443,7 @@
             labelCurrency.BackColor = Color.White;
             labelCurrency.Font = new Font("Cairo Medium", 10F);
             labelCurrency.ForeColor = Color.Black;
-            labelCurrency.Location = new Point(510, 227);
+            labelCurrency.Location = new Point(510, 214);
             labelCurrency.Name = "labelCurrency";
             labelCurrency.Size = new Size(62, 32);
             labelCurrency.TabIndex = 19;
@@ -462,7 +455,7 @@
             labelCompanyTel.BackColor = Color.White;
             labelCompanyTel.Font = new Font("Cairo Medium", 10F);
             labelCompanyTel.ForeColor = Color.Black;
-            labelCompanyTel.Location = new Point(509, 117);
+            labelCompanyTel.Location = new Point(509, 97);
             labelCompanyTel.Name = "labelCompanyTel";
             labelCompanyTel.Size = new Size(63, 32);
             labelCompanyTel.TabIndex = 14;
@@ -471,7 +464,7 @@
             // textBoxCompanyTel
             // 
             textBoxCompanyTel.Font = new Font("Cairo Medium", 12F);
-            textBoxCompanyTel.Location = new Point(3, 120);
+            textBoxCompanyTel.Location = new Point(3, 100);
             textBoxCompanyTel.Name = "textBoxCompanyTel";
             textBoxCompanyTel.RightToLeft = RightToLeft.No;
             textBoxCompanyTel.Size = new Size(351, 45);
@@ -484,7 +477,7 @@
             labelCompanyEmail.BackColor = Color.White;
             labelCompanyEmail.Font = new Font("Cairo Medium", 10F);
             labelCompanyEmail.ForeColor = Color.Black;
-            labelCompanyEmail.Location = new Point(508, 173);
+            labelCompanyEmail.Location = new Point(508, 156);
             labelCompanyEmail.Name = "labelCompanyEmail";
             labelCompanyEmail.Size = new Size(64, 32);
             labelCompanyEmail.TabIndex = 16;
@@ -493,12 +486,82 @@
             // textBoxCompanyEmail
             // 
             textBoxCompanyEmail.Font = new Font("Cairo Medium", 12F);
-            textBoxCompanyEmail.Location = new Point(3, 176);
+            textBoxCompanyEmail.Location = new Point(3, 159);
             textBoxCompanyEmail.Name = "textBoxCompanyEmail";
             textBoxCompanyEmail.RightToLeft = RightToLeft.No;
             textBoxCompanyEmail.Size = new Size(351, 45);
             textBoxCompanyEmail.TabIndex = 15;
             textBoxCompanyEmail.TextAlign = HorizontalAlignment.Center;
+            // 
+            // pictureBoxCompanyLogo
+            // 
+            pictureBoxCompanyLogo.Image = Properties.Resources.logo_2025;
+            pictureBoxCompanyLogo.Location = new Point(360, 407);
+            pictureBoxCompanyLogo.Name = "pictureBoxCompanyLogo";
+            pictureBoxCompanyLogo.Size = new Size(212, 121);
+            pictureBoxCompanyLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxCompanyLogo.TabIndex = 17;
+            pictureBoxCompanyLogo.TabStop = false;
+            // 
+            // buttonSaveGeneralSettings
+            // 
+            buttonSaveGeneralSettings.Appearance.BackColor = Color.FromArgb(64, 64, 64);
+            buttonSaveGeneralSettings.Appearance.Font = new Font("Cairo Medium", 10F);
+            buttonSaveGeneralSettings.Appearance.ForeColor = Color.White;
+            buttonSaveGeneralSettings.Appearance.Options.UseBackColor = true;
+            buttonSaveGeneralSettings.Appearance.Options.UseFont = true;
+            buttonSaveGeneralSettings.Appearance.Options.UseForeColor = true;
+            buttonSaveGeneralSettings.Cursor = Cursors.Hand;
+            buttonSaveGeneralSettings.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveGeneralSettings.ImageOptions.SvgImage");
+            buttonSaveGeneralSettings.ImageOptions.SvgImageSize = new Size(25, 25);
+            buttonSaveGeneralSettings.Location = new Point(3, 407);
+            buttonSaveGeneralSettings.Name = "buttonSaveGeneralSettings";
+            buttonSaveGeneralSettings.Size = new Size(351, 68);
+            buttonSaveGeneralSettings.TabIndex = 23;
+            buttonSaveGeneralSettings.Text = "حفظ الاعدادات";
+            buttonSaveGeneralSettings.Click += buttonSaveGeneralSettings_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(PicLang);
+            panel1.Controls.Add(SwitchLang);
+            panel1.Location = new Point(64, 335);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(290, 51);
+            panel1.TabIndex = 25;
+            // 
+            // PicLang
+            // 
+            PicLang.Dock = DockStyle.Right;
+            PicLang.Image = Properties.Resources.Arab;
+            PicLang.Location = new Point(231, 0);
+            PicLang.Name = "PicLang";
+            PicLang.Size = new Size(59, 51);
+            PicLang.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLang.TabIndex = 18;
+            PicLang.TabStop = false;
+            // 
+            // SwitchLang
+            // 
+            SwitchLang.Cursor = Cursors.Hand;
+            SwitchLang.Location = new Point(41, 10);
+            SwitchLang.Name = "SwitchLang";
+            SwitchLang.Properties.Appearance.BackColor = Color.Transparent;
+            SwitchLang.Properties.Appearance.Font = new Font("Cairo Medium", 9F);
+            SwitchLang.Properties.Appearance.Options.UseBackColor = true;
+            SwitchLang.Properties.Appearance.Options.UseFont = true;
+            SwitchLang.Properties.AppearanceDisabled.Font = new Font("Cairo Medium", 9F);
+            SwitchLang.Properties.AppearanceDisabled.Options.UseFont = true;
+            SwitchLang.Properties.AppearanceFocused.Font = new Font("Cairo Medium", 9F);
+            SwitchLang.Properties.AppearanceFocused.Options.UseFont = true;
+            SwitchLang.Properties.AppearanceReadOnly.Font = new Font("Cairo Medium", 9F);
+            SwitchLang.Properties.AppearanceReadOnly.Options.UseFont = true;
+            SwitchLang.Properties.OffText = "عربي";
+            SwitchLang.Properties.OnText = "انجليزي";
+            SwitchLang.RightToLeft = RightToLeft.Yes;
+            SwitchLang.Size = new Size(184, 33);
+            SwitchLang.TabIndex = 17;
+            SwitchLang.Toggled += SwitchLang_Toggled;
             // 
             // simpleButton1
             // 
@@ -529,7 +592,7 @@
             buttonBackUp.Cursor = Cursors.Hand;
             buttonBackUp.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonBackUp.ImageOptions.SvgImage");
             buttonBackUp.ImageOptions.SvgImageSize = new Size(60, 60);
-            buttonBackUp.Location = new Point(475, 547);
+            buttonBackUp.Location = new Point(475, 584);
             buttonBackUp.Name = "buttonBackUp";
             buttonBackUp.Size = new Size(274, 114);
             buttonBackUp.TabIndex = 10;
@@ -547,7 +610,7 @@
             buttonRestore.Cursor = Cursors.Hand;
             buttonRestore.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonRestore.ImageOptions.SvgImage");
             buttonRestore.ImageOptions.SvgImageSize = new Size(60, 60);
-            buttonRestore.Location = new Point(755, 547);
+            buttonRestore.Location = new Point(755, 584);
             buttonRestore.Name = "buttonRestore";
             buttonRestore.Size = new Size(299, 114);
             buttonRestore.TabIndex = 11;
@@ -560,7 +623,7 @@
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1063, 676);
+            ClientSize = new Size(1063, 709);
             Controls.Add(simpleButton1);
             Controls.Add(buttonRestore);
             Controls.Add(buttonBackUp);
@@ -581,8 +644,11 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDamageDuration).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxCompanyLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)comboBoxCurrency.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxCompanyLogo).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)PicLang).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SwitchLang.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -618,8 +684,12 @@
         private Label labelDamageDuration;
         private DevExpress.XtraEditors.SimpleButton buttonBackUp;
         private DevExpress.XtraEditors.SimpleButton buttonRestore;
-        private DevExpress.XtraEditors.SimpleButton buttonSaveGeneralSettings;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
+        private Label label1;
+        private DevExpress.XtraEditors.SimpleButton buttonSaveGeneralSettings;
+        private Panel panel1;
+        private PictureBox PicLang;
+        private DevExpress.XtraEditors.ToggleSwitch SwitchLang;
     }
 }

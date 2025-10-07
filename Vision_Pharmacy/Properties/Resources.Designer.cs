@@ -183,6 +183,16 @@ namespace Vision_Pharmacy.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Arab {
+            get {
+                object obj = ResourceManager.GetObject("Arab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap characters_people_holding_pharmaceutical_icons {
             get {
                 object obj = ResourceManager.GetObject("characters-people-holding-pharmaceutical-icons", resourceCulture);
@@ -237,6 +247,16 @@ namespace Vision_Pharmacy.Properties {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Eng {
+            get {
+                object obj = ResourceManager.GetObject("Eng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

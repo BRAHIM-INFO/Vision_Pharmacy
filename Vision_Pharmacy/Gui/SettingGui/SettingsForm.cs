@@ -49,7 +49,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
 
         private void buttonSaveServerSettings_Click(object sender, EventArgs e)
         {
-             SaveConString();
+            SaveConString();
 
         }
 
@@ -116,7 +116,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
             {
                 // Get And Set Excit Settings
                 textBoxCompanyName.Text = Properties.Settings.Default.CompanyName;
-                textBoxCompanyAdress.Text = Properties.Settings.Default.CompanyAdress; 
+                textBoxCompanyAdress.Text = Properties.Settings.Default.CompanyAdress;
                 textBoxCompanyEmail.Text = Properties.Settings.Default.CompanyEmail;
                 textBoxCompanyTel.Text = " رقم الهاتف : " + Properties.Settings.Default.CompanyTel;
                 comboBoxCurrency.SelectedItem = Properties.Settings.Default.Currency;
@@ -144,7 +144,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
                 Properties.Settings.Default.CompanyName = textBoxCompanyName.Text;
                 Properties.Settings.Default.CompanyAdress = textBoxCompanyAdress.Text;
                 Properties.Settings.Default.CompanyEmail = textBoxCompanyEmail.Text;
-                Properties.Settings.Default.CompanyTel = textBoxCompanyTel.Text; 
+                Properties.Settings.Default.CompanyTel = textBoxCompanyTel.Text;
                 Properties.Settings.Default.Currency = comboBoxCurrency.SelectedItem.ToString();
                 Properties.Settings.Default.NotificationDamagDuration = Convert.ToInt32(numericUpDownDamageDuration.Value);
                 numericUpDownDamageDuration.Text = Properties.Settings.Default.NotificationDamagDuration.ToString();
@@ -184,7 +184,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
             {
                 textBoxPort.Enabled = true;
                 textBoxUser.Enabled = true;
-                textBoxPassword.Enabled = true; 
+                textBoxPassword.Enabled = true;
             }
             else
             {
@@ -216,8 +216,8 @@ namespace Vision_Pharmacy.Gui.SettingGui
 
                     Properties.Settings.Default.SQLServerConString = ConString;
                     Properties.Settings.Default.Save();
-                    System.Threading.Thread.Sleep(3000); 
-                    MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات "); 
+                    System.Threading.Thread.Sleep(3000);
+                    MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات ");
                 }
                 else
                 {
@@ -226,10 +226,10 @@ namespace Vision_Pharmacy.Gui.SettingGui
 
                     Properties.Settings.Default.SQLServerConString = ConString;
                     Properties.Settings.Default.Save();
-                    System.Threading.Thread.Sleep(3000); 
-                    MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات "); 
-                } 
-                Application.Restart(); 
+                    System.Threading.Thread.Sleep(3000);
+                    MessageBox.Show("تم تحديث الاتصال بنجاح , اعد تشغيل البرنامج لتطبيق الاعدادات ");
+                }
+                Application.Restart();
             }
 
 
@@ -261,7 +261,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
             labelDataBase.Text = "اسم قاعدة البيانات";
             labelPort.Text = "المنفذ (Port)";
             labelUser.Text = "اسم المستخدم";
-            labelPassword.Text = "كلمة المرور"; 
+            labelPassword.Text = "كلمة المرور";
             buttonSaveServerSettings.Text = "حفظ اعدادات الاتصال";
             tabPageGeneral.Text = "اخر نسخ احتاطي:" + "(" + Properties.Settings.Default.LastBackUpDate + ")";
             buttonBackUp.Text = "اخذ نسخة احتياطية";
@@ -292,7 +292,7 @@ namespace Vision_Pharmacy.Gui.SettingGui
             labelDataBase.Text = "Database Name";
             labelPort.Text = "Port";
             labelUser.Text = "User Name";
-            labelPassword.Text = "Password"; 
+            labelPassword.Text = "Password";
             buttonSaveServerSettings.Text = "Save Connection Settings";
             tabPageGeneral.Text = "Last BackUp:" + "(" + Properties.Settings.Default.LastBackUpDate + ")";
             buttonBackUp.Text = "Back Up";
@@ -304,6 +304,25 @@ namespace Vision_Pharmacy.Gui.SettingGui
 
         }
 
+        private void SwitchLang_Toggled(object sender, EventArgs e)
+        { 
+            if (SwitchLang.IsOn == true)
+            {
+                PicLang.Image = null;
+                PicLang.Image = Properties.Resources.Eng;
+                Properties.Settings.Default.ChangeLang = "En";
+                Properties.Settings.Default.Save();
+                ApplyEnglishResources();
 
+            }
+            else
+            {
+                PicLang.Image = null;
+                PicLang.Image = Properties.Resources.Arab;
+                Properties.Settings.Default.ChangeLang = "Ar";
+                Properties.Settings.Default.Save();
+                ApplyArabicResources();
+            }
+        }
     }
 }

@@ -413,6 +413,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             // 
             SalePricetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SalePricetxt.BackColor = Color.FromArgb(232, 246, 255);
+            SalePricetxt.Enabled = false;
             SalePricetxt.Font = new Font("Cairo Medium", 9F);
             SalePricetxt.Location = new Point(449, 51);
             SalePricetxt.Margin = new Padding(4, 2, 4, 2);

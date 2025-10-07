@@ -154,6 +154,9 @@
   <data name="7317104" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\7317104.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Arab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="characters-people-holding-pharmaceutical-icons" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\characters-people-holding-pharmaceutical-icons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -171,6 +174,9 @@
   </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Eng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Eng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fondSup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondSup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

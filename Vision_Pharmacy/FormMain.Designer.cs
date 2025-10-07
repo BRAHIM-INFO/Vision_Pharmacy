@@ -111,6 +111,8 @@
             btnSett = new DevExpress.XtraEditors.SimpleButton();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             btnExit = new DevExpress.XtraEditors.SimpleButton();
+            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            panel23 = new Panel();
             pnlSlideHome.SuspendLayout();
             pnl_11.SuspendLayout();
             pnl_10.SuspendLayout();
@@ -395,6 +397,8 @@
             pnl_08.Controls.Add(panel10);
             pnl_08.Controls.Add(simpleButton12);
             pnl_08.Controls.Add(panel11);
+            pnl_08.Controls.Add(simpleButton1);
+            pnl_08.Controls.Add(panel23);
             pnl_08.Dock = DockStyle.Top;
             pnl_08.Location = new Point(0, 489);
             pnl_08.Margin = new Padding(4, 2, 4, 2);
@@ -436,7 +440,7 @@
             simpleButton11.Name = "simpleButton11";
             simpleButton11.Size = new Size(223, 50);
             simpleButton11.TabIndex = 32;
-            simpleButton11.Text = "القضايا";
+            simpleButton11.Text = "المصروفات";
             // 
             // panel10
             // 
@@ -462,7 +466,7 @@
             simpleButton12.Name = "simpleButton12";
             simpleButton12.Size = new Size(223, 50);
             simpleButton12.TabIndex = 34;
-            simpleButton12.Text = "أنواع القضايا";
+            simpleButton12.Text = "المداخيل";
             // 
             // panel11
             // 
@@ -1286,6 +1290,32 @@
             btnExit.TabIndex = 25;
             btnExit.Text = "تسجيل الخروج";
             // 
+            // simpleButton1
+            // 
+            simpleButton1.Appearance.BackColor = Color.FromArgb(50, 107, 244);
+            simpleButton1.Appearance.BorderColor = Color.White;
+            simpleButton1.Appearance.Font = new Font("Cairo Medium", 10F);
+            simpleButton1.Appearance.Options.UseBackColor = true;
+            simpleButton1.Appearance.Options.UseBorderColor = true;
+            simpleButton1.Appearance.Options.UseFont = true;
+            simpleButton1.Cursor = Cursors.Hand;
+            simpleButton1.ImageOptions.SvgImageSize = new Size(25, 25);
+            simpleButton1.Location = new Point(41, 171);
+            simpleButton1.Margin = new Padding(4, 2, 4, 2);
+            simpleButton1.Name = "simpleButton1";
+            simpleButton1.Size = new Size(223, 50);
+            simpleButton1.TabIndex = 36;
+            simpleButton1.Text = "الأرباح";
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.FromArgb(251, 196, 25);
+            panel23.Location = new Point(23, 171);
+            panel23.Margin = new Padding(4, 2, 4, 2);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(10, 50);
+            panel23.TabIndex = 37;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -1407,5 +1437,7 @@
         private Panel panel19;
         private DevExpress.XtraEditors.SimpleButton btnMovCustomer;
         private Panel panel22;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private Panel panel23;
     }
 }
