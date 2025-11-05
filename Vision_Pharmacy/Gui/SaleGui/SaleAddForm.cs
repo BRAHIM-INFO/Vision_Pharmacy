@@ -353,39 +353,23 @@ namespace Vision_Pharmacy.Gui.SaleGui
         {
             if (e.KeyCode == Keys.Enter)
             {
+                e.SuppressKeyPress = true; // منع صوت ding
                 string barcode = Barcodetxt.Text.Trim();
-                string msg = "";
-                if (string.IsNullOrEmpty(barcode))
-                    return;
+                if (string.IsNullOrEmpty(barcode)) return;
 
-                Reinitialis:
-                // جلب الدواء من قاعدة البيانات (باستخدام DataHelper أو أي Repository عندك)
-                var medication = await Task.Run(() => _dataHelperMedication.GetData()
-                                        .FirstOrDefault(m => m.Barcode == barcode));
+                // جلب المنتج من قاعدة البيانات
+                var medication = _dataHelperMedication.GetData()
+                                      .FirstOrDefault(m => m.Barcode == barcode);
 
-                if (medication != null)
+                if (medication == null)
                 {
-                    // تعبئة الحقول
-                    Nametxt.Text = medication.Name;
-                    GenericNametxt.Text = medication.GenericName;
-                    Manufacturertxt.Text = medication.Manufacturer;
-                    MedicineTypetxt.Text = medication.Form; // الشكل الصيدلي
-                    Categorytxt.Text = medication.Category;
-                    Strengthtxt.Text = medication.Strength;
-                    Unitetxt.Text = medication.Unite;
-                    QuantityInStocktxt.Text = "0";
-                    MinimumStockLeveltxt.Text = "0";
-                    BatchNumbertxt.Text = medication.BatchNumber;
-                    LocationInStoretxt.Text = medication.LocationInStore;
-                    ExpiryDatetxt.Text = medication.ExpiryDate.ToString("yyyy-MM-dd");
-                }
-                else
-                {
-                    if (Properties.Settings.Default.ChangeLang == "Ar") msg = "❌ الباركود غير موجود في قاعدة البيانات\nهل تريد إنشاء منتج جديد؟";
-                    else msg = "❌ The barcode does not exist in the database.\nDo you want to create a new product?";
-                    var result = MessageBox.Show(msg, "تنبيه",
-                                                 MessageBoxButtons.YesNo,
-                                                 MessageBoxIcon.Warning);
+                    // المنتج غير موجود → رسالة تأكيد
+                    var result = MessageBox.Show(
+                        "❌ هذا الباركود غير موجود في قاعدة بيانات المخزون.\n\nهل تريد إضافة المنتج الجديد الآن؟",
+                        "تنبيه",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
 
                     if (result == DialogResult.Yes)
                     {
@@ -414,25 +398,151 @@ namespace Vision_Pharmacy.Gui.SaleGui
                         }
                         else
                         {
-                            MedicationAddForm MedicationAddForm = new MedicationAddForm(Barcodetxt.Text, txtCustomer.Text);
-                            MedicationAddForm.ShowDialog();
-                            Thread.Sleep(1000); // الانتظار قليلاً للتأكد من إضافة المنتج
-                            AutoCompleteBarcode(); // إعادة تحميل الباركودات
-                            goto Reinitialis; // إعادة التحقق من الباركود بعد إضافة المنتج
-                        }
+                            // فتح نافذة إضافة منتج جديد (مثال: MedicationAddForm)
+                            MedicationAddForm addForm = new MedicationAddForm(barcode, txtCustomer.Text);
+                            if (addForm.ShowDialog() == DialogResult.OK)
+                            {
+                                // إعادة تحميل البيانات بعد إضافة المنتج
+                                medication = _dataHelperMedication.GetData()
+                                               .FirstOrDefault(m => m.Barcode == barcode);
 
+                                if (medication != null)
+                                {
+                                    AddOrUpdateRow(medication); // إعادة محاولة إضافة المنتج
+                                }
+                            }
+                        }
                     }
+
+                    Barcodetxt.Clear();
+                    return;
                 }
-                if (!string.IsNullOrEmpty(Nametxt.Text))
+
+                // المنتج موجود بالفعل → إدخاله في GridControl أو تحديث الكمية
+                AddOrUpdateRow(medication);
+
+                Barcodetxt.Clear();
+            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    string barcode = Barcodetxt.Text.Trim();
+            //    string msg = "";
+            //    if (string.IsNullOrEmpty(barcode))
+            //        return;
+
+            //    Reinitialis:
+            //    // جلب الدواء من قاعدة البيانات (باستخدام DataHelper أو أي Repository عندك)
+            //    var medication = await Task.Run(() => _dataHelperMedication.GetData()
+            //                            .FirstOrDefault(m => m.Barcode == barcode));
+
+            //    if (medication != null)
+            //    {
+            //        // تعبئة الحقول
+            //        Nametxt.Text = medication.Name;
+            //        GenericNametxt.Text = medication.GenericName;
+            //        Manufacturertxt.Text = medication.Manufacturer;
+            //        MedicineTypetxt.Text = medication.Form; // الشكل الصيدلي
+            //        Categorytxt.Text = medication.Category;
+            //        Strengthtxt.Text = medication.Strength;
+            //        Unitetxt.Text = medication.Unite;
+            //        QuantityInStocktxt.Text = "0";
+            //        MinimumStockLeveltxt.Text = "0";
+            //        BatchNumbertxt.Text = medication.BatchNumber;
+            //        LocationInStoretxt.Text = medication.LocationInStore;
+            //        ExpiryDatetxt.Text = medication.ExpiryDate.ToString("yyyy-MM-dd");
+            //    }
+            //    else
+            //    {
+            //        if (Properties.Settings.Default.ChangeLang == "Ar") msg = "❌ الباركود غير موجود في قاعدة البيانات\nهل تريد إنشاء منتج جديد؟";
+            //        else msg = "❌ The barcode does not exist in the database.\nDo you want to create a new product?";
+            //        var result = MessageBox.Show(msg, "تنبيه",
+            //                                     MessageBoxButtons.YesNo,
+            //                                     MessageBoxIcon.Warning);
+
+            //        if (result == DialogResult.Yes)
+            //        {
+            //            if (string.IsNullOrWhiteSpace(txtCustomer.Text))
+            //            {
+            //                if (Properties.Settings.Default.ChangeLang == "Ar")
+            //                {
+            //                    MessageBox.Show(
+            //                        "⚠️ يرجى اختيار المورد أولاً قبل إنشاء المنتج الجديد.",
+            //                        "تنبيه",
+            //                        MessageBoxButtons.OK,
+            //                        MessageBoxIcon.Warning
+            //                    );
+            //                }
+            //                else
+            //                {
+            //                    MessageBox.Show(
+            //                        "⚠️ Please select a Customer first before creating a new product.",
+            //                        "Warning",
+            //                        MessageBoxButtons.OK,
+            //                        MessageBoxIcon.Warning
+            //                    );
+            //                }
+            //                return; // إيقاف العملية وعدم فتح النافذة &é"&"&  
+
+            //            }
+            //            else
+            //            {
+            //                MedicationAddForm MedicationAddForm = new MedicationAddForm(Barcodetxt.Text, txtCustomer.Text);
+            //                MedicationAddForm.ShowDialog();
+            //                Thread.Sleep(1000); // الانتظار قليلاً للتأكد من إضافة المنتج
+            //                AutoCompleteBarcode(); // إعادة تحميل الباركودات
+            //                goto Reinitialis; // إعادة التحقق من الباركود بعد إضافة المنتج
+            //            }
+
+            //        }
+            //    }
+            //    if (!string.IsNullOrEmpty(Nametxt.Text))
+            //    {
+            //        if (e.KeyCode == Keys.Enter)
+            //        {
+            //            e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
+            //            this.SelectNextControl((Control)sender, true, true, true, true);
+            //        }
+            //    }
+            //}
+        }
+
+        private void AddOrUpdateRow(Medication medication)
+        {
+            var view = gridView1; // GridView داخل GridControl
+            bool found = false;
+
+            for (int i = 0; i < view.RowCount; i++)
+            {
+                string existingBarcode = view.GetRowCellValue(i, "Barcode")?.ToString();
+                if (existingBarcode == medication.Barcode)
                 {
-                    if (e.KeyCode == Keys.Enter)
-                    {
-                        e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                        this.SelectNextControl((Control)sender, true, true, true, true);
-                    }
+                    // المنتج موجود → زيادة الكمية
+                    int currentQty = Convert.ToInt32(view.GetRowCellValue(i, "Quantity"));
+                    view.SetRowCellValue(i, "Quantity", currentQty + 1);
+
+                    // تحديث السعر الكلي
+                    decimal price = Convert.ToDecimal(view.GetRowCellValue(i, "SalePrice"));
+                    view.SetRowCellValue(i, "Total", price * (currentQty + 1));
+
+                    found = true;
+                    break;
                 }
             }
+
+            if (!found)
+            {
+                // المنتج غير موجود → إضافة سطر جديد
+                view.AddNewRow();
+                int newRowHandle = view.FocusedRowHandle;
+
+                view.SetRowCellValue(newRowHandle, "Barcode", medication.Barcode);
+                view.SetRowCellValue(newRowHandle, "Name", medication.Name);
+                view.SetRowCellValue(newRowHandle, "SalePrice", medication.SalePrice);
+                view.SetRowCellValue(newRowHandle, "Quantity", 1);
+                view.SetRowCellValue(newRowHandle, "Total", medication.SalePrice * 1);
+            }
         }
+
 
         private void PicChange_Click(object sender, EventArgs e)
         {
@@ -580,7 +690,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                 Categorytxt.Text = string.Empty;
                 Strengthtxt.Text = string.Empty;
                 Unitetxt.Text = string.Empty;
-                SalePricetxt.Text = "0"; 
+                SalePricetxt.Text = "0";
                 Barcodetxt.Focus();
             }
             catch (Exception ex)
@@ -632,7 +742,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                 return false;
             }
         }
-         
+
         private void btnSave_Click(object sender, EventArgs e)
         {
 
@@ -741,6 +851,11 @@ namespace Vision_Pharmacy.Gui.SaleGui
         {
             CustomerAddForm CustomerAddForm = new CustomerAddForm(0, null);
             CustomerAddForm.ShowDialog();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

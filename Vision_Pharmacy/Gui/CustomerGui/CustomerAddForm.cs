@@ -18,9 +18,7 @@ using Vision_Pharmacy.Gui.CustomerGui;
 namespace Vision_Pharmacy.Gui.CustomerGui
 {
     public partial class CustomerAddForm : DevExpress.XtraEditors.XtraForm
-    {
-
-
+    { 
         // تعريف المتغيرات للمنزلقات
         #region 
         [DllImport("user32.dll")]
@@ -75,9 +73,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         {
             LoadImage();
         }
-
-
-
+         
 
         // Events
         private void buttonSaveSup_Click(object sender, EventArgs e)
@@ -106,8 +102,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
         }
 
 
-        #region Methods
-
+        #region Methods 
         private void LoadImage()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();

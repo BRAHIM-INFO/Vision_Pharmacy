@@ -53,6 +53,8 @@
             panel10 = new Panel();
             simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
             panel11 = new Panel();
+            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            panel23 = new Panel();
             pnl_07 = new FlowLayoutPanel();
             btnRH = new DevExpress.XtraEditors.SimpleButton();
             btnListEmp = new DevExpress.XtraEditors.SimpleButton();
@@ -71,6 +73,8 @@
             panel19 = new Panel();
             btnMovCustomer = new DevExpress.XtraEditors.SimpleButton();
             panel22 = new Panel();
+            btnDoctorsList = new DevExpress.XtraEditors.SimpleButton();
+            panel24 = new Panel();
             pnl_05 = new FlowLayoutPanel();
             btnCases = new DevExpress.XtraEditors.SimpleButton();
             btnFactNew = new DevExpress.XtraEditors.SimpleButton();
@@ -111,8 +115,6 @@
             btnSett = new DevExpress.XtraEditors.SimpleButton();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             btnExit = new DevExpress.XtraEditors.SimpleButton();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            panel23 = new Panel();
             pnlSlideHome.SuspendLayout();
             pnl_11.SuspendLayout();
             pnl_10.SuspendLayout();
@@ -477,6 +479,32 @@
             panel11.Size = new Size(10, 50);
             panel11.TabIndex = 35;
             // 
+            // simpleButton1
+            // 
+            simpleButton1.Appearance.BackColor = Color.FromArgb(50, 107, 244);
+            simpleButton1.Appearance.BorderColor = Color.White;
+            simpleButton1.Appearance.Font = new Font("Cairo Medium", 10F);
+            simpleButton1.Appearance.Options.UseBackColor = true;
+            simpleButton1.Appearance.Options.UseBorderColor = true;
+            simpleButton1.Appearance.Options.UseFont = true;
+            simpleButton1.Cursor = Cursors.Hand;
+            simpleButton1.ImageOptions.SvgImageSize = new Size(25, 25);
+            simpleButton1.Location = new Point(41, 171);
+            simpleButton1.Margin = new Padding(4, 2, 4, 2);
+            simpleButton1.Name = "simpleButton1";
+            simpleButton1.Size = new Size(223, 50);
+            simpleButton1.TabIndex = 36;
+            simpleButton1.Text = "الأرباح";
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.FromArgb(251, 196, 25);
+            panel23.Location = new Point(23, 171);
+            panel23.Margin = new Padding(4, 2, 4, 2);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(10, 50);
+            panel23.TabIndex = 37;
+            // 
             // pnl_07
             // 
             pnl_07.BackColor = Color.FromArgb(42, 32, 110);
@@ -606,6 +634,8 @@
             pnl_06.Controls.Add(panel19);
             pnl_06.Controls.Add(btnMovCustomer);
             pnl_06.Controls.Add(panel22);
+            pnl_06.Controls.Add(btnDoctorsList);
+            pnl_06.Controls.Add(panel24);
             pnl_06.Dock = DockStyle.Top;
             pnl_06.Location = new Point(0, 365);
             pnl_06.Margin = new Padding(4, 2, 4, 2);
@@ -617,7 +647,7 @@
             // 
             btnSession.Appearance.BackColor = Color.FromArgb(42, 32, 133);
             btnSession.Appearance.BorderColor = Color.White;
-            btnSession.Appearance.Font = new Font("Cairo Medium", 12F);
+            btnSession.Appearance.Font = new Font("Cairo Medium", 11F);
             btnSession.Appearance.Options.UseBackColor = true;
             btnSession.Appearance.Options.UseBorderColor = true;
             btnSession.Appearance.Options.UseFont = true;
@@ -629,7 +659,7 @@
             btnSession.Name = "btnSession";
             btnSession.Size = new Size(264, 57);
             btnSession.TabIndex = 1;
-            btnSession.Text = "إدارة الموردين و العملاء";
+            btnSession.Text = "الموردين و العملاء و الأطباء";
             btnSession.Click += btnSession_Click;
             // 
             // btnSuppliers
@@ -738,6 +768,33 @@
             panel22.Name = "panel22";
             panel22.Size = new Size(10, 50);
             panel22.TabIndex = 39;
+            // 
+            // btnDoctorsList
+            // 
+            btnDoctorsList.Appearance.BackColor = Color.FromArgb(50, 107, 244);
+            btnDoctorsList.Appearance.BorderColor = Color.White;
+            btnDoctorsList.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnDoctorsList.Appearance.Options.UseBackColor = true;
+            btnDoctorsList.Appearance.Options.UseBorderColor = true;
+            btnDoctorsList.Appearance.Options.UseFont = true;
+            btnDoctorsList.Cursor = Cursors.Hand;
+            btnDoctorsList.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnDoctorsList.Location = new Point(41, 279);
+            btnDoctorsList.Margin = new Padding(4, 2, 4, 2);
+            btnDoctorsList.Name = "btnDoctorsList";
+            btnDoctorsList.Size = new Size(223, 50);
+            btnDoctorsList.TabIndex = 40;
+            btnDoctorsList.Text = "قائمة الأطباء";
+            btnDoctorsList.Click += btnDoctorsList_Click;
+            // 
+            // panel24
+            // 
+            panel24.BackColor = Color.FromArgb(251, 196, 25);
+            panel24.Location = new Point(23, 279);
+            panel24.Margin = new Padding(4, 2, 4, 2);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(10, 50);
+            panel24.TabIndex = 41;
             // 
             // pnl_05
             // 
@@ -1290,32 +1347,6 @@
             btnExit.TabIndex = 25;
             btnExit.Text = "تسجيل الخروج";
             // 
-            // simpleButton1
-            // 
-            simpleButton1.Appearance.BackColor = Color.FromArgb(50, 107, 244);
-            simpleButton1.Appearance.BorderColor = Color.White;
-            simpleButton1.Appearance.Font = new Font("Cairo Medium", 10F);
-            simpleButton1.Appearance.Options.UseBackColor = true;
-            simpleButton1.Appearance.Options.UseBorderColor = true;
-            simpleButton1.Appearance.Options.UseFont = true;
-            simpleButton1.Cursor = Cursors.Hand;
-            simpleButton1.ImageOptions.SvgImageSize = new Size(25, 25);
-            simpleButton1.Location = new Point(41, 171);
-            simpleButton1.Margin = new Padding(4, 2, 4, 2);
-            simpleButton1.Name = "simpleButton1";
-            simpleButton1.Size = new Size(223, 50);
-            simpleButton1.TabIndex = 36;
-            simpleButton1.Text = "الأرباح";
-            // 
-            // panel23
-            // 
-            panel23.BackColor = Color.FromArgb(251, 196, 25);
-            panel23.Location = new Point(23, 171);
-            panel23.Margin = new Padding(4, 2, 4, 2);
-            panel23.Name = "panel23";
-            panel23.Size = new Size(10, 50);
-            panel23.TabIndex = 37;
-            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -1439,5 +1470,7 @@
         private Panel panel22;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private Panel panel23;
+        private DevExpress.XtraEditors.SimpleButton btnDoctorsList;
+        private Panel panel24;
     }
 }

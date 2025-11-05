@@ -113,6 +113,16 @@ namespace Vision_Pharmacy.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _269 {
+            get {
+                object obj = ResourceManager.GetObject("269", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _3 {
             get {
                 object obj = ResourceManager.GetObject("3", resourceCulture);
@@ -217,6 +227,16 @@ namespace Vision_Pharmacy.Properties {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap doctor_16182897 {
+            get {
+                object obj = ResourceManager.GetObject("doctor_16182897", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -446,6 +466,16 @@ namespace Vision_Pharmacy.Properties {
         internal static System.Drawing.Bitmap person {
             get {
                 object obj = ResourceManager.GetObject("person", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap person_13508516 {
+            get {
+                object obj = ResourceManager.GetObject("person_13508516", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

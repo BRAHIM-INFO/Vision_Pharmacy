@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Vision_Pharmacy.Code;
 using Vision_Pharmacy.Gui.CustomerGui;
 using Vision_Pharmacy.Gui.DoashbordGui;
+using Vision_Pharmacy.Gui.Doctors;
 using Vision_Pharmacy.Gui.EmployeeGui;
 using Vision_Pharmacy.Gui.MedicationGui;
 using Vision_Pharmacy.Gui.PurchaseGui;
@@ -75,7 +76,7 @@ namespace Vision_Pharmacy
             pnlGDS = new PanelSlider(pnl_03, btnGDS.Height + 2, 180, 15, false); // حركة طولية
             pnlPurchase = new PanelSlider(pnl_04, btnPurchases.Height + 2, 200, 15, false); // حركة طولية
             pnlCases = new PanelSlider(pnl_05, btnCases.Height + 2, 180, 15, false); // حركة طولية
-            pnlbtnSession = new PanelSlider(pnl_06, btnSession.Height + 2, 285, 15, false); // حركة طولية
+            pnlbtnSession = new PanelSlider(pnl_06, btnSession.Height + 2, 340, 15, false); // حركة طولية
             pnlRH = new PanelSlider(pnl_07, btnRH.Height + 2, 230, 15, false); // حركة طولية
             pnlFincance = new PanelSlider(pnl_08, btnFinance.Height + 2, 175, 15, false); // حركة طولية
             pnlReppors = new PanelSlider(pnl_09, btnRepports.Height + 2, 200, 15, false); // حركة طولية
@@ -195,14 +196,14 @@ namespace Vision_Pharmacy
         {
             pnlCases.Toggle();
             if (!IsPanelOpen(pnl_05)) OpenOne(pnl_05);
-            UpdateBreadcrumb("إدارة المبيعات");
+            UpdateBreadcrumb("إدارة المبيعات و المرجعات");
         }
 
         private void btnSession_Click(object sender, EventArgs e)
         {
             pnlbtnSession.Toggle();
             if (!IsPanelOpen(pnl_06)) OpenOne(pnl_06);
-            UpdateBreadcrumb("إدارة الموردين و العملاء");
+            UpdateBreadcrumb("الموردين و العملاء و الأطباء");
         }
 
         //private void btnCalander_Click(object sender, EventArgs e)
@@ -452,8 +453,8 @@ namespace Vision_Pharmacy
             btnPurchases.Text = "إدارة المشتريات";
             btnAddFact.Text = "إضافة فاتورة شراء";
             simpleButton4.Text = "قائمة المشتريات";
-            btnCases.Text = "إدارة المبيعات";
-            btnSession.Text = "إدارة الموردين ز العملاء";
+            btnCases.Text = "إدارة المبيعات و المرجعات";
+            btnSession.Text = "إدارة الموردين و العملاء";
             btnListFacts.Text = "قائمة المبيعات";
             btnFactNew.Text = "إضافة فاتورة بيع";
             MovSuppliers.Text = "حركات الموردين";
@@ -546,6 +547,14 @@ namespace Vision_Pharmacy
             pnlReppors.Toggle();
             UpdateBreadcrumb("قسم التقارير");
             if (!IsPanelOpen(pnl_09)) OpenOne(pnl_09);
+        }
+
+        private void btnDoctorsList_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
+            DoctorUserControl DoctorUserControl = new DoctorUserControl();
+            DoctorUserControl.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(DoctorUserControl);
         }
     }
 

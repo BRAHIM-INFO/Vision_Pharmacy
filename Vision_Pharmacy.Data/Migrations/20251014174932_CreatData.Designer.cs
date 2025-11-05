@@ -12,8 +12,8 @@ using Vision_Pharmacy.Data.EFSqlServer;
 namespace Vision_Pharmacy.Data.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20250815234250_CreateData")]
-    partial class CreateData
+    [Migration("20251014174932_CreatData")]
+    partial class CreatData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,7 +105,15 @@ namespace Vision_Pharmacy.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -249,9 +257,6 @@ namespace Vision_Pharmacy.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PurchaseId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("PurchasePrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -268,13 +273,6 @@ namespace Vision_Pharmacy.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SupplierId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SupplierName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("SuppliersId")
                         .HasColumnType("int");
 
@@ -283,8 +281,6 @@ namespace Vision_Pharmacy.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PurchaseId");
 
                     b.HasIndex("SuppliersId");
 
@@ -354,18 +350,39 @@ namespace Vision_Pharmacy.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Barcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("FactureDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FactureNum")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("PurchaseDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("PurchasePrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("SalePrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("SupplierId")
                         .HasColumnType("int");
+
+                    b.Property<string>("SupplierName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
@@ -379,6 +396,61 @@ namespace Vision_Pharmacy.Data.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Purchase");
+                });
+
+            modelBuilder.Entity("Vision_Pharmacy.Core.Sale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Barcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("DoctorName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FactureDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FactureNum")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("SalePrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("TypePaimt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sale");
                 });
 
             modelBuilder.Entity("Vision_Pharmacy.Core.Strength", b =>
@@ -486,10 +558,6 @@ namespace Vision_Pharmacy.Data.Migrations
 
             modelBuilder.Entity("Vision_Pharmacy.Core.Medication", b =>
                 {
-                    b.HasOne("Vision_Pharmacy.Core.Purchase", null)
-                        .WithMany("Items")
-                        .HasForeignKey("PurchaseId");
-
                     b.HasOne("Vision_Pharmacy.Core.Suppliers", null)
                         .WithMany("Medications")
                         .HasForeignKey("SuppliersId");
@@ -505,11 +573,6 @@ namespace Vision_Pharmacy.Data.Migrations
             modelBuilder.Entity("Vision_Pharmacy.Core.Customer", b =>
                 {
                     b.Navigation("Purchases");
-                });
-
-            modelBuilder.Entity("Vision_Pharmacy.Core.Purchase", b =>
-                {
-                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("Vision_Pharmacy.Core.Suppliers", b =>

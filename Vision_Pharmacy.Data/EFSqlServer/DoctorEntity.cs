@@ -80,7 +80,7 @@ namespace Vision_Pharmacy.Data.EFSqlServer
         public List<Doctor> Search(string SearchItem)
         {
             db = new DBContext();
-            return db.Doctor.Where(x => x.Name.Contains(SearchItem)
+            return db.Doctor.Where(x => x.FullName.Contains(SearchItem)
              || x.Specialty.Contains(SearchItem)
             || x.Id.ToString() == SearchItem)
                 .ToList();

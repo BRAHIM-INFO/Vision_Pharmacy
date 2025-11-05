@@ -197,6 +197,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             label20.Size = new Size(114, 29);
             label20.TabIndex = 120;
             label20.Text = "هل الدواء نشط؟";
+            label20.Visible = false;
             // 
             // IsActivetxt
             // 
@@ -210,6 +211,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             IsActivetxt.Properties.OnText = "نشط";
             IsActivetxt.Size = new Size(94, 24);
             IsActivetxt.TabIndex = 117;
+            IsActivetxt.Visible = false;
             // 
             // RequiresPrescriptiontxt
             // 
@@ -784,7 +786,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             txtFactureNum.Margin = new Padding(4, 2, 4, 2);
             txtFactureNum.Name = "txtFactureNum";
             txtFactureNum.ReadOnly = true;
-            txtFactureNum.Size = new Size(224, 39);
+            txtFactureNum.Size = new Size(230, 39);
             txtFactureNum.TabIndex = 1;
             txtFactureNum.TextAlign = HorizontalAlignment.Center;
             // 
@@ -1126,6 +1128,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             simpleButton1.Size = new Size(35, 36);
             simpleButton1.TabIndex = 83;
             simpleButton1.ToolTipTitle = "اضافة";
+            simpleButton1.Click += simpleButton1_Click;
             // 
             // panel3
             // 

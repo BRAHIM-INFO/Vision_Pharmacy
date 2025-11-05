@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Vision_Pharmacy.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateData : Migration
+    public partial class CreatData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -62,9 +62,11 @@ namespace Vision_Pharmacy.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Specialty = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -140,6 +142,30 @@ namespace Vision_Pharmacy.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Sale",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FactureDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FactureNum = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Barcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Discount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    DoctorName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TypePaimt = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CustomerId = table.Column<int>(type: "int", nullable: true),
+                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    SalePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Notes = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sale", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Strength",
                 columns: table => new
                 {
@@ -206,11 +232,17 @@ namespace Vision_Pharmacy.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PurchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FactureDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FactureNum = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TypePaimt = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Barcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SupplierId = table.Column<int>(type: "int", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    PurchasePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    SalePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    SupplierName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Notes = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -247,33 +279,20 @@ namespace Vision_Pharmacy.Data.Migrations
                     DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RequiresPrescription = table.Column<bool>(type: "bit", nullable: false),
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SupplierId = table.Column<int>(type: "int", nullable: false),
-                    SupplierName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LocationInStore = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    PurchaseId = table.Column<int>(type: "int", nullable: true),
                     SuppliersId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Medication", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Medication_Purchase_PurchaseId",
-                        column: x => x.PurchaseId,
-                        principalTable: "Purchase",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_Medication_Suppliers_SuppliersId",
                         column: x => x.SuppliersId,
                         principalTable: "Suppliers",
                         principalColumn: "Id");
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Medication_PurchaseId",
-                table: "Medication",
-                column: "PurchaseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Medication_SuppliersId",
@@ -314,6 +333,12 @@ namespace Vision_Pharmacy.Data.Migrations
                 name: "Payroll");
 
             migrationBuilder.DropTable(
+                name: "Purchase");
+
+            migrationBuilder.DropTable(
+                name: "Sale");
+
+            migrationBuilder.DropTable(
                 name: "Strength");
 
             migrationBuilder.DropTable(
@@ -321,9 +346,6 @@ namespace Vision_Pharmacy.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "User");
-
-            migrationBuilder.DropTable(
-                name: "Purchase");
 
             migrationBuilder.DropTable(
                 name: "Suppliers");

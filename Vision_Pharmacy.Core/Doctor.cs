@@ -9,9 +9,18 @@ namespace Vision_Pharmacy.Core
     public class Doctor
     {
         public int Id { get; set; } // Primary Key
-        public string Name { get; set; } // اسم الطبيب
+        
+        public string FullName { get; set; } // اسم الطبيب
+        
         public string Specialty { get; set; } // التخصص
-        public string Phone { get; set; } // رقم الهاتف
+        
+         public string Phone { get; set; } // رقم الهاتف
+
+        public string Address { get; set; } // العنوان
+
+        public string Email { get; set; } // البريد الإلكتروني
+
+        
     }
 
 }

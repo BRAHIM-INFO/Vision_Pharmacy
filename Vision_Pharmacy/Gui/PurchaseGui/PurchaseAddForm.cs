@@ -26,9 +26,7 @@ using Vision_Pharmacy.Gui.SupplierGui;
 namespace Vision_Pharmacy.Gui.PurchaseGui
 {
     public partial class PurchaseAddForm : DevExpress.XtraEditors.XtraForm
-    {
-
-
+    { 
         // Fields
         private readonly int id;
         private readonly PurchaseUserControl PurchaseUserControl;

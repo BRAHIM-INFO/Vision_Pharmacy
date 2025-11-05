@@ -62,8 +62,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
         private void btnAddPurch_Click(object sender, EventArgs e)
         {
-            PurchaseAddForm PurchaseAddForm = new PurchaseAddForm(0, this);
-            PurchaseAddForm.ShowDialog();
+            purchUserControl purchUserControl = new purchUserControl(0, this);
+            purchUserControl.ShowDialog();
+            //PurchaseAddForm PurchaseAddForm = new PurchaseAddForm(0, this);
+            //PurchaseAddForm.ShowDialog();
         }
 
 
