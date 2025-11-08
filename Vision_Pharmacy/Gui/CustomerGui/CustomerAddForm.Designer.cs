@@ -64,9 +64,10 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Resources._3850595;
-            pictureBox1.Location = new Point(4, 3);
+            pictureBox1.Location = new Point(20, 2);
+            pictureBox1.Margin = new Padding(4, 2, 4, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(214, 531);
+            pictureBox1.Size = new Size(214, 530);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
@@ -78,7 +79,8 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             lbltitle.AutoSize = true;
             lbltitle.Font = new Font("Cairo Medium", 12F);
             lbltitle.ForeColor = Color.Black;
-            lbltitle.Location = new Point(644, 0);
+            lbltitle.Location = new Point(639, 0);
+            lbltitle.Margin = new Padding(4, 0, 4, 0);
             lbltitle.Name = "lbltitle";
             lbltitle.Size = new Size(296, 37);
             lbltitle.TabIndex = 18;
@@ -90,7 +92,8 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
             separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(946, 3);
+            separatorControl1.Location = new Point(943, 2);
+            separatorControl1.Margin = new Padding(4, 2, 4, 2);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
             separatorControl1.Size = new Size(10, 70);
@@ -100,7 +103,8 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // 
             pictureBox3.BackColor = Color.Silver;
             pictureBox3.Image = Resources.trolley_9284599;
-            pictureBox3.Location = new Point(962, 3);
+            pictureBox3.Location = new Point(961, 2);
+            pictureBox3.Margin = new Padding(4, 2, 4, 2);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(80, 70);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -113,7 +117,8 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             lblCustomerEmail.AutoSize = true;
             lblCustomerEmail.BackColor = Color.Transparent;
             lblCustomerEmail.Font = new Font("Cairo Medium", 10F);
-            lblCustomerEmail.Location = new Point(645, 152);
+            lblCustomerEmail.Location = new Point(633, 150);
+            lblCustomerEmail.Margin = new Padding(4, 0, 4, 0);
             lblCustomerEmail.Name = "lblCustomerEmail";
             lblCustomerEmail.Size = new Size(124, 32);
             lblCustomerEmail.TabIndex = 24;
@@ -125,7 +130,8 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             lblCustomerPhone.AutoSize = true;
             lblCustomerPhone.BackColor = Color.Transparent;
             lblCustomerPhone.Font = new Font("Cairo Medium", 10F);
-            lblCustomerPhone.Location = new Point(645, 100);
+            lblCustomerPhone.Location = new Point(633, 98);
+            lblCustomerPhone.Margin = new Padding(4, 0, 4, 0);
             lblCustomerPhone.Name = "lblCustomerPhone";
             lblCustomerPhone.Size = new Size(63, 32);
             lblCustomerPhone.TabIndex = 23;
@@ -147,10 +153,11 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             buttonSaveSup.Dock = DockStyle.Bottom;
             buttonSaveSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveSup.ImageOptions.SvgImage");
             buttonSaveSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            buttonSaveSup.Location = new Point(186, 513);
+            buttonSaveSup.Location = new Point(189, 513);
+            buttonSaveSup.Margin = new Padding(4, 2, 4, 2);
             buttonSaveSup.Name = "buttonSaveSup";
             buttonSaveSup.RightToLeft = RightToLeft.Yes;
-            buttonSaveSup.Size = new Size(453, 45);
+            buttonSaveSup.Size = new Size(436, 46);
             buttonSaveSup.TabIndex = 26;
             buttonSaveSup.Text = "حفظ البيانات";
             buttonSaveSup.ToolTipTitle = "اضافة";
@@ -159,11 +166,12 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // txtCustomerPhone
             // 
             txtCustomerPhone.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtCustomerPhone.BackColor = Color.FromArgb(232, 246, 255);
+            txtCustomerPhone.BackColor = Color.White;
             txtCustomerPhone.Font = new Font("Cairo Medium", 10F);
-            txtCustomerPhone.Location = new Point(186, 103);
+            txtCustomerPhone.Location = new Point(189, 100);
+            txtCustomerPhone.Margin = new Padding(4, 2, 4, 2);
             txtCustomerPhone.Name = "txtCustomerPhone";
-            txtCustomerPhone.Size = new Size(452, 39);
+            txtCustomerPhone.Size = new Size(436, 39);
             txtCustomerPhone.TabIndex = 22;
             // 
             // lblCustomerAddress
@@ -172,7 +180,8 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             lblCustomerAddress.AutoSize = true;
             lblCustomerAddress.BackColor = Color.Transparent;
             lblCustomerAddress.Font = new Font("Cairo Medium", 10F);
-            lblCustomerAddress.Location = new Point(645, 50);
+            lblCustomerAddress.Location = new Point(633, 49);
+            lblCustomerAddress.Margin = new Padding(4, 0, 4, 0);
             lblCustomerAddress.Name = "lblCustomerAddress";
             lblCustomerAddress.Size = new Size(66, 32);
             lblCustomerAddress.TabIndex = 21;
@@ -181,21 +190,23 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // txtCustomerName
             // 
             txtCustomerName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtCustomerName.BackColor = Color.FromArgb(232, 246, 255);
+            txtCustomerName.BackColor = Color.White;
             txtCustomerName.Font = new Font("Cairo Medium", 10F);
-            txtCustomerName.Location = new Point(186, 3);
+            txtCustomerName.Location = new Point(189, 2);
+            txtCustomerName.Margin = new Padding(4, 2, 4, 2);
             txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.Size = new Size(452, 39);
+            txtCustomerName.Size = new Size(436, 39);
             txtCustomerName.TabIndex = 18;
             // 
             // txtCustomerAddress
             // 
             txtCustomerAddress.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtCustomerAddress.BackColor = Color.FromArgb(232, 246, 255);
+            txtCustomerAddress.BackColor = Color.White;
             txtCustomerAddress.Font = new Font("Cairo Medium", 10F);
-            txtCustomerAddress.Location = new Point(186, 53);
+            txtCustomerAddress.Location = new Point(189, 51);
+            txtCustomerAddress.Margin = new Padding(4, 2, 4, 2);
             txtCustomerAddress.Name = "txtCustomerAddress";
-            txtCustomerAddress.Size = new Size(452, 39);
+            txtCustomerAddress.Size = new Size(436, 39);
             txtCustomerAddress.TabIndex = 20;
             // 
             // lblCustomerName
@@ -204,9 +215,10 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             lblCustomerName.AutoSize = true;
             lblCustomerName.BackColor = Color.Transparent;
             lblCustomerName.Font = new Font("Cairo Medium", 10F);
-            lblCustomerName.Location = new Point(645, 0);
+            lblCustomerName.Location = new Point(633, 0);
+            lblCustomerName.Margin = new Padding(4, 0, 4, 0);
             lblCustomerName.Name = "lblCustomerName";
-            lblCustomerName.Size = new Size(167, 32);
+            lblCustomerName.Size = new Size(109, 49);
             lblCustomerName.TabIndex = 19;
             lblCustomerName.Text = "اسم العميل / المريض";
             // 
@@ -217,9 +229,10 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             btnClose.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnClose.ImageOptions.SvgImage");
             btnClose.ImageOptions.SvgImageSize = new Size(25, 25);
             btnClose.Location = new Point(12, 646);
+            btnClose.Margin = new Padding(4, 2, 4, 2);
             btnClose.Name = "btnClose";
             btnClose.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            btnClose.Size = new Size(40, 40);
+            btnClose.Size = new Size(40, 39);
             btnClose.TabIndex = 31;
             btnClose.Text = "simpleButton1";
             btnClose.Click += btnClose_Click;
@@ -229,9 +242,10 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             PicChange.BackColor = Color.Silver;
             PicChange.Cursor = Cursors.Hand;
             PicChange.Image = Resources.pictur;
-            PicChange.Location = new Point(9, 200);
+            PicChange.Location = new Point(9, 198);
+            PicChange.Margin = new Padding(4, 2, 4, 2);
             PicChange.Name = "PicChange";
-            PicChange.Size = new Size(171, 137);
+            PicChange.Size = new Size(172, 137);
             PicChange.SizeMode = PictureBoxSizeMode.StretchImage;
             PicChange.TabIndex = 32;
             PicChange.TabStop = false;
@@ -243,7 +257,8 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             lblCustomerNotes.AutoSize = true;
             lblCustomerNotes.BackColor = Color.Transparent;
             lblCustomerNotes.Font = new Font("Cairo Medium", 10F);
-            lblCustomerNotes.Location = new Point(645, 197);
+            lblCustomerNotes.Location = new Point(633, 196);
+            lblCustomerNotes.Margin = new Padding(4, 0, 4, 0);
             lblCustomerNotes.Name = "lblCustomerNotes";
             lblCustomerNotes.Size = new Size(131, 32);
             lblCustomerNotes.TabIndex = 35;
@@ -252,30 +267,34 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             // txtCustomerEmail
             // 
             txtCustomerEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtCustomerEmail.BackColor = Color.FromArgb(232, 246, 255);
+            txtCustomerEmail.BackColor = Color.White;
             txtCustomerEmail.Font = new Font("Cairo Medium", 10F);
-            txtCustomerEmail.Location = new Point(186, 155);
+            txtCustomerEmail.Location = new Point(189, 152);
+            txtCustomerEmail.Margin = new Padding(4, 2, 4, 2);
             txtCustomerEmail.Name = "txtCustomerEmail";
-            txtCustomerEmail.Size = new Size(452, 39);
+            txtCustomerEmail.Size = new Size(436, 39);
             txtCustomerEmail.TabIndex = 36;
             // 
             // txtCustomerNotes
             // 
             txtCustomerNotes.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtCustomerNotes.Font = new Font("Cairo Medium", 10F);
-            txtCustomerNotes.Location = new Point(186, 200);
+            txtCustomerNotes.Location = new Point(189, 198);
+            txtCustomerNotes.Margin = new Padding(4, 2, 4, 2);
             txtCustomerNotes.Multiline = true;
             txtCustomerNotes.Name = "txtCustomerNotes";
-            txtCustomerNotes.Size = new Size(452, 137);
+            txtCustomerNotes.Size = new Size(436, 137);
             txtCustomerNotes.TabIndex = 37;
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(238, 240, 255);
             flowLayoutPanel1.Controls.Add(pictureBox3);
             flowLayoutPanel1.Controls.Add(separatorControl1);
             flowLayoutPanel1.Controls.Add(lbltitle);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Margin = new Padding(4, 2, 4, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1045, 68);
             flowLayoutPanel1.TabIndex = 41;
@@ -285,7 +304,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.7165356F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 72.28346F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 182F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 184F));
             tableLayoutPanel1.Controls.Add(lblCustomerName, 0, 0);
             tableLayoutPanel1.Controls.Add(PicChange, 2, 4);
             tableLayoutPanel1.Controls.Add(lblCustomerAddress, 0, 1);
@@ -298,31 +317,34 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             tableLayoutPanel1.Controls.Add(lblCustomerPhone, 0, 2);
             tableLayoutPanel1.Controls.Add(txtCustomerPhone, 1, 2);
             tableLayoutPanel1.Controls.Add(lblCustomerEmail, 0, 3);
-            tableLayoutPanel1.Location = new Point(224, 3);
+            tableLayoutPanel1.Location = new Point(242, 2);
+            tableLayoutPanel1.Margin = new Padding(4, 2, 4, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 158F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 205F));
-            tableLayoutPanel1.Size = new Size(818, 561);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 206F));
+            tableLayoutPanel1.Size = new Size(799, 561);
             tableLayoutPanel1.TabIndex = 42;
             // 
             // flowLayoutPanel2
             // 
+            flowLayoutPanel2.BackColor = Color.FromArgb(238, 240, 255);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel1);
             flowLayoutPanel2.Controls.Add(pictureBox1);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 68);
+            flowLayoutPanel2.Margin = new Padding(4, 2, 4, 2);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(1045, 572);
             flowLayoutPanel2.TabIndex = 42;
             // 
             // CustomerAddForm
             // 
-            Appearance.BackColor = Color.FromArgb(232, 246, 255);
+            Appearance.BackColor = Color.White;
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -331,6 +353,7 @@ namespace Vision_Pharmacy.Gui.CustomerGui
             Controls.Add(flowLayoutPanel1);
             Controls.Add(btnClose);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 2, 4, 2);
             Name = "CustomerAddForm";
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;

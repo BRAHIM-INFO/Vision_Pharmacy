@@ -10,6 +10,7 @@ using Vision_Pharmacy.Gui.CustomerGui;
 using Vision_Pharmacy.Gui.DoashbordGui;
 using Vision_Pharmacy.Gui.Doctors;
 using Vision_Pharmacy.Gui.EmployeeGui;
+using Vision_Pharmacy.Gui.FinancialTransaction;
 using Vision_Pharmacy.Gui.MedicationGui;
 using Vision_Pharmacy.Gui.PurchaseGui;
 using Vision_Pharmacy.Gui.SaleGui;
@@ -79,7 +80,7 @@ namespace Vision_Pharmacy
             pnlbtnSession = new PanelSlider(pnl_06, btnSession.Height + 2, 340, 15, false); // حركة طولية
             pnlRH = new PanelSlider(pnl_07, btnRH.Height + 2, 230, 15, false); // حركة طولية
             pnlFincance = new PanelSlider(pnl_08, btnFinance.Height + 2, 175, 15, false); // حركة طولية
-            pnlReppors = new PanelSlider(pnl_09, btnRepports.Height + 2, 200, 15, false); // حركة طولية
+            pnlReppors = new PanelSlider(pnl_09, btnRepports.Height + 2, 360, 15, false); // حركة طولية
             pnlAllUsers = new PanelSlider(pnl_10, btnAllUsers.Height + 2, 235, 15, false); // حركة طولية
             pnlParametres = new PanelSlider(pnl_11, btnSetings.Height + 2, 150, 15, false); // حركة طولية
 
@@ -93,7 +94,7 @@ namespace Vision_Pharmacy
             expandedSizes[pnl_06] = new Size(268, 285);
             expandedSizes[pnl_07] = new Size(268, 230);
             expandedSizes[pnl_08] = new Size(268, 175);
-            expandedSizes[pnl_09] = new Size(268, 200);
+            expandedSizes[pnl_09] = new Size(268, 360);
             expandedSizes[pnl_10] = new Size(268, 235);
             expandedSizes[pnl_11] = new Size(268, 150);
 
@@ -466,12 +467,16 @@ namespace Vision_Pharmacy
             btnRepports.Text = "قسم التقارير";
             btnAllUsers.Text = "المستخدمون والصلاحيات";
             btnSetings.Text = "الاعدادات";
-            simpleButton11.Text = "القضايا";
-            simpleButton12.Text = "أنواع القضايا";
+            simpleButton11.Text = "المصروفات و المداخيل";
             simpleButton19.Text = "صلاحيات المستخدمين";
             btnUsers.Text = "المستخدمون";
             btnListUsers.Text = "قائمة المستخدمين";
             btnStngs.Text = "الإعدادات";
+            btnRpt01.Text = "تقارير المبيعات";
+            btnRpt02.Text = "تقارير المشتريات";
+            btnRpt03.Text = "تقارير المخزون";
+            btnRpt04.Text = "تقارير العملاء والأطباء";
+            btnRpt05.Text = "تقارير مالية وإدارية";
         }
 
         //ملف ترجمة الى اللغة الانجليزية
@@ -510,12 +515,16 @@ namespace Vision_Pharmacy
             btnRepports.Text = "Reports Section";
             btnAllUsers.Text = "Users and Permissions";
             btnSetings.Text = "Settings";
-            simpleButton11.Text = "Issues";
-            simpleButton12.Text = "Issues Types";
+            simpleButton11.Text = "Expenses and Revenues";
             simpleButton19.Text = "User Permissions";
             btnUsers.Text = "Users";
             btnListUsers.Text = "User List";
             btnStngs.Text = "Settings";
+            btnRpt01.Text = "Sales Reports";
+            btnRpt02.Text = "Purchase Reports";
+            btnRpt03.Text = "Inventory Reports";
+            btnRpt04.Text = "Customer and Doctor Reports";
+            btnRpt05.Text = "Financial and Administrative Reports";
         }
 
         private void btnSuppliers_Click(object sender, EventArgs e)
@@ -555,6 +564,47 @@ namespace Vision_Pharmacy
             DoctorUserControl DoctorUserControl = new DoctorUserControl();
             DoctorUserControl.Dock = DockStyle.Fill; // لملء الـ panel
             panelContainer.Controls.Add(DoctorUserControl);
+        }
+
+        private void simpleButton11_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
+            FinancialTransactionUserControl financialTransactionUserControl = new FinancialTransactionUserControl();
+            financialTransactionUserControl.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(financialTransactionUserControl);
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
+            AllMedicationAddForm AllMedicationAddForm = new AllMedicationAddForm();
+            AllMedicationAddForm.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(AllMedicationAddForm);
+        }
+
+        private void btnRpt01_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRpt02_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRpt03_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRpt04_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRpt05_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

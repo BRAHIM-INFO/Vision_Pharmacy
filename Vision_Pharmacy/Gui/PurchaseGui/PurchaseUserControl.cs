@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using DevExpress.CodeParser;
 using DevExpress.Utils.Svg;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
@@ -33,7 +34,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         private int RowId;
         private static PurchaseUserControl _PurchaseUserControl;
         private List<int> IdList;
-        private Label labelEmptyData;
+        private System.Windows.Forms.Label labelEmptyData;
         private string searchItem;
         private RepositoryItemButtonEdit actionButtons;
         AllClasses AllClasses = new AllClasses();
@@ -62,7 +63,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
         private void btnAddPurch_Click(object sender, EventArgs e)
         {
-            purchUserControl purchUserControl = new purchUserControl(0, this);
+            purchAddForm purchUserControl = new purchAddForm(0, this);
             purchUserControl.ShowDialog();
             //PurchaseAddForm PurchaseAddForm = new PurchaseAddForm(0, this);
             //PurchaseAddForm.ShowDialog();
@@ -194,7 +195,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         {
                             // عرض تفاصيل الدواء
                             RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                            PurchaseAddForm customerAdd = new PurchaseAddForm(RowId, this);
+                            purchAddForm customerAdd = new purchAddForm(RowId, this);
                             customerAdd.btnSave.Visible = false; // إخفاء زر الحفظ
                             customerAdd.ShowDialog();
                             return;
@@ -205,7 +206,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                             if (gridView1.RowCount > 0)
                             {
                                 RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                                PurchaseAddForm customerAdd = new PurchaseAddForm(RowId, this);
+                                purchAddForm customerAdd = new purchAddForm(RowId, this);
                                 customerAdd.ShowDialog();
                             }
                             else
@@ -243,7 +244,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             {
                 // عرض تفاصيل الدواء
                 RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                PurchaseAddForm customerAdd = new PurchaseAddForm(RowId, this);
+                purchAddForm customerAdd = new purchAddForm(RowId, this);
                 customerAdd.btnSave.Visible = false; // إخفاء زر الحفظ
                 customerAdd.ShowDialog();
             }
@@ -252,7 +253,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 if (gridView1.RowCount > 0)
                 {
                     RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                    PurchaseAddForm customerAdd = new PurchaseAddForm(RowId, this);
+                    purchAddForm customerAdd = new purchAddForm(RowId, this);
                     customerAdd.ShowDialog();
                 }
                 else
@@ -402,9 +403,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     //e.Graph.DrawRect(titleRect, BorderSide.All, Color.White, Color.White);  // ⬅️ مستطيل رمادي مع حدود سوداء
 
                     // 🔹 عنوان التقرير (منتصف الصفحة)
-                    string title = "قائمة المشتريات ";
-                    if (Properties.Settings.Default.ChangeLang == "Ar") title = "قائمة المشتريات ";
-                    else title = "Purchases List";
+                    string title = "قائمة الفواتير المشتريات ";
+                    if (Properties.Settings.Default.ChangeLang == "Ar") title = "قائمة الفواتير المشتريات ";
+                    else title = "Purchase Invoices List ";
                     e.Graph.Font = new Font("Cairo Medium", 18, FontStyle.Bold);
                     e.Graph.StringFormat = new BrickStringFormat(DevExpress.Drawing.DXStringAlignment.Far); // ⬅️ محاذاة النص إلى اليمين 
                     e.Graph.DrawString(title, Color.Black, new RectangleF(350, 150, 1250, 45), DevExpress.XtraPrinting.BorderSide.None);

@@ -25,7 +25,7 @@ namespace Vision_Pharmacy
             Application.SetCompatibleTextRenderingDefault(false);
 
             Startup getStarted = new Startup();
-            Application.Run(new WelcomeScreen());
+            Application.Run(new  WelcomeScreen());
         }
     }
 

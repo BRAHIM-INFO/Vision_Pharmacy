@@ -163,6 +163,16 @@ namespace Vision_Pharmacy.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _6617 {
+            get {
+                object obj = ResourceManager.GetObject("6617", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _6744 {
             get {
                 object obj = ResourceManager.GetObject("6744", resourceCulture);
@@ -276,6 +286,16 @@ namespace Vision_Pharmacy.Properties {
         internal static System.Drawing.Bitmap Eng {
             get {
                 object obj = ResourceManager.GetObject("Eng", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exchange_9090887 {
+            get {
+                object obj = ResourceManager.GetObject("exchange_9090887", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

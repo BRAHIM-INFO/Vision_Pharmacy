@@ -125,9 +125,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             panel1.Controls.Add(flowLayoutPanel2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 2, 4, 2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1567, 55);
+            panel1.Size = new Size(1343, 45);
             panel1.TabIndex = 42;
             // 
             // flowLayoutPanel2
@@ -139,18 +139,17 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             flowLayoutPanel2.Controls.Add(IsActivetxt);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 0);
-            flowLayoutPanel2.Margin = new Padding(4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1567, 55);
+            flowLayoutPanel2.Size = new Size(1343, 45);
             flowLayoutPanel2.TabIndex = 65;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Resources.drugstore_17347470;
-            pictureBox2.Location = new Point(1491, 2);
-            pictureBox2.Margin = new Padding(4, 2, 4, 2);
+            pictureBox2.Location = new Point(1278, 2);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(72, 55);
+            pictureBox2.Size = new Size(62, 45);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
@@ -160,12 +159,12 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(1473, 2);
-            separatorControl1.Margin = new Padding(4, 2, 4, 2);
+            separatorControl1.LineThickness = 8;
+            separatorControl1.Location = new Point(1263, 2);
+            separatorControl1.Margin = new Padding(3, 2, 3, 2);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(10, 55);
+            separatorControl1.Size = new Size(9, 45);
             separatorControl1.TabIndex = 1;
             // 
             // lblSupForm
@@ -174,10 +173,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             lblSupForm.AutoSize = true;
             lblSupForm.Font = new Font("Cairo Medium", 12F);
             lblSupForm.ForeColor = Color.Black;
-            lblSupForm.Location = new Point(1133, 0);
-            lblSupForm.Margin = new Padding(4, 0, 4, 0);
+            lblSupForm.Location = new Point(994, 0);
             lblSupForm.Name = "lblSupForm";
-            lblSupForm.Size = new Size(332, 37);
+            lblSupForm.Size = new Size(263, 30);
             lblSupForm.TabIndex = 1;
             lblSupForm.Text = "ادارة المشتريات >  اضافة فاتورة جديدة";
             // 
@@ -187,10 +185,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label20.AutoSize = true;
             label20.BackColor = Color.White;
             label20.Font = new Font("Cairo Medium", 9F);
-            label20.Location = new Point(1011, 0);
-            label20.Margin = new Padding(4, 0, 4, 0);
+            label20.Location = new Point(897, 0);
             label20.Name = "label20";
-            label20.Size = new Size(114, 29);
+            label20.Size = new Size(91, 23);
             label20.TabIndex = 120;
             label20.Text = "هل الدواء نشط؟";
             // 
@@ -199,12 +196,12 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             IsActivetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             IsActivetxt.EditValue = true;
             IsActivetxt.Enabled = false;
-            IsActivetxt.Location = new Point(909, 2);
-            IsActivetxt.Margin = new Padding(4, 2, 4, 2);
+            IsActivetxt.Location = new Point(810, 2);
+            IsActivetxt.Margin = new Padding(3, 2, 3, 2);
             IsActivetxt.Name = "IsActivetxt";
             IsActivetxt.Properties.OffText = "غير نشط";
             IsActivetxt.Properties.OnText = "نشط";
-            IsActivetxt.Size = new Size(94, 24);
+            IsActivetxt.Size = new Size(81, 18);
             IsActivetxt.TabIndex = 117;
             // 
             // RequiresPrescriptiontxt
@@ -212,12 +209,12 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             RequiresPrescriptiontxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             RequiresPrescriptiontxt.EditValue = true;
             RequiresPrescriptiontxt.Enabled = false;
-            RequiresPrescriptiontxt.Location = new Point(133, 142);
-            RequiresPrescriptiontxt.Margin = new Padding(4, 2, 4, 2);
+            RequiresPrescriptiontxt.Location = new Point(115, 115);
+            RequiresPrescriptiontxt.Margin = new Padding(3, 2, 3, 2);
             RequiresPrescriptiontxt.Name = "RequiresPrescriptiontxt";
             RequiresPrescriptiontxt.Properties.OffText = "لا";
             RequiresPrescriptiontxt.Properties.OnText = "نعم";
-            RequiresPrescriptiontxt.Size = new Size(91, 24);
+            RequiresPrescriptiontxt.Size = new Size(78, 18);
             RequiresPrescriptiontxt.TabIndex = 119;
             // 
             // label17
@@ -226,10 +223,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label17.AutoSize = true;
             label17.BackColor = Color.White;
             label17.Font = new Font("Cairo Medium", 9F);
-            label17.Location = new Point(288, 140);
-            label17.Margin = new Padding(4, 0, 4, 0);
+            label17.Location = new Point(248, 113);
             label17.Name = "label17";
-            label17.Size = new Size(118, 45);
+            label17.Size = new Size(128, 23);
             label17.TabIndex = 118;
             label17.Text = "هل يتطلب وصفة طبية؟";
             // 
@@ -238,10 +234,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             PicChange.BackColor = Color.Transparent;
             PicChange.Cursor = Cursors.Hand;
             PicChange.Image = Resources.product;
-            PicChange.Location = new Point(4, 2);
-            PicChange.Margin = new Padding(4, 2, 4, 2);
+            PicChange.Location = new Point(5, 2);
+            PicChange.Margin = new Padding(3, 2, 3, 2);
             PicChange.Name = "PicChange";
-            PicChange.Size = new Size(121, 43);
+            PicChange.Size = new Size(104, 35);
             PicChange.SizeMode = PictureBoxSizeMode.StretchImage;
             PicChange.TabIndex = 116;
             PicChange.TabStop = false;
@@ -253,10 +249,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label14.AutoSize = true;
             label14.BackColor = Color.White;
             label14.Font = new Font("Cairo Medium", 9F);
-            label14.Location = new Point(288, 96);
-            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Location = new Point(248, 77);
             label14.Name = "label14";
-            label14.Size = new Size(105, 29);
+            label14.Size = new Size(84, 23);
             label14.TabIndex = 115;
             label14.Text = "انتهاء الصلاحية";
             // 
@@ -265,8 +260,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             ExpiryDatetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ExpiryDatetxt.EditValue = null;
             ExpiryDatetxt.Enabled = false;
-            ExpiryDatetxt.Location = new Point(133, 98);
-            ExpiryDatetxt.Margin = new Padding(4, 2, 4, 2);
+            ExpiryDatetxt.Location = new Point(115, 79);
+            ExpiryDatetxt.Margin = new Padding(3, 2, 3, 2);
             ExpiryDatetxt.Name = "ExpiryDatetxt";
             ExpiryDatetxt.Properties.Appearance.BackColor = Color.FromArgb(227, 237, 249);
             ExpiryDatetxt.Properties.Appearance.Font = new Font("Tahoma", 10F);
@@ -276,7 +271,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             ExpiryDatetxt.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             ExpiryDatetxt.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             ExpiryDatetxt.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            ExpiryDatetxt.Size = new Size(147, 28);
+            ExpiryDatetxt.Size = new Size(126, 22);
             ExpiryDatetxt.TabIndex = 19;
             ExpiryDatetxt.KeyDown += ExpiryDatetxt_KeyDown;
             // 
@@ -286,11 +281,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             LocationInStoretxt.BackColor = Color.FromArgb(232, 246, 255);
             LocationInStoretxt.Enabled = false;
             LocationInStoretxt.Font = new Font("Cairo Medium", 9F);
-            LocationInStoretxt.Location = new Point(133, 51);
-            LocationInStoretxt.Margin = new Padding(4, 2, 4, 2);
+            LocationInStoretxt.Location = new Point(115, 41);
+            LocationInStoretxt.Margin = new Padding(3, 2, 3, 2);
             LocationInStoretxt.Name = "LocationInStoretxt";
             LocationInStoretxt.PlaceholderText = "مكان التخزين";
-            LocationInStoretxt.Size = new Size(147, 36);
+            LocationInStoretxt.Size = new Size(127, 30);
             LocationInStoretxt.TabIndex = 18;
             LocationInStoretxt.KeyDown += LocationInStoretxt_KeyDown;
             // 
@@ -309,11 +304,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(4, 142);
-            btnAdd.Margin = new Padding(4, 2, 4, 2);
+            btnAdd.Location = new Point(5, 115);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
-            btnAdd.Size = new Size(121, 41);
+            btnAdd.Size = new Size(104, 33);
             btnAdd.TabIndex = 10;
             btnAdd.Text = "اضافة";
             btnAdd.ToolTipTitle = "اضافة";
@@ -325,11 +320,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             BatchNumbertxt.BackColor = Color.FromArgb(232, 246, 255);
             BatchNumbertxt.Enabled = false;
             BatchNumbertxt.Font = new Font("Cairo Medium", 9F);
-            BatchNumbertxt.Location = new Point(133, 2);
-            BatchNumbertxt.Margin = new Padding(4, 2, 4, 2);
+            BatchNumbertxt.Location = new Point(115, 2);
+            BatchNumbertxt.Margin = new Padding(3, 2, 3, 2);
             BatchNumbertxt.Name = "BatchNumbertxt";
             BatchNumbertxt.PlaceholderText = "رقم الدفعة";
-            BatchNumbertxt.Size = new Size(147, 36);
+            BatchNumbertxt.Size = new Size(127, 30);
             BatchNumbertxt.TabIndex = 17;
             BatchNumbertxt.KeyDown += BatchNumbertxt_KeyDown;
             // 
@@ -339,10 +334,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label15.AutoSize = true;
             label15.BackColor = Color.White;
             label15.Font = new Font("Cairo Medium", 9F);
-            label15.Location = new Point(288, 49);
-            label15.Margin = new Padding(4, 0, 4, 0);
+            label15.Location = new Point(248, 39);
             label15.Name = "label15";
-            label15.Size = new Size(94, 29);
+            label15.Size = new Size(74, 23);
             label15.TabIndex = 113;
             label15.Text = "مكان التخزين";
             // 
@@ -352,10 +346,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label13.AutoSize = true;
             label13.BackColor = Color.White;
             label13.Font = new Font("Cairo Medium", 9F);
-            label13.Location = new Point(288, 0);
-            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Location = new Point(248, 0);
             label13.Name = "label13";
-            label13.Size = new Size(83, 29);
+            label13.Size = new Size(65, 23);
             label13.TabIndex = 112;
             label13.Text = "رقم الدفعة";
             // 
@@ -364,11 +357,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             MinimumStockLeveltxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             MinimumStockLeveltxt.BackColor = Color.FromArgb(232, 246, 255);
             MinimumStockLeveltxt.Font = new Font("Cairo Medium", 9F);
-            MinimumStockLeveltxt.Location = new Point(444, 142);
-            MinimumStockLeveltxt.Margin = new Padding(4, 2, 4, 2);
+            MinimumStockLeveltxt.Location = new Point(382, 115);
+            MinimumStockLeveltxt.Margin = new Padding(3, 2, 3, 2);
             MinimumStockLeveltxt.Name = "MinimumStockLeveltxt";
             MinimumStockLeveltxt.PlaceholderText = "الحد الأدنى";
-            MinimumStockLeveltxt.Size = new Size(112, 36);
+            MinimumStockLeveltxt.Size = new Size(97, 30);
             MinimumStockLeveltxt.TabIndex = 9;
             MinimumStockLeveltxt.KeyDown += MinimumStockLeveltxt_KeyDown;
             // 
@@ -378,10 +371,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label12.AutoSize = true;
             label12.BackColor = Color.White;
             label12.Font = new Font("Cairo Medium", 9F);
-            label12.Location = new Point(564, 140);
-            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Location = new Point(485, 113);
             label12.Name = "label12";
-            label12.Size = new Size(51, 45);
+            label12.Size = new Size(63, 23);
             label12.TabIndex = 109;
             label12.Text = "الحد الأدنى";
             // 
@@ -390,11 +382,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             QuantityInStocktxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             QuantityInStocktxt.BackColor = Color.FromArgb(232, 246, 255);
             QuantityInStocktxt.Font = new Font("Cairo Medium", 9F);
-            QuantityInStocktxt.Location = new Point(444, 98);
-            QuantityInStocktxt.Margin = new Padding(4, 2, 4, 2);
+            QuantityInStocktxt.Location = new Point(382, 79);
+            QuantityInStocktxt.Margin = new Padding(3, 2, 3, 2);
             QuantityInStocktxt.Name = "QuantityInStocktxt";
             QuantityInStocktxt.PlaceholderText = "الكمية";
-            QuantityInStocktxt.Size = new Size(112, 36);
+            QuantityInStocktxt.Size = new Size(97, 30);
             QuantityInStocktxt.TabIndex = 8;
             QuantityInStocktxt.KeyDown += QuantityInStocktxt_KeyDown;
             // 
@@ -404,10 +396,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label11.AutoSize = true;
             label11.BackColor = Color.White;
             label11.Font = new Font("Cairo Medium", 9F);
-            label11.Location = new Point(564, 96);
-            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Location = new Point(485, 77);
             label11.Name = "label11";
-            label11.Size = new Size(55, 29);
+            label11.Size = new Size(43, 23);
             label11.TabIndex = 107;
             label11.Text = "الكمية";
             // 
@@ -416,11 +407,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             SalePricetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SalePricetxt.BackColor = Color.FromArgb(232, 246, 255);
             SalePricetxt.Font = new Font("Cairo Medium", 9F);
-            SalePricetxt.Location = new Point(444, 51);
-            SalePricetxt.Margin = new Padding(4, 2, 4, 2);
+            SalePricetxt.Location = new Point(382, 41);
+            SalePricetxt.Margin = new Padding(3, 2, 3, 2);
             SalePricetxt.Name = "SalePricetxt";
             SalePricetxt.RightToLeft = RightToLeft.No;
-            SalePricetxt.Size = new Size(112, 36);
+            SalePricetxt.Size = new Size(97, 30);
             SalePricetxt.TabIndex = 7;
             SalePricetxt.Text = "0";
             SalePricetxt.TextAlign = HorizontalAlignment.Center;
@@ -431,11 +422,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             PurchasePricetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             PurchasePricetxt.BackColor = Color.FromArgb(232, 246, 255);
             PurchasePricetxt.Font = new Font("Cairo Medium", 9F);
-            PurchasePricetxt.Location = new Point(444, 2);
-            PurchasePricetxt.Margin = new Padding(4, 2, 4, 2);
+            PurchasePricetxt.Location = new Point(382, 2);
+            PurchasePricetxt.Margin = new Padding(3, 2, 3, 2);
             PurchasePricetxt.Name = "PurchasePricetxt";
             PurchasePricetxt.RightToLeft = RightToLeft.No;
-            PurchasePricetxt.Size = new Size(112, 36);
+            PurchasePricetxt.Size = new Size(97, 30);
             PurchasePricetxt.TabIndex = 6;
             PurchasePricetxt.Text = "0";
             PurchasePricetxt.TextAlign = HorizontalAlignment.Center;
@@ -447,10 +438,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label10.AutoSize = true;
             label10.BackColor = Color.White;
             label10.Font = new Font("Cairo Medium", 9F);
-            label10.Location = new Point(564, 0);
-            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Location = new Point(485, 0);
             label10.Name = "label10";
-            label10.Size = new Size(50, 49);
+            label10.Size = new Size(65, 23);
             label10.TabIndex = 105;
             label10.Text = "سعر الشراء";
             // 
@@ -460,10 +450,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             lblSupplierNotes.AutoSize = true;
             lblSupplierNotes.BackColor = Color.White;
             lblSupplierNotes.Font = new Font("Cairo Medium", 9F);
-            lblSupplierNotes.Location = new Point(564, 49);
-            lblSupplierNotes.Margin = new Padding(4, 0, 4, 0);
+            lblSupplierNotes.Location = new Point(485, 39);
             lblSupplierNotes.Name = "lblSupplierNotes";
-            lblSupplierNotes.Size = new Size(72, 29);
+            lblSupplierNotes.Size = new Size(57, 23);
             lblSupplierNotes.TabIndex = 104;
             lblSupplierNotes.Text = "سعر البيع";
             // 
@@ -476,10 +465,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             Unitetxt.FlatStyle = FlatStyle.System;
             Unitetxt.Font = new Font("Cairo Medium", 9F);
             Unitetxt.FormattingEnabled = true;
-            Unitetxt.Location = new Point(648, 142);
-            Unitetxt.Margin = new Padding(4, 2, 4, 2);
+            Unitetxt.Location = new Point(557, 115);
+            Unitetxt.Margin = new Padding(3, 2, 3, 2);
             Unitetxt.Name = "Unitetxt";
-            Unitetxt.Size = new Size(176, 37);
+            Unitetxt.Size = new Size(151, 31);
             Unitetxt.TabIndex = 26;
             Unitetxt.KeyDown += Unitetxt_KeyDown;
             // 
@@ -492,10 +481,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             Categorytxt.FlatStyle = FlatStyle.System;
             Categorytxt.Font = new Font("Cairo Medium", 9F);
             Categorytxt.FormattingEnabled = true;
-            Categorytxt.Location = new Point(648, 51);
-            Categorytxt.Margin = new Padding(4, 2, 4, 2);
+            Categorytxt.Location = new Point(557, 41);
+            Categorytxt.Margin = new Padding(3, 2, 3, 2);
             Categorytxt.Name = "Categorytxt";
-            Categorytxt.Size = new Size(176, 37);
+            Categorytxt.Size = new Size(151, 31);
             Categorytxt.TabIndex = 24;
             Categorytxt.KeyDown += Categorytxt_KeyDown;
             // 
@@ -508,10 +497,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             Strengthtxt.FlatStyle = FlatStyle.System;
             Strengthtxt.Font = new Font("Cairo Medium", 9F);
             Strengthtxt.FormattingEnabled = true;
-            Strengthtxt.Location = new Point(648, 98);
-            Strengthtxt.Margin = new Padding(4, 2, 4, 2);
+            Strengthtxt.Location = new Point(557, 79);
+            Strengthtxt.Margin = new Padding(3, 2, 3, 2);
             Strengthtxt.Name = "Strengthtxt";
-            Strengthtxt.Size = new Size(176, 37);
+            Strengthtxt.Size = new Size(151, 31);
             Strengthtxt.TabIndex = 25;
             Strengthtxt.KeyDown += Strengthtxt_KeyDown;
             // 
@@ -524,10 +513,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             MedicineTypetxt.FlatStyle = FlatStyle.System;
             MedicineTypetxt.Font = new Font("Cairo Medium", 9F);
             MedicineTypetxt.FormattingEnabled = true;
-            MedicineTypetxt.Location = new Point(648, 2);
-            MedicineTypetxt.Margin = new Padding(4, 2, 4, 2);
+            MedicineTypetxt.Location = new Point(557, 2);
+            MedicineTypetxt.Margin = new Padding(3, 2, 3, 2);
             MedicineTypetxt.Name = "MedicineTypetxt";
-            MedicineTypetxt.Size = new Size(176, 37);
+            MedicineTypetxt.Size = new Size(151, 31);
             MedicineTypetxt.TabIndex = 23;
             MedicineTypetxt.KeyDown += MedicineTypetxt_KeyDown;
             // 
@@ -537,10 +526,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label7.AutoSize = true;
             label7.BackColor = Color.White;
             label7.Font = new Font("Cairo Medium", 9F);
-            label7.Location = new Point(834, 140);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(716, 113);
             label7.Name = "label7";
-            label7.Size = new Size(55, 29);
+            label7.Size = new Size(43, 23);
             label7.TabIndex = 101;
             label7.Text = "الوحدة";
             // 
@@ -550,10 +538,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label8.AutoSize = true;
             label8.BackColor = Color.White;
             label8.Font = new Font("Cairo Medium", 9F);
-            label8.Location = new Point(834, 49);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(716, 39);
             label8.Name = "label8";
-            label8.Size = new Size(65, 29);
+            label8.Size = new Size(51, 23);
             label8.TabIndex = 100;
             label8.Text = "التصنيف";
             // 
@@ -563,10 +550,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label9.AutoSize = true;
             label9.BackColor = Color.White;
             label9.Font = new Font("Cairo Medium", 9F);
-            label9.Location = new Point(834, 0);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(716, 0);
             label9.Name = "label9";
-            label9.Size = new Size(62, 49);
+            label9.Size = new Size(83, 23);
             label9.TabIndex = 99;
             label9.Text = "الشكل الصيدلي";
             // 
@@ -576,10 +562,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             lblSupplierEmail.AutoSize = true;
             lblSupplierEmail.BackColor = Color.White;
             lblSupplierEmail.Font = new Font("Cairo Medium", 9F);
-            lblSupplierEmail.Location = new Point(834, 96);
-            lblSupplierEmail.Margin = new Padding(4, 0, 4, 0);
+            lblSupplierEmail.Location = new Point(716, 77);
             lblSupplierEmail.Name = "lblSupplierEmail";
-            lblSupplierEmail.Size = new Size(48, 29);
+            lblSupplierEmail.Size = new Size(38, 23);
             lblSupplierEmail.TabIndex = 98;
             lblSupplierEmail.Text = "التركيز";
             // 
@@ -589,10 +574,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label16.AutoSize = true;
             label16.BackColor = Color.White;
             label16.Font = new Font("Cairo Medium", 9F);
-            label16.Location = new Point(1122, 0);
-            label16.Margin = new Padding(4, 0, 4, 0);
+            label16.Location = new Point(963, 0);
             label16.Name = "label16";
-            label16.Size = new Size(90, 29);
+            label16.Size = new Size(73, 23);
             label16.TabIndex = 92;
             label16.Text = "باركود الدواء";
             // 
@@ -602,10 +586,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             lblSupplierName.AutoSize = true;
             lblSupplierName.BackColor = Color.White;
             lblSupplierName.Font = new Font("Cairo Medium", 9F);
-            lblSupplierName.Location = new Point(1122, 49);
-            lblSupplierName.Margin = new Padding(4, 0, 4, 0);
+            lblSupplierName.Location = new Point(963, 39);
             lblSupplierName.Name = "lblSupplierName";
-            lblSupplierName.Size = new Size(79, 29);
+            lblSupplierName.Size = new Size(63, 23);
             lblSupplierName.TabIndex = 88;
             lblSupplierName.Text = "اسم الدواء";
             // 
@@ -615,10 +598,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             lblSupplierAddress.AutoSize = true;
             lblSupplierAddress.BackColor = Color.White;
             lblSupplierAddress.Font = new Font("Cairo Medium", 9F);
-            lblSupplierAddress.Location = new Point(1122, 96);
-            lblSupplierAddress.Margin = new Padding(4, 0, 4, 0);
+            lblSupplierAddress.Location = new Point(963, 77);
             lblSupplierAddress.Name = "lblSupplierAddress";
-            lblSupplierAddress.Size = new Size(99, 29);
+            lblSupplierAddress.Size = new Size(79, 23);
             lblSupplierAddress.TabIndex = 89;
             lblSupplierAddress.Text = "الاسم العلمي";
             // 
@@ -628,10 +610,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             lblSupplierPhone.AutoSize = true;
             lblSupplierPhone.BackColor = Color.White;
             lblSupplierPhone.Font = new Font("Cairo Medium", 9F);
-            lblSupplierPhone.Location = new Point(1122, 140);
-            lblSupplierPhone.Margin = new Padding(4, 0, 4, 0);
+            lblSupplierPhone.Location = new Point(963, 113);
             lblSupplierPhone.Name = "lblSupplierPhone";
-            lblSupplierPhone.Size = new Size(68, 45);
+            lblSupplierPhone.Size = new Size(91, 23);
             lblSupplierPhone.TabIndex = 90;
             lblSupplierPhone.Text = "الشركة المصنعة";
             // 
@@ -641,11 +622,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             Manufacturertxt.BackColor = Color.FromArgb(232, 246, 255);
             Manufacturertxt.Enabled = false;
             Manufacturertxt.Font = new Font("Cairo Medium", 9F);
-            Manufacturertxt.Location = new Point(938, 142);
-            Manufacturertxt.Margin = new Padding(4, 2, 4, 2);
+            Manufacturertxt.Location = new Point(805, 115);
+            Manufacturertxt.Margin = new Padding(3, 2, 3, 2);
             Manufacturertxt.Name = "Manufacturertxt";
             Manufacturertxt.PlaceholderText = "الشركة المصنعة";
-            Manufacturertxt.Size = new Size(176, 36);
+            Manufacturertxt.Size = new Size(151, 30);
             Manufacturertxt.TabIndex = 22;
             Manufacturertxt.KeyDown += Manufacturertxt_KeyDown;
             // 
@@ -655,11 +636,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             GenericNametxt.BackColor = Color.FromArgb(232, 246, 255);
             GenericNametxt.Enabled = false;
             GenericNametxt.Font = new Font("Cairo Medium", 9F);
-            GenericNametxt.Location = new Point(938, 98);
-            GenericNametxt.Margin = new Padding(4, 2, 4, 2);
+            GenericNametxt.Location = new Point(805, 79);
+            GenericNametxt.Margin = new Padding(3, 2, 3, 2);
             GenericNametxt.Name = "GenericNametxt";
             GenericNametxt.PlaceholderText = "الاسم العلمي";
-            GenericNametxt.Size = new Size(176, 36);
+            GenericNametxt.Size = new Size(151, 30);
             GenericNametxt.TabIndex = 21;
             GenericNametxt.KeyDown += GenericNametxt_KeyDown;
             // 
@@ -669,11 +650,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             Nametxt.BackColor = Color.FromArgb(232, 246, 255);
             Nametxt.Enabled = false;
             Nametxt.Font = new Font("Cairo Medium", 9F);
-            Nametxt.Location = new Point(938, 51);
-            Nametxt.Margin = new Padding(4, 2, 4, 2);
+            Nametxt.Location = new Point(805, 41);
+            Nametxt.Margin = new Padding(3, 2, 3, 2);
             Nametxt.Name = "Nametxt";
             Nametxt.PlaceholderText = "اسم الدواء";
-            Nametxt.Size = new Size(176, 36);
+            Nametxt.Size = new Size(151, 30);
             Nametxt.TabIndex = 30;
             Nametxt.KeyDown += Nametxt_KeyDown;
             // 
@@ -682,11 +663,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             Barcodetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Barcodetxt.BackColor = Color.FromArgb(232, 246, 255);
             Barcodetxt.Font = new Font("Cairo Medium", 9F);
-            Barcodetxt.Location = new Point(938, 2);
-            Barcodetxt.Margin = new Padding(4, 2, 4, 2);
+            Barcodetxt.Location = new Point(805, 2);
+            Barcodetxt.Margin = new Padding(3, 2, 3, 2);
             Barcodetxt.Name = "Barcodetxt";
             Barcodetxt.PlaceholderText = "باركود الدواء";
-            Barcodetxt.Size = new Size(176, 36);
+            Barcodetxt.Size = new Size(151, 30);
             Barcodetxt.TabIndex = 5;
             Barcodetxt.KeyDown += Barcodetxt_KeyDown;
             // 
@@ -707,10 +688,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             btnForm.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnForm.ImageOptions.SvgImage");
             btnForm.ImageOptions.SvgImageSize = new Size(25, 25);
             btnForm.Location = new Point(0, 0);
-            btnForm.Margin = new Padding(4, 2, 4, 2);
+            btnForm.Margin = new Padding(3, 2, 3, 2);
             btnForm.Name = "btnForm";
             btnForm.RightToLeft = RightToLeft.Yes;
-            btnForm.Size = new Size(35, 39);
+            btnForm.Size = new Size(30, 32);
             btnForm.TabIndex = 83;
             btnForm.ToolTipTitle = "اضافة";
             btnForm.Click += btnForm_Click;
@@ -723,10 +704,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             txtTypePaimt.Font = new Font("Cairo Medium", 10F);
             txtTypePaimt.FormattingEnabled = true;
             txtTypePaimt.Items.AddRange(new object[] { "نقدي", "بطاقة ائتمان", "شيك" });
-            txtTypePaimt.Location = new Point(1237, 142);
-            txtTypePaimt.Margin = new Padding(4, 2, 4, 2);
+            txtTypePaimt.Location = new Point(1062, 115);
+            txtTypePaimt.Margin = new Padding(3, 2, 3, 2);
             txtTypePaimt.Name = "txtTypePaimt";
-            txtTypePaimt.Size = new Size(234, 40);
+            txtTypePaimt.Size = new Size(199, 32);
             txtTypePaimt.TabIndex = 4;
             txtTypePaimt.KeyDown += txtTypePaimt_KeyDown;
             // 
@@ -736,10 +717,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label4.AutoSize = true;
             label4.BackColor = Color.White;
             label4.Font = new Font("Cairo Medium", 9F);
-            label4.Location = new Point(1479, 140);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(1267, 113);
             label4.Name = "label4";
-            label4.Size = new Size(53, 45);
+            label4.Size = new Size(72, 23);
             label4.TabIndex = 81;
             label4.Text = "طريقة الدفع";
             // 
@@ -750,10 +730,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             txtSupplier.FlatStyle = FlatStyle.System;
             txtSupplier.Font = new Font("Cairo Medium", 10F);
             txtSupplier.FormattingEnabled = true;
-            txtSupplier.Location = new Point(38, 0);
-            txtSupplier.Margin = new Padding(4, 2, 4, 2);
+            txtSupplier.Location = new Point(30, 0);
+            txtSupplier.Margin = new Padding(3, 2, 3, 2);
             txtSupplier.Name = "txtSupplier";
-            txtSupplier.Size = new Size(196, 40);
+            txtSupplier.Size = new Size(169, 32);
             txtSupplier.TabIndex = 2;
             txtSupplier.KeyDown += txtSupplier_KeyDown;
             // 
@@ -763,10 +743,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label3.AutoSize = true;
             label3.BackColor = Color.White;
             label3.Font = new Font("Cairo Medium", 9F);
-            label3.Location = new Point(1479, 49);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(1267, 39);
             label3.Name = "label3";
-            label3.Size = new Size(51, 29);
+            label3.Size = new Size(40, 23);
             label3.TabIndex = 79;
             label3.Text = "المورد";
             // 
@@ -774,8 +753,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             // 
             txtPurchaseDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtPurchaseDate.EditValue = null;
-            txtPurchaseDate.Location = new Point(1237, 98);
-            txtPurchaseDate.Margin = new Padding(4, 2, 4, 2);
+            txtPurchaseDate.Location = new Point(1062, 79);
+            txtPurchaseDate.Margin = new Padding(3, 2, 3, 2);
             txtPurchaseDate.Name = "txtPurchaseDate";
             txtPurchaseDate.Properties.Appearance.BackColor = Color.FromArgb(227, 237, 249);
             txtPurchaseDate.Properties.Appearance.Font = new Font("Tahoma", 10F);
@@ -785,7 +764,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             txtPurchaseDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             txtPurchaseDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             txtPurchaseDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            txtPurchaseDate.Size = new Size(234, 28);
+            txtPurchaseDate.Size = new Size(199, 22);
             txtPurchaseDate.TabIndex = 3;
             txtPurchaseDate.KeyDown += txtPurchaseDate_KeyDown;
             // 
@@ -795,10 +774,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label1.AutoSize = true;
             label1.BackColor = Color.White;
             label1.Font = new Font("Cairo Medium", 9F);
-            label1.Location = new Point(1479, 0);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(1267, 0);
             label1.Name = "label1";
-            label1.Size = new Size(62, 49);
+            label1.Size = new Size(69, 23);
             label1.TabIndex = 53;
             label1.Text = "رقم الفاتورة";
             // 
@@ -808,10 +786,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             lblEmpEmail.AutoSize = true;
             lblEmpEmail.BackColor = Color.White;
             lblEmpEmail.Font = new Font("Cairo Medium", 9F);
-            lblEmpEmail.Location = new Point(1479, 96);
-            lblEmpEmail.Margin = new Padding(4, 0, 4, 0);
+            lblEmpEmail.Location = new Point(1267, 77);
             lblEmpEmail.Name = "lblEmpEmail";
-            lblEmpEmail.Size = new Size(80, 29);
+            lblEmpEmail.Size = new Size(65, 23);
             lblEmpEmail.TabIndex = 63;
             lblEmpEmail.Text = "تاريخ الشراء";
             // 
@@ -820,11 +797,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             txtFactureNum.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtFactureNum.BackColor = Color.FromArgb(227, 237, 249);
             txtFactureNum.Font = new Font("Cairo Medium", 10F);
-            txtFactureNum.Location = new Point(1237, 2);
-            txtFactureNum.Margin = new Padding(4, 2, 4, 2);
+            txtFactureNum.Location = new Point(1062, 2);
+            txtFactureNum.Margin = new Padding(3, 2, 3, 2);
             txtFactureNum.Name = "txtFactureNum";
             txtFactureNum.ReadOnly = true;
-            txtFactureNum.Size = new Size(224, 39);
+            txtFactureNum.Size = new Size(193, 32);
             txtFactureNum.TabIndex = 1;
             txtFactureNum.TextAlign = HorizontalAlignment.Center;
             // 
@@ -833,21 +810,21 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             panel5.BackColor = Color.White;
             panel5.Controls.Add(DGListePurchase);
             panel5.Controls.Add(panel6);
-            panel5.Location = new Point(0, 240);
-            panel5.Margin = new Padding(4, 2, 4, 2);
+            panel5.Location = new Point(0, 195);
+            panel5.Margin = new Padding(3, 2, 3, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1567, 537);
+            panel5.Size = new Size(1343, 436);
             panel5.TabIndex = 64;
             // 
             // DGListePurchase
             // 
             DGListePurchase.Dock = DockStyle.Top;
-            DGListePurchase.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
+            DGListePurchase.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
             DGListePurchase.Location = new Point(0, 0);
             DGListePurchase.MainView = gridView1;
-            DGListePurchase.Margin = new Padding(4, 2, 4, 2);
+            DGListePurchase.Margin = new Padding(3, 2, 3, 2);
             DGListePurchase.Name = "DGListePurchase";
-            DGListePurchase.Size = new Size(1567, 416);
+            DGListePurchase.Size = new Size(1343, 338);
             DGListePurchase.TabIndex = 5;
             DGListePurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -901,8 +878,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             gridView1.Appearance.TopNewRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 12F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
+            gridView1.DetailHeight = 284;
             gridView1.GridControl = DGListePurchase;
             gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             gridView1.RowCountChanged += gridView1_RowCountChanged;
             // 
             // panel6
@@ -914,10 +893,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             panel6.Controls.Add(separatorControl22);
             panel6.Controls.Add(txtTotalAmount);
             panel6.Controls.Add(label6);
-            panel6.Location = new Point(0, 418);
-            panel6.Margin = new Padding(4, 2, 4, 2);
+            panel6.Location = new Point(0, 340);
+            panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1567, 113);
+            panel6.Size = new Size(1343, 92);
             panel6.TabIndex = 64;
             // 
             // txtTimerClock
@@ -927,11 +906,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             txtTimerClock.BorderStyle = BorderStyle.None;
             txtTimerClock.Font = new Font("Technology", 16F, FontStyle.Bold);
             txtTimerClock.ForeColor = Color.DeepSkyBlue;
-            txtTimerClock.Location = new Point(1423, 71);
-            txtTimerClock.Margin = new Padding(4, 2, 4, 2);
+            txtTimerClock.Location = new Point(1220, 58);
+            txtTimerClock.Margin = new Padding(3, 2, 3, 2);
             txtTimerClock.Name = "txtTimerClock";
             txtTimerClock.RightToLeft = RightToLeft.No;
-            txtTimerClock.Size = new Size(133, 27);
+            txtTimerClock.Size = new Size(114, 22);
             txtTimerClock.TabIndex = 111;
             txtTimerClock.Text = "14:00:12";
             txtTimerClock.TextAlign = HorizontalAlignment.Center;
@@ -943,11 +922,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             txtdate.BorderStyle = BorderStyle.None;
             txtdate.Font = new Font("Technology", 18F, FontStyle.Bold);
             txtdate.ForeColor = Color.DeepSkyBlue;
-            txtdate.Location = new Point(1400, 32);
-            txtdate.Margin = new Padding(4, 2, 4, 2);
+            txtdate.Location = new Point(1200, 26);
+            txtdate.Margin = new Padding(3, 2, 3, 2);
             txtdate.Name = "txtdate";
             txtdate.RightToLeft = RightToLeft.No;
-            txtdate.Size = new Size(156, 30);
+            txtdate.Size = new Size(134, 24);
             txtdate.TabIndex = 110;
             txtdate.Text = "10/08/2025";
             txtdate.TextAlign = HorizontalAlignment.Center;
@@ -959,11 +938,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             separatorControl22.LineColor = Color.DarkGray;
             separatorControl22.LineOrientation = Orientation.Vertical;
             separatorControl22.LineThickness = 2;
-            separatorControl22.Location = new Point(1368, 2);
-            separatorControl22.Margin = new Padding(4, 2, 4, 2);
+            separatorControl22.Location = new Point(1173, 2);
+            separatorControl22.Margin = new Padding(3, 2, 3, 2);
             separatorControl22.Name = "separatorControl22";
             separatorControl22.Padding = new Padding(0);
-            separatorControl22.Size = new Size(10, 118);
+            separatorControl22.Size = new Size(9, 96);
             separatorControl22.TabIndex = 105;
             // 
             // txtTotalAmount
@@ -973,11 +952,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             txtTotalAmount.BorderStyle = BorderStyle.None;
             txtTotalAmount.Font = new Font("Technology", 45F);
             txtTotalAmount.ForeColor = Color.Lime;
-            txtTotalAmount.Location = new Point(7, 38);
-            txtTotalAmount.Margin = new Padding(4, 2, 4, 2);
+            txtTotalAmount.Location = new Point(6, 31);
+            txtTotalAmount.Margin = new Padding(3, 2, 3, 2);
             txtTotalAmount.Name = "txtTotalAmount";
             txtTotalAmount.RightToLeft = RightToLeft.No;
-            txtTotalAmount.Size = new Size(545, 75);
+            txtTotalAmount.Size = new Size(467, 60);
             txtTotalAmount.TabIndex = 94;
             txtTotalAmount.Text = "0.00";
             txtTotalAmount.TextAlign = HorizontalAlignment.Center;
@@ -989,15 +968,15 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label6.BackColor = Color.Black;
             label6.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
             label6.ForeColor = Color.Silver;
-            label6.Location = new Point(183, -1);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(157, -1);
             label6.Name = "label6";
-            label6.Size = new Size(205, 32);
+            label6.Size = new Size(169, 26);
             label6.TabIndex = 93;
             label6.Text = "السعر الفاتورة  الاجمالي";
             // 
             // btnSave
             // 
+            btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnSave.Appearance.BackColor = SystemColors.Highlight;
             btnSave.Appearance.Font = new Font("Cairo Medium", 10F);
             btnSave.Appearance.Options.UseBackColor = true;
@@ -1009,14 +988,13 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             btnSave.AppearancePressed.Font = new Font("Cairo Medium", 10F);
             btnSave.AppearancePressed.Options.UseFont = true;
             btnSave.Cursor = Cursors.Hand;
-            btnSave.Dock = DockStyle.Left;
             btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
             btnSave.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnSave.Location = new Point(12, 2);
-            btnSave.Margin = new Padding(4, 2, 4, 2);
+            btnSave.Location = new Point(15, 2);
+            btnSave.Margin = new Padding(3, 2, 3, 2);
             btnSave.Name = "btnSave";
             btnSave.RightToLeft = RightToLeft.Yes;
-            btnSave.Size = new Size(159, 36);
+            btnSave.Size = new Size(136, 30);
             btnSave.TabIndex = 83;
             btnSave.Text = "حفظ";
             btnSave.ToolTipTitle = "حفظ";
@@ -1032,23 +1010,22 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             label19.AutoSize = true;
             label19.BackColor = Color.Transparent;
             label19.Font = new Font("Cairo Medium", 9F);
-            label19.Location = new Point(1494, 11);
-            label19.Margin = new Padding(4, 0, 4, 0);
+            label19.Location = new Point(1284, 11);
             label19.Name = "label19";
-            label19.Size = new Size(69, 29);
+            label19.Size = new Size(56, 23);
             label19.TabIndex = 84;
             label19.Text = "ملاحظات";
             // 
             // txtNotes
             // 
-            txtNotes.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            txtNotes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtNotes.BackColor = Color.FromArgb(232, 246, 255);
             txtNotes.Font = new Font("Cairo Medium", 9F);
-            txtNotes.Location = new Point(179, 2);
-            txtNotes.Margin = new Padding(4, 2, 4, 2);
+            txtNotes.Location = new Point(157, 2);
+            txtNotes.Margin = new Padding(3, 2, 3, 2);
             txtNotes.Name = "txtNotes";
             txtNotes.PlaceholderText = "تسجيل ملاحظات";
-            txtNotes.Size = new Size(1307, 36);
+            txtNotes.Size = new Size(1121, 30);
             txtNotes.TabIndex = 85;
             // 
             // tableLayoutPanel1
@@ -1057,15 +1034,15 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             tableLayoutPanel1.ColumnCount = 11;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.758007F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 72.24199F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 115F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 184F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 104F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 186F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 84F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 156F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 155F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 128F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 99F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 158F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 89F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 159F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 72F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 103F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 134F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 133F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 111F));
             tableLayoutPanel1.Controls.Add(panel3, 1, 1);
             tableLayoutPanel1.Controls.Add(RequiresPrescriptiontxt, 9, 3);
             tableLayoutPanel1.Controls.Add(PicChange, 10, 0);
@@ -1109,25 +1086,23 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             tableLayoutPanel1.Controls.Add(Strengthtxt, 5, 2);
             tableLayoutPanel1.Controls.Add(Categorytxt, 5, 1);
             tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(0, 55);
-            tableLayoutPanel1.Margin = new Padding(4);
+            tableLayoutPanel1.Location = new Point(0, 45);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50.7042236F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 49.2957764F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 44F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 44F));
-            tableLayoutPanel1.Size = new Size(1567, 185);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            tableLayoutPanel1.Size = new Size(1343, 150);
             tableLayoutPanel1.TabIndex = 86;
             // 
             // panel3
             // 
             panel3.Controls.Add(txtSupplier);
             panel3.Controls.Add(btnForm);
-            panel3.Location = new Point(1237, 53);
-            panel3.Margin = new Padding(4);
+            panel3.Location = new Point(1062, 42);
             panel3.Name = "panel3";
-            panel3.Size = new Size(234, 39);
+            panel3.Size = new Size(199, 32);
             panel3.TabIndex = 20;
             // 
             // flowLayoutPanel1
@@ -1136,25 +1111,24 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             flowLayoutPanel1.Controls.Add(txtNotes);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 779);
-            flowLayoutPanel1.Margin = new Padding(4);
+            flowLayoutPanel1.Location = new Point(0, 633);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1567, 46);
+            flowLayoutPanel1.Size = new Size(1343, 37);
             flowLayoutPanel1.TabIndex = 86;
             // 
             // PurchaseAddForm
             // 
             Appearance.BackColor = Color.FromArgb(227, 237, 249);
             Appearance.Options.UseBackColor = true;
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1567, 825);
+            ClientSize = new Size(1343, 670);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel5);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 2, 4, 2);
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "PurchaseAddForm";

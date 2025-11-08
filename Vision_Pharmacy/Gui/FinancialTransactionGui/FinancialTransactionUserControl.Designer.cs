@@ -1,6 +1,6 @@
-﻿namespace Vision_Pharmacy.Gui.PurchaseGui
+﻿namespace Vision_Pharmacy.Gui.FinancialTransaction
 {
-    partial class PurchaseUserControl
+    partial class FinancialTransactionUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,61 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseUserControl));
-            lblTitlePurchase = new Label();
-            SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinancialTransactionUserControl));
+            pnlTop = new FlowLayoutPanel();
             PicLaterale = new PictureBox();
+            SeparatLat = new DevExpress.XtraEditors.SeparatorControl();
+            lblTitle = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             btnPrint = new DevExpress.XtraEditors.SimpleButton();
             btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            DGListePurchase = new DevExpress.XtraGrid.GridControl();
+            DGListeExpenses_Incomes = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            lblCounter = new Label();
-            pnlTop = new FlowLayoutPanel();
-            pnlSet = new FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)DGListePurchase).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             pnlTop.SuspendLayout();
-            pnlSet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DGListeExpenses_Incomes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
             // 
-            // lblTitlePurchase
+            // pnlTop
             // 
-            lblTitlePurchase.AutoSize = true;
-            lblTitlePurchase.Font = new Font("Cairo Medium", 12F);
-            lblTitlePurchase.ForeColor = Color.White;
-            lblTitlePurchase.Location = new Point(1016, 0);
-            lblTitlePurchase.Margin = new Padding(4, 0, 4, 0);
-            lblTitlePurchase.Name = "lblTitlePurchase";
-            lblTitlePurchase.Size = new Size(220, 37);
-            lblTitlePurchase.TabIndex = 1;
-            lblTitlePurchase.Text = "قائمة الفواتير المشتريات";
+            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
+            pnlTop.Controls.Add(PicLaterale);
+            pnlTop.Controls.Add(SeparatLat);
+            pnlTop.Controls.Add(lblTitle);
+            pnlTop.Dock = DockStyle.Top;
+            pnlTop.Location = new Point(0, 0);
+            pnlTop.Margin = new Padding(3, 2, 3, 2);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(1254, 62);
+            pnlTop.TabIndex = 20;
+            // 
+            // PicLaterale
+            // 
+            PicLaterale.BackColor = Color.White;
+            PicLaterale.Image = Properties.Resources.exchange_9090887;
+            PicLaterale.Location = new Point(1182, 2);
+            PicLaterale.Margin = new Padding(3, 2, 3, 2);
+            PicLaterale.Name = "PicLaterale";
+            PicLaterale.Size = new Size(69, 57);
+            PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLaterale.TabIndex = 9;
+            PicLaterale.TabStop = false;
             // 
             // SeparatLat
             // 
             SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
-            SeparatLat.LineThickness = 10;
-            SeparatLat.Location = new Point(1244, 2);
-            SeparatLat.Margin = new Padding(4, 2, 4, 2);
+            SeparatLat.LineThickness = 8;
+            SeparatLat.Location = new Point(1167, 2);
+            SeparatLat.Margin = new Padding(3, 2, 3, 2);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
-            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.Size = new Size(9, 57);
             SeparatLat.TabIndex = 1;
             // 
-            // PicLaterale
+            // lblTitle
             // 
-            PicLaterale.BackColor = Color.Silver;
-            PicLaterale.Image = Properties.Resources.trolley_9284599;
-            PicLaterale.Location = new Point(1262, 2);
-            PicLaterale.Margin = new Padding(4, 2, 4, 2);
-            PicLaterale.Name = "PicLaterale";
-            PicLaterale.Size = new Size(80, 70);
-            PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
-            PicLaterale.TabIndex = 26;
-            PicLaterale.TabStop = false;
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Cairo Medium", 12F);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(1063, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(98, 30);
+            lblTitle.TabIndex = 1;
+            lblTitle.Text = "الإدارة المالية";
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(btnPrint);
+            flowLayoutPanel1.Controls.Add(btnAdd);
+            flowLayoutPanel1.Dock = DockStyle.Top;
+            flowLayoutPanel1.Location = new Point(0, 62);
+            flowLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.RightToLeft = RightToLeft.No;
+            flowLayoutPanel1.Size = new Size(1254, 41);
+            flowLayoutPanel1.TabIndex = 21;
             // 
             // btnPrint
             // 
@@ -99,15 +122,15 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(4, 2);
-            btnPrint.Margin = new Padding(4, 2, 4, 2);
+            btnPrint.Location = new Point(3, 2);
+            btnPrint.Margin = new Padding(3, 2, 3, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
-            btnPrint.Size = new Size(136, 46);
-            btnPrint.TabIndex = 35;
+            btnPrint.Size = new Size(117, 37);
+            btnPrint.TabIndex = 14;
             btnPrint.Text = "طباعة";
             btnPrint.ToolTipTitle = "اضافة";
-            btnPrint.Click += btnPrintPurch_Click;
+            btnPrint.Click += btnPrint_Click;
             // 
             // btnAdd
             // 
@@ -124,28 +147,27 @@
             btnAdd.Cursor = Cursors.Hand;
             btnAdd.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAdd.ImageOptions.SvgImage");
             btnAdd.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAdd.Location = new Point(148, 2);
-            btnAdd.Margin = new Padding(4, 2, 4, 2);
+            btnAdd.Location = new Point(126, 2);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.RightToLeft = RightToLeft.Yes;
-            btnAdd.Size = new Size(136, 46);
-            btnAdd.TabIndex = 34;
+            btnAdd.Size = new Size(117, 37);
+            btnAdd.TabIndex = 13;
             btnAdd.Text = "اضافة";
             btnAdd.ToolTipTitle = "اضافة";
-            btnAdd.Click += btnAddPurch_Click;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // DGListePurchase
+            // DGListeExpenses_Incomes
             // 
-            DGListePurchase.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListePurchase.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
-            DGListePurchase.Location = new Point(0, 132);
-            DGListePurchase.MainView = gridView1;
-            DGListePurchase.Margin = new Padding(4, 2, 4, 2);
-            DGListePurchase.Name = "DGListePurchase";
-            DGListePurchase.RightToLeft = RightToLeft.Yes;
-            DGListePurchase.Size = new Size(1346, 646);
-            DGListePurchase.TabIndex = 36;
-            DGListePurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            DGListeExpenses_Incomes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DGListeExpenses_Incomes.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            DGListeExpenses_Incomes.Location = new Point(3, 107);
+            DGListeExpenses_Incomes.MainView = gridView1;
+            DGListeExpenses_Incomes.Margin = new Padding(3, 2, 3, 2);
+            DGListeExpenses_Incomes.Name = "DGListeExpenses_Incomes";
+            DGListeExpenses_Incomes.Size = new Size(1248, 582);
+            DGListeExpenses_Incomes.TabIndex = 22;
+            DGListeExpenses_Incomes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
@@ -189,83 +211,42 @@
             gridView1.Appearance.TopNewRow.Options.UseFont = true;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 10F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
-            gridView1.GridControl = DGListePurchase;
+            gridView1.DetailHeight = 284;
+            gridView1.GridControl = DGListeExpenses_Incomes;
             gridView1.Name = "gridView1";
-            gridView1.RowCountChanged += gridView1_RowCountChanged;
+            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             // 
-            // lblCounter
+            // FinancialTransactionUserControl
             // 
-            lblCounter.AutoSize = true;
-            lblCounter.Font = new Font("Cairo Medium", 12F);
-            lblCounter.ForeColor = Color.Black;
-            lblCounter.Location = new Point(292, 0);
-            lblCounter.Margin = new Padding(4, 0, 4, 0);
-            lblCounter.Name = "lblCounter";
-            lblCounter.Size = new Size(28, 37);
-            lblCounter.TabIndex = 37;
-            lblCounter.Text = "0";
-            // 
-            // pnlTop
-            // 
-            pnlTop.BackColor = Color.FromArgb(60, 71, 151);
-            pnlTop.Controls.Add(PicLaterale);
-            pnlTop.Controls.Add(SeparatLat);
-            pnlTop.Controls.Add(lblTitlePurchase);
-            pnlTop.Dock = DockStyle.Top;
-            pnlTop.Location = new Point(0, 0);
-            pnlTop.Margin = new Padding(4, 2, 4, 2);
-            pnlTop.Name = "pnlTop";
-            pnlTop.Size = new Size(1346, 74);
-            pnlTop.TabIndex = 38;
-            // 
-            // pnlSet
-            // 
-            pnlSet.Controls.Add(btnPrint);
-            pnlSet.Controls.Add(btnAdd);
-            pnlSet.Controls.Add(lblCounter);
-            pnlSet.Dock = DockStyle.Top;
-            pnlSet.Location = new Point(0, 74);
-            pnlSet.Margin = new Padding(4, 2, 4, 2);
-            pnlSet.Name = "pnlSet";
-            pnlSet.RightToLeft = RightToLeft.No;
-            pnlSet.Size = new Size(1346, 53);
-            pnlSet.TabIndex = 39;
-            // 
-            // PurchaseUserControl
-            // 
-            Appearance.BackColor = Color.WhiteSmoke;
-            Appearance.Options.UseBackColor = true;
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(pnlSet);
+            Controls.Add(DGListeExpenses_Incomes);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(pnlTop);
-            Controls.Add(DGListePurchase);
-            Margin = new Padding(4, 2, 4, 2);
-            Name = "PurchaseUserControl";
+            Name = "FinancialTransactionUserControl";
             RightToLeft = RightToLeft.Yes;
-            Size = new Size(1346, 780);
-            Load += PurchaseUserControl_Load;
-            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
-            ((System.ComponentModel.ISupportInitialize)DGListePurchase).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
+            Size = new Size(1254, 691);
+            Load += FinancialTransactionUserControl_Load;
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
-            pnlSet.ResumeLayout(false);
-            pnlSet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DGListeExpenses_Incomes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private Label lblTitlePurchase;
-        private DevExpress.XtraEditors.SeparatorControl SeparatLat;
+
+        private FlowLayoutPanel pnlTop;
         private PictureBox PicLaterale;
+        private DevExpress.XtraEditors.SeparatorControl SeparatLat;
+        private Label lblTitle;
+        private FlowLayoutPanel flowLayoutPanel1;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
-        private DevExpress.XtraGrid.GridControl DGListePurchase;
+        private DevExpress.XtraGrid.GridControl DGListeExpenses_Incomes;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private Label lblCounter;
-        private FlowLayoutPanel pnlTop;
-        private FlowLayoutPanel pnlSet;
     }
 }

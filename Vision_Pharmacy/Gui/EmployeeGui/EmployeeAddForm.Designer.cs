@@ -353,7 +353,7 @@
             // 
             // EmployeeAddForm
             // 
-            Appearance.BackColor = Color.FromArgb(227, 237, 249);
+            Appearance.BackColor = Color.FromArgb(238, 240, 255);
             Appearance.Options.UseBackColor = true;
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;

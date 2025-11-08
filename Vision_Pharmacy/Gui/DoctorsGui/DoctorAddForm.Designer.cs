@@ -35,7 +35,6 @@
             PicChange = new PictureBox();
             lblDoctorAddress = new Label();
             buttonSaveSup = new DevExpress.XtraEditors.SimpleButton();
-            txtDoctorSpecialit = new TextBox();
             txtDoctorName = new TextBox();
             txtDoctorAddress = new TextBox();
             lblDoctorNotes = new Label();
@@ -43,6 +42,7 @@
             lblDoctorPhone = new Label();
             txtDoctorPhone = new TextBox();
             lblDoctorEmail = new Label();
+            txtDoctorSpecialit = new DevExpress.XtraEditors.ComboBoxEdit();
             pictureBox1 = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
             pictureBox3 = new PictureBox();
@@ -52,6 +52,7 @@
             flowLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicChange).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtDoctorSpecialit.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -60,6 +61,7 @@
             // 
             // flowLayoutPanel2
             // 
+            flowLayoutPanel2.BackColor = Color.FromArgb(238, 240, 255);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel1);
             flowLayoutPanel2.Controls.Add(pictureBox1);
             flowLayoutPanel2.Dock = DockStyle.Top;
@@ -78,7 +80,6 @@
             tableLayoutPanel1.Controls.Add(PicChange, 2, 4);
             tableLayoutPanel1.Controls.Add(lblDoctorAddress, 0, 1);
             tableLayoutPanel1.Controls.Add(buttonSaveSup, 1, 5);
-            tableLayoutPanel1.Controls.Add(txtDoctorSpecialit, 1, 4);
             tableLayoutPanel1.Controls.Add(txtDoctorName, 1, 0);
             tableLayoutPanel1.Controls.Add(txtDoctorAddress, 1, 1);
             tableLayoutPanel1.Controls.Add(lblDoctorNotes, 0, 4);
@@ -86,6 +87,7 @@
             tableLayoutPanel1.Controls.Add(lblDoctorPhone, 0, 2);
             tableLayoutPanel1.Controls.Add(txtDoctorPhone, 1, 2);
             tableLayoutPanel1.Controls.Add(lblDoctorEmail, 0, 3);
+            tableLayoutPanel1.Controls.Add(txtDoctorSpecialit, 1, 4);
             tableLayoutPanel1.Location = new Point(226, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
@@ -159,16 +161,6 @@
             buttonSaveSup.Text = "حفظ البيانات";
             buttonSaveSup.ToolTipTitle = "اضافة";
             buttonSaveSup.Click += buttonSaveSup_Click;
-            // 
-            // txtDoctorSpecialit
-            // 
-            txtDoctorSpecialit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtDoctorSpecialit.BackColor = Color.FromArgb(232, 246, 255);
-            txtDoctorSpecialit.Font = new Font("Cairo Medium", 10F);
-            txtDoctorSpecialit.Location = new Point(186, 200);
-            txtDoctorSpecialit.Name = "txtDoctorSpecialit";
-            txtDoctorSpecialit.Size = new Size(452, 39);
-            txtDoctorSpecialit.TabIndex = 37;
             // 
             // txtDoctorName
             // 
@@ -246,6 +238,31 @@
             lblDoctorEmail.TabIndex = 24;
             lblDoctorEmail.Text = "البريد الإلكتروني";
             // 
+            // txtDoctorSpecialit
+            // 
+            txtDoctorSpecialit.Location = new Point(186, 200);
+            txtDoctorSpecialit.Name = "txtDoctorSpecialit";
+            txtDoctorSpecialit.Properties.Appearance.Font = new Font("Cairo Medium", 10F);
+            txtDoctorSpecialit.Properties.Appearance.Options.UseFont = true;
+            txtDoctorSpecialit.Properties.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            txtDoctorSpecialit.Properties.AppearanceDisabled.Options.UseFont = true;
+            txtDoctorSpecialit.Properties.AppearanceDropDown.Font = new Font("Cairo Medium", 10F);
+            txtDoctorSpecialit.Properties.AppearanceDropDown.Options.UseFont = true;
+            txtDoctorSpecialit.Properties.AppearanceFocused.Font = new Font("Cairo Medium", 10F);
+            txtDoctorSpecialit.Properties.AppearanceFocused.Options.UseFont = true;
+            txtDoctorSpecialit.Properties.AppearanceItemDisabled.Font = new Font("Cairo Medium", 10F);
+            txtDoctorSpecialit.Properties.AppearanceItemDisabled.Options.UseFont = true;
+            txtDoctorSpecialit.Properties.AppearanceItemHighlight.Font = new Font("Cairo Medium", 10F);
+            txtDoctorSpecialit.Properties.AppearanceItemHighlight.Options.UseFont = true;
+            txtDoctorSpecialit.Properties.AppearanceItemSelected.Font = new Font("Cairo Medium", 10F);
+            txtDoctorSpecialit.Properties.AppearanceItemSelected.Options.UseFont = true;
+            txtDoctorSpecialit.Properties.AppearanceReadOnly.Font = new Font("Cairo Medium", 10F);
+            txtDoctorSpecialit.Properties.AppearanceReadOnly.Options.UseFont = true;
+            txtDoctorSpecialit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            txtDoctorSpecialit.Properties.Items.AddRange(new object[] { "الطب العام", "طب الأطفال", "طب حديثي الولادة", "طب النساء والتوليد", "طب الخصوبة والعقم", "طب الأعصاب", "الطب النفسي", "طب العيون", "الأنف والأذن والحنجرة", "طب السمع والنطق", "أمراض القلب", "أمراض الصدر والتنفس", "أمراض الأوعية الدموية", "أمراض الجهاز الهضمي", "أمراض الكبد", "طب الجلد", "داء السكري والتغذية", "أمراض الدم", "أمراض المناعة والحساسية", "أمراض الكلى", "أمراض الجهاز البولي والتناسلي" });
+            txtDoctorSpecialit.Size = new Size(453, 38);
+            txtDoctorSpecialit.TabIndex = 38;
+            // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
@@ -260,6 +277,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.BackColor = Color.FromArgb(238, 240, 255);
             flowLayoutPanel1.Controls.Add(pictureBox3);
             flowLayoutPanel1.Controls.Add(separatorControl1);
             flowLayoutPanel1.Controls.Add(lbltitle);
@@ -334,6 +352,7 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PicChange).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtDoctorSpecialit.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
@@ -350,7 +369,6 @@
         private PictureBox PicChange;
         private Label lblDoctorAddress;
         public DevExpress.XtraEditors.SimpleButton buttonSaveSup;
-        private TextBox txtDoctorSpecialit;
         private TextBox txtDoctorName;
         private TextBox txtDoctorAddress;
         private Label lblDoctorNotes;
@@ -364,5 +382,6 @@
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private Label lbltitle;
         private DevExpress.XtraEditors.SimpleButton btnClose;
+        private DevExpress.XtraEditors.ComboBoxEdit txtDoctorSpecialit;
     }
 }

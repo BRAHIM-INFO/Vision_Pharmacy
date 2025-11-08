@@ -77,13 +77,12 @@ namespace Vision_Pharmacy.Gui.Doctors
             lblDoctorPhone.Text = "رقم الهاتف";
             lblDoctorEmail.Text = "البريد الإلكتروني";
             lblDoctorAddress.Text = "العنوان";
-            lblDoctorNotes.Text = "ملاحظات";
+            lblDoctorNotes.Text = "التخصص";
 
             txtDoctorName.PlaceholderText = "اسم الطبيب *";
             txtDoctorPhone.PlaceholderText = "رقم الهاتف";
             txtDoctorEmail.PlaceholderText = "البريد الإلكتروني";
-            txtDoctorAddress.PlaceholderText = "العنوان";
-            txtDoctorSpecialit.PlaceholderText = "تخصص";
+            txtDoctorAddress.PlaceholderText = "العنوان"; 
 
             buttonSaveSup.Text = "حفظ البيانات";
         }
@@ -99,13 +98,12 @@ namespace Vision_Pharmacy.Gui.Doctors
             lblDoctorPhone.Text = "Phone";
             lblDoctorEmail.Text = "Email";
             lblDoctorAddress.Text = "Address";
-            lblDoctorNotes.Text = "Notes";
+            lblDoctorNotes.Text = "Spiciality";
 
             txtDoctorName.PlaceholderText = "Doctor Name *";
             txtDoctorPhone.PlaceholderText = "Phone Number";
             txtDoctorEmail.PlaceholderText = "Email";
-            txtDoctorAddress.PlaceholderText = "Address";
-            txtDoctorSpecialit.PlaceholderText = "Specialit";
+            txtDoctorAddress.PlaceholderText = "Address"; 
 
             buttonSaveSup.Text = "Save Data";
         }

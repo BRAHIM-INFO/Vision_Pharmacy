@@ -164,12 +164,11 @@ namespace Vision_Pharmacy.Gui.SupplierGui
 
         private void ClearFileds()
         {
-            txtSupplierName.Text = string.Empty;
-            txtSupplierName.Text = suppliers.Name;
-            txtSupplierAddress.Text = suppliers.Address;
-            txtSupplierPhone.Text = suppliers.Phone;
-            txtSupplierEmail.Text = suppliers.Email;
-            txtSupplierNotes.Text = suppliers.Notes;
+            txtSupplierName.Text = string.Empty; 
+            txtSupplierAddress.Text = string.Empty;
+            txtSupplierPhone.Text =string.Empty; 
+            txtSupplierEmail.Text =string.Empty; 
+            txtSupplierNotes.Text = string.Empty;
 
         }
 

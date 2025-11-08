@@ -139,6 +139,9 @@
   <data name="5815" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5815.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="6617" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6617.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="6744" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\6744.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -183,6 +186,9 @@
   </data>
   <data name="Eng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exchange_9090887" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exchange_9090887.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fondSup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondSup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
