@@ -80,7 +80,6 @@
 
   <ItemGroup>
     <Folder Include="Gui\FinancialTransactionGui\Profits\" />
-    <Folder Include="Gui\RepportsGui\" />
   </ItemGroup>
 
 </Project>

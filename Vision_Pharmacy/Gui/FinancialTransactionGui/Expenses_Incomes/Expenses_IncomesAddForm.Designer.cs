@@ -65,23 +65,23 @@
             // 
             // flowLayoutPanel2
             // 
+            flowLayoutPanel2.BackColor = Color.White;
             flowLayoutPanel2.Controls.Add(pictureBox2);
             flowLayoutPanel2.Controls.Add(separatorControl1);
             flowLayoutPanel2.Controls.Add(lbltitle);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 0);
-            flowLayoutPanel2.Margin = new Padding(4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(992, 64);
+            flowLayoutPanel2.Size = new Size(850, 52);
             flowLayoutPanel2.TabIndex = 67;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.drugstore_17347470;
-            pictureBox2.Location = new Point(916, 2);
-            pictureBox2.Margin = new Padding(4, 2, 4, 2);
+            pictureBox2.Location = new Point(785, 2);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(72, 55);
+            pictureBox2.Size = new Size(62, 45);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
@@ -91,12 +91,12 @@
             separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(898, 2);
-            separatorControl1.Margin = new Padding(4, 2, 4, 2);
+            separatorControl1.LineThickness = 8;
+            separatorControl1.Location = new Point(770, 2);
+            separatorControl1.Margin = new Padding(3, 2, 3, 2);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(10, 55);
+            separatorControl1.Size = new Size(9, 45);
             separatorControl1.TabIndex = 1;
             // 
             // lbltitle
@@ -105,10 +105,9 @@
             lbltitle.AutoSize = true;
             lbltitle.Font = new Font("Cairo Medium", 12F);
             lbltitle.ForeColor = Color.Black;
-            lbltitle.Location = new Point(564, 0);
-            lbltitle.Margin = new Padding(4, 0, 4, 0);
+            lbltitle.Location = new Point(507, 0);
             lbltitle.Name = "lbltitle";
-            lbltitle.Size = new Size(326, 37);
+            lbltitle.Size = new Size(257, 30);
             lbltitle.TabIndex = 1;
             lbltitle.Text = "ادارة المالية >  المصروفات و المداخيل";
             // 
@@ -133,19 +132,18 @@
             tableLayoutPanel1.Controls.Add(lblMontant, 0, 3);
             tableLayoutPanel1.Controls.Add(lblDate, 0, 2);
             tableLayoutPanel1.Controls.Add(txtDescription, 1, 6);
-            tableLayoutPanel1.Location = new Point(14, 71);
-            tableLayoutPanel1.Margin = new Padding(4);
+            tableLayoutPanel1.Location = new Point(12, 58);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 8;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 42.391304F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 57.608696F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 43F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 44F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 53F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 54F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 224F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
-            tableLayoutPanel1.Size = new Size(677, 561);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 182F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel1.Size = new Size(580, 456);
             tableLayoutPanel1.TabIndex = 88;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -153,8 +151,8 @@
             // 
             txtDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtDate.EditValue = null;
-            txtDate.Location = new Point(4, 89);
-            txtDate.Margin = new Padding(4, 2, 4, 2);
+            txtDate.Location = new Point(3, 72);
+            txtDate.Margin = new Padding(3, 2, 3, 2);
             txtDate.Name = "txtDate";
             txtDate.Properties.Appearance.BackColor = Color.White;
             txtDate.Properties.Appearance.Font = new Font("Tahoma", 12F);
@@ -164,7 +162,7 @@
             txtDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             txtDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             txtDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            txtDate.Size = new Size(520, 30);
+            txtDate.Size = new Size(446, 26);
             txtDate.TabIndex = 96;
             // 
             // lblTypePaimt
@@ -172,10 +170,9 @@
             lblTypePaimt.AutoSize = true;
             lblTypePaimt.BackColor = Color.FromArgb(238, 240, 255);
             lblTypePaimt.Font = new Font("Cairo Medium", 11F);
-            lblTypePaimt.Location = new Point(561, 184);
-            lblTypePaimt.Margin = new Padding(4, 0, 4, 0);
+            lblTypePaimt.Location = new Point(486, 149);
             lblTypePaimt.Name = "lblTypePaimt";
-            lblTypePaimt.Size = new Size(112, 36);
+            lblTypePaimt.Size = new Size(91, 29);
             lblTypePaimt.TabIndex = 95;
             lblTypePaimt.Text = "طريقة الدفع";
             // 
@@ -183,10 +180,9 @@
             // 
             panel1.Controls.Add(txtTypeOperatExp);
             panel1.Controls.Add(txtTypeOperatInc);
-            panel1.Location = new Point(10, 41);
-            panel1.Margin = new Padding(4);
+            panel1.Location = new Point(8, 33);
             panel1.Name = "panel1";
-            panel1.Size = new Size(520, 42);
+            panel1.Size = new Size(446, 34);
             panel1.TabIndex = 92;
             // 
             // txtTypeOperatExp
@@ -194,9 +190,10 @@
             txtTypeOperatExp.AutoSize = true;
             txtTypeOperatExp.Cursor = Cursors.Hand;
             txtTypeOperatExp.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
-            txtTypeOperatExp.Location = new Point(132, 2);
+            txtTypeOperatExp.Location = new Point(113, 2);
+            txtTypeOperatExp.Margin = new Padding(3, 2, 3, 2);
             txtTypeOperatExp.Name = "txtTypeOperatExp";
-            txtTypeOperatExp.Size = new Size(109, 36);
+            txtTypeOperatExp.Size = new Size(93, 30);
             txtTypeOperatExp.TabIndex = 94;
             txtTypeOperatExp.Text = "مصروفات";
             txtTypeOperatExp.UseVisualStyleBackColor = true;
@@ -207,9 +204,10 @@
             txtTypeOperatInc.Checked = true;
             txtTypeOperatInc.Cursor = Cursors.Hand;
             txtTypeOperatInc.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
-            txtTypeOperatInc.Location = new Point(410, 2);
+            txtTypeOperatInc.Location = new Point(351, 2);
+            txtTypeOperatInc.Margin = new Padding(3, 2, 3, 2);
             txtTypeOperatInc.Name = "txtTypeOperatInc";
-            txtTypeOperatInc.Size = new Size(92, 36);
+            txtTypeOperatInc.Size = new Size(79, 30);
             txtTypeOperatInc.TabIndex = 93;
             txtTypeOperatInc.TabStop = true;
             txtTypeOperatInc.Text = "مداخيل";
@@ -220,10 +218,9 @@
             lblExpenseIncomeID.AutoSize = true;
             lblExpenseIncomeID.BackColor = Color.FromArgb(238, 240, 255);
             lblExpenseIncomeID.Font = new Font("Cairo Medium", 11F);
-            lblExpenseIncomeID.Location = new Point(566, 0);
-            lblExpenseIncomeID.Margin = new Padding(4, 0, 4, 0);
+            lblExpenseIncomeID.Location = new Point(491, 0);
             lblExpenseIncomeID.Name = "lblExpenseIncomeID";
-            lblExpenseIncomeID.Size = new Size(107, 36);
+            lblExpenseIncomeID.Size = new Size(86, 29);
             lblExpenseIncomeID.TabIndex = 53;
             lblExpenseIncomeID.Text = "رقم العملية";
             // 
@@ -232,10 +229,9 @@
             lblTypeOperat.AutoSize = true;
             lblTypeOperat.BackColor = Color.FromArgb(238, 240, 255);
             lblTypeOperat.Font = new Font("Cairo Medium", 11F);
-            lblTypeOperat.Location = new Point(569, 37);
-            lblTypeOperat.Margin = new Padding(4, 0, 4, 0);
+            lblTypeOperat.Location = new Point(493, 30);
             lblTypeOperat.Name = "lblTypeOperat";
-            lblTypeOperat.Size = new Size(104, 36);
+            lblTypeOperat.Size = new Size(84, 29);
             lblTypeOperat.TabIndex = 79;
             lblTypeOperat.Text = "نوع العملية";
             // 
@@ -244,11 +240,11 @@
             txtExpenseIncomeID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtExpenseIncomeID.BackColor = Color.White;
             txtExpenseIncomeID.Font = new Font("Cairo Medium", 10F);
-            txtExpenseIncomeID.Location = new Point(4, 2);
-            txtExpenseIncomeID.Margin = new Padding(4, 2, 4, 2);
+            txtExpenseIncomeID.Location = new Point(3, 2);
+            txtExpenseIncomeID.Margin = new Padding(3, 2, 3, 2);
             txtExpenseIncomeID.Name = "txtExpenseIncomeID";
             txtExpenseIncomeID.ReadOnly = true;
-            txtExpenseIncomeID.Size = new Size(520, 39);
+            txtExpenseIncomeID.Size = new Size(446, 32);
             txtExpenseIncomeID.TabIndex = 1;
             txtExpenseIncomeID.TextAlign = HorizontalAlignment.Center;
             // 
@@ -267,11 +263,11 @@
             buttonSaveSup.Cursor = Cursors.Hand;
             buttonSaveSup.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("buttonSaveSup.ImageOptions.SvgImage");
             buttonSaveSup.ImageOptions.SvgImageSize = new Size(25, 25);
-            buttonSaveSup.Location = new Point(4, 513);
-            buttonSaveSup.Margin = new Padding(4, 2, 4, 2);
+            buttonSaveSup.Location = new Point(3, 417);
+            buttonSaveSup.Margin = new Padding(3, 2, 3, 2);
             buttonSaveSup.Name = "buttonSaveSup";
             buttonSaveSup.RightToLeft = RightToLeft.Yes;
-            buttonSaveSup.Size = new Size(526, 46);
+            buttonSaveSup.Size = new Size(451, 37);
             buttonSaveSup.TabIndex = 91;
             buttonSaveSup.Text = "حفظ البيانات";
             buttonSaveSup.ToolTipTitle = "اضافة";
@@ -282,10 +278,9 @@
             lblDescription.AutoSize = true;
             lblDescription.BackColor = Color.FromArgb(238, 240, 255);
             lblDescription.Font = new Font("Cairo Medium", 11F);
-            lblDescription.Location = new Point(550, 287);
-            lblDescription.Margin = new Padding(4, 0, 4, 0);
+            lblDescription.Location = new Point(478, 233);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(123, 36);
+            lblDescription.Size = new Size(99, 29);
             lblDescription.TabIndex = 81;
             lblDescription.Text = "وصف العملية";
             // 
@@ -294,12 +289,12 @@
             txtTransactionName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtTransactionName.BackColor = Color.White;
             txtTransactionName.Font = new Font("Cairo Medium", 10F);
-            txtTransactionName.Location = new Point(4, 235);
-            txtTransactionName.Margin = new Padding(4, 2, 4, 2);
+            txtTransactionName.Location = new Point(3, 191);
+            txtTransactionName.Margin = new Padding(3, 2, 3, 2);
             txtTransactionName.Multiline = true;
             txtTransactionName.Name = "txtTransactionName";
             txtTransactionName.RightToLeft = RightToLeft.Yes;
-            txtTransactionName.Size = new Size(520, 48);
+            txtTransactionName.Size = new Size(446, 40);
             txtTransactionName.TabIndex = 93;
             // 
             // lblTransactionName
@@ -307,10 +302,9 @@
             lblTransactionName.AutoSize = true;
             lblTransactionName.BackColor = Color.FromArgb(238, 240, 255);
             lblTransactionName.Font = new Font("Cairo Medium", 11F);
-            lblTransactionName.Location = new Point(558, 233);
-            lblTransactionName.Margin = new Padding(4, 0, 4, 0);
+            lblTransactionName.Location = new Point(484, 189);
             lblTransactionName.Name = "lblTransactionName";
-            lblTransactionName.Size = new Size(115, 36);
+            lblTransactionName.Size = new Size(93, 29);
             lblTransactionName.TabIndex = 94;
             lblTransactionName.Text = "اسم  العملية";
             // 
@@ -322,11 +316,11 @@
             txtTypePaimt.Font = new Font("Cairo Medium", 10F);
             txtTypePaimt.FormattingEnabled = true;
             txtTypePaimt.Items.AddRange(new object[] { "نقدي", "بطاقة ائتمان", "شيك" });
-            txtTypePaimt.Location = new Point(4, 186);
-            txtTypePaimt.Margin = new Padding(4, 2, 4, 2);
+            txtTypePaimt.Location = new Point(3, 151);
+            txtTypePaimt.Margin = new Padding(3, 2, 3, 2);
             txtTypePaimt.Name = "txtTypePaimt";
             txtTypePaimt.RightToLeft = RightToLeft.No;
-            txtTypePaimt.Size = new Size(520, 40);
+            txtTypePaimt.Size = new Size(446, 32);
             txtTypePaimt.TabIndex = 86;
             // 
             // txtMontant
@@ -334,10 +328,10 @@
             txtMontant.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtMontant.BackColor = Color.White;
             txtMontant.Font = new Font("Dubai", 12F);
-            txtMontant.Location = new Point(4, 133);
-            txtMontant.Margin = new Padding(4, 2, 4, 2);
+            txtMontant.Location = new Point(3, 108);
+            txtMontant.Margin = new Padding(3, 2, 3, 2);
             txtMontant.Name = "txtMontant";
-            txtMontant.Size = new Size(520, 41);
+            txtMontant.Size = new Size(446, 35);
             txtMontant.TabIndex = 83;
             txtMontant.Text = "0.00";
             txtMontant.TextAlign = HorizontalAlignment.Center;
@@ -347,10 +341,9 @@
             lblMontant.AutoSize = true;
             lblMontant.BackColor = Color.FromArgb(238, 240, 255);
             lblMontant.Font = new Font("Cairo Medium", 11F);
-            lblMontant.Location = new Point(611, 131);
-            lblMontant.Margin = new Padding(4, 0, 4, 0);
+            lblMontant.Location = new Point(526, 106);
             lblMontant.Name = "lblMontant";
-            lblMontant.Size = new Size(62, 36);
+            lblMontant.Size = new Size(51, 29);
             lblMontant.TabIndex = 63;
             lblMontant.Text = "المبلغ";
             // 
@@ -359,10 +352,9 @@
             lblDate.AutoSize = true;
             lblDate.BackColor = Color.FromArgb(238, 240, 255);
             lblDate.Font = new Font("Cairo Medium", 11F);
-            lblDate.Location = new Point(613, 87);
-            lblDate.Margin = new Padding(4, 0, 4, 0);
+            lblDate.Location = new Point(528, 70);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(60, 36);
+            lblDate.Size = new Size(49, 29);
             lblDate.TabIndex = 80;
             lblDate.Text = "التاريخ";
             // 
@@ -371,12 +363,12 @@
             txtDescription.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtDescription.BackColor = Color.White;
             txtDescription.Font = new Font("Cairo Medium", 10F);
-            txtDescription.Location = new Point(4, 289);
-            txtDescription.Margin = new Padding(4, 2, 4, 2);
+            txtDescription.Location = new Point(3, 235);
+            txtDescription.Margin = new Padding(3, 2, 3, 2);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.RightToLeft = RightToLeft.Yes;
-            txtDescription.Size = new Size(520, 216);
+            txtDescription.Size = new Size(446, 176);
             txtDescription.TabIndex = 85;
             // 
             // btnClose
@@ -385,11 +377,11 @@
             btnClose.Cursor = Cursors.Hand;
             btnClose.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnClose.ImageOptions.SvgImage");
             btnClose.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnClose.Location = new Point(938, 609);
-            btnClose.Margin = new Padding(4, 2, 4, 2);
+            btnClose.Location = new Point(804, 495);
+            btnClose.Margin = new Padding(3, 2, 3, 2);
             btnClose.Name = "btnClose";
             btnClose.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            btnClose.Size = new Size(40, 39);
+            btnClose.Size = new Size(34, 32);
             btnClose.TabIndex = 89;
             btnClose.Text = "simpleButton1";
             btnClose.Click += btnClose_Click;
@@ -398,10 +390,10 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources._6617;
-            pictureBox1.Location = new Point(698, 68);
-            pictureBox1.Margin = new Padding(4, 2, 4, 2);
+            pictureBox1.Location = new Point(598, 55);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(280, 537);
+            pictureBox1.Size = new Size(240, 436);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 90;
             pictureBox1.TabStop = false;
@@ -410,15 +402,14 @@
             // 
             Appearance.BackColor = Color.FromArgb(238, 240, 255);
             Appearance.Options.UseBackColor = true;
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(992, 647);
+            ClientSize = new Size(850, 526);
             Controls.Add(pictureBox1);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(flowLayoutPanel2);
             Controls.Add(btnClose);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
             Name = "Expenses_IncomesAddForm";
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;

@@ -54,12 +54,12 @@
             // lblTitleExpired
             // 
             lblTitleExpired.AutoSize = true;
+            lblTitleExpired.BackColor = Color.Transparent;
             lblTitleExpired.Font = new Font("Cairo Medium", 12F);
-            lblTitleExpired.ForeColor = Color.White;
-            lblTitleExpired.Location = new Point(1014, 0);
-            lblTitleExpired.Margin = new Padding(4, 0, 4, 0);
+            lblTitleExpired.ForeColor = Color.Black;
+            lblTitleExpired.Location = new Point(889, 0);
             lblTitleExpired.Name = "lblTitleExpired";
-            lblTitleExpired.Size = new Size(277, 37);
+            lblTitleExpired.Size = new Size(218, 30);
             lblTitleExpired.TabIndex = 1;
             lblTitleExpired.Text = "قائمة الأدوية المنتهية الصلاحية";
             // 
@@ -68,22 +68,22 @@
             SeparatLat.BackColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineColor = Color.FromArgb(255, 128, 0);
             SeparatLat.LineOrientation = Orientation.Vertical;
-            SeparatLat.LineThickness = 10;
-            SeparatLat.Location = new Point(1299, 2);
-            SeparatLat.Margin = new Padding(4, 2, 4, 2);
+            SeparatLat.LineThickness = 8;
+            SeparatLat.Location = new Point(1113, 2);
+            SeparatLat.Margin = new Padding(3, 2, 3, 2);
             SeparatLat.Name = "SeparatLat";
             SeparatLat.Padding = new Padding(0);
-            SeparatLat.Size = new Size(10, 70);
+            SeparatLat.Size = new Size(9, 57);
             SeparatLat.TabIndex = 1;
             // 
             // PicLaterale
             // 
             PicLaterale.BackColor = Color.Silver;
             PicLaterale.Image = Properties.Resources.pill_bottle_15968729;
-            PicLaterale.Location = new Point(1313, 0);
+            PicLaterale.Location = new Point(1125, 0);
             PicLaterale.Margin = new Padding(0);
             PicLaterale.Name = "PicLaterale";
-            PicLaterale.Size = new Size(80, 70);
+            PicLaterale.Size = new Size(69, 57);
             PicLaterale.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLaterale.TabIndex = 26;
             PicLaterale.TabStop = false;
@@ -91,12 +91,12 @@
             // DGListeMedication
             // 
             DGListeMedication.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeMedication.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
-            DGListeMedication.Location = new Point(1, 125);
+            DGListeMedication.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            DGListeMedication.Location = new Point(1, 102);
             DGListeMedication.MainView = gridView1;
-            DGListeMedication.Margin = new Padding(4, 2, 4, 2);
+            DGListeMedication.Margin = new Padding(3, 2, 3, 2);
             DGListeMedication.Name = "DGListeMedication";
-            DGListeMedication.Size = new Size(1392, 578);
+            DGListeMedication.Size = new Size(1193, 470);
             DGListeMedication.TabIndex = 33;
             DGListeMedication.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -142,8 +142,10 @@
             gridView1.Appearance.TopNewRow.Options.UseFont = true;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 10F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
+            gridView1.DetailHeight = 284;
             gridView1.GridControl = DGListeMedication;
             gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             // 
             // btnPrint
             // 
@@ -160,11 +162,11 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(4, 2);
-            btnPrint.Margin = new Padding(4, 2, 4, 2);
+            btnPrint.Location = new Point(3, 2);
+            btnPrint.Margin = new Padding(3, 2, 3, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
-            btnPrint.Size = new Size(136, 46);
+            btnPrint.Size = new Size(117, 37);
             btnPrint.TabIndex = 34;
             btnPrint.Text = "طباعة";
             btnPrint.ToolTipTitle = "اضافة";
@@ -176,11 +178,10 @@
             labelExpired.AutoSize = true;
             labelExpired.Font = new Font("Cairo Medium", 10F);
             labelExpired.ForeColor = Color.Teal;
-            labelExpired.Location = new Point(1348, 705);
-            labelExpired.Margin = new Padding(4, 0, 4, 0);
+            labelExpired.Location = new Point(1155, 573);
             labelExpired.Name = "labelExpired";
             labelExpired.RightToLeft = RightToLeft.No;
-            labelExpired.Size = new Size(21, 32);
+            labelExpired.Size = new Size(18, 26);
             labelExpired.TabIndex = 121;
             labelExpired.Text = "-";
             // 
@@ -193,11 +194,11 @@
             comboBoxExpiry.Font = new Font("Cairo Medium", 9F);
             comboBoxExpiry.FormattingEnabled = true;
             comboBoxExpiry.Items.AddRange(new object[] { "اخر 30 يوم", "الشهر الماضي", "الشهر الحالي", "العام الماضي", "العام الحالي", "فترة محددة" });
-            comboBoxExpiry.Location = new Point(408, 2);
-            comboBoxExpiry.Margin = new Padding(4, 2, 4, 2);
+            comboBoxExpiry.Location = new Point(351, 2);
+            comboBoxExpiry.Margin = new Padding(3, 2, 3, 2);
             comboBoxExpiry.Name = "comboBoxExpiry";
             comboBoxExpiry.RightToLeft = RightToLeft.Yes;
-            comboBoxExpiry.Size = new Size(265, 37);
+            comboBoxExpiry.Size = new Size(228, 31);
             comboBoxExpiry.TabIndex = 122;
             comboBoxExpiry.Text = "اخر 30 يوم";
             comboBoxExpiry.ValueMember = "اخر 30 يوم";
@@ -208,9 +209,10 @@
             dateTimeExpired.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             dateTimeExpired.Font = new Font("Tahoma", 11F);
             dateTimeExpired.Format = DateTimePickerFormat.Short;
-            dateTimeExpired.Location = new Point(147, 3);
+            dateTimeExpired.Location = new Point(126, 2);
+            dateTimeExpired.Margin = new Padding(3, 2, 3, 2);
             dateTimeExpired.Name = "dateTimeExpired";
-            dateTimeExpired.Size = new Size(153, 30);
+            dateTimeExpired.Size = new Size(132, 25);
             dateTimeExpired.TabIndex = 123;
             dateTimeExpired.ValueChanged += dateTimeExpired_ValueChanged;
             // 
@@ -219,16 +221,16 @@
             lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblDate.Font = new Font("Cairo Medium", 10F);
             lblDate.ForeColor = Color.FromArgb(64, 64, 64);
-            lblDate.Location = new Point(306, 0);
+            lblDate.Location = new Point(264, 0);
             lblDate.Name = "lblDate";
             lblDate.RightToLeft = RightToLeft.Yes;
-            lblDate.Size = new Size(95, 34);
+            lblDate.Size = new Size(81, 28);
             lblDate.TabIndex = 124;
             lblDate.Text = "تاريخ محدد";
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.BackColor = Color.FromArgb(60, 71, 151);
+            flowLayoutPanel1.BackColor = Color.White;
             flowLayoutPanel1.Controls.Add(PicLaterale);
             flowLayoutPanel1.Controls.Add(SeparatLat);
             flowLayoutPanel1.Controls.Add(lblTitleExpired);
@@ -236,7 +238,7 @@
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1393, 70);
+            flowLayoutPanel1.Size = new Size(1194, 57);
             flowLayoutPanel1.TabIndex = 125;
             // 
             // flowLayoutPanel2
@@ -246,23 +248,25 @@
             flowLayoutPanel2.Controls.Add(lblDate);
             flowLayoutPanel2.Controls.Add(comboBoxExpiry);
             flowLayoutPanel2.Dock = DockStyle.Top;
-            flowLayoutPanel2.Location = new Point(0, 70);
+            flowLayoutPanel2.Location = new Point(0, 57);
+            flowLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.RightToLeft = RightToLeft.No;
-            flowLayoutPanel2.Size = new Size(1393, 50);
+            flowLayoutPanel2.Size = new Size(1194, 41);
             flowLayoutPanel2.TabIndex = 126;
             // 
             // ExpiredUserControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(flowLayoutPanel2);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(labelExpired);
             Controls.Add(DGListeMedication);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ExpiredUserControl";
             RightToLeft = RightToLeft.Yes;
-            Size = new Size(1393, 750);
+            Size = new Size(1194, 609);
             Load += ExpiredUserControl_Load;
             ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();

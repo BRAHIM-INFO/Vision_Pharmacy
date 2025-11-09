@@ -45,9 +45,10 @@
             pictureBox1.BackColor = Color.FromArgb(64, 64, 64);
             pictureBox1.Dock = DockStyle.Right;
             pictureBox1.Image = Properties.Resources.Notification_128px;
-            pictureBox1.Location = new Point(354, 0);
+            pictureBox1.Location = new Point(310, 0);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(87, 60);
+            pictureBox1.Size = new Size(76, 45);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -57,11 +58,11 @@
             // 
             labelNotifictionCatption.BackColor = Color.FromArgb(70, 161, 87);
             labelNotifictionCatption.Dock = DockStyle.Fill;
-            labelNotifictionCatption.Font = new Font("Cairo Medium", 12F);
-            labelNotifictionCatption.ForeColor = Color.FromArgb(224, 224, 224);
+            labelNotifictionCatption.Font = new Font("Cairo Medium", 14F, FontStyle.Bold);
+            labelNotifictionCatption.ForeColor = Color.White;
             labelNotifictionCatption.Location = new Point(0, 0);
             labelNotifictionCatption.Name = "labelNotifictionCatption";
-            labelNotifictionCatption.Size = new Size(354, 60);
+            labelNotifictionCatption.Size = new Size(310, 45);
             labelNotifictionCatption.TabIndex = 1;
             labelNotifictionCatption.Text = "تمت عملية الاضافة بنجاح";
             labelNotifictionCatption.TextAlign = ContentAlignment.MiddleCenter;
@@ -69,13 +70,14 @@
             // 
             // NotifictionUser
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(441, 60);
+            ClientSize = new Size(386, 45);
             Controls.Add(labelNotifictionCatption);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "NotifictionUser";
             Opacity = 0.9D;
             ShowInTaskbar = false;
