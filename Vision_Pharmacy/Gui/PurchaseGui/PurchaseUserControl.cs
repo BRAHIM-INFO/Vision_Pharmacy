@@ -71,8 +71,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
 
         //Event Handlers
-        #region
-          
+        #region 
         public void DeleteFacture(string factureNum)
         {
             try

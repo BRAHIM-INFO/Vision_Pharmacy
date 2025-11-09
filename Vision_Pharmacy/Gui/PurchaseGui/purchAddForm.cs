@@ -60,10 +60,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
         public purchAddForm(int Id, PurchaseUserControl PurchaseUserControl)
         {
-            InitializeComponent();
-
-            InitializeGrid();
-
+            InitializeComponent(); 
+            InitializeGrid(); 
 
             loading = LoadingUser.Instance();
             labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
@@ -142,8 +140,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
             try
             {
-                decimal totalSum = 0;
-
+                decimal totalSum = 0; 
                 // الوصول إلى DataSource للـ Grid (عادة DataTable)
                 if (gridView1.DataSource is DataTable dt)
                 {
@@ -191,8 +188,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             gridView1.Columns["Quantity"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["PurchasePrice"].OptionsColumn.AllowEdit = true;
             gridView1.Columns["SalePrice"].OptionsColumn.AllowEdit = true;
-
-
+             
             var view = gridView1;
             view.OptionsBehavior.Editable = true;
             view.OptionsView.ShowGroupPanel = false;
@@ -267,12 +263,9 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         private void ButtonEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             var view = gridView1;
-            var row = view.GetFocusedDataRow();
-
-            if (row == null) return;
-
-            int quantity = Convert.ToInt32(row["Quantity"]);
-
+            var row = view.GetFocusedDataRow(); 
+            if (row == null) return; 
+            int quantity = Convert.ToInt32(row["Quantity"]); 
             if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
             {
                 quantity++;
@@ -283,13 +276,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     quantity--;
             }
 
-            row["Quantity"] = quantity;
-
+            row["Quantity"] = quantity; 
             // تحديث المجموع
             decimal price = Convert.ToDecimal(row["PurchasePrice"]);
             row["Quantity"] = quantity;
-            row["Total"] = quantity * price;
-
+            row["Total"] = quantity * price; 
             DGListePurchase.RefreshDataSource();
             UpdateTotalAmount();
         }
@@ -634,14 +625,14 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
         private async void SetDataForAdd()
         {
-            Supplier = _dataHelperSupplier.GetData().FirstOrDefault(s => s.Name == txtSupplier.Text);
-            if (Supplier == null)
-            {
-                if (Properties.Settings.Default.ChangeLang == "Ar")
-                    MessageBox.Show("الفاتورة غير موجودة في قاعدة البيانات. يرجى إضافتها أولاً.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("The invoice does not exist in the database. Please add it first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //Supplier = _dataHelperSupplier.GetData().FirstOrDefault(s => s.Name == txtSupplier.Text);
+            //if (Supplier == null)
+            //{
+            //    if (Properties.Settings.Default.ChangeLang == "Ar")
+            //        MessageBox.Show("الفاتورة غير موجودة في قاعدة البيانات. يرجى إضافتها أولاً.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    else MessageBox.Show("The invoice does not exist in the database. Please add it first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             // 1. إنشاء الفاتورة من TextBox
             Purchase = new Purchase();
             // 2. المرور على الأصناف في GridControl

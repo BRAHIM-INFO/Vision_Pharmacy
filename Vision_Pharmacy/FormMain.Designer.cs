@@ -83,7 +83,7 @@
             btnCases = new DevExpress.XtraEditors.SimpleButton();
             btnFactNew = new DevExpress.XtraEditors.SimpleButton();
             panel2 = new Panel();
-            btnListFacts = new DevExpress.XtraEditors.SimpleButton();
+            btnListSales = new DevExpress.XtraEditors.SimpleButton();
             panel3 = new Panel();
             pnl_04 = new FlowLayoutPanel();
             btnPurchases = new DevExpress.XtraEditors.SimpleButton();
@@ -170,10 +170,10 @@
             pnl_11.Controls.Add(btnStngs);
             pnl_11.Controls.Add(panel18);
             pnl_11.Dock = DockStyle.Top;
-            pnl_11.Location = new Point(0, 1201);
+            pnl_11.Location = new Point(0, 675);
             pnl_11.Margin = new Padding(4, 2, 4, 2);
             pnl_11.Name = "pnl_11";
-            pnl_11.Size = new Size(247, 50);
+            pnl_11.Size = new Size(268, 50);
             pnl_11.TabIndex = 11;
             // 
             // btnSetings
@@ -187,7 +187,7 @@
             btnSetings.Cursor = Cursors.Hand;
             btnSetings.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSetings.ImageOptions.SvgImage");
             btnSetings.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnSetings.Location = new Point(-21, 2);
+            btnSetings.Location = new Point(0, 2);
             btnSetings.Margin = new Padding(4, 2, 4, 2);
             btnSetings.Name = "btnSetings";
             btnSetings.Size = new Size(264, 57);
@@ -205,7 +205,7 @@
             btnStngs.Appearance.Options.UseFont = true;
             btnStngs.Cursor = Cursors.Hand;
             btnStngs.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnStngs.Location = new Point(20, 63);
+            btnStngs.Location = new Point(41, 63);
             btnStngs.Margin = new Padding(4, 2, 4, 2);
             btnStngs.Name = "btnStngs";
             btnStngs.Size = new Size(223, 50);
@@ -216,7 +216,7 @@
             // panel18
             // 
             panel18.BackColor = Color.FromArgb(251, 196, 25);
-            panel18.Location = new Point(233, 117);
+            panel18.Location = new Point(23, 63);
             panel18.Margin = new Padding(4, 2, 4, 2);
             panel18.Name = "panel18";
             panel18.Size = new Size(10, 50);
@@ -231,10 +231,10 @@
             pnl_10.Controls.Add(simpleButton19);
             pnl_10.Controls.Add(panel17);
             pnl_10.Dock = DockStyle.Top;
-            pnl_10.Location = new Point(0, 1139);
+            pnl_10.Location = new Point(0, 613);
             pnl_10.Margin = new Padding(4, 2, 4, 2);
             pnl_10.Name = "pnl_10";
-            pnl_10.Size = new Size(247, 62);
+            pnl_10.Size = new Size(268, 62);
             pnl_10.TabIndex = 10;
             // 
             // btnAllUsers
@@ -248,7 +248,7 @@
             btnAllUsers.Cursor = Cursors.Hand;
             btnAllUsers.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnAllUsers.ImageOptions.SvgImage");
             btnAllUsers.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAllUsers.Location = new Point(-21, 2);
+            btnAllUsers.Location = new Point(0, 2);
             btnAllUsers.Margin = new Padding(4, 2, 4, 2);
             btnAllUsers.Name = "btnAllUsers";
             btnAllUsers.Size = new Size(264, 57);
@@ -266,7 +266,7 @@
             btnListUsers.Appearance.Options.UseFont = true;
             btnListUsers.Cursor = Cursors.Hand;
             btnListUsers.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnListUsers.Location = new Point(20, 63);
+            btnListUsers.Location = new Point(41, 63);
             btnListUsers.Margin = new Padding(4, 2, 4, 2);
             btnListUsers.Name = "btnListUsers";
             btnListUsers.Size = new Size(223, 50);
@@ -277,7 +277,7 @@
             // panel16
             // 
             panel16.BackColor = Color.FromArgb(251, 196, 25);
-            panel16.Location = new Point(233, 117);
+            panel16.Location = new Point(23, 63);
             panel16.Margin = new Padding(4, 2, 4, 2);
             panel16.Name = "panel16";
             panel16.Size = new Size(10, 50);
@@ -293,7 +293,7 @@
             simpleButton19.Appearance.Options.UseFont = true;
             simpleButton19.Cursor = Cursors.Hand;
             simpleButton19.ImageOptions.SvgImageSize = new Size(25, 25);
-            simpleButton19.Location = new Point(20, 171);
+            simpleButton19.Location = new Point(41, 117);
             simpleButton19.Margin = new Padding(4, 2, 4, 2);
             simpleButton19.Name = "simpleButton19";
             simpleButton19.Size = new Size(223, 50);
@@ -303,7 +303,7 @@
             // panel17
             // 
             panel17.BackColor = Color.FromArgb(251, 196, 25);
-            panel17.Location = new Point(233, 225);
+            panel17.Location = new Point(23, 117);
             panel17.Margin = new Padding(4, 2, 4, 2);
             panel17.Name = "panel17";
             panel17.Size = new Size(10, 50);
@@ -327,7 +327,7 @@
             pnl_09.Location = new Point(0, 551);
             pnl_09.Margin = new Padding(4, 2, 4, 2);
             pnl_09.Name = "pnl_09";
-            pnl_09.Size = new Size(247, 588);
+            pnl_09.Size = new Size(268, 62);
             pnl_09.TabIndex = 7;
             // 
             // btnRepports
@@ -341,7 +341,7 @@
             btnRepports.Cursor = Cursors.Hand;
             btnRepports.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnRepports.ImageOptions.SvgImage");
             btnRepports.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRepports.Location = new Point(-21, 2);
+            btnRepports.Location = new Point(0, 2);
             btnRepports.Margin = new Padding(4, 2, 4, 2);
             btnRepports.Name = "btnRepports";
             btnRepports.Size = new Size(264, 57);
@@ -359,7 +359,7 @@
             btnRpt01.Appearance.Options.UseFont = true;
             btnRpt01.Cursor = Cursors.Hand;
             btnRpt01.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRpt01.Location = new Point(20, 63);
+            btnRpt01.Location = new Point(41, 63);
             btnRpt01.Margin = new Padding(4, 2, 4, 2);
             btnRpt01.Name = "btnRpt01";
             btnRpt01.Size = new Size(223, 50);
@@ -370,7 +370,7 @@
             // panel8
             // 
             panel8.BackColor = Color.FromArgb(251, 196, 25);
-            panel8.Location = new Point(233, 117);
+            panel8.Location = new Point(23, 63);
             panel8.Margin = new Padding(4, 2, 4, 2);
             panel8.Name = "panel8";
             panel8.Size = new Size(10, 50);
@@ -386,7 +386,7 @@
             btnRpt02.Appearance.Options.UseFont = true;
             btnRpt02.Cursor = Cursors.Hand;
             btnRpt02.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRpt02.Location = new Point(20, 171);
+            btnRpt02.Location = new Point(41, 117);
             btnRpt02.Margin = new Padding(4, 2, 4, 2);
             btnRpt02.Name = "btnRpt02";
             btnRpt02.Size = new Size(223, 50);
@@ -397,7 +397,7 @@
             // panel9
             // 
             panel9.BackColor = Color.FromArgb(251, 196, 25);
-            panel9.Location = new Point(233, 225);
+            panel9.Location = new Point(23, 117);
             panel9.Margin = new Padding(4, 2, 4, 2);
             panel9.Name = "panel9";
             panel9.Size = new Size(10, 50);
@@ -413,7 +413,7 @@
             btnRpt03.Appearance.Options.UseFont = true;
             btnRpt03.Cursor = Cursors.Hand;
             btnRpt03.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRpt03.Location = new Point(20, 279);
+            btnRpt03.Location = new Point(41, 171);
             btnRpt03.Margin = new Padding(4, 2, 4, 2);
             btnRpt03.Name = "btnRpt03";
             btnRpt03.Size = new Size(223, 50);
@@ -424,7 +424,7 @@
             // panel11
             // 
             panel11.BackColor = Color.FromArgb(251, 196, 25);
-            panel11.Location = new Point(233, 333);
+            panel11.Location = new Point(23, 171);
             panel11.Margin = new Padding(4, 2, 4, 2);
             panel11.Name = "panel11";
             panel11.Size = new Size(10, 50);
@@ -440,7 +440,7 @@
             btnRpt04.Appearance.Options.UseFont = true;
             btnRpt04.Cursor = Cursors.Hand;
             btnRpt04.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRpt04.Location = new Point(20, 387);
+            btnRpt04.Location = new Point(41, 225);
             btnRpt04.Margin = new Padding(4, 2, 4, 2);
             btnRpt04.Name = "btnRpt04";
             btnRpt04.Size = new Size(223, 50);
@@ -451,7 +451,7 @@
             // panel25
             // 
             panel25.BackColor = Color.FromArgb(251, 196, 25);
-            panel25.Location = new Point(233, 441);
+            panel25.Location = new Point(23, 225);
             panel25.Margin = new Padding(4, 2, 4, 2);
             panel25.Name = "panel25";
             panel25.Size = new Size(10, 50);
@@ -467,7 +467,7 @@
             btnRpt05.Appearance.Options.UseFont = true;
             btnRpt05.Cursor = Cursors.Hand;
             btnRpt05.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRpt05.Location = new Point(20, 495);
+            btnRpt05.Location = new Point(41, 279);
             btnRpt05.Margin = new Padding(4, 2, 4, 2);
             btnRpt05.Name = "btnRpt05";
             btnRpt05.Size = new Size(223, 50);
@@ -478,7 +478,7 @@
             // panel26
             // 
             panel26.BackColor = Color.FromArgb(251, 196, 25);
-            panel26.Location = new Point(233, 549);
+            panel26.Location = new Point(23, 279);
             panel26.Margin = new Padding(4, 2, 4, 2);
             panel26.Name = "panel26";
             panel26.Size = new Size(10, 50);
@@ -496,7 +496,7 @@
             pnl_08.Location = new Point(0, 489);
             pnl_08.Margin = new Padding(4, 2, 4, 2);
             pnl_08.Name = "pnl_08";
-            pnl_08.Size = new Size(247, 62);
+            pnl_08.Size = new Size(268, 62);
             pnl_08.TabIndex = 8;
             // 
             // btnFinance
@@ -510,7 +510,7 @@
             btnFinance.Cursor = Cursors.Hand;
             btnFinance.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnFinance.ImageOptions.SvgImage");
             btnFinance.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnFinance.Location = new Point(-21, 2);
+            btnFinance.Location = new Point(0, 2);
             btnFinance.Margin = new Padding(4, 2, 4, 2);
             btnFinance.Name = "btnFinance";
             btnFinance.Size = new Size(264, 57);
@@ -528,7 +528,7 @@
             simpleButton11.Appearance.Options.UseFont = true;
             simpleButton11.Cursor = Cursors.Hand;
             simpleButton11.ImageOptions.SvgImageSize = new Size(25, 25);
-            simpleButton11.Location = new Point(20, 63);
+            simpleButton11.Location = new Point(41, 63);
             simpleButton11.Margin = new Padding(4, 2, 4, 2);
             simpleButton11.Name = "simpleButton11";
             simpleButton11.Size = new Size(223, 50);
@@ -539,7 +539,7 @@
             // panel10
             // 
             panel10.BackColor = Color.FromArgb(251, 196, 25);
-            panel10.Location = new Point(233, 117);
+            panel10.Location = new Point(23, 63);
             panel10.Margin = new Padding(4, 2, 4, 2);
             panel10.Name = "panel10";
             panel10.Size = new Size(10, 50);
@@ -555,7 +555,7 @@
             simpleButton1.Appearance.Options.UseFont = true;
             simpleButton1.Cursor = Cursors.Hand;
             simpleButton1.ImageOptions.SvgImageSize = new Size(25, 25);
-            simpleButton1.Location = new Point(20, 171);
+            simpleButton1.Location = new Point(41, 117);
             simpleButton1.Margin = new Padding(4, 2, 4, 2);
             simpleButton1.Name = "simpleButton1";
             simpleButton1.Size = new Size(223, 50);
@@ -565,7 +565,7 @@
             // panel23
             // 
             panel23.BackColor = Color.FromArgb(251, 196, 25);
-            panel23.Location = new Point(233, 225);
+            panel23.Location = new Point(23, 117);
             panel23.Margin = new Padding(4, 2, 4, 2);
             panel23.Name = "panel23";
             panel23.Size = new Size(10, 50);
@@ -585,7 +585,7 @@
             pnl_07.Location = new Point(0, 427);
             pnl_07.Margin = new Padding(4, 2, 4, 2);
             pnl_07.Name = "pnl_07";
-            pnl_07.Size = new Size(247, 62);
+            pnl_07.Size = new Size(268, 62);
             pnl_07.TabIndex = 9;
             // 
             // btnRH
@@ -599,7 +599,7 @@
             btnRH.Cursor = Cursors.Hand;
             btnRH.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnRH.ImageOptions.SvgImage");
             btnRH.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRH.Location = new Point(-21, 2);
+            btnRH.Location = new Point(0, 2);
             btnRH.Margin = new Padding(4, 2, 4, 2);
             btnRH.Name = "btnRH";
             btnRH.Size = new Size(264, 57);
@@ -617,7 +617,7 @@
             btnListEmp.Appearance.Options.UseFont = true;
             btnListEmp.Cursor = Cursors.Hand;
             btnListEmp.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnListEmp.Location = new Point(20, 63);
+            btnListEmp.Location = new Point(41, 63);
             btnListEmp.Margin = new Padding(4, 2, 4, 2);
             btnListEmp.Name = "btnListEmp";
             btnListEmp.Size = new Size(223, 50);
@@ -628,7 +628,7 @@
             // panel12
             // 
             panel12.BackColor = Color.FromArgb(251, 196, 25);
-            panel12.Location = new Point(233, 117);
+            panel12.Location = new Point(23, 63);
             panel12.Margin = new Padding(4, 2, 4, 2);
             panel12.Name = "panel12";
             panel12.Size = new Size(10, 50);
@@ -644,7 +644,7 @@
             btnAttendEmp.Appearance.Options.UseFont = true;
             btnAttendEmp.Cursor = Cursors.Hand;
             btnAttendEmp.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAttendEmp.Location = new Point(20, 171);
+            btnAttendEmp.Location = new Point(41, 117);
             btnAttendEmp.Margin = new Padding(4, 2, 4, 2);
             btnAttendEmp.Name = "btnAttendEmp";
             btnAttendEmp.Size = new Size(223, 50);
@@ -655,7 +655,7 @@
             // panel13
             // 
             panel13.BackColor = Color.FromArgb(251, 196, 25);
-            panel13.Location = new Point(233, 225);
+            panel13.Location = new Point(23, 117);
             panel13.Margin = new Padding(4, 2, 4, 2);
             panel13.Name = "panel13";
             panel13.Size = new Size(10, 50);
@@ -671,7 +671,7 @@
             btnPayEmp.Appearance.Options.UseFont = true;
             btnPayEmp.Cursor = Cursors.Hand;
             btnPayEmp.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPayEmp.Location = new Point(20, 279);
+            btnPayEmp.Location = new Point(41, 171);
             btnPayEmp.Margin = new Padding(4, 2, 4, 2);
             btnPayEmp.Name = "btnPayEmp";
             btnPayEmp.Size = new Size(223, 50);
@@ -682,7 +682,7 @@
             // panel15
             // 
             panel15.BackColor = Color.FromArgb(251, 196, 25);
-            panel15.Location = new Point(233, 333);
+            panel15.Location = new Point(23, 171);
             panel15.Margin = new Padding(4, 2, 4, 2);
             panel15.Name = "panel15";
             panel15.Size = new Size(10, 50);
@@ -706,7 +706,7 @@
             pnl_06.Location = new Point(0, 365);
             pnl_06.Margin = new Padding(4, 2, 4, 2);
             pnl_06.Name = "pnl_06";
-            pnl_06.Size = new Size(247, 62);
+            pnl_06.Size = new Size(268, 62);
             pnl_06.TabIndex = 6;
             // 
             // btnSession
@@ -720,7 +720,7 @@
             btnSession.Cursor = Cursors.Hand;
             btnSession.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSession.ImageOptions.SvgImage");
             btnSession.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnSession.Location = new Point(-21, 2);
+            btnSession.Location = new Point(0, 2);
             btnSession.Margin = new Padding(4, 2, 4, 2);
             btnSession.Name = "btnSession";
             btnSession.Size = new Size(264, 57);
@@ -738,7 +738,7 @@
             btnSuppliers.Appearance.Options.UseFont = true;
             btnSuppliers.Cursor = Cursors.Hand;
             btnSuppliers.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnSuppliers.Location = new Point(20, 63);
+            btnSuppliers.Location = new Point(41, 63);
             btnSuppliers.Margin = new Padding(4, 2, 4, 2);
             btnSuppliers.Name = "btnSuppliers";
             btnSuppliers.Size = new Size(223, 50);
@@ -749,7 +749,7 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(251, 196, 25);
-            panel4.Location = new Point(233, 117);
+            panel4.Location = new Point(23, 63);
             panel4.Margin = new Padding(4, 2, 4, 2);
             panel4.Name = "panel4";
             panel4.Size = new Size(10, 50);
@@ -765,18 +765,17 @@
             MovSuppliers.Appearance.Options.UseFont = true;
             MovSuppliers.Cursor = Cursors.Hand;
             MovSuppliers.ImageOptions.SvgImageSize = new Size(25, 25);
-            MovSuppliers.Location = new Point(20, 171);
+            MovSuppliers.Location = new Point(41, 117);
             MovSuppliers.Margin = new Padding(4, 2, 4, 2);
             MovSuppliers.Name = "MovSuppliers";
             MovSuppliers.Size = new Size(223, 50);
             MovSuppliers.TabIndex = 34;
             MovSuppliers.Text = "حركة الموردين";
-            MovSuppliers.Click += MovSuppliers_Click;
             // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(251, 196, 25);
-            panel5.Location = new Point(233, 225);
+            panel5.Location = new Point(23, 117);
             panel5.Margin = new Padding(4, 2, 4, 2);
             panel5.Name = "panel5";
             panel5.Size = new Size(10, 50);
@@ -792,7 +791,7 @@
             btnCustomer.Appearance.Options.UseFont = true;
             btnCustomer.Cursor = Cursors.Hand;
             btnCustomer.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnCustomer.Location = new Point(20, 279);
+            btnCustomer.Location = new Point(41, 171);
             btnCustomer.Margin = new Padding(4, 2, 4, 2);
             btnCustomer.Name = "btnCustomer";
             btnCustomer.Size = new Size(223, 50);
@@ -803,7 +802,7 @@
             // panel19
             // 
             panel19.BackColor = Color.FromArgb(251, 196, 25);
-            panel19.Location = new Point(233, 333);
+            panel19.Location = new Point(23, 171);
             panel19.Margin = new Padding(4, 2, 4, 2);
             panel19.Name = "panel19";
             panel19.Size = new Size(10, 50);
@@ -819,7 +818,7 @@
             btnMovCustomer.Appearance.Options.UseFont = true;
             btnMovCustomer.Cursor = Cursors.Hand;
             btnMovCustomer.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnMovCustomer.Location = new Point(20, 387);
+            btnMovCustomer.Location = new Point(41, 225);
             btnMovCustomer.Margin = new Padding(4, 2, 4, 2);
             btnMovCustomer.Name = "btnMovCustomer";
             btnMovCustomer.Size = new Size(223, 50);
@@ -829,7 +828,7 @@
             // panel22
             // 
             panel22.BackColor = Color.FromArgb(251, 196, 25);
-            panel22.Location = new Point(233, 441);
+            panel22.Location = new Point(23, 225);
             panel22.Margin = new Padding(4, 2, 4, 2);
             panel22.Name = "panel22";
             panel22.Size = new Size(10, 50);
@@ -845,7 +844,7 @@
             btnDoctorsList.Appearance.Options.UseFont = true;
             btnDoctorsList.Cursor = Cursors.Hand;
             btnDoctorsList.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnDoctorsList.Location = new Point(20, 495);
+            btnDoctorsList.Location = new Point(41, 279);
             btnDoctorsList.Margin = new Padding(4, 2, 4, 2);
             btnDoctorsList.Name = "btnDoctorsList";
             btnDoctorsList.Size = new Size(223, 50);
@@ -856,7 +855,7 @@
             // panel24
             // 
             panel24.BackColor = Color.FromArgb(251, 196, 25);
-            panel24.Location = new Point(233, 549);
+            panel24.Location = new Point(23, 279);
             panel24.Margin = new Padding(4, 2, 4, 2);
             panel24.Name = "panel24";
             panel24.Size = new Size(10, 50);
@@ -868,13 +867,13 @@
             pnl_05.Controls.Add(btnCases);
             pnl_05.Controls.Add(btnFactNew);
             pnl_05.Controls.Add(panel2);
-            pnl_05.Controls.Add(btnListFacts);
+            pnl_05.Controls.Add(btnListSales);
             pnl_05.Controls.Add(panel3);
             pnl_05.Dock = DockStyle.Top;
             pnl_05.Location = new Point(0, 303);
             pnl_05.Margin = new Padding(0);
             pnl_05.Name = "pnl_05";
-            pnl_05.Size = new Size(247, 62);
+            pnl_05.Size = new Size(268, 62);
             pnl_05.TabIndex = 5;
             // 
             // btnCases
@@ -888,7 +887,7 @@
             btnCases.Cursor = Cursors.Hand;
             btnCases.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnCases.ImageOptions.SvgImage");
             btnCases.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnCases.Location = new Point(-21, 2);
+            btnCases.Location = new Point(0, 2);
             btnCases.Margin = new Padding(4, 2, 4, 2);
             btnCases.Name = "btnCases";
             btnCases.Size = new Size(264, 57);
@@ -906,7 +905,7 @@
             btnFactNew.Appearance.Options.UseFont = true;
             btnFactNew.Cursor = Cursors.Hand;
             btnFactNew.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnFactNew.Location = new Point(20, 63);
+            btnFactNew.Location = new Point(41, 63);
             btnFactNew.Margin = new Padding(4, 2, 4, 2);
             btnFactNew.Name = "btnFactNew";
             btnFactNew.Size = new Size(223, 50);
@@ -917,34 +916,34 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(251, 196, 25);
-            panel2.Location = new Point(233, 117);
+            panel2.Location = new Point(23, 63);
             panel2.Margin = new Padding(4, 2, 4, 2);
             panel2.Name = "panel2";
             panel2.Size = new Size(10, 50);
             panel2.TabIndex = 29;
             // 
-            // btnListFacts
+            // btnListSales
             // 
-            btnListFacts.Appearance.BackColor = Color.FromArgb(50, 107, 244);
-            btnListFacts.Appearance.BorderColor = Color.White;
-            btnListFacts.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnListFacts.Appearance.Options.UseBackColor = true;
-            btnListFacts.Appearance.Options.UseBorderColor = true;
-            btnListFacts.Appearance.Options.UseFont = true;
-            btnListFacts.Cursor = Cursors.Hand;
-            btnListFacts.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnListFacts.Location = new Point(20, 171);
-            btnListFacts.Margin = new Padding(4, 2, 4, 2);
-            btnListFacts.Name = "btnListFacts";
-            btnListFacts.Size = new Size(223, 50);
-            btnListFacts.TabIndex = 30;
-            btnListFacts.Text = "قائمة المبيعات";
-            btnListFacts.Click += MovSuppliers_Click;
+            btnListSales.Appearance.BackColor = Color.FromArgb(50, 107, 244);
+            btnListSales.Appearance.BorderColor = Color.White;
+            btnListSales.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnListSales.Appearance.Options.UseBackColor = true;
+            btnListSales.Appearance.Options.UseBorderColor = true;
+            btnListSales.Appearance.Options.UseFont = true;
+            btnListSales.Cursor = Cursors.Hand;
+            btnListSales.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnListSales.Location = new Point(41, 117);
+            btnListSales.Margin = new Padding(4, 2, 4, 2);
+            btnListSales.Name = "btnListSales";
+            btnListSales.Size = new Size(223, 50);
+            btnListSales.TabIndex = 30;
+            btnListSales.Text = "قائمة المبيعات";
+            btnListSales.Click += btnListSales_Click;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(251, 196, 25);
-            panel3.Location = new Point(233, 225);
+            panel3.Location = new Point(23, 117);
             panel3.Margin = new Padding(4, 2, 4, 2);
             panel3.Name = "panel3";
             panel3.Size = new Size(10, 50);
@@ -962,7 +961,7 @@
             pnl_04.Location = new Point(0, 241);
             pnl_04.Margin = new Padding(0);
             pnl_04.Name = "pnl_04";
-            pnl_04.Size = new Size(247, 62);
+            pnl_04.Size = new Size(268, 62);
             pnl_04.TabIndex = 4;
             // 
             // btnPurchases
@@ -976,7 +975,7 @@
             btnPurchases.Cursor = Cursors.Hand;
             btnPurchases.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPurchases.ImageOptions.SvgImage");
             btnPurchases.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPurchases.Location = new Point(-21, 2);
+            btnPurchases.Location = new Point(0, 2);
             btnPurchases.Margin = new Padding(4, 2, 4, 2);
             btnPurchases.Name = "btnPurchases";
             btnPurchases.Size = new Size(264, 57);
@@ -994,7 +993,7 @@
             btnAddFact.Appearance.Options.UseFont = true;
             btnAddFact.Cursor = Cursors.Hand;
             btnAddFact.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnAddFact.Location = new Point(20, 63);
+            btnAddFact.Location = new Point(41, 63);
             btnAddFact.Margin = new Padding(4, 2, 4, 2);
             btnAddFact.Name = "btnAddFact";
             btnAddFact.Size = new Size(223, 50);
@@ -1005,7 +1004,7 @@
             // panel14
             // 
             panel14.BackColor = Color.FromArgb(251, 196, 25);
-            panel14.Location = new Point(233, 117);
+            panel14.Location = new Point(23, 63);
             panel14.Margin = new Padding(4, 2, 4, 2);
             panel14.Name = "panel14";
             panel14.Size = new Size(10, 50);
@@ -1021,7 +1020,7 @@
             simpleButton4.Appearance.Options.UseFont = true;
             simpleButton4.Cursor = Cursors.Hand;
             simpleButton4.ImageOptions.SvgImageSize = new Size(25, 25);
-            simpleButton4.Location = new Point(20, 171);
+            simpleButton4.Location = new Point(41, 117);
             simpleButton4.Margin = new Padding(4, 2, 4, 2);
             simpleButton4.Name = "simpleButton4";
             simpleButton4.Size = new Size(223, 50);
@@ -1032,7 +1031,7 @@
             // panel20
             // 
             panel20.BackColor = Color.FromArgb(251, 196, 25);
-            panel20.Location = new Point(233, 225);
+            panel20.Location = new Point(23, 117);
             panel20.Margin = new Padding(4, 2, 4, 2);
             panel20.Name = "panel20";
             panel20.Size = new Size(10, 50);
@@ -1050,7 +1049,7 @@
             pnl_03.Location = new Point(0, 179);
             pnl_03.Margin = new Padding(0);
             pnl_03.Name = "pnl_03";
-            pnl_03.Size = new Size(247, 62);
+            pnl_03.Size = new Size(268, 62);
             pnl_03.TabIndex = 3;
             // 
             // btnGDS
@@ -1064,7 +1063,7 @@
             btnGDS.Cursor = Cursors.Hand;
             btnGDS.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnGDS.ImageOptions.SvgImage");
             btnGDS.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnGDS.Location = new Point(-21, 2);
+            btnGDS.Location = new Point(0, 2);
             btnGDS.Margin = new Padding(4, 2, 4, 2);
             btnGDS.Name = "btnGDS";
             btnGDS.Size = new Size(264, 57);
@@ -1082,7 +1081,7 @@
             btnProduct.Appearance.Options.UseFont = true;
             btnProduct.Cursor = Cursors.Hand;
             btnProduct.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnProduct.Location = new Point(20, 63);
+            btnProduct.Location = new Point(41, 63);
             btnProduct.Margin = new Padding(4, 2, 4, 2);
             btnProduct.Name = "btnProduct";
             btnProduct.Size = new Size(223, 50);
@@ -1093,7 +1092,7 @@
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(251, 196, 25);
-            panel6.Location = new Point(233, 117);
+            panel6.Location = new Point(23, 63);
             panel6.Margin = new Padding(4, 2, 4, 2);
             panel6.Name = "panel6";
             panel6.Size = new Size(10, 50);
@@ -1109,7 +1108,7 @@
             btnExpired.Appearance.Options.UseFont = true;
             btnExpired.Cursor = Cursors.Hand;
             btnExpired.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnExpired.Location = new Point(20, 171);
+            btnExpired.Location = new Point(41, 117);
             btnExpired.Margin = new Padding(4, 2, 4, 2);
             btnExpired.Name = "btnExpired";
             btnExpired.Size = new Size(223, 50);
@@ -1120,7 +1119,7 @@
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(251, 196, 25);
-            panel7.Location = new Point(233, 225);
+            panel7.Location = new Point(23, 117);
             panel7.Margin = new Padding(4, 2, 4, 2);
             panel7.Name = "panel7";
             panel7.Size = new Size(10, 50);
@@ -1134,7 +1133,7 @@
             pnl_02.Location = new Point(0, 117);
             pnl_02.Margin = new Padding(0);
             pnl_02.Name = "pnl_02";
-            pnl_02.Size = new Size(247, 62);
+            pnl_02.Size = new Size(268, 62);
             pnl_02.TabIndex = 2;
             // 
             // btnHome
@@ -1148,7 +1147,7 @@
             btnHome.Cursor = Cursors.Hand;
             btnHome.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnHome.ImageOptions.SvgImage");
             btnHome.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnHome.Location = new Point(-21, 2);
+            btnHome.Location = new Point(0, 2);
             btnHome.Margin = new Padding(4, 2, 4, 2);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(264, 57);
@@ -1164,7 +1163,7 @@
             pnl_01.Location = new Point(0, 0);
             pnl_01.Margin = new Padding(4, 2, 4, 2);
             pnl_01.Name = "pnl_01";
-            pnl_01.Size = new Size(247, 117);
+            pnl_01.Size = new Size(268, 117);
             pnl_01.TabIndex = 1;
             // 
             // panel1
@@ -1173,7 +1172,7 @@
             panel1.Controls.Add(label1);
             panel1.Controls.Add(LogoLateral);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(-24, 2);
+            panel1.Location = new Point(-3, 2);
             panel1.Margin = new Padding(4, 2, 4, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(267, 114);
@@ -1486,7 +1485,7 @@
         public Panel panelContainer;
         private System.Windows.Forms.Timer slideTimer;
         private Panel panel2;
-        private DevExpress.XtraEditors.SimpleButton btnListFacts;
+        private DevExpress.XtraEditors.SimpleButton btnListSales;
         private Panel panel3;
         private DevExpress.XtraEditors.SimpleButton btnSuppliers;
         private Panel panel4;

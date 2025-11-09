@@ -418,10 +418,7 @@ namespace Vision_Pharmacy
             UpdateBreadcrumb("إدارة المشتريات");
         }
 
-        private void MovSuppliers_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnExpired_Click(object sender, EventArgs e)
         {
@@ -456,7 +453,7 @@ namespace Vision_Pharmacy
             simpleButton4.Text = "قائمة المشتريات";
             btnCases.Text = "إدارة المبيعات و المرجعات";
             btnSession.Text = "إدارة الموردين و العملاء";
-            btnListFacts.Text = "قائمة المبيعات";
+            btnListSales.Text = "قائمة المبيعات";
             btnFactNew.Text = "إضافة فاتورة بيع";
             MovSuppliers.Text = "حركات الموردين";
             btnRH.Text = "الموارد البشرية";
@@ -496,7 +493,7 @@ namespace Vision_Pharmacy
             btnUser.Text = "Users";
             btnSett.Text = "Settings";
             btnExit.Text = "Log Out";
-            btnListFacts.Text = "Sales List";
+            btnListSales.Text = "Sales List";
             btnHome.Text = "Control Panel";
             btnGDS.Text = "Inventory Management";
             btnProduct.Text = "Medication List";
@@ -605,6 +602,14 @@ namespace Vision_Pharmacy
         private void btnRpt05_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnListSales_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
+            AllSaleMedicAddForm AllSaleMedicAddForm = new AllSaleMedicAddForm();
+            AllSaleMedicAddForm.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(AllSaleMedicAddForm);
         }
     }
 

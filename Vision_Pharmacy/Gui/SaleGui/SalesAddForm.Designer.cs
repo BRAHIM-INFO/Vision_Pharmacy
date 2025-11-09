@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesAddForm));
             flowLayoutPanel2 = new FlowLayoutPanel();
             pictureBox2 = new PictureBox();
@@ -35,18 +36,22 @@
             lblSupForm = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel3 = new Panel();
-            txtSupplier = new ComboBox();
+            txtCustomer = new ComboBox();
             btnForm = new DevExpress.XtraEditors.SimpleButton();
             label1 = new Label();
             label3 = new Label();
             txtFactureNum = new TextBox();
-            txtPurchaseDate = new DevExpress.XtraEditors.DateEdit();
             label16 = new Label();
             Barcodetxt = new TextBox();
             txtTypePaimt = new ComboBox();
-            label4 = new Label();
+            txtSaleDate = new DevExpress.XtraEditors.DateEdit();
             lblEmpEmail = new Label();
-            DGListePurchase = new DevExpress.XtraGrid.GridControl();
+            label4 = new Label();
+            label2 = new Label();
+            panel1 = new Panel();
+            txtDoctors = new ComboBox();
+            btnDoctrs = new DevExpress.XtraEditors.SimpleButton();
+            DGListeSale = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label19 = new Label();
@@ -58,14 +63,16 @@
             separatorControl22 = new DevExpress.XtraEditors.SeparatorControl();
             txtTotalAmount = new TextBox();
             label6 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtPurchaseDate.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtPurchaseDate.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)DGListePurchase).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties.CalendarTimeProperties).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DGListeSale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel6.SuspendLayout();
@@ -79,17 +86,18 @@
             flowLayoutPanel2.Controls.Add(lblSupForm);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 0);
+            flowLayoutPanel2.Margin = new Padding(4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1341, 52);
+            flowLayoutPanel2.Size = new Size(1564, 64);
             flowLayoutPanel2.TabIndex = 67;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.drugstore_17347470;
-            pictureBox2.Location = new Point(1276, 2);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Location = new Point(1488, 2);
+            pictureBox2.Margin = new Padding(4, 2, 4, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(62, 45);
+            pictureBox2.Size = new Size(72, 55);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
@@ -99,12 +107,12 @@
             separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 8;
-            separatorControl1.Location = new Point(1261, 2);
-            separatorControl1.Margin = new Padding(3, 2, 3, 2);
+            separatorControl1.LineThickness = 10;
+            separatorControl1.Location = new Point(1470, 2);
+            separatorControl1.Margin = new Padding(4, 2, 4, 2);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(9, 45);
+            separatorControl1.Size = new Size(10, 55);
             separatorControl1.TabIndex = 1;
             // 
             // lblSupForm
@@ -113,9 +121,10 @@
             lblSupForm.AutoSize = true;
             lblSupForm.Font = new Font("Cairo Medium", 12F);
             lblSupForm.ForeColor = Color.Black;
-            lblSupForm.Location = new Point(1032, 0);
+            lblSupForm.Location = new Point(1183, 0);
+            lblSupForm.Margin = new Padding(4, 0, 4, 0);
             lblSupForm.Name = "lblSupForm";
-            lblSupForm.Size = new Size(223, 30);
+            lblSupForm.Size = new Size(279, 37);
             lblSupForm.TabIndex = 1;
             lblSupForm.Text = "ادارة المبيعات >  اضافة بيع جديد";
             // 
@@ -125,51 +134,55 @@
             tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.7661285F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 79.23387F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 101F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 400F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 425F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 118F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 467F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 497F));
             tableLayoutPanel1.Controls.Add(panel3, 1, 1);
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
             tableLayoutPanel1.Controls.Add(txtFactureNum, 1, 0);
-            tableLayoutPanel1.Controls.Add(txtPurchaseDate, 1, 2);
             tableLayoutPanel1.Controls.Add(label16, 2, 0);
             tableLayoutPanel1.Controls.Add(Barcodetxt, 3, 0);
             tableLayoutPanel1.Controls.Add(txtTypePaimt, 3, 1);
+            tableLayoutPanel1.Controls.Add(txtSaleDate, 3, 2);
+            tableLayoutPanel1.Controls.Add(lblEmpEmail, 2, 2);
             tableLayoutPanel1.Controls.Add(label4, 2, 1);
-            tableLayoutPanel1.Controls.Add(lblEmpEmail, 0, 2);
+            tableLayoutPanel1.Controls.Add(label2, 0, 2);
+            tableLayoutPanel1.Controls.Add(panel1, 1, 2);
             tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(0, 52);
+            tableLayoutPanel1.Location = new Point(0, 64);
+            tableLayoutPanel1.Margin = new Padding(4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.35165F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 51.64835F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
-            tableLayoutPanel1.Size = new Size(1341, 103);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 39F));
+            tableLayoutPanel1.Size = new Size(1564, 127);
             tableLayoutPanel1.TabIndex = 88;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel3.Controls.Add(txtSupplier);
+            panel3.Controls.Add(txtCustomer);
             panel3.Controls.Add(btnForm);
-            panel3.Location = new Point(930, 37);
+            panel3.Location = new Point(1087, 46);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(322, 29);
+            panel3.Size = new Size(373, 37);
             panel3.TabIndex = 20;
             // 
-            // txtSupplier
+            // txtCustomer
             // 
-            txtSupplier.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtSupplier.BackColor = Color.FromArgb(227, 237, 249);
-            txtSupplier.FlatStyle = FlatStyle.System;
-            txtSupplier.Font = new Font("Cairo Medium", 10F);
-            txtSupplier.FormattingEnabled = true;
-            txtSupplier.Location = new Point(157, 0);
-            txtSupplier.Margin = new Padding(3, 2, 3, 2);
-            txtSupplier.Name = "txtSupplier";
-            txtSupplier.Size = new Size(294, 32);
-            txtSupplier.TabIndex = 2;
+            txtCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtCustomer.BackColor = Color.FromArgb(227, 237, 249);
+            txtCustomer.FlatStyle = FlatStyle.System;
+            txtCustomer.Font = new Font("Cairo Medium", 10F);
+            txtCustomer.FormattingEnabled = true;
+            txtCustomer.Location = new Point(43, -2);
+            txtCustomer.Margin = new Padding(4, 2, 4, 2);
+            txtCustomer.Name = "txtCustomer";
+            txtCustomer.Size = new Size(326, 40);
+            txtCustomer.TabIndex = 2;
             // 
             // btnForm
             // 
@@ -188,21 +201,23 @@
             btnForm.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnForm.ImageOptions.SvgImage");
             btnForm.ImageOptions.SvgImageSize = new Size(25, 25);
             btnForm.Location = new Point(0, 0);
-            btnForm.Margin = new Padding(3, 2, 3, 2);
+            btnForm.Margin = new Padding(4, 2, 4, 2);
             btnForm.Name = "btnForm";
             btnForm.RightToLeft = RightToLeft.Yes;
-            btnForm.Size = new Size(30, 29);
+            btnForm.Size = new Size(35, 37);
             btnForm.TabIndex = 83;
             btnForm.ToolTipTitle = "اضافة";
+            btnForm.Click += btnForm_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.White;
             label1.Font = new Font("Cairo Medium", 9F);
-            label1.Location = new Point(1269, 0);
+            label1.Location = new Point(1472, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(69, 23);
+            label1.Size = new Size(88, 29);
             label1.TabIndex = 53;
             label1.Text = "رقم الفاتورة";
             // 
@@ -211,52 +226,36 @@
             label3.AutoSize = true;
             label3.BackColor = Color.White;
             label3.Font = new Font("Cairo Medium", 9F);
-            label3.Location = new Point(1298, 34);
+            label3.Location = new Point(1503, 42);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(40, 23);
+            label3.Size = new Size(57, 29);
             label3.TabIndex = 79;
-            label3.Text = "المورد";
+            label3.Text = "العميل";
             // 
             // txtFactureNum
             // 
             txtFactureNum.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtFactureNum.BackColor = Color.FromArgb(227, 237, 249);
             txtFactureNum.Font = new Font("Cairo Medium", 10F);
-            txtFactureNum.Location = new Point(930, 2);
-            txtFactureNum.Margin = new Padding(3, 2, 3, 2);
+            txtFactureNum.Location = new Point(1087, 2);
+            txtFactureNum.Margin = new Padding(4, 2, 4, 2);
             txtFactureNum.Name = "txtFactureNum";
             txtFactureNum.ReadOnly = true;
-            txtFactureNum.Size = new Size(322, 32);
+            txtFactureNum.Size = new Size(373, 39);
             txtFactureNum.TabIndex = 1;
             txtFactureNum.TextAlign = HorizontalAlignment.Center;
             // 
-            // txtPurchaseDate
-            // 
-            txtPurchaseDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtPurchaseDate.EditValue = null;
-            txtPurchaseDate.Location = new Point(930, 72);
-            txtPurchaseDate.Margin = new Padding(3, 2, 3, 2);
-            txtPurchaseDate.Name = "txtPurchaseDate";
-            txtPurchaseDate.Properties.Appearance.BackColor = Color.FromArgb(227, 237, 249);
-            txtPurchaseDate.Properties.Appearance.Font = new Font("Tahoma", 12F);
-            txtPurchaseDate.Properties.Appearance.Options.UseBackColor = true;
-            txtPurchaseDate.Properties.Appearance.Options.UseFont = true;
-            txtPurchaseDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            txtPurchaseDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            txtPurchaseDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
-            txtPurchaseDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            txtPurchaseDate.Size = new Size(322, 26);
-            txtPurchaseDate.TabIndex = 3;
-            // 
             // label16
             // 
-            label16.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label16.AutoSize = true;
             label16.BackColor = Color.White;
+            label16.Dock = DockStyle.Left;
             label16.Font = new Font("Cairo Medium", 9F);
-            label16.Location = new Point(829, 0);
+            label16.Location = new Point(989, 0);
+            label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
-            label16.Size = new Size(73, 23);
+            label16.Size = new Size(90, 42);
             label16.TabIndex = 92;
             label16.Text = "باركود الدواء";
             // 
@@ -265,12 +264,13 @@
             Barcodetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Barcodetxt.BackColor = Color.FromArgb(232, 246, 255);
             Barcodetxt.Font = new Font("Cairo Medium", 9F);
-            Barcodetxt.Location = new Point(429, 2);
-            Barcodetxt.Margin = new Padding(3, 2, 3, 2);
+            Barcodetxt.Location = new Point(502, 2);
+            Barcodetxt.Margin = new Padding(4, 2, 4, 2);
             Barcodetxt.Name = "Barcodetxt";
             Barcodetxt.PlaceholderText = "باركود الدواء";
-            Barcodetxt.Size = new Size(394, 30);
+            Barcodetxt.Size = new Size(459, 36);
             Barcodetxt.TabIndex = 5;
+            Barcodetxt.KeyDown += Barcodetxt_KeyDown;
             // 
             // txtTypePaimt
             // 
@@ -280,46 +280,127 @@
             txtTypePaimt.Font = new Font("Cairo Medium", 10F);
             txtTypePaimt.FormattingEnabled = true;
             txtTypePaimt.Items.AddRange(new object[] { "نقدي", "بطاقة ائتمان", "شيك" });
-            txtTypePaimt.Location = new Point(429, 36);
-            txtTypePaimt.Margin = new Padding(3, 2, 3, 2);
+            txtTypePaimt.Location = new Point(502, 44);
+            txtTypePaimt.Margin = new Padding(4, 2, 4, 2);
             txtTypePaimt.Name = "txtTypePaimt";
-            txtTypePaimt.Size = new Size(394, 32);
+            txtTypePaimt.Size = new Size(459, 40);
             txtTypePaimt.TabIndex = 4;
             // 
-            // label4
+            // txtSaleDate
             // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.BackColor = Color.White;
-            label4.Font = new Font("Cairo Medium", 9F);
-            label4.Location = new Point(829, 34);
-            label4.Name = "label4";
-            label4.Size = new Size(72, 23);
-            label4.TabIndex = 81;
-            label4.Text = "طريقة الدفع";
+            txtSaleDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtSaleDate.EditValue = null;
+            txtSaleDate.Location = new Point(502, 89);
+            txtSaleDate.Margin = new Padding(4, 2, 4, 2);
+            txtSaleDate.Name = "txtSaleDate";
+            txtSaleDate.Properties.Appearance.BackColor = Color.FromArgb(227, 237, 249);
+            txtSaleDate.Properties.Appearance.Font = new Font("Tahoma", 12F);
+            txtSaleDate.Properties.Appearance.Options.UseBackColor = true;
+            txtSaleDate.Properties.Appearance.Options.UseFont = true;
+            txtSaleDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            txtSaleDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            txtSaleDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
+            txtSaleDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            txtSaleDate.Size = new Size(459, 30);
+            txtSaleDate.TabIndex = 3;
             // 
             // lblEmpEmail
             // 
             lblEmpEmail.AutoSize = true;
             lblEmpEmail.BackColor = Color.White;
             lblEmpEmail.Font = new Font("Cairo Medium", 9F);
-            lblEmpEmail.Location = new Point(1273, 70);
+            lblEmpEmail.Location = new Point(1008, 87);
+            lblEmpEmail.Margin = new Padding(4, 0, 4, 0);
             lblEmpEmail.Name = "lblEmpEmail";
-            lblEmpEmail.Size = new Size(65, 23);
+            lblEmpEmail.Size = new Size(71, 29);
             lblEmpEmail.TabIndex = 63;
-            lblEmpEmail.Text = "تاريخ الشراء";
+            lblEmpEmail.Text = "تاريخ البيع";
             // 
-            // DGListePurchase
+            // label4
             // 
-            DGListePurchase.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListePurchase.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
-            DGListePurchase.Location = new Point(0, 157);
-            DGListePurchase.MainView = gridView1;
-            DGListePurchase.Margin = new Padding(3, 2, 3, 2);
-            DGListePurchase.Name = "DGListePurchase";
-            DGListePurchase.Size = new Size(1341, 323);
-            DGListePurchase.TabIndex = 89;
-            DGListePurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Dock = DockStyle.Left;
+            label4.Font = new Font("Cairo Medium", 9F);
+            label4.Location = new Point(988, 42);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(91, 45);
+            label4.TabIndex = 81;
+            label4.Text = "طريقة الدفع";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Cairo Medium", 9F);
+            label2.Location = new Point(1506, 87);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(54, 29);
+            label2.TabIndex = 93;
+            label2.Text = "الطبيب";
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel1.Controls.Add(txtDoctors);
+            panel1.Controls.Add(btnDoctrs);
+            panel1.Location = new Point(1087, 91);
+            panel1.Margin = new Padding(4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(373, 32);
+            panel1.TabIndex = 94;
+            // 
+            // txtDoctors
+            // 
+            txtDoctors.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtDoctors.BackColor = Color.FromArgb(227, 237, 249);
+            txtDoctors.FlatStyle = FlatStyle.System;
+            txtDoctors.Font = new Font("Cairo Medium", 10F);
+            txtDoctors.FormattingEnabled = true;
+            txtDoctors.Location = new Point(43, -9);
+            txtDoctors.Margin = new Padding(4, 2, 4, 2);
+            txtDoctors.Name = "txtDoctors";
+            txtDoctors.Size = new Size(326, 40);
+            txtDoctors.TabIndex = 2;
+            // 
+            // btnDoctrs
+            // 
+            btnDoctrs.Appearance.BackColor = Color.FromArgb(74, 89, 180);
+            btnDoctrs.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnDoctrs.Appearance.Options.UseBackColor = true;
+            btnDoctrs.Appearance.Options.UseFont = true;
+            btnDoctrs.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnDoctrs.AppearanceDisabled.Options.UseFont = true;
+            btnDoctrs.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnDoctrs.AppearanceHovered.Options.UseFont = true;
+            btnDoctrs.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnDoctrs.AppearancePressed.Options.UseFont = true;
+            btnDoctrs.Cursor = Cursors.Hand;
+            btnDoctrs.Dock = DockStyle.Left;
+            btnDoctrs.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnDoctrs.ImageOptions.SvgImage");
+            btnDoctrs.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnDoctrs.Location = new Point(0, 0);
+            btnDoctrs.Margin = new Padding(4, 2, 4, 2);
+            btnDoctrs.Name = "btnDoctrs";
+            btnDoctrs.RightToLeft = RightToLeft.Yes;
+            btnDoctrs.Size = new Size(35, 32);
+            btnDoctrs.TabIndex = 83;
+            btnDoctrs.ToolTipTitle = "اضافة";
+            btnDoctrs.Click += btnDoctrs_Click;
+            // 
+            // DGListeSale
+            // 
+            DGListeSale.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DGListeSale.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
+            DGListeSale.Location = new Point(0, 193);
+            DGListeSale.MainView = gridView1;
+            DGListeSale.Margin = new Padding(4, 2, 4, 2);
+            DGListeSale.Name = "DGListeSale";
+            DGListeSale.Size = new Size(1564, 398);
+            DGListeSale.TabIndex = 89;
+            DGListeSale.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
@@ -371,10 +452,8 @@
             gridView1.Appearance.TopNewRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 12F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
-            gridView1.DetailHeight = 284;
-            gridView1.GridControl = DGListePurchase;
+            gridView1.GridControl = DGListeSale;
             gridView1.Name = "gridView1";
-            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             // 
             // flowLayoutPanel1
             // 
@@ -382,9 +461,10 @@
             flowLayoutPanel1.Controls.Add(txtNotes);
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 578);
+            flowLayoutPanel1.Location = new Point(0, 711);
+            flowLayoutPanel1.Margin = new Padding(4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1341, 37);
+            flowLayoutPanel1.Size = new Size(1564, 46);
             flowLayoutPanel1.TabIndex = 91;
             // 
             // label19
@@ -393,9 +473,10 @@
             label19.AutoSize = true;
             label19.BackColor = Color.Transparent;
             label19.Font = new Font("Cairo Medium", 9F);
-            label19.Location = new Point(1282, 11);
+            label19.Location = new Point(1491, 12);
+            label19.Margin = new Padding(4, 0, 4, 0);
             label19.Name = "label19";
-            label19.Size = new Size(56, 23);
+            label19.Size = new Size(69, 29);
             label19.TabIndex = 84;
             label19.Text = "ملاحظات";
             // 
@@ -404,11 +485,11 @@
             txtNotes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtNotes.BackColor = Color.FromArgb(232, 246, 255);
             txtNotes.Font = new Font("Cairo Medium", 9F);
-            txtNotes.Location = new Point(183, 2);
-            txtNotes.Margin = new Padding(3, 2, 3, 2);
+            txtNotes.Location = new Point(209, 3);
+            txtNotes.Margin = new Padding(4, 2, 4, 2);
             txtNotes.Name = "txtNotes";
             txtNotes.PlaceholderText = "تسجيل ملاحظات";
-            txtNotes.Size = new Size(1093, 30);
+            txtNotes.Size = new Size(1274, 36);
             txtNotes.TabIndex = 85;
             // 
             // btnSave
@@ -427,14 +508,15 @@
             btnSave.Cursor = Cursors.Hand;
             btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
             btnSave.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnSave.Location = new Point(23, 2);
-            btnSave.Margin = new Padding(3, 2, 3, 2);
+            btnSave.Location = new Point(21, 2);
+            btnSave.Margin = new Padding(4, 2, 4, 2);
             btnSave.Name = "btnSave";
             btnSave.RightToLeft = RightToLeft.Yes;
-            btnSave.Size = new Size(154, 30);
+            btnSave.Size = new Size(180, 37);
             btnSave.TabIndex = 83;
             btnSave.Text = "حفظ";
             btnSave.ToolTipTitle = "حفظ";
+            btnSave.Click += btnSave_Click;
             // 
             // panel6
             // 
@@ -445,10 +527,10 @@
             panel6.Controls.Add(separatorControl22);
             panel6.Controls.Add(txtTotalAmount);
             panel6.Controls.Add(label6);
-            panel6.Location = new Point(0, 484);
-            panel6.Margin = new Padding(3, 2, 3, 2);
+            panel6.Location = new Point(0, 596);
+            panel6.Margin = new Padding(4, 2, 4, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1341, 92);
+            panel6.Size = new Size(1564, 113);
             panel6.TabIndex = 92;
             // 
             // txtTimerClock
@@ -458,11 +540,11 @@
             txtTimerClock.BorderStyle = BorderStyle.None;
             txtTimerClock.Font = new Font("Technology", 16F, FontStyle.Bold);
             txtTimerClock.ForeColor = Color.DeepSkyBlue;
-            txtTimerClock.Location = new Point(2391, 58);
-            txtTimerClock.Margin = new Padding(3, 2, 3, 2);
+            txtTimerClock.Location = new Point(1403, 69);
+            txtTimerClock.Margin = new Padding(4, 2, 4, 2);
             txtTimerClock.Name = "txtTimerClock";
             txtTimerClock.RightToLeft = RightToLeft.No;
-            txtTimerClock.Size = new Size(114, 22);
+            txtTimerClock.Size = new Size(133, 27);
             txtTimerClock.TabIndex = 111;
             txtTimerClock.Text = "14:00:12";
             txtTimerClock.TextAlign = HorizontalAlignment.Center;
@@ -474,11 +556,11 @@
             txtdate.BorderStyle = BorderStyle.None;
             txtdate.Font = new Font("Technology", 18F, FontStyle.Bold);
             txtdate.ForeColor = Color.DeepSkyBlue;
-            txtdate.Location = new Point(2371, 26);
-            txtdate.Margin = new Padding(3, 2, 3, 2);
+            txtdate.Location = new Point(1380, 31);
+            txtdate.Margin = new Padding(4, 2, 4, 2);
             txtdate.Name = "txtdate";
             txtdate.RightToLeft = RightToLeft.No;
-            txtdate.Size = new Size(134, 24);
+            txtdate.Size = new Size(156, 30);
             txtdate.TabIndex = 110;
             txtdate.Text = "10/08/2025";
             txtdate.TextAlign = HorizontalAlignment.Center;
@@ -490,11 +572,11 @@
             separatorControl22.LineColor = Color.DarkGray;
             separatorControl22.LineOrientation = Orientation.Vertical;
             separatorControl22.LineThickness = 2;
-            separatorControl22.Location = new Point(2344, 2);
-            separatorControl22.Margin = new Padding(3, 2, 3, 2);
+            separatorControl22.Location = new Point(1362, -1);
+            separatorControl22.Margin = new Padding(4, 2, 4, 2);
             separatorControl22.Name = "separatorControl22";
             separatorControl22.Padding = new Padding(0);
-            separatorControl22.Size = new Size(9, 96);
+            separatorControl22.Size = new Size(10, 118);
             separatorControl22.TabIndex = 105;
             // 
             // txtTotalAmount
@@ -504,11 +586,11 @@
             txtTotalAmount.BorderStyle = BorderStyle.None;
             txtTotalAmount.Font = new Font("Technology", 45F);
             txtTotalAmount.ForeColor = Color.Lime;
-            txtTotalAmount.Location = new Point(6, 25);
-            txtTotalAmount.Margin = new Padding(3, 2, 3, 2);
+            txtTotalAmount.Location = new Point(7, 31);
+            txtTotalAmount.Margin = new Padding(4, 2, 4, 2);
             txtTotalAmount.Name = "txtTotalAmount";
             txtTotalAmount.RightToLeft = RightToLeft.No;
-            txtTotalAmount.Size = new Size(467, 60);
+            txtTotalAmount.Size = new Size(545, 75);
             txtTotalAmount.TabIndex = 94;
             txtTotalAmount.Text = "0.00";
             txtTotalAmount.TextAlign = HorizontalAlignment.Center;
@@ -520,27 +602,33 @@
             label6.BackColor = Color.Black;
             label6.Font = new Font("Cairo Medium", 16F, FontStyle.Bold);
             label6.ForeColor = Color.Silver;
-            label6.Location = new Point(531, 18);
+            label6.Location = new Point(620, 22);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(255, 42);
+            label6.Size = new Size(307, 50);
             label6.TabIndex = 93;
             label6.Text = "السعر الفاتورة  الاجمالي";
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
             // SalesAddForm
             // 
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1341, 615);
+            ClientSize = new Size(1564, 757);
             Controls.Add(panel6);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(DGListePurchase);
+            Controls.Add(DGListeSale);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(flowLayoutPanel2);
+            Margin = new Padding(4);
             Name = "SalesAddForm";
             RightToLeft = RightToLeft.Yes;
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SalesAddForm";
+            Text = "اضافة بيع جديد";
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -548,9 +636,10 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)txtPurchaseDate.Properties.CalendarTimeProperties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtPurchaseDate.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)DGListePurchase).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties.CalendarTimeProperties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DGListeSale).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
@@ -568,18 +657,18 @@
         private Label lblSupForm;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel3;
-        private ComboBox txtSupplier;
+        private ComboBox txtCustomer;
         private DevExpress.XtraEditors.SimpleButton btnForm;
         private Label label1;
         private Label label3;
         private TextBox txtFactureNum;
-        private DevExpress.XtraEditors.DateEdit txtPurchaseDate;
+        private DevExpress.XtraEditors.DateEdit txtSaleDate;
         private Label label16;
         private TextBox Barcodetxt;
         private ComboBox txtTypePaimt;
         private Label label4;
         private Label lblEmpEmail;
-        private DevExpress.XtraGrid.GridControl DGListePurchase;
+        private DevExpress.XtraGrid.GridControl DGListeSale;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label19;
@@ -591,5 +680,10 @@
         private DevExpress.XtraEditors.SeparatorControl separatorControl22;
         private TextBox txtTotalAmount;
         private Label label6;
+        private Label label2;
+        private Panel panel1;
+        private ComboBox txtDoctors;
+        private DevExpress.XtraEditors.SimpleButton btnDoctrs;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -542,8 +542,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                 view.SetRowCellValue(newRowHandle, "Total", medication.SalePrice * 1);
             }
         }
-
-
+         
         private void PicChange_Click(object sender, EventArgs e)
         {
             LoadImage();

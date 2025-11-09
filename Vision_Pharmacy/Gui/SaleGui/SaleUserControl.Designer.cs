@@ -36,14 +36,14 @@ namespace Vision_Pharmacy.Gui.SaleGui
             PicLaterale = new PictureBox();
             btnPrint = new DevExpress.XtraEditors.SimpleButton();
             btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            DGListePurchase = new DevExpress.XtraGrid.GridControl();
+            DGListeSale = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             lblCounter = new Label();
             pnlTop = new FlowLayoutPanel();
             pnlSet = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)DGListePurchase).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DGListeSale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             pnlTop.SuspendLayout();
             pnlSet.SuspendLayout();
@@ -108,6 +108,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             btnPrint.TabIndex = 35;
             btnPrint.Text = "طباعة";
             btnPrint.ToolTipTitle = "اضافة";
+            btnPrint.Click += btnPrint_Click;
             // 
             // btnAdd
             // 
@@ -134,18 +135,18 @@ namespace Vision_Pharmacy.Gui.SaleGui
             btnAdd.ToolTipTitle = "اضافة";
             btnAdd.Click += btnAdd_Click_1;
             // 
-            // DGListePurchase
+            // DGListeSale
             // 
-            DGListePurchase.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListePurchase.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
-            DGListePurchase.Location = new Point(0, 132);
-            DGListePurchase.MainView = gridView1;
-            DGListePurchase.Margin = new Padding(4, 2, 4, 2);
-            DGListePurchase.Name = "DGListePurchase";
-            DGListePurchase.RightToLeft = RightToLeft.Yes;
-            DGListePurchase.Size = new Size(1346, 646);
-            DGListePurchase.TabIndex = 36;
-            DGListePurchase.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            DGListeSale.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DGListeSale.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
+            DGListeSale.Location = new Point(0, 132);
+            DGListeSale.MainView = gridView1;
+            DGListeSale.Margin = new Padding(4, 2, 4, 2);
+            DGListeSale.Name = "DGListeSale";
+            DGListeSale.RightToLeft = RightToLeft.Yes;
+            DGListeSale.Size = new Size(1346, 646);
+            DGListeSale.TabIndex = 36;
+            DGListeSale.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
@@ -189,8 +190,9 @@ namespace Vision_Pharmacy.Gui.SaleGui
             gridView1.Appearance.TopNewRow.Options.UseFont = true;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 10F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
-            gridView1.GridControl = DGListePurchase;
+            gridView1.GridControl = DGListeSale;
             gridView1.Name = "gridView1";
+            gridView1.RowCountChanged += gridView1_RowCountChanged;
             // 
             // lblCounter
             // 
@@ -238,14 +240,15 @@ namespace Vision_Pharmacy.Gui.SaleGui
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlSet);
             Controls.Add(pnlTop);
-            Controls.Add(DGListePurchase);
+            Controls.Add(DGListeSale);
             Margin = new Padding(4, 2, 4, 2);
             Name = "SaleUserControl";
             RightToLeft = RightToLeft.Yes;
             Size = new Size(1346, 780);
+            Load += SaleUserControl_Load;
             ((System.ComponentModel.ISupportInitialize)SeparatLat).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).EndInit();
-            ((System.ComponentModel.ISupportInitialize)DGListePurchase).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DGListeSale).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
@@ -260,7 +263,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
         private PictureBox PicLaterale;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
-        private DevExpress.XtraGrid.GridControl DGListePurchase;
+        private DevExpress.XtraGrid.GridControl DGListeSale;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private Label lblCounter;
         private FlowLayoutPanel pnlTop;
