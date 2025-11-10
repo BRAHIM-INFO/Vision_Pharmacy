@@ -180,9 +180,9 @@ namespace Vision_Pharmacy
         private async void btnHome_Click(object sender, EventArgs e)
         {
             panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
-            Dashboard uc = new Dashboard();
-            uc.Dock = DockStyle.Fill; // لملء الـ panel
-            panelContainer.Controls.Add(uc);
+            POSAddForm POSAddForm = new POSAddForm();
+            POSAddForm.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(POSAddForm);
         }
 
         private void LoadUserControl()
@@ -444,7 +444,7 @@ namespace Vision_Pharmacy
             btnSett.Text = "الإعدادات";
             btnExit.Text = "تسجيل الخروج";
 
-            btnHome.Text = "لوحة التحكم";
+            btnHome.Text = "POS";
             btnGDS.Text = "إدارة المخزون";
             btnProduct.Text = "قائمة الأدوية";
             btnExpired.Text = "المنتجات منتهية الصلاحية";
@@ -494,7 +494,7 @@ namespace Vision_Pharmacy
             btnSett.Text = "Settings";
             btnExit.Text = "Log Out";
             btnListSales.Text = "Sales List";
-            btnHome.Text = "Control Panel";
+            btnHome.Text = "POS";
             btnGDS.Text = "Inventory Management";
             btnProduct.Text = "Medication List";
             btnExpired.Text = "Expired Products";
@@ -610,6 +610,14 @@ namespace Vision_Pharmacy
             AllSaleMedicAddForm AllSaleMedicAddForm = new AllSaleMedicAddForm();
             AllSaleMedicAddForm.Dock = DockStyle.Fill; // لملء الـ panel
             panelContainer.Controls.Add(AllSaleMedicAddForm);
+        }
+
+        private void btnPOS_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
+            Dashboard uc = new Dashboard();
+            uc.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(uc);
         }
     }
 

@@ -244,6 +244,33 @@
   <data name="Medicine - 7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Medicine - 7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MED_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MED_01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MED_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MED_02.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MED_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MED_03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MED_04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MED_04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MED_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MED_05.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MED_06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MED_06.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MED_07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MED_07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MED_08" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MED_08.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MED_09" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MED_09.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
