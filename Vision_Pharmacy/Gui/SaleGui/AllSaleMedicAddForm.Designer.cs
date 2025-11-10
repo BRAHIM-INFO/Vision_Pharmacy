@@ -55,18 +55,17 @@
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel2.Location = new Point(0, 0);
-            flowLayoutPanel2.Margin = new Padding(4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1391, 64);
+            flowLayoutPanel2.Size = new Size(1192, 52);
             flowLayoutPanel2.TabIndex = 68;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.drugstore_17347470;
-            pictureBox2.Location = new Point(1315, 2);
-            pictureBox2.Margin = new Padding(4, 2, 4, 2);
+            pictureBox2.Location = new Point(1127, 2);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(72, 55);
+            pictureBox2.Size = new Size(62, 45);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
@@ -76,12 +75,12 @@
             separatorControl1.BackColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineColor = Color.FromArgb(255, 128, 0);
             separatorControl1.LineOrientation = Orientation.Vertical;
-            separatorControl1.LineThickness = 10;
-            separatorControl1.Location = new Point(1297, 2);
-            separatorControl1.Margin = new Padding(4, 2, 4, 2);
+            separatorControl1.LineThickness = 8;
+            separatorControl1.Location = new Point(1112, 2);
+            separatorControl1.Margin = new Padding(3, 2, 3, 2);
             separatorControl1.Name = "separatorControl1";
             separatorControl1.Padding = new Padding(0);
-            separatorControl1.Size = new Size(10, 55);
+            separatorControl1.Size = new Size(9, 45);
             separatorControl1.TabIndex = 1;
             // 
             // lblSupForm
@@ -90,22 +89,21 @@
             lblSupForm.AutoSize = true;
             lblSupForm.Font = new Font("Cairo Medium", 12F);
             lblSupForm.ForeColor = Color.Black;
-            lblSupForm.Location = new Point(976, 0);
-            lblSupForm.Margin = new Padding(4, 0, 4, 0);
+            lblSupForm.Location = new Point(857, 0);
             lblSupForm.Name = "lblSupForm";
-            lblSupForm.Size = new Size(313, 37);
+            lblSupForm.Size = new Size(249, 30);
             lblSupForm.TabIndex = 1;
             lblSupForm.Text = "ادارة المبيعات >  قائمة كل المبيعات";
             // 
             // DGListeSale
             // 
             DGListeSale.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DGListeSale.EmbeddedNavigator.Margin = new Padding(4, 2, 4, 2);
-            DGListeSale.Location = new Point(4, 70);
+            DGListeSale.EmbeddedNavigator.Margin = new Padding(3, 2, 3, 2);
+            DGListeSale.Location = new Point(3, 57);
             DGListeSale.MainView = gridView1;
-            DGListeSale.Margin = new Padding(4, 2, 4, 2);
+            DGListeSale.Margin = new Padding(3, 2, 3, 2);
             DGListeSale.Name = "DGListeSale";
-            DGListeSale.Size = new Size(1387, 490);
+            DGListeSale.Size = new Size(1189, 398);
             DGListeSale.TabIndex = 90;
             DGListeSale.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -159,8 +157,10 @@
             gridView1.Appearance.TopNewRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             gridView1.Appearance.ViewCaption.Font = new Font("Cairo Medium", 12F);
             gridView1.Appearance.ViewCaption.Options.UseFont = true;
+            gridView1.DetailHeight = 284;
             gridView1.GridControl = DGListeSale;
             gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.PopupEditFormWidth = 686;
             gridView1.ColumnFilterChanged += gridView1_ColumnFilterChanged;
             // 
             // btnPrint
@@ -179,11 +179,11 @@
             btnPrint.Cursor = Cursors.Hand;
             btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
             btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnPrint.Location = new Point(0, 564);
-            btnPrint.Margin = new Padding(4, 2, 4, 2);
+            btnPrint.Location = new Point(0, 458);
+            btnPrint.Margin = new Padding(3, 2, 3, 2);
             btnPrint.Name = "btnPrint";
             btnPrint.RightToLeft = RightToLeft.Yes;
-            btnPrint.Size = new Size(248, 47);
+            btnPrint.Size = new Size(213, 38);
             btnPrint.TabIndex = 97;
             btnPrint.Text = "طباعة القائمة";
             btnPrint.ToolTipTitle = "اضافة";
@@ -195,9 +195,10 @@
             panel2.Controls.Add(txtTotalAmount);
             panel2.Controls.Add(label6);
             panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 622);
+            panel2.Location = new Point(0, 506);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1391, 94);
+            panel2.Size = new Size(1192, 76);
             panel2.TabIndex = 98;
             // 
             // txtTotalAmount
@@ -207,11 +208,11 @@
             txtTotalAmount.Dock = DockStyle.Right;
             txtTotalAmount.Font = new Font("Technology", 45F);
             txtTotalAmount.ForeColor = Color.Lime;
-            txtTotalAmount.Location = new Point(372, 0);
-            txtTotalAmount.Margin = new Padding(4, 2, 4, 2);
+            txtTotalAmount.Location = new Point(327, 0);
+            txtTotalAmount.Margin = new Padding(3, 2, 3, 2);
             txtTotalAmount.Name = "txtTotalAmount";
             txtTotalAmount.RightToLeft = RightToLeft.No;
-            txtTotalAmount.Size = new Size(712, 75);
+            txtTotalAmount.Size = new Size(610, 60);
             txtTotalAmount.TabIndex = 95;
             txtTotalAmount.Text = "0.00";
             txtTotalAmount.TextAlign = HorizontalAlignment.Center;
@@ -223,10 +224,9 @@
             label6.Dock = DockStyle.Right;
             label6.Font = new Font("Cairo Medium", 16F, FontStyle.Bold);
             label6.ForeColor = Color.Silver;
-            label6.Location = new Point(1084, 0);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(937, 0);
             label6.Name = "label6";
-            label6.Size = new Size(307, 50);
+            label6.Size = new Size(255, 42);
             label6.TabIndex = 94;
             label6.Text = "السعر الفاتورة  الاجمالي";
             // 
@@ -234,14 +234,15 @@
             // 
             Appearance.BackColor = Color.White;
             Appearance.Options.UseBackColor = true;
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel2);
             Controls.Add(btnPrint);
             Controls.Add(DGListeSale);
             Controls.Add(flowLayoutPanel2);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AllSaleMedicAddForm";
-            Size = new Size(1391, 716);
+            Size = new Size(1192, 582);
             Load += AllSaleMedicAddForm_Load;
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();

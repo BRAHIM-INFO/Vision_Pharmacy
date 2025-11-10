@@ -160,6 +160,15 @@
   <data name="7317104" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\7317104.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="A (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\A (1).jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="A (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\A (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AA.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Arab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Arab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -189,6 +198,9 @@
   </data>
   <data name="exchange_9090887" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exchange_9090887.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fax-machine_16457032" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fax-machine_16457032.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fondSup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondSup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,6 +286,9 @@
   <data name="shopping-basket_15712813" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shopping-basket_15712813.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SQ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SQ.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Supplier" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Supplier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -294,6 +309,9 @@
   </data>
   <data name="Users2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Users2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\V.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="view" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\view.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -203,6 +203,36 @@ namespace Vision_Pharmacy.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap A__1_ {
+            get {
+                object obj = ResourceManager.GetObject("A (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap A__2_ {
+            get {
+                object obj = ResourceManager.GetObject("A (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AA {
+            get {
+                object obj = ResourceManager.GetObject("AA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Arab {
             get {
                 object obj = ResourceManager.GetObject("Arab", resourceCulture);
@@ -296,6 +326,16 @@ namespace Vision_Pharmacy.Properties {
         internal static System.Drawing.Bitmap exchange_9090887 {
             get {
                 object obj = ResourceManager.GetObject("exchange_9090887", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fax_machine_16457032 {
+            get {
+                object obj = ResourceManager.GetObject("fax-machine_16457032", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -583,6 +623,16 @@ namespace Vision_Pharmacy.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SQ {
+            get {
+                object obj = ResourceManager.GetObject("SQ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Supplier {
             get {
                 object obj = ResourceManager.GetObject("Supplier", resourceCulture);
@@ -646,6 +696,16 @@ namespace Vision_Pharmacy.Properties {
         internal static System.Drawing.Bitmap Users2 {
             get {
                 object obj = ResourceManager.GetObject("Users2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap V {
+            get {
+                object obj = ResourceManager.GetObject("V", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
