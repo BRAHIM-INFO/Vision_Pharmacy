@@ -71,7 +71,7 @@
             pictureBox6 = new PictureBox();
             label26 = new Label();
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            comboBox1 = new ComboBox();
+            txtGenericName = new ComboBox();
             label19 = new Label();
             label5 = new Label();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
@@ -96,6 +96,7 @@
             txtFactureNum = new TextBox();
             txtTypePaimt = new ComboBox();
             label27 = new Label();
+            chkAll = new DevExpress.XtraEditors.CheckEdit();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
@@ -121,6 +122,7 @@
             ((System.ComponentModel.ISupportInitialize)separatorControl2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties.CalendarTimeProperties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkAll.Properties).BeginInit();
             SuspendLayout();
             // 
             // pnlTop
@@ -656,9 +658,10 @@
             groupControl1.AppearanceCaption.Options.UseBackColor = true;
             groupControl1.AppearanceCaption.Options.UseFont = true;
             groupControl1.AppearanceCaption.Options.UseForeColor = true;
-            groupControl1.Controls.Add(comboBox1);
+            groupControl1.Controls.Add(txtGenericName);
             groupControl1.Controls.Add(label19);
             groupControl1.Controls.Add(label5);
+            groupControl1.Controls.Add(chkAll);
             groupControl1.Controls.Add(separatorControl1);
             groupControl1.Controls.Add(Barcodetxt);
             groupControl1.Controls.Add(pnlListMedic);
@@ -670,18 +673,19 @@
             groupControl1.TabIndex = 45;
             groupControl1.Text = "قائمة الأدوية";
             // 
-            // comboBox1
+            // txtGenericName
             // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            comboBox1.BackColor = Color.FromArgb(227, 237, 249);
-            comboBox1.FlatStyle = FlatStyle.System;
-            comboBox1.Font = new Font("Cairo Medium", 10F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(16, 82);
-            comboBox1.Margin = new Padding(4, 2, 4, 2);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(418, 40);
-            comboBox1.TabIndex = 96;
+            txtGenericName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtGenericName.BackColor = Color.FromArgb(227, 237, 249);
+            txtGenericName.FlatStyle = FlatStyle.System;
+            txtGenericName.Font = new Font("Cairo Medium", 10F);
+            txtGenericName.FormattingEnabled = true;
+            txtGenericName.Location = new Point(113, 82);
+            txtGenericName.Margin = new Padding(4, 2, 4, 2);
+            txtGenericName.Name = "txtGenericName";
+            txtGenericName.Size = new Size(332, 40);
+            txtGenericName.TabIndex = 96;
+            txtGenericName.SelectedIndexChanged += txtGenericName_SelectedIndexChanged;
             // 
             // label19
             // 
@@ -689,7 +693,7 @@
             label19.AutoSize = true;
             label19.BackColor = Color.WhiteSmoke;
             label19.Font = new Font("Cairo Medium", 10F);
-            label19.Location = new Point(442, 43);
+            label19.Location = new Point(453, 43);
             label19.Margin = new Padding(4, 0, 4, 0);
             label19.Name = "label19";
             label19.Size = new Size(104, 32);
@@ -702,7 +706,7 @@
             label5.AutoSize = true;
             label5.BackColor = Color.WhiteSmoke;
             label5.Font = new Font("Cairo Medium", 10F);
-            label5.Location = new Point(476, 88);
+            label5.Location = new Point(487, 88);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(72, 32);
@@ -724,12 +728,13 @@
             Barcodetxt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Barcodetxt.BackColor = Color.FromArgb(232, 246, 255);
             Barcodetxt.Font = new Font("Cairo Medium", 9F);
-            Barcodetxt.Location = new Point(16, 42);
+            Barcodetxt.Location = new Point(113, 42);
             Barcodetxt.Margin = new Padding(4, 2, 4, 2);
             Barcodetxt.Name = "Barcodetxt";
             Barcodetxt.PlaceholderText = "باركود الدواء";
-            Barcodetxt.Size = new Size(418, 36);
+            Barcodetxt.Size = new Size(332, 36);
             Barcodetxt.TabIndex = 93;
+            Barcodetxt.KeyDown += Barcodetxt_KeyDown;
             // 
             // txtDoctors
             // 
@@ -1059,6 +1064,17 @@
             label27.TabIndex = 83;
             label27.Text = "طريقة الدفع";
             // 
+            // chkAll
+            // 
+            chkAll.Location = new Point(-8, 82);
+            chkAll.Name = "chkAll";
+            chkAll.Properties.Appearance.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
+            chkAll.Properties.Appearance.Options.UseFont = true;
+            chkAll.Properties.Caption = "الكل";
+            chkAll.Size = new Size(118, 36);
+            chkAll.TabIndex = 27;
+            chkAll.CheckedChanged += chkAll_CheckedChanged;
+            // 
             // POSAddForm
             // 
             Appearance.BackColor = Color.White;
@@ -1108,6 +1124,7 @@
             ((System.ComponentModel.ISupportInitialize)separatorControl2).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkAll.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -1172,7 +1189,7 @@
         private DevExpress.XtraEditors.SeparatorControl separatorControl2;
         private Label label29;
         private Label label30;
-        private ComboBox comboBox1;
+        private ComboBox txtGenericName;
         private Label label31;
         private TextBox txtMontantHT;
         private ComboBox txtCustomer;
@@ -1180,5 +1197,6 @@
         private TextBox txtTotalAmount;
         private Label label33;
         private TextBox txtDescount;
+        private DevExpress.XtraEditors.CheckEdit chkAll;
     }
 }

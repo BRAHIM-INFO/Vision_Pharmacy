@@ -46,6 +46,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             LoadDataDoctors();
             LoadDataCustomer();
             AutoCompleteBarcode();
+            GenerateItemMedication();
             txtMontantHT.KeyPress += OnlyNumericTextBox;
             txtDescount.KeyPress += OnlyNumericTextBox;
             this.txtDescount.TextChanged += new System.EventHandler(this.txtDescount_TextChanged);
@@ -117,6 +118,24 @@ namespace Vision_Pharmacy.Gui.SaleGui
             loading.Hide();
         }
 
+        public async void GenerateItemMedication()
+        {
+            loading.Show();
+            // Check if connection is available
+            if (_dataHelperDoctor.IsDbConnect())
+            {
+                txtDoctors.Items.Clear();
+                foreach (var item in await Task.Run(() => _dataHelperMedication.GetData()))
+                {
+                    txtGenericName.Items.Add(item.GenericName);
+                }
+            }
+            else
+            {
+                MessageCollection.ShowServerMessage();
+            }
+            loading.Hide();
+        }
         // تحميل الباركودات من الداتا 
         private async void AutoCompleteBarcode()
         {
@@ -254,7 +273,6 @@ namespace Vision_Pharmacy.Gui.SaleGui
         // تحميل البيانات عند فتح النموذج
         private void POSAddForm_Load(object sender, EventArgs e)
         {
-
             // إنشاء جدول جديد
             DataTable dtSales = new DataTable();
             dtSales.Columns.Add("Barcode", typeof(string));
@@ -377,7 +395,6 @@ namespace Vision_Pharmacy.Gui.SaleGui
             txtTotalAmount.Text = totalAmount.ToString("N2");
         }
 
-
         // تحديث المبلغ الإجمالي
         private void UpdateTotalAmount()
         {
@@ -396,8 +413,8 @@ namespace Vision_Pharmacy.Gui.SaleGui
             if (rowHandle >= 0)
             {
                 view.DeleteRow(rowHandle);
-                 
-               UpdateTotalAmount();
+
+                UpdateTotalAmount();
                 //txtTotalAmount.Text = "0.00";
             }
         }
@@ -424,6 +441,47 @@ namespace Vision_Pharmacy.Gui.SaleGui
             {
                 // إذا كان النص غير رقمي نجعل الإجمالي يساوي المبلغ الأصلي
                 txtTotalAmount.Text = txtMontantHT.Text;
+            }
+        }
+
+        private void Barcodetxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var meds = _dataHelperMedication.GetData().Where(x => x.Barcode == Barcodetxt.Text);
+                // تنظيف الـPanelContainer
+                pnlListMedic.Controls.Clear();
+                foreach (var med in meds)
+                {
+                    CreateMedicinePanel(med);
+                    chkAll.Checked = false;
+                }
+            }
+        }
+
+        private void txtGenericName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var meds = _dataHelperMedication.GetData().Where(x => x.GenericName == txtGenericName.Text);
+            // تنظيف الـPanelContainer
+            pnlListMedic.Controls.Clear();  
+            chkAll.Checked = false;
+            foreach (var med in meds)
+            {
+                CreateMedicinePanel(med);
+               
+            } 
+        }
+
+        private void chkAll_CheckedChanged(object sender, EventArgs e)
+        {
+            txtGenericName.Text = "";
+            Barcodetxt.Text = "";
+            var meds = _dataHelperMedication.GetData();
+            // تنظيف الـPanelContainer
+            pnlListMedic.Controls.Clear();
+            foreach (var med in meds)
+            {
+                CreateMedicinePanel(med);
             }
         }
     }

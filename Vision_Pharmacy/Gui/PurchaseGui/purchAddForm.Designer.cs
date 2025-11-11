@@ -81,7 +81,7 @@
             flowLayoutPanel2.Controls.Add(lblSupForm);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 0);
-            flowLayoutPanel2.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanel2.Margin = new Padding(4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(1609, 64);
             flowLayoutPanel2.TabIndex = 66;
@@ -144,7 +144,7 @@
             tableLayoutPanel1.Controls.Add(lblEmpEmail, 0, 2);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 64);
-            tableLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
+            tableLayoutPanel1.Margin = new Padding(4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 48.35165F));
@@ -159,7 +159,7 @@
             panel3.Controls.Add(txtSupplier);
             panel3.Controls.Add(btnForm);
             panel3.Location = new Point(1087, 46);
-            panel3.Margin = new Padding(4, 4, 4, 4);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new Size(383, 36);
             panel3.TabIndex = 20;
@@ -486,7 +486,7 @@
             flowLayoutPanel1.Controls.Add(btnSave);
             flowLayoutPanel1.Dock = DockStyle.Bottom;
             flowLayoutPanel1.Location = new Point(0, 739);
-            flowLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanel1.Margin = new Padding(4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1609, 46);
             flowLayoutPanel1.TabIndex = 90;
