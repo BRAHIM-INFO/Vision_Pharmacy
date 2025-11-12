@@ -74,12 +74,15 @@
             txtGenericName = new ComboBox();
             label19 = new Label();
             label5 = new Label();
+            chkAll = new DevExpress.XtraEditors.CheckEdit();
             separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             Barcodetxt = new TextBox();
             txtDoctors = new ComboBox();
             DGListeSale = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             panel7 = new Panel();
+            btnPrint = new DevExpress.XtraEditors.SimpleButton();
+            btnSave = new DevExpress.XtraEditors.SimpleButton();
             label33 = new Label();
             txtDescount = new TextBox();
             txtTotalAmount = new TextBox();
@@ -96,7 +99,6 @@
             txtFactureNum = new TextBox();
             txtTypePaimt = new ComboBox();
             label27 = new Label();
-            chkAll = new DevExpress.XtraEditors.CheckEdit();
             pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicLaterale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)SeparatLat).BeginInit();
@@ -115,6 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chkAll.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGListeSale).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
@@ -122,7 +125,6 @@
             ((System.ComponentModel.ISupportInitialize)separatorControl2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chkAll.Properties).BeginInit();
             SuspendLayout();
             // 
             // pnlTop
@@ -713,6 +715,17 @@
             label5.TabIndex = 95;
             label5.Text = "التصنيف";
             // 
+            // chkAll
+            // 
+            chkAll.Location = new Point(-8, 82);
+            chkAll.Name = "chkAll";
+            chkAll.Properties.Appearance.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
+            chkAll.Properties.Appearance.Options.UseFont = true;
+            chkAll.Properties.Caption = "الكل";
+            chkAll.Size = new Size(118, 36);
+            chkAll.TabIndex = 27;
+            chkAll.CheckedChanged += chkAll_CheckedChanged;
+            // 
             // separatorControl1
             // 
             separatorControl1.LineColor = Color.Black;
@@ -743,7 +756,7 @@
             txtDoctors.FlatStyle = FlatStyle.System;
             txtDoctors.Font = new Font("Cairo Medium", 9F);
             txtDoctors.FormattingEnabled = true;
-            txtDoctors.Location = new Point(561, 159);
+            txtDoctors.Location = new Point(561, 157);
             txtDoctors.Margin = new Padding(4, 2, 4, 2);
             txtDoctors.Name = "txtDoctors";
             txtDoctors.Size = new Size(285, 37);
@@ -757,7 +770,7 @@
             DGListeSale.MainView = gridView1;
             DGListeSale.Margin = new Padding(4, 2, 4, 2);
             DGListeSale.Name = "DGListeSale";
-            DGListeSale.Size = new Size(955, 602);
+            DGListeSale.Size = new Size(955, 559);
             DGListeSale.TabIndex = 90;
             DGListeSale.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -818,6 +831,8 @@
             // 
             panel7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel7.BackColor = Color.WhiteSmoke;
+            panel7.Controls.Add(btnPrint);
+            panel7.Controls.Add(btnSave);
             panel7.Controls.Add(label33);
             panel7.Controls.Add(txtDescount);
             panel7.Controls.Add(txtTotalAmount);
@@ -835,10 +850,62 @@
             panel7.Controls.Add(txtFactureNum);
             panel7.Controls.Add(txtTypePaimt);
             panel7.Controls.Add(label27);
-            panel7.Location = new Point(568, 685);
+            panel7.Location = new Point(568, 640);
             panel7.Name = "panel7";
-            panel7.Size = new Size(956, 201);
+            panel7.Size = new Size(956, 243);
             panel7.TabIndex = 91;
+            // 
+            // btnPrint
+            // 
+            btnPrint.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnPrint.Appearance.BackColor = Color.Gray;
+            btnPrint.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnPrint.Appearance.Options.UseBackColor = true;
+            btnPrint.Appearance.Options.UseFont = true;
+            btnPrint.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceDisabled.Options.UseFont = true;
+            btnPrint.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearanceHovered.Options.UseFont = true;
+            btnPrint.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnPrint.AppearancePressed.Options.UseFont = true;
+            btnPrint.Cursor = Cursors.Hand;
+            btnPrint.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnPrint.ImageOptions.SvgImage");
+            btnPrint.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnPrint.Location = new Point(561, 198);
+            btnPrint.Margin = new Padding(4, 2, 4, 2);
+            btnPrint.Name = "btnPrint";
+            btnPrint.RightToLeft = RightToLeft.Yes;
+            btnPrint.Size = new Size(186, 37);
+            btnPrint.TabIndex = 105;
+            btnPrint.Text = "طباعة الفاتورة";
+            btnPrint.ToolTipTitle = "اضافة";
+            btnPrint.Click += btnPrint_Click;
+            // 
+            // btnSave
+            // 
+            btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSave.Appearance.BackColor = SystemColors.Highlight;
+            btnSave.Appearance.Font = new Font("Cairo Medium", 10F);
+            btnSave.Appearance.Options.UseBackColor = true;
+            btnSave.Appearance.Options.UseFont = true;
+            btnSave.AppearanceDisabled.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearanceDisabled.Options.UseFont = true;
+            btnSave.AppearanceHovered.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearanceHovered.Options.UseFont = true;
+            btnSave.AppearancePressed.Font = new Font("Cairo Medium", 10F);
+            btnSave.AppearancePressed.Options.UseFont = true;
+            btnSave.Cursor = Cursors.Hand;
+            btnSave.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("btnSave.ImageOptions.SvgImage");
+            btnSave.ImageOptions.SvgImageSize = new Size(25, 25);
+            btnSave.Location = new Point(755, 198);
+            btnSave.Margin = new Padding(4, 2, 4, 2);
+            btnSave.Name = "btnSave";
+            btnSave.RightToLeft = RightToLeft.Yes;
+            btnSave.Size = new Size(197, 37);
+            btnSave.TabIndex = 104;
+            btnSave.Text = "حفظ";
+            btnSave.ToolTipTitle = "حفظ";
+            btnSave.Click += btnSave_Click;
             // 
             // label33
             // 
@@ -846,7 +913,7 @@
             label33.AutoSize = true;
             label33.BackColor = Color.WhiteSmoke;
             label33.Font = new Font("Cairo Medium", 9F);
-            label33.Location = new Point(429, 49);
+            label33.Location = new Point(429, 63);
             label33.Margin = new Padding(4, 0, 4, 0);
             label33.Name = "label33";
             label33.Size = new Size(68, 29);
@@ -859,7 +926,7 @@
             txtDescount.BackColor = Color.White;
             txtDescount.BorderStyle = BorderStyle.FixedSingle;
             txtDescount.Font = new Font("Cairo Medium", 12F);
-            txtDescount.Location = new Point(28, 52);
+            txtDescount.Location = new Point(28, 66);
             txtDescount.Margin = new Padding(4, 2, 4, 2);
             txtDescount.Name = "txtDescount";
             txtDescount.RightToLeft = RightToLeft.No;
@@ -876,7 +943,7 @@
             txtTotalAmount.BorderStyle = BorderStyle.None;
             txtTotalAmount.Font = new Font("Technology", 38F, FontStyle.Bold);
             txtTotalAmount.ForeColor = Color.Lime;
-            txtTotalAmount.Location = new Point(3, 133);
+            txtTotalAmount.Location = new Point(3, 175);
             txtTotalAmount.Margin = new Padding(4, 2, 4, 2);
             txtTotalAmount.Name = "txtTotalAmount";
             txtTotalAmount.RightToLeft = RightToLeft.No;
@@ -892,7 +959,7 @@
             label32.BackColor = Color.WhiteSmoke;
             label32.Font = new Font("Cairo Medium", 12F, FontStyle.Bold);
             label32.ForeColor = Color.Black;
-            label32.Location = new Point(145, 97);
+            label32.Location = new Point(145, 126);
             label32.Margin = new Padding(4, 0, 4, 0);
             label32.Name = "label32";
             label32.Size = new Size(236, 37);
@@ -905,7 +972,7 @@
             label31.AutoSize = true;
             label31.BackColor = Color.WhiteSmoke;
             label31.Font = new Font("Cairo Medium", 9F);
-            label31.Location = new Point(429, 9);
+            label31.Location = new Point(429, 23);
             label31.Margin = new Padding(4, 0, 4, 0);
             label31.Name = "label31";
             label31.Size = new Size(54, 29);
@@ -918,7 +985,7 @@
             txtMontantHT.BackColor = Color.White;
             txtMontantHT.BorderStyle = BorderStyle.FixedSingle;
             txtMontantHT.Font = new Font("Cairo Medium", 12F);
-            txtMontantHT.Location = new Point(28, 5);
+            txtMontantHT.Location = new Point(28, 19);
             txtMontantHT.Margin = new Padding(4, 2, 4, 2);
             txtMontantHT.Name = "txtMontantHT";
             txtMontantHT.ReadOnly = true;
@@ -935,7 +1002,7 @@
             txtCustomer.FlatStyle = FlatStyle.System;
             txtCustomer.Font = new Font("Cairo Medium", 9F);
             txtCustomer.FormattingEnabled = true;
-            txtCustomer.Location = new Point(561, 120);
+            txtCustomer.Location = new Point(561, 118);
             txtCustomer.Margin = new Padding(4, 2, 4, 2);
             txtCustomer.Name = "txtCustomer";
             txtCustomer.Size = new Size(285, 37);
@@ -947,7 +1014,7 @@
             label29.AutoSize = true;
             label29.BackColor = Color.WhiteSmoke;
             label29.Font = new Font("Cairo Medium", 9F);
-            label29.Location = new Point(888, 123);
+            label29.Location = new Point(888, 121);
             label29.Margin = new Padding(4, 0, 4, 0);
             label29.Name = "label29";
             label29.Size = new Size(57, 29);
@@ -960,7 +1027,7 @@
             label30.AutoSize = true;
             label30.BackColor = Color.WhiteSmoke;
             label30.Font = new Font("Cairo Medium", 9F);
-            label30.Location = new Point(888, 161);
+            label30.Location = new Point(888, 159);
             label30.Margin = new Padding(4, 0, 4, 0);
             label30.Name = "label30";
             label30.Size = new Size(54, 29);
@@ -976,14 +1043,14 @@
             separatorControl2.Margin = new Padding(4);
             separatorControl2.Name = "separatorControl2";
             separatorControl2.Padding = new Padding(10, 11, 10, 11);
-            separatorControl2.Size = new Size(28, 197);
+            separatorControl2.Size = new Size(28, 239);
             separatorControl2.TabIndex = 88;
             // 
             // txtSaleDate
             // 
             txtSaleDate.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             txtSaleDate.EditValue = null;
-            txtSaleDate.Location = new Point(561, 86);
+            txtSaleDate.Location = new Point(561, 84);
             txtSaleDate.Margin = new Padding(4, 2, 4, 2);
             txtSaleDate.Name = "txtSaleDate";
             txtSaleDate.Properties.Appearance.BackColor = Color.White;
@@ -1003,7 +1070,7 @@
             lblEmpEmail.AutoSize = true;
             lblEmpEmail.BackColor = Color.WhiteSmoke;
             lblEmpEmail.Font = new Font("Cairo Medium", 9F);
-            lblEmpEmail.Location = new Point(874, 87);
+            lblEmpEmail.Location = new Point(874, 85);
             lblEmpEmail.Margin = new Padding(4, 0, 4, 0);
             lblEmpEmail.Name = "lblEmpEmail";
             lblEmpEmail.Size = new Size(71, 29);
@@ -1016,7 +1083,7 @@
             label28.AutoSize = true;
             label28.BackColor = Color.WhiteSmoke;
             label28.Font = new Font("Cairo Medium", 9F);
-            label28.Location = new Point(857, 44);
+            label28.Location = new Point(857, 42);
             label28.Margin = new Padding(4, 0, 4, 0);
             label28.Name = "label28";
             label28.Size = new Size(88, 29);
@@ -1029,7 +1096,7 @@
             txtFactureNum.BackColor = Color.White;
             txtFactureNum.BorderStyle = BorderStyle.FixedSingle;
             txtFactureNum.Font = new Font("Cairo Medium", 9F);
-            txtFactureNum.Location = new Point(561, 46);
+            txtFactureNum.Location = new Point(561, 44);
             txtFactureNum.Margin = new Padding(4, 2, 4, 2);
             txtFactureNum.Name = "txtFactureNum";
             txtFactureNum.ReadOnly = true;
@@ -1045,7 +1112,7 @@
             txtTypePaimt.Font = new Font("Cairo Medium", 9F);
             txtTypePaimt.FormattingEnabled = true;
             txtTypePaimt.Items.AddRange(new object[] { "نقدي", "بطاقة ائتمان", "شيك" });
-            txtTypePaimt.Location = new Point(561, 6);
+            txtTypePaimt.Location = new Point(561, 4);
             txtTypePaimt.Margin = new Padding(4, 2, 4, 2);
             txtTypePaimt.Name = "txtTypePaimt";
             txtTypePaimt.Size = new Size(285, 37);
@@ -1057,23 +1124,12 @@
             label27.AutoSize = true;
             label27.BackColor = Color.WhiteSmoke;
             label27.Font = new Font("Cairo Medium", 9F);
-            label27.Location = new Point(854, 6);
+            label27.Location = new Point(854, 4);
             label27.Margin = new Padding(4, 0, 4, 0);
             label27.Name = "label27";
             label27.Size = new Size(91, 29);
             label27.TabIndex = 83;
             label27.Text = "طريقة الدفع";
-            // 
-            // chkAll
-            // 
-            chkAll.Location = new Point(-8, 82);
-            chkAll.Name = "chkAll";
-            chkAll.Properties.Appearance.Font = new Font("Cairo Medium", 10F, FontStyle.Bold);
-            chkAll.Properties.Appearance.Options.UseFont = true;
-            chkAll.Properties.Caption = "الكل";
-            chkAll.Size = new Size(118, 36);
-            chkAll.TabIndex = 27;
-            chkAll.CheckedChanged += chkAll_CheckedChanged;
             // 
             // POSAddForm
             // 
@@ -1116,6 +1172,7 @@
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
             groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chkAll.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)separatorControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGListeSale).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
@@ -1124,7 +1181,6 @@
             ((System.ComponentModel.ISupportInitialize)separatorControl2).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtSaleDate.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chkAll.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -1198,5 +1254,7 @@
         private Label label33;
         private TextBox txtDescount;
         private DevExpress.XtraEditors.CheckEdit chkAll;
+        public DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.SimpleButton btnPrint;
     }
 }

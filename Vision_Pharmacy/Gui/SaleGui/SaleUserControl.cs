@@ -289,14 +289,14 @@ namespace Vision_Pharmacy.Gui.SaleGui
                 gridView1.Columns[0].Visible = false; // Hide Column
                 gridView1.Columns[1].Caption = "تاريخ الفاتورة";
                 gridView1.Columns[2].Caption = "رقم الفاتورة";
-                gridView1.Columns[3].Caption = "باركود الدواء";
+                gridView1.Columns[3].Visible = false; // Hide Column 
                 gridView1.Columns[4].Caption = "التخفيض";
                 gridView1.Columns[5].Caption = "الطبيب";
                 gridView1.Columns[6].Caption = "نوع الدفع";
                 gridView1.Columns[7].Visible = false; // Hide Column 
                 gridView1.Columns[8].Caption = "العميل";
-                gridView1.Columns[9].Caption = "الكمية";
-                gridView1.Columns[10].Caption = "سعر البيع";
+                gridView1.Columns[9].Visible = false; // Hide Column 
+                gridView1.Columns[10].Visible = false; // Hide Column 
                 gridView1.Columns[11].Caption = "مبلغ الفاتورة";
                 gridView1.Columns[12].Visible = false; // Hide Column 
             }
@@ -305,14 +305,14 @@ namespace Vision_Pharmacy.Gui.SaleGui
                 gridView1.Columns[0].Visible = false; // Hide Column
                 gridView1.Columns[1].Caption = "Facture Date";
                 gridView1.Columns[2].Caption = "Facture Number";
-                gridView1.Columns[3].Caption = "Medication Barcode";
+                gridView1.Columns[3].Visible = false; // Hide Column 
                 gridView1.Columns[4].Caption = "Discount";
                 gridView1.Columns[5].Caption = "Doctor";
                 gridView1.Columns[6].Caption = "Payment Type";
                 gridView1.Columns[7].Visible = false; // Hide Column 
                 gridView1.Columns[8].Caption = "Customer";
-                gridView1.Columns[9].Caption = "Quantity";
-                gridView1.Columns[10].Caption = "Sale Price";
+                gridView1.Columns[9].Visible = false; // Hide Column 
+                gridView1.Columns[10].Visible = false; // Hide Column 
                 gridView1.Columns[11].Caption = "Facture Amount";
                 gridView1.Columns[12].Visible = false; // Hide Column
             }

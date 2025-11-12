@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,11 @@ using Vision_Pharmacy.Code;
 using Vision_Pharmacy.Core;
 using Vision_Pharmacy.Data;
 using Vision_Pharmacy.Gui.OtherGui;
+using Vision_Pharmacy.Gui.SupplierGui;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraPrintingLinks;
+
 
 namespace Vision_Pharmacy.Gui.SaleGui
 {
@@ -33,6 +39,20 @@ namespace Vision_Pharmacy.Gui.SaleGui
         // في أعلى الفورم:
         private List<Medication> _meds;
         private Dictionary<string, Medication> _medByBarcode;
+
+        private Sale Sale;
+        private Customer Customer;
+        private int RowId;
+        private static SupplierUserControl _supplierUser;
+        private List<int> IdList;
+        private string searchItem;
+        AllClasses AllClasses = new AllClasses();
+        private int ResultAddOrEdit;
+        DataTable dtSales = new DataTable();
+
+
+
+
         public POSAddForm()
         {
             InitializeComponent();
@@ -42,7 +62,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             _dataHelperCustomer = (IDataHelper<Customer>)ContainerConfig.ObjectType("Customer");
             _dataHelperMedication = (IDataHelper<Medication>)ContainerConfig.ObjectType("Medication");
             _dataHelperDoctor = (IDataHelper<Doctor>)ContainerConfig.ObjectType("Doctor");
-            GenerateFactureNum();
+
             LoadDataDoctors();
             LoadDataCustomer();
             AutoCompleteBarcode();
@@ -50,6 +70,12 @@ namespace Vision_Pharmacy.Gui.SaleGui
             txtMontantHT.KeyPress += OnlyNumericTextBox;
             txtDescount.KeyPress += OnlyNumericTextBox;
             this.txtDescount.TextChanged += new System.EventHandler(this.txtDescount_TextChanged);
+
+            // Set Property Instance
+            txtFactureNum.Text = GenerateFactureNum();
+            txtFactureNum.HideSelection = true;
+            txtCustomer.Focus();
+
 
         }
 
@@ -171,7 +197,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             {
                 AutoSize = true,
                 Font = new Font("Cairo Medium", 8F),
-                ForeColor = Color.Black,
+                ForeColor = System.Drawing.Color.Black,
                 Location = new Point(105, 90),
                 Margin = new Padding(4, 0, 4, 0),
                 Name = "label4",
@@ -184,20 +210,20 @@ namespace Vision_Pharmacy.Gui.SaleGui
             {
                 AutoSize = true,
                 Font = new Font("Cairo Medium", 8F),
-                ForeColor = Color.Black,
+                ForeColor = System.Drawing.Color.Black,
                 Location = new Point(105, 63),
                 Margin = new Padding(4, 0, 4, 0),
                 Name = "label3",
                 Size = new Size(101, 26),
                 TabIndex = 47,
-                Text = $"Price : {med.SalePrice}"
+                Text = $"SalePrice : {med.SalePrice}"
             };
 
             Label label2 = new Label
             {
                 AutoSize = true,
                 Font = new Font("Cairo Medium", 8F),
-                ForeColor = Color.Black,
+                ForeColor = System.Drawing.Color.Black,
                 Location = new Point(105, 36),
                 Margin = new Padding(4, 0, 4, 0),
                 Name = "label2",
@@ -238,7 +264,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             {
                 AutoSize = true,
                 Font = new Font("Cairo Medium", 8F),
-                ForeColor = Color.Black,
+                ForeColor = System.Drawing.Color.Black,
                 Location = new Point(101, 4),
                 Margin = new Padding(4, 0, 4, 0),
                 Name = "label1",
@@ -249,10 +275,10 @@ namespace Vision_Pharmacy.Gui.SaleGui
 
             Panel panel1 = new Panel
             {
-                BackColor = Color.AliceBlue,
+                BackColor = System.Drawing.Color.AliceBlue,
                 BorderStyle = BorderStyle.Fixed3D,
                 Cursor = Cursors.Hand,
-                ForeColor = Color.White,
+                ForeColor = System.Drawing.Color.White,
                 Location = new Point(4, 4),
                 Margin = new Padding(4),
                 Name = "panel1",
@@ -278,7 +304,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             dtSales.Columns.Add("Barcode", typeof(string));
             dtSales.Columns.Add("Name", typeof(string));
             dtSales.Columns.Add("Quantity", typeof(int));
-            dtSales.Columns.Add("Price", typeof(decimal));
+            dtSales.Columns.Add("SalePrice", typeof(decimal));
             dtSales.Columns.Add("Total", typeof(decimal));
 
             // ربطه بـ gridControl
@@ -349,7 +375,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                 row["Barcode"] = med.Barcode;
                 row["Name"] = med.Name;
                 row["Quantity"] = 1;
-                row["Price"] = med.SalePrice;
+                row["SalePrice"] = med.SalePrice;
                 row["Total"] = med.SalePrice;
                 dt.Rows.Add(row);
             }
@@ -463,13 +489,13 @@ namespace Vision_Pharmacy.Gui.SaleGui
         {
             var meds = _dataHelperMedication.GetData().Where(x => x.GenericName == txtGenericName.Text);
             // تنظيف الـPanelContainer
-            pnlListMedic.Controls.Clear();  
+            pnlListMedic.Controls.Clear();
             chkAll.Checked = false;
             foreach (var med in meds)
             {
                 CreateMedicinePanel(med);
-               
-            } 
+
+            }
         }
 
         private void chkAll_CheckedChanged(object sender, EventArgs e)
@@ -483,6 +509,185 @@ namespace Vision_Pharmacy.Gui.SaleGui
             {
                 CreateMedicinePanel(med);
             }
+        }
+
+        // التحقق من الحقول المطلوبة فارغة
+        private bool IsRequiredFiledEmpty()
+        {
+            if (txtCustomer.Text == string.Empty & txtTypePaimt.Text == string.Empty & txtDoctors.Text == string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private async void SetDataForAdd()
+        {
+            Customer = _dataHelperCustomer.GetData().FirstOrDefault(s => s.FullName == txtCustomer.Text);
+            if (Customer == null)
+            {
+                if (Properties.Settings.Default.ChangeLang == "Ar")
+                    MessageBox.Show("العميل غير موجودة في قاعدة البيانات. يرجى إضافته أولاً.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("The invoice does not exist in the database. Please add it first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // 1. إنشاء الفاتورة من TextBox
+            Sale = new Sale();
+            // 2. المرور على الأصناف في GridControl
+            var view = DGListeSale.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view != null)
+            {
+                for (int i = 0; i < view.RowCount; i++)
+                {
+                    if (!view.IsDataRow(i)) continue;
+
+                    Sale.FactureNum = txtFactureNum.Text;
+                    Sale.FactureDate = DateTime.Parse(txtSaleDate.Text);
+                    Sale.TypePaimt = txtTypePaimt.Text;
+                    Sale.TotalAmount = decimal.TryParse(txtTotalAmount.Text, out var total) ? total : 0;
+                    Sale.CustomerName = txtCustomer.Text;
+                    Sale.DoctorName = txtDoctors.Text;
+                    Sale.CustomerId = Customer.Id;
+                    Sale.Notes = "";
+                    Sale.Discount = decimal.TryParse(txtDescount.Text, out var discount) ? discount : 0;
+
+                    Sale.Barcode = view.GetRowCellValue(i, "Barcode")?.ToString();
+                    Sale.SalePrice = view.GetRowCellValue(i, "SalePrice") != null ?
+                                            Convert.ToDecimal(view.GetRowCellValue(i, "SalePrice")) : 0;
+                    Sale.Quantity = view.GetRowCellValue(i, "Quantity") != null ?
+                                        Convert.ToInt32(view.GetRowCellValue(i, "Quantity")) : 0;
+
+                    // 3. تحديث جدول Medication
+                    // 1. جلب الدواء من قاعدة البيانات عبر الباركود
+                    var med = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == Sale.Barcode);
+                    if (med != null)
+                    {
+                        int oldQty = med.QuantityInStock;
+                        decimal salePrice = med.SalePrice; // السعر الحالي للبيع
+
+                        int soldQty = Sale.Quantity; // الكمية المباعة (من GridControl)
+
+                        // التحقق من توفر الكمية
+                        if (soldQty <= oldQty)
+                        {
+                            // طرح الكمية المباعة من المخزون
+                            med.QuantityInStock = oldQty - soldQty;
+
+                            // (اختياري) يمكنك تسجيل الربح أو الهامش إن أردت:
+                            decimal purchasePrice = med.PurchasePrice;
+                            decimal totalRevenue = soldQty * salePrice;
+                            decimal totalCost = soldQty * purchasePrice;
+                            decimal profit = totalRevenue - totalCost;
+
+                            // يمكنك حفظ هذا الربح في جدول آخر مثلاً Reports أو SalesHistory
+                            // أو فقط عرضه للمستخدم في الواجهة
+                        }
+                        else
+                        {
+                            MessageBox.Show($"الكمية غير كافية في المخزون! الكمية المتوفرة: {oldQty}",
+                                            "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("الدواء غير موجود في قاعدة البيانات!",
+                                        "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    _dataHelperMedication.Edit(med);
+                    _dataHelperSale.Add(Sale);
+                    Sale = new Sale();
+                }
+            }
+        }
+
+        private async void AddData()
+        {
+            // Set Data
+            SetDataForAdd();
+            // Send data and get result
+
+            // check the result of proccess
+            if (ResultAddOrEdit == 1) // Seccessfuly
+            {
+                // Show Notifiction
+                MessageCollection.ShowAddNotification();
+
+                // Updat View
+                // if (SaleUserControl != null) SaleUserControl.LoadData();
+            }
+            else // End with database error
+            {
+                // MessageCollection.ShowServerMessage();
+            }
+        }
+
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // check requirments of fileds
+            if (IsRequiredFiledEmpty())
+            {
+                MessageCollection.ShowEmptyFields();
+            }
+            else
+            {
+                loading.Show();
+                // Add
+                AddData();
+                loading.Hide();
+
+            }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            // إنشاء PrintingSystem
+            PrintingSystem ps = new PrintingSystem();
+            CompositeLink compositeLink = new CompositeLink(ps);
+
+            // إنشاء رابط للـ Grid
+            PrintableComponentLink gridLink = new PrintableComponentLink(ps)
+            {
+                Component = DGListeSale,
+                Landscape = true
+            };
+
+            // إنشاء رابط مخصص لأسفل الصفحة (Footer)
+            PrintableComponentLink footerLink = new PrintableComponentLink(ps);
+            footerLink.CreateDetailArea += FooterLink_CreateDetailArea;
+
+            // دمج اللينكات
+            compositeLink.Links.Add(gridLink);
+            compositeLink.Links.Add(footerLink);
+
+            // عرض المعاينة قبل الطباعة
+            compositeLink.ShowPreviewDialog();
+        }
+
+        private void FooterLink_CreateDetailArea(object sender, CreateAreaEventArgs e)
+        {
+            // إعداد نصوص الفاتورة من الأسفل
+            string montantHT = txtMontantHT.Text;
+            string discount = txtDescount.Text;
+            string total = txtTotalAmount.Text;
+            string client = txtCustomer.Text;
+            string doctor = txtDoctors.Text;
+            string date = txtSaleDate.Text;
+            string payment = txtTypePaimt.Text;
+
+            // رسم النصوص في التقرير
+            e.Graph.DrawString($"المبلغ: {montantHT}", System.Drawing.Color.Black, new RectangleF(0, 0, 300, 25), DevExpress.XtraPrinting.BorderSide.None);// BorderSide.None);
+            e.Graph.DrawString($"التخفيض: {discount}", System.Drawing.Color.Black, new RectangleF(0, 25, 300, 25), DevExpress.XtraPrinting.BorderSide.None);
+            e.Graph.DrawString($"الإجمالي: {total}", System.Drawing.Color.Black, new RectangleF(0, 50, 300, 25),    DevExpress.XtraPrinting.BorderSide.None);
+
+            e.Graph.DrawString($"طريقة الدفع: {payment}", System.Drawing.Color.Black, new RectangleF(350, 0, 300, 25), DevExpress.XtraPrinting.BorderSide.None);
+            e.Graph.DrawString($"العميل: {client}", System.Drawing.Color.Black, new RectangleF(350, 25, 300, 25), DevExpress.XtraPrinting.BorderSide.None);
+            e.Graph.DrawString($"الطبيب: {doctor}", System.Drawing.Color.Black, new RectangleF(350, 50, 300, 25), DevExpress.XtraPrinting.BorderSide.None);
+            e.Graph.DrawString($"تاريخ البيع: {date}", System.Drawing.Color.Black, new RectangleF(700, 0, 300, 25), DevExpress.XtraPrinting.BorderSide.None);
         }
     }
 }
