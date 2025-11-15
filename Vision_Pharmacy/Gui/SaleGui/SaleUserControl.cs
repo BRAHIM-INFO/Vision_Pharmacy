@@ -65,7 +65,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
 
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            SalesAddForm SaleAddForm = new SalesAddForm(0, this);
+            SaleAddForm SaleAddForm = new SaleAddForm(0, this);
             SaleAddForm.ShowDialog();
         }
 
@@ -164,7 +164,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                         {
                             // عرض تفاصيل الدواء
                             RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                            SalesAddForm SalesAddForm = new SalesAddForm(RowId, this);
+                            SaleAddForm SalesAddForm = new SaleAddForm(RowId, this);
                             SalesAddForm.btnSave.Visible = false; // إخفاء زر الحفظ
                             SalesAddForm.ShowDialog();
                             return;
@@ -175,7 +175,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                             if (gridView1.RowCount > 0)
                             {
                                 RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                                SalesAddForm SalesAddForm = new SalesAddForm(RowId, this);
+                                SaleAddForm SalesAddForm = new SaleAddForm(RowId, this);
                                 SalesAddForm.ShowDialog();
                             }
                             else
@@ -213,7 +213,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
             {
                 // عرض تفاصيل الدواء
                 RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                SalesAddForm SalesAddForm = new SalesAddForm(RowId, this);
+                SaleAddForm SalesAddForm = new SaleAddForm(RowId, this);
                 SalesAddForm.btnSave.Visible = false; // إخفاء زر الحفظ
                 SalesAddForm.ShowDialog();
             }
@@ -222,7 +222,7 @@ namespace Vision_Pharmacy.Gui.SaleGui
                 if (gridView1.RowCount > 0)
                 {
                     RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                    SalesAddForm SalesAddForm = new SalesAddForm(RowId, this);
+                    SaleAddForm SalesAddForm = new SaleAddForm(RowId, this);
                     SalesAddForm.ShowDialog();
                 }
                 else

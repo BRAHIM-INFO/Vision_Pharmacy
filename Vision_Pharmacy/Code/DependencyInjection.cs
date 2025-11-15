@@ -30,6 +30,7 @@ namespace Vision_Pharmacy.Code
             ContainerConfig.Register("Purchase", new PurchaseEntity()); 
             ContainerConfig.Register("Doctor", new DoctorEntity());
             ContainerConfig.Register("Sale", new SaleEntity());
+            ContainerConfig.Register("SaleReturn", new SaleReturnEntity());
             ContainerConfig.Register("FinancialTransactions", new FinancialTransactionsEntity());
         }
     }

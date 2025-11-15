@@ -13,6 +13,7 @@ using Vision_Pharmacy.Gui.EmployeeGui;
 using Vision_Pharmacy.Gui.FinancialTransaction;
 using Vision_Pharmacy.Gui.MedicationGui;
 using Vision_Pharmacy.Gui.PurchaseGui;
+using Vision_Pharmacy.Gui.PurchaseGui.Reintegrations;
 using Vision_Pharmacy.Gui.SaleGui;
 using Vision_Pharmacy.Gui.SettingGui;
 using Vision_Pharmacy.Gui.SupplierGui;
@@ -76,7 +77,7 @@ namespace Vision_Pharmacy
 
             pnlGDS = new PanelSlider(pnl_03, btnGDS.Height + 2, 180, 15, false); // حركة طولية
             pnlPurchase = new PanelSlider(pnl_04, btnPurchases.Height + 2, 200, 15, false); // حركة طولية
-            pnlCases = new PanelSlider(pnl_05, btnCases.Height + 2, 180, 15, false); // حركة طولية
+            pnlCases = new PanelSlider(pnl_05, btnCases.Height + 2, 230, 15, false); // حركة طولية
             pnlbtnSession = new PanelSlider(pnl_06, btnSession.Height + 2, 340, 15, false); // حركة طولية
             pnlRH = new PanelSlider(pnl_07, btnRH.Height + 2, 230, 15, false); // حركة طولية
             pnlFincance = new PanelSlider(pnl_08, btnFinance.Height + 2, 175, 15, false); // حركة طولية
@@ -90,7 +91,7 @@ namespace Vision_Pharmacy
             // تعيين الأحجام المفتوحة (تغيرها حسب رغبتك)
             expandedSizes[pnl_03] = new Size(268, 180);
             expandedSizes[pnl_04] = new Size(268, 200);
-            expandedSizes[pnl_05] = new Size(268, 180);
+            expandedSizes[pnl_05] = new Size(268, 230);
             expandedSizes[pnl_06] = new Size(268, 285);
             expandedSizes[pnl_07] = new Size(268, 230);
             expandedSizes[pnl_08] = new Size(268, 175);
@@ -618,6 +619,14 @@ namespace Vision_Pharmacy
             Dashboard uc = new Dashboard();
             uc.Dock = DockStyle.Fill; // لملء الـ panel
             panelContainer.Controls.Add(uc);
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
+            ReintegrationsUserControl ReintegrationsUserControl = new ReintegrationsUserControl();
+            ReintegrationsUserControl.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(ReintegrationsUserControl);
         }
     }
 

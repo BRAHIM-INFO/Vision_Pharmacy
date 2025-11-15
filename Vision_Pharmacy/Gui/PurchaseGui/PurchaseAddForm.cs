@@ -3,9 +3,11 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraReports.UI;
 using DevExpress.XtraScheduler.Native;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic;
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +28,8 @@ using Vision_Pharmacy.Gui.SupplierGui;
 namespace Vision_Pharmacy.Gui.PurchaseGui
 {
     public partial class PurchaseAddForm : DevExpress.XtraEditors.XtraForm
-    { 
+    {
+
         // Fields
         private readonly int id;
         private readonly PurchaseUserControl PurchaseUserControl;
@@ -47,26 +50,24 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
         AllClasses AllClasses = new AllClasses();
         private int ResultAddOrEdit;
         private Label labelEmptyData;
+        DataTable dtPurchases = new DataTable();
+
         // في أعلى الفورم:
         private List<Medication> _meds;
         private Dictionary<string, Medication> _medByBarcode;
         private BindingList<PurchaseItem> purchaseItems = new BindingList<PurchaseItem>();
         private RepositoryItemButtonEdit actionButtons;
+
         public PurchaseAddForm(int Id, PurchaseUserControl PurchaseUserControl)
         {
-            InitializeComponent();
-            AllClasses.RoundButtonCorners(btnAdd, 15);
-            AllClasses.RoundButtonCorners(btnSave, 15);
+            InitializeComponent(); 
+            InitializeGrid(); 
 
             loading = LoadingUser.Instance();
             labelEmptyData = ComponentsObject.Instance().LabelEmptyData();
             _dataHelperPurchase = (IDataHelper<Purchase>)ContainerConfig.ObjectType("Purchase");
             _dataHelperSupplier = (IDataHelper<Suppliers>)ContainerConfig.ObjectType("Supplier");
             _dataHelperMedication = (IDataHelper<Medication>)ContainerConfig.ObjectType("Medication");
-            _dataHelperUnites = (IDataHelper<Unites>)ContainerConfig.ObjectType("Unites");
-            _dataHelperStrength = (IDataHelper<Strength>)ContainerConfig.ObjectType("Strength");
-            _dataHelperMedicineType = (IDataHelper<MedicineType>)ContainerConfig.ObjectType("MedicineType");
-            _dataHelperCategory = (IDataHelper<Category>)ContainerConfig.ObjectType("Category");
             LoadDataSupplier();
             AutoCompleteBarcode();
             // Set Property Instance
@@ -82,14 +83,185 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 txtSupplier.Focus();
             }
 
+             
+            // 🔹 إنشاء محرر الأزرار (ButtonEdit)
+            var buttonEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            buttonEdit.Buttons.Clear();
+
+            // زر النقصان
+            buttonEdit.Buttons.Add(new DevExpress.XtraEditors.Controls.EditorButton(
+            DevExpress.XtraEditors.Controls.ButtonPredefines.Minus));
+            // زر الزيادة
+            buttonEdit.Buttons.Add(new DevExpress.XtraEditors.Controls.EditorButton(
+                DevExpress.XtraEditors.Controls.ButtonPredefines.Plus));
+
+            // // إخفاء مربع النص داخل الخلية (اختياري)
+            // buttonEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+
+            // // ربط الحدث عند الضغط على أحد الزرين
+            buttonEdit.ButtonClick += ButtonEdit_ButtonClick;
+
+            // // تطبيق المحرر على عمود الكمية
+            // gridView1.Columns["Quantity"].ColumnEdit = buttonEdit;
+            gridView1.CellValueChanged += gridView1_CellValueChanged;
+            timer1.Interval = 1000; // كل ثانية
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
+        }
+
+        private void UpdateTotalAmount()
+        {
+            if (dtPurchases.Rows.Count == 0)
+            {
+                txtTotalAmount.Text = "0.00";
+                return;
+            }
+
+            try
+            {
+                decimal totalSum = 0; 
+                // الوصول إلى DataSource للـ Grid (عادة DataTable)
+                if (gridView1.DataSource is DataTable dt)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (row["Total"] != DBNull.Value)
+                            totalSum += Convert.ToDecimal(row["Total"]);
+                    }
+                }
+
+                // عرض النتيجة في TextBox
+                txtTotalAmount.Text = totalSum.ToString("N2"); // بصيغة 2 أرقام عشرية
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطأ في حساب المجموع: " + ex.Message);
+            }
+
+
+            decimal total = dtPurchases.AsEnumerable()
+                .Sum(r => r.Field<decimal>("Total"));
+
+            txtTotalAmount.Text = total.ToString("N2"); // مثال: 1,250.00
+        }
+         
+        // ✅ إنشاء الأعمدة وربطها بالـGrid
+        private void InitializeGrid()
+        {
+            dtPurchases.Columns.Add("Barcode", typeof(string));
+            dtPurchases.Columns.Add("Name", typeof(string));
+            dtPurchases.Columns.Add("Quantity", typeof(int));
+            dtPurchases.Columns.Add("PurchasePrice", typeof(decimal));
+            dtPurchases.Columns.Add("SalePrice", typeof(decimal));
+            dtPurchases.Columns.Add("Total", typeof(decimal));
+
+            DGListePurchase.DataSource = dtPurchases;
+
+            //gridView1.OptionsView.ShowFooter = true;
+            //gridView1.Columns["Total"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+            //gridView1.Columns["Total"].SummaryItem.DisplayFormat = "المجموع: {0:N2}";
+
+            foreach (DevExpress.XtraGrid.Columns.GridColumn col in gridView1.Columns)
+                col.OptionsColumn.AllowEdit = false;
+
+            gridView1.Columns["Quantity"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["PurchasePrice"].OptionsColumn.AllowEdit = true;
+            gridView1.Columns["SalePrice"].OptionsColumn.AllowEdit = true;
+             
+            var view = gridView1;
+            view.OptionsBehavior.Editable = true;
+            view.OptionsView.ShowGroupPanel = false;
+            view.Columns["Quantity"].OptionsColumn.AllowEdit = true;
+
+            // زر حذف
+            RepositoryItemButtonEdit btnDelete = new RepositoryItemButtonEdit();
+            btnDelete.Buttons[0].Caption = "🗑️";
+            btnDelete.Buttons[0].Kind = DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph;
+            btnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            btnDelete.ButtonClick += BtnDelete_ButtonClick;
+
+            var colDelete = view.Columns.AddVisible("Delete", "🗑️");
+            colDelete.ColumnEdit = btnDelete;
+            colDelete.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+            colDelete.Width = 30;
+
             if (Properties.Settings.Default.ChangeLang == "Ar")
             {
-                ApplyArabicResources();
+                // تعيين مصدر البيانات للـ GridControl
+                view.Columns["Barcode"].Caption = "باركود الدواء";
+                view.Columns["Name"].Caption = "اسم الدواء"; 
+                view.Columns["Quantity"].Caption = "كمية المتوفرة";
+                view.Columns["PurchasePrice"].Caption = "سعر الشراء";
+                view.Columns["SalePrice"].Caption = "سعر البيع";
+                view.Columns["Total"].Caption = "المجموع";
             }
             else
             {
-                ApplyEnglishResources();
+                // Set the data source for the GridControl
+                view.Columns["Barcode"].Caption = "Barcode";
+                view.Columns["Name"].Caption = "Name"; 
+                view.Columns["Quantity"].Caption = "Quantity Available";
+                view.Columns["PurchasePrice"].Caption = "Purchase Price";
+                view.Columns["SalePrice"].Caption = "Sale Price";
+                view.Columns["Total"].Caption = "Total";
             }
+
+
+        }
+
+        // 🗑️ حذف صف عند الضغط على زر الحذف
+        private void BtnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var view = gridView1;
+            int rowHandle = view.FocusedRowHandle;
+            if (rowHandle >= 0)
+            {
+                view.DeleteRow(rowHandle);
+                UpdateTotalAmount();
+                //txtTotalAmount.Text = "0.00";
+            }
+        }
+
+        //**************************************
+        public void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "Quantity")
+            {
+                var row = gridView1.GetDataRow(e.RowHandle);
+                if (row != null)
+                {
+                    int quantity = Convert.ToInt32(row["Quantity"]);
+                    decimal price = Convert.ToDecimal(row["PurchasePrice"]);
+                    row["Quantity"] = quantity;
+                    row["Total"] = quantity * price;
+                    UpdateTotalAmount();
+                }
+            }
+        }
+
+        private void ButtonEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var view = gridView1;
+            var row = view.GetFocusedDataRow(); 
+            if (row == null) return; 
+            int quantity = Convert.ToInt32(row["Quantity"]); 
+            if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Plus)
+            {
+                quantity++;
+            }
+            else if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Minus)
+            {
+                if (quantity > 1)
+                    quantity--;
+            }
+
+            row["Quantity"] = quantity; 
+            // تحديث المجموع
+            decimal price = Convert.ToDecimal(row["PurchasePrice"]);
+            row["Quantity"] = quantity;
+            row["Total"] = quantity * price; 
+            DGListePurchase.RefreshDataSource();
+            UpdateTotalAmount();
         }
 
         private async void SetDataToFileds()
@@ -99,6 +271,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 string IdList = await Task.Run(() => _dataHelperPurchase.Find(id).FactureNum);
 
                 var purchases = await Task.Run(() => _dataHelperPurchase.GetData().Where(p => p.FactureNum == IdList).ToList());
+                purchaseItems = new BindingList<PurchaseItem>();
                 foreach (var item in purchases)
                 {
                     txtFactureNum.Text = item.FactureNum.ToString();
@@ -110,7 +283,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
                     var med = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == item.Barcode);
                     // عرف قائمة من PurchaseItem
-                    purchaseItems = new BindingList<PurchaseItem>();
+                    
 
                     purchaseItems.Add(new PurchaseItem
                     {
@@ -122,36 +295,10 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         SalePrice = item.SalePrice,
                         TotalItem = item.TotalItem
                     });
-                }
-
-
-                // اربط القائمة مع GridControl
-                DGListePurchase.DataSource = purchaseItems;
+                } 
 
                 // تحديث العرض
                 gridView1.BestFitColumns();
-
-                //var purch = _dataHelperPurchase.GetData().FirstOrDefault(m => m.FactureNum == Purchase.FactureNum);
-
-                //var med = _dataHelperMedication.GetData().FirstOrDefault(m => m.Barcode == purch.Barcode);
-                //// عرف قائمة من PurchaseItem
-                //purchaseItems = new BindingList<PurchaseItem>();
-
-                //var PurchItems = _dataHelperPurchase.GetData().Where(i => i.FactureNum == Purchase.FactureNum).ToList();
-
-                //foreach(var item in PurchItems)
-                //    {
-                //        purchaseItems.Add(new PurchaseItem
-                //        { 
-                //            Barcode = item.Barcode,
-                //            Name = med.Name,
-                //            GenericName = med.GenericName,
-                //            Quantity = item.Quantity,
-                //            PurchasePrice = item.PurchasePrice,
-                //            SalePrice = item.SalePrice,
-                //            TotalItem = item.TotalItem
-                //        });
-                //} 
 
                 // اربط القائمة مع GridControl
                 DGListePurchase.DataSource = purchaseItems;
@@ -165,101 +312,6 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
             }
             Purchase = null;
-        }
-
-        private async void PurchaseAddForm_Load(object sender, EventArgs e)
-        {
-            loading.Show();
-            if (_dataHelperPurchase.IsDbConnect())
-            {
-
-                //DGListePurchase.DataSource = await Task.Run(() => _dataHelperPurchase.GetData().GroupBy(p => p.FactureNum).Select(g => g.First()).ToList());
-                DGListePurchase.DataSource = purchaseItems;
-                // تحميل البيانات بشكل غير متزامن
-                //SetDataGridViewColumns();
-                var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView;
-                view.OptionsView.ShowGroupPanel = false;
-                if (view != null)
-                {
-                    //// عمود الأزرار
-                    //GridColumn colAction = view.Columns.AddVisible("Action", "حذف المنتج");
-                    //colAction.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-                    //colAction.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
-                    //colAction.Width = 100; // عرض العمود
-
-                    //// RepositoryItemButtonEdit واحد بثلاثة أزرار
-                    //actionButtons = new RepositoryItemButtonEdit
-                    //{
-                    //    TextEditStyle = TextEditStyles.HideTextEditor
-                    //}; 
-
-                    //// أفرغ الأزرار الافتراضية
-                    //actionButtons.Buttons.Clear();
-                    ////زر حذف
-                    //var btnDelete = new EditorButton(ButtonPredefines.Glyph);
-                    //btnDelete.ImageOptions.SvgImage = SvgImage.FromStream(new MemoryStream(Properties.Resources.delete));
-                    //btnDelete.Tag = "delete";                   // مفتاح تمييز
-                    //actionButtons.Buttons.Add(btnDelete);
-
-                    //DGListePurchase.RepositoryItems.Add(actionButtons);
-                    //colAction.ColumnEdit = actionButtons;
-
-                    //// حدث النقر
-                    //actionButtons.ButtonClick += ActionButtons_ButtonClick;
-
-                    //********************************************************
-                    DGListePurchase.DataSource = purchaseItems;
-
-                    // ربط القائمة بالـ GridControl
-                    //var view = DGListePurchase.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
-
-                    if (Properties.Settings.Default.ChangeLang == "Ar")
-                    {
-                        // تعيين مصدر البيانات للـ GridControl
-                        view.Columns["Barcode"].Caption = "باركود الدواء";
-                        view.Columns["Name"].Caption = "اسم الدواء";
-                        view.Columns["GenericName"].Caption = "اسم العلمي";
-                        view.Columns["Quantity"].Caption = "كمية المتوفرة";
-                        view.Columns["PurchasePrice"].Caption = "سعر الشراء";
-                        view.Columns["SalePrice"].Caption = "سعر البيع";
-                        view.Columns["TotalItem"].Caption = "المجموع";
-                    }
-                    else
-                    {
-                        // Set the data source for the GridControl
-                        view.Columns["Barcode"].Caption = "Drug Barcode";
-                        view.Columns["Name"].Caption = "Drug Name";
-                        view.Columns["GenericName"].Caption = "Generic Name";
-                        view.Columns["Quantity"].Caption = "Quantity Available";
-                        view.Columns["PurchasePrice"].Caption = "Purchase Price";
-                        view.Columns["SalePrice"].Caption = "Sale Price";
-                        view.Columns["TotalItem"].Caption = "Total";
-                    }
-
-                    // مثال: عمود السعر
-                    view.Columns["PurchasePrice"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center; // محاذاة لليمين
-                    view.Columns["PurchasePrice"].AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.None;
-                    view.Columns["PurchasePrice"].AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-                    // مثال: عمود المجموع
-                    view.Columns["TotalItem"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center; // محاذاة لليمين
-                    view.Columns["TotalItem"].AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.None;
-                    view.Columns["TotalItem"].AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-                    // مثال: عمود المجموع
-                    view.Columns["SalePrice"].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center; // محاذاة لليمين
-                    view.Columns["SalePrice"].AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.None;
-                    view.Columns["SalePrice"].AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-                }
-                //********************************************************
-                timer1.Interval = 1000; // كل ثانية
-                timer1.Tick += timer1_Tick;
-                timer1.Start();
-            }
-            else
-            {
-                MessageCollection.ShowServerMessage();
-                return;
-            }
-            loading.Hide();
         }
 
         // اريد جعل FactureNum تولد اوتوماتيكيا بشكل 01-2025 / 02-2025
@@ -307,21 +359,6 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             loading.Hide();
         }
 
-        // تحميل صورة الدواء
-        private void LoadImage()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (Properties.Settings.Default.ChangeLang == "Ar") openFileDialog.Title = "اختر صورة الدواء";
-            else openFileDialog.Title = "Select medicine image";
-            openFileDialog.RestoreDirectory = true;
-            openFileDialog.Filter = "Image (.png,jpg)|*.png;*.jpg";
-            var result = openFileDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                PicChange.Image = Image.FromFile(openFileDialog.FileName);
-            }
-        }
-
         // تحميل الباركودات من الداتا 
         private async void AutoCompleteBarcode()
         {
@@ -349,6 +386,44 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 .ToDictionary(g => g.Key, g => g.First(), StringComparer.OrdinalIgnoreCase);
         }
 
+        //اظافة وتحديث كمية المنتج في القائمة
+        private void UpdateProduct(Medication med)
+        {
+            //// التحقق هل المنتج موجود مسبقًا في DataTable (المصدر المرتبط بـ XtraGrid)
+             DataRow existingRow = dtPurchases.AsEnumerable()
+                   .FirstOrDefault(r => r.Field<string>("Barcode") == med.Barcode);
+              
+
+            if (existingRow != null)
+            {
+                // ✅ المنتج موجود بالفعل → نزيد الكمية ونحدث المجموع
+                int currentQty = existingRow.Field<int>("Quantity");
+                decimal purchasePrice = existingRow.Field<decimal>("PurchasePrice");
+                existingRow["Quantity"] = currentQty + 1;
+                existingRow["Total"] = (currentQty + 1) * purchasePrice;
+               
+            }
+            else
+            {
+                
+                // 🆕 المنتج غير موجود → نضيف سطرًا جديدًا
+                DataRow newRow = dtPurchases.NewRow();
+                newRow["Barcode"] = med.Barcode;
+                newRow["Name"] = med.Name;
+                newRow["Quantity"] = 1;
+                newRow["PurchasePrice"] = med.PurchasePrice;
+                newRow["SalePrice"] = med.SalePrice;
+                newRow["Total"] = med.PurchasePrice ;
+                dtPurchases.Rows.Add(newRow);
+            }
+
+            // تحديث واجهة XtraGrid
+            // 🔗 ربط الجدول بالـ GridControl
+            DGListePurchase.DataSource = dtPurchases;
+            UpdateTotalAmount();
+        }
+
+        // التعامل مع حدث الضغط على زر الإدخال في حقل الباركود
         private async void Barcodetxt_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -360,24 +435,44 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
                 Reinitialis:
                 // جلب الدواء من قاعدة البيانات (باستخدام DataHelper أو أي Repository عندك)
-                var medication = await Task.Run(() => _dataHelperMedication.GetData()
+                var medication = await Task.Run(() => _dataHelperMedication.GetData().AsEnumerable()
                                         .FirstOrDefault(m => m.Barcode == barcode));
+
+
+                //if (medication != null)
+                //{
+                //    dtPurchases.Rows.Add(
+                //        medication.Barcode,
+                //        medication.Name,
+                //        1, // الكمية
+                //        medication.PurchasePrice,
+                //        medication.SalePrice,
+                //        0 // Total سيحسب تلقائيًا
+                //    );
+                //}
+                //else
+                //{
+                //    MessageBox.Show("⚠️ الدواء غير موجود في قاعدة البيانات.");
+                //    return;
+                //}
+                //// تحديث العرض والمجموع
+                //DGListePurchase.RefreshDataSource();
+                //UpdateTotalAmount();
 
                 if (medication != null)
                 {
-                    // تعبئة الحقول
-                    Nametxt.Text = medication.Name;
-                    GenericNametxt.Text = medication.GenericName;
-                    Manufacturertxt.Text = medication.Manufacturer;
-                    MedicineTypetxt.Text = medication.Form; // الشكل الصيدلي
-                    Categorytxt.Text = medication.Category;
-                    Strengthtxt.Text = medication.Strength;
-                    Unitetxt.Text = medication.Unite;
-                    QuantityInStocktxt.Text = "0";
-                    MinimumStockLeveltxt.Text = "0";
-                    BatchNumbertxt.Text = medication.BatchNumber;
-                    LocationInStoretxt.Text = medication.LocationInStore;
-                    ExpiryDatetxt.Text = medication.ExpiryDate.ToString("yyyy-MM-dd");
+                    //اظافة مباشرة الى القائمة
+                    try
+                    {
+                        UpdateProduct(medication);
+                        // تنظيف الحقول بعد الإضافة (اختياري)
+                        Barcodetxt.Clear();
+                        Barcodetxt.Focus();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("خطأ: " + ex.Message, "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -423,10 +518,11 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
                     }
                 }
-                if (!string.IsNullOrEmpty(Nametxt.Text))
+                if (!string.IsNullOrEmpty(Barcodetxt.Text))
                 {
                     if (e.KeyCode == Keys.Enter)
                     {
+
                         e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
                         this.SelectNextControl((Control)sender, true, true, true, true);
                     }
@@ -434,343 +530,48 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             }
         }
 
-        private void PicChange_Click(object sender, EventArgs e)
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)
         {
-            LoadImage();
-        }
+            var view = gridView1;
+            int rowHandle = view.FocusedRowHandle;
+            if (rowHandle < 0) return;
 
-        // التنقل بين الحقول Textbox
-        #region
-        private void txtSupplier_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void txtPurchaseDate_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void txtTypePaimt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void Nametxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void GenericNametxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void Manufacturertxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void MedicineTypetxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void Categorytxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void Strengthtxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void Unitetxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void PurchasePricetxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void SalePricetxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void QuantityInStocktxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void MinimumStockLeveltxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void BatchNumbertxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void LocationInStoretxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        private void ExpiryDatetxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true; // لمنع صوت الـ "ding"
-                this.SelectNextControl((Control)sender, true, true, true, true);
-            }
-        }
-
-        #endregion 
-
-        /// <summary>
-        ///  اجراءات الأزرار في عمود الإجراءات )عرض، تعديل، حذف(
-        private void ActionButtons_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
-            var view = (DevExpress.XtraGrid.Views.Grid.GridView)DGListePurchase.MainView;
-            var row = view.GetFocusedRow() as Purchase;
+            DataRow row = view.GetDataRow(rowHandle);
             if (row == null) return;
 
-            // 1) التمييز بالـ Tag (الأفضل)
-            var tag = e.Button.Tag as string;
-            if (!string.IsNullOrEmpty(tag))
+            int quantity = Convert.ToInt32(row["Quantity"]);
+            decimal price = Convert.ToDecimal(row["PurchasePrice"]);
+
+            // زيادة الكمية
+            if (e.KeyCode == Keys.Add || (e.KeyCode == Keys.Oemplus && e.Shift))
             {
-                switch (tag)
+                quantity++;
+                row["Quantity"] = quantity;
+                row["Total"] = quantity * price;
+                UpdateTotalAmount();
+                e.Handled = true;
+            }
+            // نقصان الكمية
+            else if (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.OemMinus)
+            {
+                if (quantity > 1)
                 {
-                    case "delete":
-                        {
-                            try
-                            {
-                                if (Properties.Settings.Default.ChangeLang == "Ar")
-                                {
-                                    if (MessageBox.Show($"هل تريد حذف المنتج رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                                    {
-                                        view.DeleteRow(view.FocusedRowHandle);
-                                        loading.Show();
-                                    }
-                                }
-                                else
-                                {
-                                    if (MessageBox.Show($"Do you want to delete product number: {row.FactureNum}?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                                    {
-                                        view.DeleteRow(view.FocusedRowHandle);
-                                        loading.Show();
-                                    }
-                                }
-                            }
-                            catch
-                            {
-                                MessageCollection.ShowServerMessage();
-                            }
-                            loading.Hide();
-                            return;
-                        }
+                    quantity--;
+                    row["Quantity"] = quantity;
+                    row["Total"] = quantity * price;
+                    UpdateTotalAmount();
                 }
+                e.Handled = true;
+            }
+            // حذف الصف
+            else if (e.KeyCode == Keys.Delete)
+            {
+                view.DeleteRow(rowHandle);
+                e.Handled = true;
             }
 
-            // 2) فfallback بالفهرس داخل نفس الـ Repository (لو لأي سبب الـ Tag ماوصل)
-            var repo = (RepositoryItemButtonEdit)sender;
-            int idx = repo.Buttons.IndexOf(e.Button); // 0=view, 1=edit, 2=delete
-            if (idx == 0)
-            {
-                if (Properties.Settings.Default.ChangeLang == "Ar")
-                {
-                    if (MessageBox.Show($"هل تريد حذف المنتج رقم :  {row.FactureNum}؟", "تأكيد", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        view.DeleteRow(view.FocusedRowHandle);
-                }
-                else
-                {
-                    if (MessageBox.Show($"Do you want to delete product number: {row.FactureNum}?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        view.DeleteRow(view.FocusedRowHandle);
-                }
-
-
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Barcodetxt.Text == string.Empty || Nametxt.Text == string.Empty || GenericNametxt.Text == string.Empty || QuantityInStocktxt.Text == string.Empty || PurchasePricetxt.Text == string.Empty || SalePricetxt.Text == string.Empty)
-                {
-                    if (Properties.Settings.Default.ChangeLang == "Ar")
-                    {
-                        MessageBox.Show("الرجاء ملء جميع الحقول المطلوبة.", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please fill in all required fields.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-
-                    return;
-                }
-
-                int.TryParse(QuantityInStocktxt.Text, out int quantity);
-                decimal.TryParse(PurchasePricetxt.Text, out decimal price);
-                decimal.TryParse(SalePricetxt.Text, out decimal priceSale);
-
-                var item = new PurchaseItem
-                {
-                    Barcode = Barcodetxt.Text,
-                    Name = Nametxt.Text,
-                    GenericName = GenericNametxt.Text,
-                    Quantity = quantity,
-                    PurchasePrice = price,
-                    SalePrice = priceSale,
-                    TotalItem = quantity * price
-                };
-
-                purchaseItems.Add(item);
-
-                // تنظيف الحقول بعد الإضافة (اختياري)
-                Barcodetxt.Clear();
-                Nametxt.Clear();
-                GenericNametxt.Clear();
-                QuantityInStocktxt.Clear();
-                PurchasePricetxt.Clear();
-
-                if (Properties.Settings.Default.ChangeLang == "Ar")
-                {
-                    // تفريغ الحقول بعد الإضافة
-                    Barcodetxt.PlaceholderText = "باركود الدواء";
-                    Nametxt.PlaceholderText = "اسم الدواء";
-                    GenericNametxt.PlaceholderText = "الاسم العلمي";
-                    Manufacturertxt.PlaceholderText = "الشركة المصنعة";
-                    QuantityInStocktxt.PlaceholderText = "الكمية";
-                    MinimumStockLeveltxt.PlaceholderText = "الحد الأدنى";
-                    BatchNumbertxt.PlaceholderText = "رقم الدفعة";
-                    LocationInStoretxt.PlaceholderText = "مكان التخزين";
-                }
-                else
-                {
-                    // Clear fields after adding
-                    Barcodetxt.PlaceholderText = "Drug Barcode";
-                    Nametxt.PlaceholderText = "Drug Name";
-                    GenericNametxt.PlaceholderText = "Generic Name";
-                    Manufacturertxt.PlaceholderText = "Manufacturer";
-                    QuantityInStocktxt.PlaceholderText = "Quantity";
-                    MinimumStockLeveltxt.PlaceholderText = "Minimum";
-                    BatchNumbertxt.PlaceholderText = "Batch Number";
-                    LocationInStoretxt.PlaceholderText = "Storage Location";
-                }
-
-                Barcodetxt.Clear();
-                Nametxt.Clear();
-                GenericNametxt.Clear();
-                Manufacturertxt.Clear();
-                QuantityInStocktxt.Clear();
-                MinimumStockLeveltxt.Clear();
-                BatchNumbertxt.Clear();
-                LocationInStoretxt.Clear();
-                MedicineTypetxt.Text = string.Empty;
-                Categorytxt.Text = string.Empty;
-                Strengthtxt.Text = string.Empty;
-                Unitetxt.Text = string.Empty;
-                PurchasePricetxt.Text = "0";
-                SalePricetxt.Text = "0";
-                Barcodetxt.Focus();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("خطأ: " + ex.Message, "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void CalculateTotal()
-        {
-            decimal total = 0;
-
-            for (int i = 0; i < gridView1.RowCount; i++)
-            {
-                object cellValue = gridView1.GetRowCellValue(i, "TotalItem");
-                // غيّر "Amount" إلى اسم العمود عندك (مثلاً "TotalPrice" أو "Price")
-
-                if (cellValue != null && decimal.TryParse(cellValue.ToString(), out decimal value))
-                {
-                    total += value;
-                }
-            }
-
-            txtTotalAmount.Text = total.ToString("N2"); // يعرض بمشكل مرتب مع 2 أرقام عشرية
-        }
-
-        private void gridView1_RowCountChanged(object sender, EventArgs e)
-        {
-            CalculateTotal();
+            DGListePurchase.RefreshDataSource();
+            UpdateTotalAmount();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -780,6 +581,13 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             txtdate.Text = DateTime.Now.ToString("yyyy-MM-dd"); //"dddd, dd MMMM yyyy HH:mm:ss",
                                                                 //new System.Globalization.CultureInfo("ar-DZ"));
                                                                 // مثال: الاثنين، 18 أغسطس 2025 14:35:12
+        }
+
+        private void btnForm_Click(object sender, EventArgs e)
+        {
+            SupplierAddForm SupplierAddForm = new SupplierAddForm(0, null);
+            SupplierAddForm.ShowDialog();
+            LoadDataSupplier();
         }
 
         private bool IsRequiredFiledEmpty()
@@ -796,14 +604,14 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
         private async void SetDataForAdd()
         {
-            Supplier = _dataHelperSupplier.GetData().FirstOrDefault(s => s.Name == txtSupplier.Text);
-            if (Supplier == null)
-            {
-                if (Properties.Settings.Default.ChangeLang == "Ar")
-                    MessageBox.Show("الفاتورة غير موجودة في قاعدة البيانات. يرجى إضافتها أولاً.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else MessageBox.Show("The invoice does not exist in the database. Please add it first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //Supplier = _dataHelperSupplier.GetData().FirstOrDefault(s => s.Name == txtSupplier.Text);
+            //if (Supplier == null)
+            //{
+            //    if (Properties.Settings.Default.ChangeLang == "Ar")
+            //        MessageBox.Show("الفاتورة غير موجودة في قاعدة البيانات. يرجى إضافتها أولاً.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    else MessageBox.Show("The invoice does not exist in the database. Please add it first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             // 1. إنشاء الفاتورة من TextBox
             Purchase = new Purchase();
             // 2. المرور على الأصناف في GridControl
@@ -821,6 +629,8 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                     Purchase.Notes = txtNotes.Text;
                     Purchase.SupplierName = txtSupplier.Text;
                     Purchase.SupplierId = Supplier.Id;
+
+
                     Purchase.Barcode = view.GetRowCellValue(i, "Barcode")?.ToString();
                     Purchase.PurchasePrice = view.GetRowCellValue(i, "PurchasePrice") != null ?
                                              Convert.ToDecimal(view.GetRowCellValue(i, "PurchasePrice")) : 0;
@@ -889,7 +699,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             }
             else // End with database error
             {
-                MessageCollection.ShowServerMessage();
+               // MessageCollection.ShowServerMessage();
             }
         }
         private async void EditData()
@@ -947,114 +757,6 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 loading.Hide();
                 this.Close();
             }
-        }
-
-        // // تغيير اللغة إلى العربية
-        private void ApplyArabicResources()
-        {
-            this.RightToLeft = RightToLeft.Yes;
-            this.RightToLeftLayout = true;
-
-            // General Settings
-            lblSupForm.Text = "ادارة المشتريات >  اضافة فاتورة جديدة";
-            label1.Text = "رقم الفاتورة";
-            label3.Text = "المورد";
-            lblEmpEmail.Text = "تاريخ الشراء";
-            label4.Text = "طريقة الدفع";
-            label16.Text = "باركود الدواء";
-            lblSupplierName.Text = "اسم الدواء";
-            lblSupplierAddress.Text = "الاسم العلمي";
-            lblSupplierPhone.Text = "الشركة المصنعة";
-
-
-            Barcodetxt.PlaceholderText = "باركود الدواء";
-            Nametxt.PlaceholderText = "اسم الدواء";
-            GenericNametxt.PlaceholderText = "الاسم العلمي";
-            Manufacturertxt.PlaceholderText = "الشركة المصنعة";
-
-            label9.Text = "الشكل الصيدلي";
-            label8.Text = "التصنيف";
-            lblSupplierEmail.Text = "التركيز";
-            label7.Text = "الوحدة";
-            label10.Text = "سعر الشراء";
-            lblSupplierNotes.Text = "سعر البيع";
-
-            label11.Text = "الكمية";
-            label12.Text = "الحد الأدنى";
-            label13.Text = "رقم الدفعة";
-            label15.Text = "مكان التخزين";
-
-            QuantityInStocktxt.Text = "الكمية";
-            MinimumStockLeveltxt.Text = "الحد الأدنى";
-            BatchNumbertxt.Text = "رقم الدفعة";
-            LocationInStoretxt.Text = "مكان التخزين";
-
-            label14.Text = "انتهاء الصلاحية";
-            label17.Text = "هل يتطلب وصفة طبية؟";
-            btnAdd.Text = "اضافة";
-            label6.Text = "السعر الفاتورة  الاجمالي";
-            btnSave.Text = "حفظ";
-            label19.Text = "ملاحظات";
-            txtNotes.PlaceholderText = " تسجيل ملاحظات ";
-            // Form Settings
-            this.Text = "اضافة فاتورة جديدة";
-        }
-
-        // // تغيير اللغة إلى العربية
-        private void ApplyEnglishResources()
-        {
-            this.RightToLeft = RightToLeft.No;
-            this.RightToLeftLayout = false;
-
-            // General Settings
-            lblSupForm.Text = "Purchase Management > Add New Invoice";
-            label1.Text = "Invoice Number";
-            label3.Text = "Supplier";
-            lblEmpEmail.Text = "Purchase Date";
-            label4.Text = "Payment Method";
-            label16.Text = "Medication Barcode";
-            lblSupplierName.Text = "Medication Name";
-            lblSupplierAddress.Text = "Generic Name";
-            lblSupplierPhone.Text = "Manufacturer";
-
-            Barcodetxt.PlaceholderText = "Medication Barcode";
-            Nametxt.PlaceholderText = "Medication Name";
-            GenericNametxt.PlaceholderText = "Generic Name";
-            Manufacturertxt.PlaceholderText = "Manufacturer";
-
-            label9.Text = "Dosage Form";
-            label8.Text = "Classification";
-            lblSupplierEmail.Text = "Concentration";
-            label7.Text = "Unit";
-            label10.Text = "Purchase Price";
-            lblSupplierNotes.Text = "Selling Price";
-
-            label11.Text = "Quantity";
-            label12.Text = "Minimum";
-            label13.Text = "Batch Number";
-            label15.Text = "Store Location";
-
-            QuantityInStocktxt.Text = "Quantity";
-            MinimumStockLeveltxt.Text = "Minimum";
-            BatchNumbertxt.Text = "Batch Number";
-            LocationInStoretxt.Text = "Store Location";
-
-            label14.Text = "Expiration";
-            label17.Text = "Does a prescription require?";
-            btnAdd.Text = "Add";
-            label6.Text = "Total Invoice Price";
-            btnSave.Text = "Save";
-            label19.Text = "Notes";
-            txtNotes.PlaceholderText = "Record Notes";
-            // Form Settings
-            this.Text = "Add a new invoice";
-        }
-
-        private void btnForm_Click(object sender, EventArgs e)
-        {
-            SupplierAddForm SupplierAddForm = new SupplierAddForm(0,null);
-            SupplierAddForm.ShowDialog();
-            LoadDataSupplier(); 
         }
     }
 }

@@ -63,7 +63,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
 
         private void btnAddPurch_Click(object sender, EventArgs e)
         {
-            purchAddForm purchUserControl = new purchAddForm(0, this);
+            PurchaseAddForm purchUserControl = new PurchaseAddForm(0, this);
             purchUserControl.ShowDialog();
             //PurchaseAddForm PurchaseAddForm = new PurchaseAddForm(0, this);
             //PurchaseAddForm.ShowDialog();
@@ -194,7 +194,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                         {
                             // عرض تفاصيل الدواء
                             RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                            purchAddForm customerAdd = new purchAddForm(RowId, this);
+                            PurchaseAddForm customerAdd = new PurchaseAddForm(RowId, this);
                             customerAdd.btnSave.Visible = false; // إخفاء زر الحفظ
                             customerAdd.ShowDialog();
                             return;
@@ -205,7 +205,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                             if (gridView1.RowCount > 0)
                             {
                                 RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                                purchAddForm customerAdd = new purchAddForm(RowId, this);
+                                PurchaseAddForm customerAdd = new PurchaseAddForm(RowId, this);
                                 customerAdd.ShowDialog();
                             }
                             else
@@ -243,7 +243,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
             {
                 // عرض تفاصيل الدواء
                 RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                purchAddForm customerAdd = new purchAddForm(RowId, this);
+                PurchaseAddForm customerAdd = new PurchaseAddForm(RowId, this);
                 customerAdd.btnSave.Visible = false; // إخفاء زر الحفظ
                 customerAdd.ShowDialog();
             }
@@ -252,7 +252,7 @@ namespace Vision_Pharmacy.Gui.PurchaseGui
                 if (gridView1.RowCount > 0)
                 {
                     RowId = Convert.ToInt32(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, gridView1.Columns[0]));
-                    purchAddForm customerAdd = new purchAddForm(RowId, this);
+                    PurchaseAddForm customerAdd = new PurchaseAddForm(RowId, this);
                     customerAdd.ShowDialog();
                 }
                 else

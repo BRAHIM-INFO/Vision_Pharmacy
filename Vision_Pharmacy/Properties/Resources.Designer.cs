@@ -343,6 +343,16 @@ namespace Vision_Pharmacy.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap feedback_loop_14662074 {
+            get {
+                object obj = ResourceManager.GetObject("feedback-loop_14662074", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondSup {
             get {
                 object obj = ResourceManager.GetObject("fondSup", resourceCulture);

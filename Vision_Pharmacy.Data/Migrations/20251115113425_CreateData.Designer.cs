@@ -12,8 +12,8 @@ using Vision_Pharmacy.Data.EFSqlServer;
 namespace Vision_Pharmacy.Data.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20251106214334_CreationData")]
-    partial class CreationData
+    [Migration("20251115113425_CreateData")]
+    partial class CreateData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -490,6 +490,50 @@ namespace Vision_Pharmacy.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sale");
+                });
+
+            modelBuilder.Entity("Vision_Pharmacy.Core.SaleReturn", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Barcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("FactureNum")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReturnFactureDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReturnFactureNum")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("SalePrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SaleReturn");
                 });
 
             modelBuilder.Entity("Vision_Pharmacy.Core.Strength", b =>
