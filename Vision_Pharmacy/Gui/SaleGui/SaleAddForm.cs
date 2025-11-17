@@ -687,10 +687,10 @@ namespace Vision_Pharmacy.Gui.SaleGui
                     EditData();
                 }
                 loading.Hide();
+                // رسالة المخزون غير كافي
+                MessageBox.Show($"تم تسجيل الفاتورة بنجاح رقم : {txtFactureNum.Text}", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.None);
                 this.Close(); 
                 
-                // رسالة المخزون غير كافي
-                MessageBox.Show($"تم تسجيل الفاتورة بنجاح رقم : {txtFactureNum.Text}", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
