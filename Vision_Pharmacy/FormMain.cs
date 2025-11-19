@@ -471,10 +471,10 @@ namespace Vision_Pharmacy
             btnListUsers.Text = "قائمة المستخدمين";
             btnStngs.Text = "الإعدادات";
             btnRpt01.Text = "تقارير المبيعات";
-            btnRpt02.Text = "تقارير المشتريات";
-            btnRpt03.Text = "تقارير المخزون";
-            btnRpt04.Text = "تقارير العملاء والأطباء";
-            btnRpt05.Text = "تقارير مالية وإدارية";
+            //btnRpt02.Text = "تقارير المشتريات";
+            //btnRpt03.Text = "تقارير المخزون";
+            //btnRpt04.Text = "تقارير العملاء والأطباء";
+            //btnRpt05.Text = "تقارير مالية وإدارية";
         }
 
         //ملف ترجمة الى اللغة الانجليزية
@@ -519,10 +519,10 @@ namespace Vision_Pharmacy
             btnListUsers.Text = "User List";
             btnStngs.Text = "Settings";
             btnRpt01.Text = "Sales Reports";
-            btnRpt02.Text = "Purchase Reports";
-            btnRpt03.Text = "Inventory Reports";
-            btnRpt04.Text = "Customer and Doctor Reports";
-            btnRpt05.Text = "Financial and Administrative Reports";
+            //btnRpt02.Text = "Purchase Reports";
+            //btnRpt03.Text = "Inventory Reports";
+            //btnRpt04.Text = "Customer and Doctor Reports";
+            //btnRpt05.Text = "Financial and Administrative Reports";
         }
 
         private void btnSuppliers_Click(object sender, EventArgs e)
@@ -551,9 +551,14 @@ namespace Vision_Pharmacy
 
         private void btnRepports_Click_1(object sender, EventArgs e)
         {
-            pnlReppors.Toggle();
-            UpdateBreadcrumb("قسم التقارير");
-            if (!IsPanelOpen(pnl_09)) OpenOne(pnl_09);
+            panelContainer.Controls.Clear(); // إزالة المحتوى السابق إن وُجد
+            Gui.RepportsGui.RapportUserGui RapportUserGui = new Gui.RepportsGui.RapportUserGui();
+            RapportUserGui.Dock = DockStyle.Fill; // لملء الـ panel
+            panelContainer.Controls.Add(RapportUserGui);
+
+            //pnlReppors.Toggle();
+            //UpdateBreadcrumb("قسم التقارير");
+            //if (!IsPanelOpen(pnl_09)) OpenOne(pnl_09);
         }
 
         private void btnDoctorsList_Click(object sender, EventArgs e)

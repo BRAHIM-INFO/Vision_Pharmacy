@@ -45,14 +45,6 @@
             btnRepports = new DevExpress.XtraEditors.SimpleButton();
             btnRpt01 = new DevExpress.XtraEditors.SimpleButton();
             panel8 = new Panel();
-            btnRpt02 = new DevExpress.XtraEditors.SimpleButton();
-            panel9 = new Panel();
-            btnRpt03 = new DevExpress.XtraEditors.SimpleButton();
-            panel11 = new Panel();
-            btnRpt04 = new DevExpress.XtraEditors.SimpleButton();
-            panel25 = new Panel();
-            btnRpt05 = new DevExpress.XtraEditors.SimpleButton();
-            panel26 = new Panel();
             pnl_08 = new FlowLayoutPanel();
             btnFinance = new DevExpress.XtraEditors.SimpleButton();
             simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
@@ -318,14 +310,6 @@
             pnl_09.Controls.Add(btnRepports);
             pnl_09.Controls.Add(btnRpt01);
             pnl_09.Controls.Add(panel8);
-            pnl_09.Controls.Add(btnRpt02);
-            pnl_09.Controls.Add(panel9);
-            pnl_09.Controls.Add(btnRpt03);
-            pnl_09.Controls.Add(panel11);
-            pnl_09.Controls.Add(btnRpt04);
-            pnl_09.Controls.Add(panel25);
-            pnl_09.Controls.Add(btnRpt05);
-            pnl_09.Controls.Add(panel26);
             pnl_09.Dock = DockStyle.Top;
             pnl_09.Location = new Point(0, 621);
             pnl_09.Margin = new Padding(4, 2, 4, 2);
@@ -379,114 +363,6 @@
             panel8.Name = "panel8";
             panel8.Size = new Size(10, 50);
             panel8.TabIndex = 33;
-            // 
-            // btnRpt02
-            // 
-            btnRpt02.Appearance.BackColor = Color.FromArgb(50, 107, 244);
-            btnRpt02.Appearance.BorderColor = Color.White;
-            btnRpt02.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnRpt02.Appearance.Options.UseBackColor = true;
-            btnRpt02.Appearance.Options.UseBorderColor = true;
-            btnRpt02.Appearance.Options.UseFont = true;
-            btnRpt02.Cursor = Cursors.Hand;
-            btnRpt02.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRpt02.Location = new Point(22, 117);
-            btnRpt02.Margin = new Padding(4, 2, 4, 2);
-            btnRpt02.Name = "btnRpt02";
-            btnRpt02.Size = new Size(221, 50);
-            btnRpt02.TabIndex = 34;
-            btnRpt02.Text = "تقارير المشتريات";
-            btnRpt02.Click += btnRpt02_Click;
-            // 
-            // panel9
-            // 
-            panel9.BackColor = Color.FromArgb(251, 196, 25);
-            panel9.Location = new Point(4, 117);
-            panel9.Margin = new Padding(4, 2, 4, 2);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(10, 50);
-            panel9.TabIndex = 35;
-            // 
-            // btnRpt03
-            // 
-            btnRpt03.Appearance.BackColor = Color.FromArgb(50, 107, 244);
-            btnRpt03.Appearance.BorderColor = Color.White;
-            btnRpt03.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnRpt03.Appearance.Options.UseBackColor = true;
-            btnRpt03.Appearance.Options.UseBorderColor = true;
-            btnRpt03.Appearance.Options.UseFont = true;
-            btnRpt03.Cursor = Cursors.Hand;
-            btnRpt03.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRpt03.Location = new Point(22, 171);
-            btnRpt03.Margin = new Padding(4, 2, 4, 2);
-            btnRpt03.Name = "btnRpt03";
-            btnRpt03.Size = new Size(221, 50);
-            btnRpt03.TabIndex = 36;
-            btnRpt03.Text = "تقارير المخزون";
-            btnRpt03.Click += btnRpt03_Click;
-            // 
-            // panel11
-            // 
-            panel11.BackColor = Color.FromArgb(251, 196, 25);
-            panel11.Location = new Point(4, 171);
-            panel11.Margin = new Padding(4, 2, 4, 2);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(10, 50);
-            panel11.TabIndex = 37;
-            // 
-            // btnRpt04
-            // 
-            btnRpt04.Appearance.BackColor = Color.FromArgb(50, 107, 244);
-            btnRpt04.Appearance.BorderColor = Color.White;
-            btnRpt04.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnRpt04.Appearance.Options.UseBackColor = true;
-            btnRpt04.Appearance.Options.UseBorderColor = true;
-            btnRpt04.Appearance.Options.UseFont = true;
-            btnRpt04.Cursor = Cursors.Hand;
-            btnRpt04.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRpt04.Location = new Point(22, 225);
-            btnRpt04.Margin = new Padding(4, 2, 4, 2);
-            btnRpt04.Name = "btnRpt04";
-            btnRpt04.Size = new Size(221, 50);
-            btnRpt04.TabIndex = 38;
-            btnRpt04.Text = "تقارير العملاء والأطباء";
-            btnRpt04.Click += btnRpt04_Click;
-            // 
-            // panel25
-            // 
-            panel25.BackColor = Color.FromArgb(251, 196, 25);
-            panel25.Location = new Point(4, 225);
-            panel25.Margin = new Padding(4, 2, 4, 2);
-            panel25.Name = "panel25";
-            panel25.Size = new Size(10, 50);
-            panel25.TabIndex = 39;
-            // 
-            // btnRpt05
-            // 
-            btnRpt05.Appearance.BackColor = Color.FromArgb(50, 107, 244);
-            btnRpt05.Appearance.BorderColor = Color.White;
-            btnRpt05.Appearance.Font = new Font("Cairo Medium", 10F);
-            btnRpt05.Appearance.Options.UseBackColor = true;
-            btnRpt05.Appearance.Options.UseBorderColor = true;
-            btnRpt05.Appearance.Options.UseFont = true;
-            btnRpt05.Cursor = Cursors.Hand;
-            btnRpt05.ImageOptions.SvgImageSize = new Size(25, 25);
-            btnRpt05.Location = new Point(22, 279);
-            btnRpt05.Margin = new Padding(4, 2, 4, 2);
-            btnRpt05.Name = "btnRpt05";
-            btnRpt05.Size = new Size(221, 50);
-            btnRpt05.TabIndex = 40;
-            btnRpt05.Text = "تقارير مالية وإدارية";
-            btnRpt05.Click += btnRpt05_Click;
-            // 
-            // panel26
-            // 
-            panel26.BackColor = Color.FromArgb(251, 196, 25);
-            panel26.Location = new Point(4, 279);
-            panel26.Margin = new Padding(4, 2, 4, 2);
-            panel26.Name = "panel26";
-            panel26.Size = new Size(10, 50);
-            panel26.TabIndex = 41;
             // 
             // pnl_08
             // 
@@ -1564,8 +1440,6 @@
         private Panel panel10;
         private DevExpress.XtraEditors.SimpleButton btnRpt01;
         private Panel panel8;
-        private DevExpress.XtraEditors.SimpleButton btnRpt02;
-        private Panel panel9;
         private DevExpress.XtraEditors.SimpleButton btnProduct;
         private Panel panel6;
         private DevExpress.XtraEditors.SimpleButton btnExpired;
@@ -1593,12 +1467,6 @@
         private Panel panel23;
         private DevExpress.XtraEditors.SimpleButton btnDoctorsList;
         private Panel panel24;
-        private DevExpress.XtraEditors.SimpleButton btnRpt03;
-        private Panel panel11;
-        private DevExpress.XtraEditors.SimpleButton btnRpt04;
-        private Panel panel25;
-        private DevExpress.XtraEditors.SimpleButton btnRpt05;
-        private Panel panel26;
         private DevExpress.XtraEditors.SimpleButton btnPOS;
         private DevExpress.XtraEditors.SimpleButton btnReturn;
         private Panel panel27;
