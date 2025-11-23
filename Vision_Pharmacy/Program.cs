@@ -5,6 +5,7 @@ using Vision_Pharmacy.Data.EFSqlServer;
 using Vision_Pharmacy.Gui.EmployeeGui;
 using Vision_Pharmacy.Gui.OtherGui;
 using Vision_Pharmacy.Gui.PurchaseGui;
+using Vision_Pharmacy.Gui.RepportsGui.RptStock;
 using Vision_Pharmacy.Gui.UserGui;
 
 namespace Vision_Pharmacy
@@ -23,7 +24,6 @@ namespace Vision_Pharmacy
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             Startup getStarted = new Startup();
             Application.Run(new  WelcomeScreen());
         }
